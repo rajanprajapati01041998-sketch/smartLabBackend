@@ -1,0 +1,6 @@
+@LISD_HostAddress = http://localhost:5021
+
+GET {{LISD_HostAddress}}/ping
+Accept: application/json
+
+###

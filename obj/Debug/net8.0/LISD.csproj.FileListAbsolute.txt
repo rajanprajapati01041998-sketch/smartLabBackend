@@ -1,0 +1,8 @@
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.csproj.AssemblyReference.cache
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/rpswa.dswa.cache.json
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.AssemblyInfoInputs.cache
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.AssemblyInfo.cs
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.csproj.CoreCompileInputs.cache
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.MvcApplicationPartsAssemblyInfo.cs
+/Users/gravitywebtechnologiespvtltd/Desktop/LISD/obj/Debug/net8.0/LISD.MvcApplicationPartsAssemblyInfo.cache

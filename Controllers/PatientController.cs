@@ -1,0 +1,484 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using System.Text.Json;
+
+namespace App.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PatientController : ControllerBase
+    {
+        private readonly IConfiguration _config;
+
+        public PatientController(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        [HttpPost("save")]
+        public IActionResult SavePatient([FromBody] JsonElement model)
+        {
+            using (SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                con.Open();
+
+                using (SqlTransaction txn = con.BeginTransaction())
+                {
+                    try
+                    {
+                        int patientId = 0, visitId = 0, financialId = 0, receiptId = 0;
+
+                        object DbVal(JsonElement el) =>
+                            el.ValueKind == JsonValueKind.Null ? DBNull.Value :
+                            el.ValueKind == JsonValueKind.Undefined ? DBNull.Value :
+                            el.ToString();
+
+                        // =========================
+                        // TOTAL CALCULATION
+                        // =========================
+                        decimal totalService = 0;
+                        decimal totalPayment = 0;
+
+                        if (model.TryGetProperty("Services", out JsonElement services))
+                        {
+                            foreach (var s in services.EnumerateArray())
+                            {
+                                decimal amount = s.GetProperty("Amount").GetDecimal();
+                                int qty = s.TryGetProperty("qty", out var q) ? q.GetInt32() : 1;
+
+                                totalService += amount * qty;
+                            }
+                        }
+
+                        if (model.TryGetProperty("payments", out JsonElement payments))
+                        {
+                            foreach (var p in payments.EnumerateArray())
+                            {
+                                totalPayment += p.GetProperty("amount").GetDecimal();
+                            }
+                        }
+
+                        // =========================
+                        // STEP 1: PATIENT
+                        // =========================
+                        using (SqlCommand cmd = new SqlCommand("IU_PatientMaster", con, txn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                            cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@patientId", 0);
+                            cmd.Parameters.AddWithValue("@uhid", DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@title", DbVal(model.GetProperty("Title")));
+                            cmd.Parameters.AddWithValue("@firstName", DbVal(model.GetProperty("FirstName")));
+                            cmd.Parameters.AddWithValue("@middleName", DbVal(model.GetProperty("MiddleName")));
+                            cmd.Parameters.AddWithValue("@lastName", DbVal(model.GetProperty("LastName")));
+
+                            cmd.Parameters.AddWithValue("@ageYears", model.GetProperty("AgeYears").GetInt32());
+                            cmd.Parameters.AddWithValue("@ageMonths", model.GetProperty("AgeMonths").GetInt32());
+                            cmd.Parameters.AddWithValue("@ageDays", model.GetProperty("AgeDays").GetInt32());
+                            cmd.Parameters.AddWithValue("@dob", model.GetProperty("DOB").GetDateTime());
+
+                            cmd.Parameters.AddWithValue("@gender", DbVal(model.GetProperty("Gender")));
+                            cmd.Parameters.AddWithValue("@maritalStatus", DbVal(model.GetProperty("MaritalStatus")));
+                            cmd.Parameters.AddWithValue("@relation", DbVal(model.GetProperty("Relation")));
+                            cmd.Parameters.AddWithValue("@relativeName", DbVal(model.GetProperty("RelativeName")));
+
+                            cmd.Parameters.AddWithValue("@aadharNumber", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@idProofName", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@idProofNumber", DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@selfContactNumber", DbVal(model.GetProperty("ContactNumber")));
+                            cmd.Parameters.AddWithValue("@emergencyContactNumber", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@email", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@privilegedCardNumber", DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@address", DbVal(model.GetProperty("Address")));
+
+                            cmd.Parameters.AddWithValue("@countryId", model.GetProperty("CountryId").GetInt32());
+                            cmd.Parameters.AddWithValue("@country", DbVal(model.GetProperty("Country")));
+
+                            cmd.Parameters.AddWithValue("@stateId", model.GetProperty("StateId").GetInt32());
+                            cmd.Parameters.AddWithValue("@state", DbVal(model.GetProperty("State")));
+
+                            cmd.Parameters.AddWithValue("@districtId", model.GetProperty("DistrictId").GetInt32());
+                            cmd.Parameters.AddWithValue("@district", DbVal(model.GetProperty("District")));
+
+                            cmd.Parameters.AddWithValue("@cityId", model.GetProperty("CityId").GetInt32());
+                            cmd.Parameters.AddWithValue("@city", DbVal(model.GetProperty("City")));
+
+                            cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
+                            cmd.Parameters.AddWithValue("@corporateId", 0);
+
+                            cmd.Parameters.AddWithValue("@cardNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@patientImagePath", DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                            cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+                            cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
+
+                            cmd.Parameters.AddWithValue("@IsVaccination", 0);
+                            cmd.Parameters.AddWithValue("@vipPatient", 0);
+
+                            cmd.Parameters.AddWithValue("@PolicyNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@PolicyCardNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ExpiryDate", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@CardHolder", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ReferalNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ReferalDate", DBNull.Value);
+
+                            SqlParameter output = new SqlParameter("@Result", SqlDbType.Int)
+                            {
+                                Direction = ParameterDirection.Output
+                            };
+
+                            cmd.Parameters.Add(output);
+                            cmd.ExecuteNonQuery();
+
+                            patientId = Convert.ToInt32(output.Value);
+                            if (patientId == -1)
+                            {
+                                return BadRequest(new
+                                {
+                                    success = false,
+                                    message = "Patient already registered"
+                                });
+                            }
+                        }
+
+                        string uhid = $"UHID{patientId}";
+
+                        // =========================
+                        // STEP 2: VISIT
+                        // =========================
+                        using (SqlCommand cmd = new SqlCommand("I_PatientVisitDetails", con, txn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            // Basic Details
+                            cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                            cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@patientId", patientId);
+                            cmd.Parameters.AddWithValue("@uhid", uhid);
+
+                            // Visit Info
+                            cmd.Parameters.AddWithValue("@type", "OPD");
+                            cmd.Parameters.AddWithValue("@typeId", 1);
+                            cmd.Parameters.AddWithValue("@currentAge",
+                                model.GetProperty("AgeYears").GetInt32() + "Y");
+
+                            // Doctor Info (FIXED)
+                            cmd.Parameters.AddWithValue("@doctorId",
+                                model.TryGetProperty("DoctorId", out var doctor)
+                                    ? doctor.GetInt32()
+                                    : 0);
+
+                            cmd.Parameters.AddWithValue("@referDoctorId",
+                                model.TryGetProperty("ReferDoctorId", out var refDoctor)
+                                    ? refDoctor.GetInt32()
+                                    : (object)DBNull.Value);
+
+                            // Corporate / Insurance
+                            cmd.Parameters.AddWithValue("@corporateId", 0);
+                            cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
+
+                            // Billing
+                            cmd.Parameters.AddWithValue("@totalBillAmount", totalService);
+                            cmd.Parameters.AddWithValue("@totalPaidAmount", totalPayment);
+                            cmd.Parameters.AddWithValue("@totalBalanceAmount", totalService - totalPayment);
+                            cmd.Parameters.AddWithValue("@totalPayableAmount", totalService);
+
+                            // User Info
+                            cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                            cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+                            cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
+
+                            // ✅ New Fields You Wanted
+                            cmd.Parameters.AddWithValue("@referLabId",
+                                model.TryGetProperty("ReferLabId", out var refLab)
+                                    ? refLab.GetInt32()
+                                    : 0);
+
+                            cmd.Parameters.AddWithValue("@visitTypeId",
+                                model.TryGetProperty("VisitTypeId", out var visitType)
+                                    ? visitType.GetInt32()
+                                    : 0);
+
+                            cmd.Parameters.AddWithValue("@fieldBoyId",
+                                model.TryGetProperty("FieldBoyId", out var fieldBoy)
+                                    ? fieldBoy.GetInt32()
+                                    : 0);
+
+                            cmd.Parameters.AddWithValue("@CollectionDateTime",
+                                model.TryGetProperty("CollectionDateTime", out var collectionDT)
+                                    ? DateTime.Parse(collectionDT.ToString())
+                                    : (object)DBNull.Value);
+
+                            // Optional Fields (safe defaults)
+                            cmd.Parameters.AddWithValue("@statusId", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@status", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@mlc", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@pi", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Remark", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@PolicyNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@PolicyCardNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ExpiryDate", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@CardHolder", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ReferalNo", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@ReferalDate", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@UploadPatientDocPath", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@MedicalHistory", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@TokenNo", 0);
+
+                            // Output Parameter
+                            SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                            {
+                                Direction = ParameterDirection.Output
+                            };
+                            cmd.Parameters.Add(outParam);
+
+                            // Execute
+                            cmd.ExecuteNonQuery();
+
+                            visitId = Convert.ToInt32(outParam.Value);
+                        }
+
+                        // =========================
+                        // STEP 3: FINANCIAL
+                        // =========================
+                        using (SqlCommand cmd = new SqlCommand("I_FinancialTransactions", con, txn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                            cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@visitId", visitId);
+                            cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                            cmd.Parameters.AddWithValue("@tnxType", "OPD");
+                            cmd.Parameters.AddWithValue("@tnxTypeId", 1);
+
+                            cmd.Parameters.AddWithValue("@grossAmount", totalService);
+                            cmd.Parameters.AddWithValue("@discountAmount", 0);
+                            cmd.Parameters.AddWithValue("@netAmount", totalService);
+
+                            cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                            cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+                            cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
+
+                            SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                            {
+                                Direction = ParameterDirection.Output
+                            };
+
+                            cmd.Parameters.Add(outParam);
+                            cmd.ExecuteNonQuery();
+
+                            financialId = Convert.ToInt32(outParam.Value);
+                        }
+
+                        // =========================
+                        // STEP 4: SERVICES
+                        // =========================
+                        foreach (var s in model.GetProperty("Services").EnumerateArray())
+                        {
+                            using (SqlCommand cmd = new SqlCommand("I_FinancialTransactionDetails", con, txn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                int qty = s.TryGetProperty("qty", out var q) ? q.GetInt32() : 1;
+                                decimal rate = s.GetProperty("Amount").GetDecimal();
+                                decimal total = qty * rate;
+
+                                cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                                cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                                cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                                cmd.Parameters.AddWithValue("@FTID", financialId);
+                                cmd.Parameters.AddWithValue("@visitId", visitId);
+                                cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                                cmd.Parameters.AddWithValue("@serviceItemId", s.GetProperty("ServiceItemId").GetInt32());
+                                cmd.Parameters.AddWithValue("@subSubCategoryId", s.GetProperty("SubSubCategoryId").GetInt32());
+                                cmd.Parameters.AddWithValue("@serviceName", s.GetProperty("ServiceName").GetString());
+
+                                cmd.Parameters.AddWithValue("@rate", rate);
+                                cmd.Parameters.AddWithValue("@qty", qty);
+                                cmd.Parameters.AddWithValue("@grossAmt", total);
+                                cmd.Parameters.AddWithValue("@netAmt", total);
+
+                                cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                                cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        // =========================
+                        // STEP 5: RECEIPT
+                        // =========================
+                        using (SqlCommand cmd = new SqlCommand("I_Receipts", con, txn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                            cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                            cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                            cmd.Parameters.AddWithValue(parameterName: "@FTID", financialId);
+                            cmd.Parameters.AddWithValue("@visitId", visitId);
+                            cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                            cmd.Parameters.AddWithValue("@amount", totalPayment);
+
+                            cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                            cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+                            cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
+
+                            SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                            {
+                                Direction = ParameterDirection.Output
+                            };
+
+                            cmd.Parameters.Add(outParam);
+                            cmd.ExecuteNonQuery();
+
+                            receiptId = Convert.ToInt32(outParam.Value);
+                        }
+
+                        // =========================
+                        // STEP 6: PAYMENTS
+                        // =========================
+                        foreach (var p in model.GetProperty("payments").EnumerateArray())
+                        {
+                            using (SqlCommand cmd = new SqlCommand("I_ReceiptsPaymentModeDetails", con, txn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                                cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                                cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                                cmd.Parameters.AddWithValue("@receiptID", receiptId);
+
+                                cmd.Parameters.AddWithValue("@amount", p.GetProperty("amount").GetDecimal());
+                                cmd.Parameters.AddWithValue("@paymentModeId", p.GetProperty("paymentModeId").GetInt32());
+
+                                cmd.Parameters.AddWithValue("@bankId", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@ChequeDate", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@referenceNo", DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+                                cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
+
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        // =========================
+                        // STEP 7: PatientInvestigationDetails
+                        // =========================
+                        if (model.TryGetProperty("Investigations", out JsonElement investigations))
+                        {
+                            foreach (var item in investigations.EnumerateArray())
+                            {
+                                using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
+                                {
+                                    cmd.CommandType = CommandType.StoredProcedure;
+
+                                    cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
+                                    cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+                                    cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
+                                    cmd.Parameters.AddWithValue("@visitId", visitId);
+                                    cmd.Parameters.AddWithValue(parameterName: "@FTDID", financialId);
+                                    cmd.Parameters.AddWithValue("@investigationId",
+                                        item.TryGetProperty("InvestigationId", out var inv) ? inv.GetInt32() : 0);
+
+                                    cmd.Parameters.AddWithValue("@doctorId",
+                                        model.TryGetProperty("DoctorId", out var doc) ? doc.GetInt32() : 0);
+
+                                    cmd.Parameters.AddWithValue("@patientId", patientId);
+
+                                    cmd.Parameters.AddWithValue("@labNo",
+                                        item.TryGetProperty("LabNo", out var lab) ? lab.GetInt32() : 0);
+
+                                    cmd.Parameters.AddWithValue("@TokenNo",
+                                        item.TryGetProperty("TokenNo", out var token) ? token.GetInt32() : 0);
+
+                                    cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
+
+                                    cmd.Parameters.AddWithValue(parameterName: "@isUrgent",
+                                        item.TryGetProperty("IsUrgent", out var urgent) ? urgent.GetInt32() : 0);
+
+                                    cmd.Parameters.AddWithValue("@ReportingBranchId",
+                                        item.TryGetProperty("ReportingBranchId", out var rb)
+                                            ? rb.GetInt32()
+                                            : (object)DBNull.Value);
+
+                                    cmd.Parameters.AddWithValue("@Barcode",
+                                        item.TryGetProperty("Barcode", out var bc)
+                                            ? bc.ToString()
+                                            : (object)DBNull.Value);
+
+                                    cmd.Parameters.AddWithValue("@testRemark",
+                                        item.TryGetProperty("TestRemark", out var tr)
+                                            ? tr.ToString()
+                                            : (object)DBNull.Value);
+
+                                    cmd.Parameters.AddWithValue("@sampleTypeId",
+                                        item.TryGetProperty("SampleTypeId", out var st)
+                                            ? st.GetInt32()
+                                            : 0);
+
+                                    cmd.Parameters.AddWithValue("@LabComment",
+                                        item.TryGetProperty("LabComment", out var lc)
+                                            ? lc.ToString()
+                                            : (object)DBNull.Value);
+
+                                    cmd.Parameters.AddWithValue("@IpAddress",
+                                        model.TryGetProperty("IpAddress", out var ip)
+                                            ? ip.ToString()
+                                            : "");
+
+                                    SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                                    {
+                                        Direction = ParameterDirection.Output
+                                    };
+
+                                    cmd.Parameters.Add(outParam);
+
+                                    cmd.ExecuteNonQuery();
+
+                                    int investigationId = Convert.ToInt32(outParam.Value);
+                                }
+                            }
+                        }
+
+                        txn.Commit();
+
+                        return Ok(new
+                        {
+                            message = "New patient registered successfully",
+                            uhid,
+                            success = true,
+                            patientId,
+                            visitId,
+                            financialId,
+                            receiptId,
+                            totalService,
+                            totalPayment
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        txn.Rollback();
+                        return StatusCode(500, new { success = false, message = ex.Message });
+                    }
+                }
+            }
+        }
+    }
+}
