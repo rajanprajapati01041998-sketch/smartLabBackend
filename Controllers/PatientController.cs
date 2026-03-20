@@ -381,9 +381,9 @@ namespace App.Controllers
                         // =========================
                         // STEP 7: PatientInvestigationDetails
                         // =========================
-                        if (model.TryGetProperty("Investigations", out JsonElement investigations))
+                        if (model.TryGetProperty("Services", out JsonElement servicesArray))
                         {
-                            foreach (var item in investigations.EnumerateArray())
+                            foreach (var item in servicesArray.EnumerateArray())
                             {
                                 using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                                 {
@@ -393,55 +393,33 @@ namespace App.Controllers
                                     cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@visitId", visitId);
-                                    cmd.Parameters.AddWithValue(parameterName: "@FTDID", financialId);
+                                    cmd.Parameters.AddWithValue("@FTDID", financialId);
+
                                     cmd.Parameters.AddWithValue("@investigationId",
-                                        item.TryGetProperty("InvestigationId", out var inv) ? inv.GetInt32() : 0);
+                                        item.TryGetProperty("ServiceItemId", out var inv) ? inv.GetInt32() : 0);
 
                                     cmd.Parameters.AddWithValue("@doctorId",
                                         model.TryGetProperty("DoctorId", out var doc) ? doc.GetInt32() : 0);
 
                                     cmd.Parameters.AddWithValue("@patientId", patientId);
 
-                                    cmd.Parameters.AddWithValue("@labNo",
-                                        item.TryGetProperty("LabNo", out var lab) ? lab.GetInt32() : 0);
-
-                                    cmd.Parameters.AddWithValue("@TokenNo",
-                                        item.TryGetProperty("TokenNo", out var token) ? token.GetInt32() : 0);
+                                    cmd.Parameters.AddWithValue("@labNo", 0);
+                                    cmd.Parameters.AddWithValue("@TokenNo", 0);
 
                                     cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
 
-                                    cmd.Parameters.AddWithValue(parameterName: "@isUrgent",
+                                    // ✅ IsUrgent working
+                                    cmd.Parameters.AddWithValue("@isUrgent",
                                         item.TryGetProperty("IsUrgent", out var urgent) ? urgent.GetInt32() : 0);
 
-                                    cmd.Parameters.AddWithValue("@ReportingBranchId",
-                                        item.TryGetProperty("ReportingBranchId", out var rb)
-                                            ? rb.GetInt32()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@Barcode",
-                                        item.TryGetProperty("Barcode", out var bc)
-                                            ? bc.ToString()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@testRemark",
-                                        item.TryGetProperty("TestRemark", out var tr)
-                                            ? tr.ToString()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@sampleTypeId",
-                                        item.TryGetProperty("SampleTypeId", out var st)
-                                            ? st.GetInt32()
-                                            : 0);
-
-                                    cmd.Parameters.AddWithValue("@LabComment",
-                                        item.TryGetProperty("LabComment", out var lc)
-                                            ? lc.ToString()
-                                            : (object)DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@ReportingBranchId", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@Barcode", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@testRemark", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@sampleTypeId", 0);
+                                    cmd.Parameters.AddWithValue("@LabComment", DBNull.Value);
 
                                     cmd.Parameters.AddWithValue("@IpAddress",
-                                        model.TryGetProperty("IpAddress", out var ip)
-                                            ? ip.ToString()
-                                            : "");
+                                        model.TryGetProperty("IpAddress", out var ip) ? ip.ToString() : "");
 
                                     SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
                                     {
@@ -451,8 +429,6 @@ namespace App.Controllers
                                     cmd.Parameters.Add(outParam);
 
                                     cmd.ExecuteNonQuery();
-
-                                    int investigationId = Convert.ToInt32(outParam.Value);
                                 }
                             }
                         }
