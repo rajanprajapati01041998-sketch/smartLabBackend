@@ -330,3 +330,4 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net10.0/LISD.csproj.Up2Date
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net10.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net10.0/ref/LISD.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net10.0/LISD.sourcelink.json

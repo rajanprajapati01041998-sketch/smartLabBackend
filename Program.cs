@@ -14,6 +14,9 @@ public partial class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        // SERVICES
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<IPAddressService>();
 
         JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -175,8 +178,8 @@ public partial class Program
                 {
                     Console.WriteLine("LAN access:");
                     foreach (var ip in lanIps)
-                    foreach (var port in ports)
-                        Console.WriteLine($"  http://{ip}:{port}/swagger");
+                        foreach (var port in ports)
+                            Console.WriteLine($"  http://{ip}:{port}/swagger");
                 }
             }
             catch

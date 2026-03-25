@@ -82,8 +82,18 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@ageYears", model.GetProperty("AgeYears").GetInt32());
                             cmd.Parameters.AddWithValue("@ageMonths", model.GetProperty("AgeMonths").GetInt32());
                             cmd.Parameters.AddWithValue("@ageDays", model.GetProperty("AgeDays").GetInt32());
-                            cmd.Parameters.AddWithValue("@dob", model.GetProperty("DOB").GetDateTime());
+                            var dobProperty = model.GetProperty("DOB");
 
+                            if (dobProperty.ValueKind == JsonValueKind.String &&
+                                !string.IsNullOrWhiteSpace(dobProperty.GetString()) &&
+                                DateTime.TryParse(dobProperty.GetString(), out DateTime dob))
+                            {
+                                cmd.Parameters.AddWithValue("@dob", dob);
+                            }
+                            else
+                            {
+                                cmd.Parameters.AddWithValue("@dob", DBNull.Value);
+                            }
                             cmd.Parameters.AddWithValue("@gender", DbVal(model.GetProperty("Gender")));
                             cmd.Parameters.AddWithValue("@maritalStatus", DbVal(model.GetProperty("MaritalStatus")));
                             cmd.Parameters.AddWithValue("@relation", DbVal(model.GetProperty("Relation")));
@@ -175,9 +185,11 @@ namespace App.Controllers
 
                             // Doctor Info (FIXED)
                             cmd.Parameters.AddWithValue("@doctorId",
-                                model.TryGetProperty("DoctorId", out var doctor)
+                                model.TryGetProperty("DoctorId", out var doctor) &&
+                                doctor.ValueKind == System.Text.Json.JsonValueKind.Number
                                     ? doctor.GetInt32()
-                                    : 0);
+                                    : (object)DBNull.Value
+                            );
 
                             cmd.Parameters.AddWithValue("@referDoctorId",
                                 model.TryGetProperty("ReferDoctorId", out var refDoctor)
@@ -216,9 +228,12 @@ namespace App.Controllers
                                     : 0);
 
                             cmd.Parameters.AddWithValue("@CollectionDateTime",
-                                model.TryGetProperty("CollectionDateTime", out var collectionDT)
-                                    ? DateTime.Parse(collectionDT.ToString())
-                                    : (object)DBNull.Value);
+                                model.TryGetProperty("CollectionDateTime", out var collectionDT) &&
+                                !string.IsNullOrWhiteSpace(collectionDT.ToString()) &&
+                                DateTime.TryParse(collectionDT.ToString(), out DateTime parsedDate)
+                                    ? parsedDate
+                                    : (object)DBNull.Value
+                            );
 
                             // Optional Fields (safe defaults)
                             cmd.Parameters.AddWithValue("@statusId", DBNull.Value);
@@ -385,6 +400,24 @@ namespace App.Controllers
                         {
                             foreach (var item in investigations.EnumerateArray())
                             {
+
+                                int labNo = 0;
+
+                                using (SqlCommand labCmd = new SqlCommand("getLabNo", con, txn))
+                                {
+                                    labCmd.CommandType = CommandType.StoredProcedure;
+                                    labCmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
+
+                                    SqlParameter outParamLab = new SqlParameter("@Result", SqlDbType.Int)
+                                    {
+                                        Direction = ParameterDirection.Output
+                                    };
+
+                                    labCmd.Parameters.Add(outParamLab);
+
+                                    labCmd.ExecuteNonQuery();
+                                    labNo = Convert.ToInt32(outParamLab.Value);
+                                }
                                 using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                                 {
                                     cmd.CommandType = CommandType.StoredProcedure;
@@ -402,8 +435,7 @@ namespace App.Controllers
 
                                     cmd.Parameters.AddWithValue("@patientId", patientId);
 
-                                    cmd.Parameters.AddWithValue("@labNo",
-                                        item.TryGetProperty("LabNo", out var lab) ? lab.GetInt32() : 0);
+                                    cmd.Parameters.AddWithValue("@labNo", labNo);
 
                                     cmd.Parameters.AddWithValue("@TokenNo",
                                         item.TryGetProperty("TokenNo", out var token) ? token.GetInt32() : 0);
@@ -478,6 +510,59 @@ namespace App.Controllers
                         return StatusCode(500, new { success = false, message = ex.Message });
                     }
                 }
+            }
+        }
+
+        // get patient by uhid
+        [HttpGet("get-by-uhid")]
+        public async Task<IActionResult> GetPatientByUHID(string uhid, int branchId)
+        {
+            try
+            {
+                var result = new Dictionary<string, object>();
+
+                using (SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+                {
+                    using (SqlCommand cmd = new SqlCommand("S_PatientMasterByUHID", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@uhid", uhid);
+                        cmd.Parameters.AddWithValue("@branchId", branchId);
+
+                        await con.OpenAsync();
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    result[reader.GetName(i)] = reader.IsDBNull(i)
+                                        ? null
+                                        : reader.GetValue(i);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (result.Count == 0)
+                    return NotFound(new { success = false, message = "Patient not found" });
+
+                return Ok(new
+                {
+                    success = true,
+                    data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message
+                });
             }
         }
     }
