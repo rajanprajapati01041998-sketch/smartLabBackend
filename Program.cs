@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json;
-using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
 using App.Data;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -43,6 +43,32 @@ public partial class Program
                     JsonNamingPolicy.CamelCase;
             });
 
+        // CORS (needed for browser-based frontends; Postman is not subject to CORS).
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("DevCors", policy =>
+            {
+                var allowedOrigins = builder.Configuration
+                    .GetSection("Cors:AllowedOrigins")
+                    .Get<string[]>();
+
+                if (allowedOrigins is { Length: > 0 })
+                {
+                    policy.WithOrigins(allowedOrigins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                }
+                else
+                {
+                    // Development-friendly default: allow any origin (no cookies/credentials).
+                    policy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                }
+            });
+        });
+
         builder.Services.AddEndpointsApiExplorer();
         // SWAGGER WITH JWT
         builder.Services.AddSwaggerGen(options =>
@@ -58,14 +84,20 @@ public partial class Program
                     Description = "Enter JWT Token"
                 });
 
-            options.AddSecurityRequirement(
-                document => new OpenApiSecurityRequirement
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
                 {
+                    new OpenApiSecurityScheme
                     {
-                        new OpenApiSecuritySchemeReference("Bearer", document, null),
-                        new List<string>()
-                    }
-                });
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    Array.Empty<string>()
+                }
+            });
         });
 
 
@@ -167,19 +199,23 @@ public partial class Program
                 Console.WriteLine("Listening on:");
                 foreach (var url in urls) Console.WriteLine($"  {url}");
 
-                var ports = urls
-                    .Select(u => new Uri(u).Port)
-                    .Distinct()
-                    .OrderBy(p => p)
-                    .ToArray();
+                var parsedUrls = urls.Select(u => new Uri(u)).ToArray();
+
+                Console.WriteLine("Swagger:");
+                foreach (var uri in parsedUrls)
+                    Console.WriteLine($"  {uri.Scheme}://{uri.Host}:{uri.Port}/swagger");
 
                 var lanIps = GetLanIPv4Addresses().ToArray();
-                if (lanIps.Length > 0 && ports.Length > 0)
+                if (lanIps.Length > 0)
                 {
-                    Console.WriteLine("LAN access:");
-                    foreach (var ip in lanIps)
-                        foreach (var port in ports)
-                            Console.WriteLine($"  http://{ip}:{port}/swagger");
+                    foreach (var uri in parsedUrls)
+                    {
+                        if (uri.Host is not ("0.0.0.0" or "::")) continue;
+
+                        Console.WriteLine($"LAN access ({uri.Scheme.ToUpperInvariant()}):");
+                        foreach (var ip in lanIps)
+                            Console.WriteLine($"  {uri.Scheme}://{ip}:{uri.Port}/swagger");
+                    }
                 }
             }
             catch
@@ -209,6 +245,9 @@ public partial class Program
             app.UseHttpsRedirection();
         }
 
+        // Must be before auth/endpoints so preflight OPTIONS requests succeed.
+        app.UseCors("DevCors");
+
 
 
         // =============================
@@ -221,6 +260,7 @@ public partial class Program
         app.MapGet("/ping", () => Results.Ok(new { status = "ok", atUtc = DateTimeOffset.UtcNow }));
 
         app.MapControllers();
+
 
 
 
