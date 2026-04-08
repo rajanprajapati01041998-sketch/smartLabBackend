@@ -72,5 +72,118 @@ namespace App.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("wallet")]
+        public async Task<IActionResult> GetWalletAmount(string clientIds)
+        {
+            try
+            {
+                using SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+                using SqlCommand cmd = new SqlCommand("S_GetWelletAMTData", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@clientId",
+                    string.IsNullOrEmpty(clientIds) ? DBNull.Value : clientIds);
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (await reader.ReadAsync())
+                {
+                    var result = new
+                    {
+                        totalCredit = reader["TotalCredit"],
+                        totalDebit = reader["TotalDebit"],
+                        balance = reader["Balance"],
+                        balanceMain = reader["BalanceMain"],
+                        balanceMainDashboard = reader["BalanceMainDashboard"],
+                        isDebitGreater = reader["IsDebitGreater"]
+                    };
+
+                    return Ok(result);
+                }
+
+                return Ok(new { message = "No data found" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+        [HttpGet("bill-advance")]
+        public async Task<IActionResult> GetBillAndAdvanceDash(
+    string? filter = null,
+    string clientIdList = "",
+    string? fromDate = null,
+    string? toDate = null)
+        {
+            try
+            {
+                using SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+                using SqlCommand cmd = new SqlCommand("S_GetBillAndAdvanceDash", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@filter",
+                    string.IsNullOrEmpty(filter) ? DBNull.Value : filter);
+
+                cmd.Parameters.AddWithValue("@clientIdList", clientIdList);
+
+                cmd.Parameters.AddWithValue("@fromDate",
+                    string.IsNullOrEmpty(fromDate) ? DBNull.Value : Convert.ToDateTime(fromDate));
+
+                cmd.Parameters.AddWithValue("@toDate",
+                    string.IsNullOrEmpty(toDate) ? DBNull.Value : Convert.ToDateTime(toDate));
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                // 🔹 First Result Set (Transactions)
+                var transactions = new List<object>();
+
+                while (await reader.ReadAsync())
+                {
+                    transactions.Add(new
+                    {
+                        type = reader["Type"],
+                        amount = reader["Amount"],
+                        createdOn = reader["CreatedOn"],
+                        description = reader["Description"],
+                        clientId = reader["ClientID"]
+                    });
+                }
+
+                // 🔹 Second Result Set (Summary)
+                object summary = null;
+
+                if (await reader.NextResultAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        summary = new
+                        {
+                            totalCredit = reader["TotalCredit"],
+                            totalDebit = reader["TotalDebit"],
+                            balance = reader["Balance"]
+                        };
+                    }
+                }
+
+                return Ok(new
+                {
+                    transactions,
+                    summary
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/LISD
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Templates/ReportTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/appsettings.Development.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/appsettings.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/global.json
@@ -9,7 +9,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Azure.Identity.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/BarcodeStandard.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/BCrypt.Net-Next.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/BouncyCastle.Cryptography.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/FluentValidation.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/FluentValidation.AspNetCore.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/FluentValidation.DependencyInjectionExtensions.dll
@@ -20,7 +19,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.kernel.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.layout.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.pdfa.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.pdfua.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.sign.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.styledxmlparser.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/itext.svg.dll
@@ -48,6 +46,8 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Microsoft.OpenApi.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Microsoft.SqlServer.Server.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Microsoft.Win32.SystemEvents.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Newtonsoft.Json.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/BouncyCastle.Crypto.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/QRCoder.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/SkiaSharp.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/Swashbuckle.AspNetCore.Swagger.dll
@@ -56,14 +56,11 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Configuration.ConfigurationManager.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Drawing.Common.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.IdentityModel.Tokens.Jwt.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.IO.Pipelines.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Memory.Data.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Resources.Extensions.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Runtime.Caching.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Security.Cryptography.ProtectedData.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Security.Permissions.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Text.Encodings.Web.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Text.Json.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/System.Windows.Extensions.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/zxing.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
@@ -85,6 +82,5 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/win/lib/net6.0/System.Drawing.Common.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/publish/LISD.deps.json

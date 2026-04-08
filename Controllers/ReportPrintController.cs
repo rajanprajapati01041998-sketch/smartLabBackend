@@ -29,10 +29,10 @@ namespace App.Controllers
 
         [HttpGet("DownloadCombinedReport")]
         public IActionResult DownloadCombinedReport(
-            int ptInvstId,
-            int isHeaderPNG = 0,
-            string printBy = null,
-            string branchId = null)
+           int ptInvstId,
+           int isHeaderPNG = 0,
+           string printBy = null,
+           string branchId = null)
         {
             try
             {
@@ -58,7 +58,8 @@ namespace App.Controllers
                     resultsHtml = "<p>No results available.</p>";
 
                 // 3. Fetch Doctor Signatures
-                string doctorSignaturesHtml = GetDoctorSignatures();
+                // 3. Fetch Doctor Signatures
+                string doctorSignaturesHtml = GetDoctorSignatures(headerData);
 
                 // 4. Get Current Date and Time for Footer
                 string currentDateTime = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
@@ -119,23 +120,45 @@ namespace App.Controllers
 
         // ================= DOCTOR SIGNATURES =================
 
-        private string GetDoctorSignatures()
+        private string GetDoctorSignatures(DataTable dt)
         {
-            // Return the doctor signatures from the image
-            return $@"
+            if (dt == null || dt.Rows.Count == 0)
+                return "";
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string doctorName = row.Table.Columns.Contains("InvReportApprovedBy") && row["InvReportApprovedBy"] != DBNull.Value
+                    ? row["InvReportApprovedBy"].ToString()
+                    : "";
+
+                string signPath = row.Table.Columns.Contains("DoctorSignFilePath") && row["DoctorSignFilePath"] != DBNull.Value
+                    ? row["DoctorSignFilePath"].ToString()
+                    : "";
+
+                if (string.IsNullOrEmpty(doctorName) && string.IsNullOrEmpty(signPath))
+                    continue;
+
+                // Convert image to base64 if file exists
+                string imgTag = "";
+                if (!string.IsNullOrEmpty(signPath) && System.IO.File.Exists(signPath))
+                {
+                    byte[] bytes = System.IO.File.ReadAllBytes(signPath);
+                    string base64 = Convert.ToBase64String(bytes);
+                    imgTag = $"<img src='data:image/png;base64,{base64}' class='doctor-sign' />";
+                }
+
+                sb.Append($@"
                 <div class='doctor-card'>
-                    <div class='doctor-name'>Dr. R. K. Sinha</div>
-                    <div class='doctor-qualification'>MBBS, MD (Pathologist)</div>
-                    <div class='doctor-designation'>Consultant Pathologist</div>
+                    {imgTag}
                     <div class='signature-line'></div>
+                    <div class='doctor-name'>{doctorName}</div>
                 </div>
-                <div class='doctor-card'>
-                    <div class='doctor-name'>Dr. Uroos Fatima</div>
-                    <div class='doctor-qualification'>MD, Pathologist</div>
-                    <div class='doctor-designation'></div>
-                    <div class='signature-line'></div>
-                </div>
-            ";
+                ");
+            }
+
+            return sb.ToString();
         }
 
         // ================= HTML =================
@@ -353,5 +376,84 @@ namespace App.Controllers
                 return StatusCode(500, new { error = ex.Message, stackTrace = ex.StackTrace });
             }
         }
+
+
+        [HttpGet("ViewReport")]
+        public IActionResult ViewReport(
+        int ptInvstId,
+        int isHeaderPNG = 0,
+        string printBy = null,
+        string branchId = null)
+        {
+            try
+            {
+                if (ptInvstId <= 0)
+                    return BadRequest("ptInvstId must be provided");
+
+                // 1. Fetch Header Data
+                DataTable headerData = GetPatientInvestigations(
+                    ptInvstId.ToString(),
+                    isHeaderPNG,
+                    printBy,
+                    branchId);
+
+                if (headerData.Rows.Count == 0)
+                    return NotFound("No data found");
+
+                string diagnosticsNo = headerData.Rows[0]["LabNo"]?.ToString()
+                                       ?? ptInvstId.ToString(CultureInfo.InvariantCulture);
+
+                // 2. Fetch Results
+                string resultsHtml = GetFreeText(ptInvstId);
+                if (string.IsNullOrEmpty(resultsHtml))
+                    resultsHtml = "<p>No results available.</p>";
+
+                // 3. Doctor Signatures
+                string doctorSignaturesHtml = GetDoctorSignatures(headerData);
+
+                // 4. Current DateTime
+                string currentDateTime = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
+
+                // 5. QR URL
+                string qrUrl = $"{Request.Scheme}://{Request.Host}/api/ReportPrint/ViewReport?ptInvstId={ptInvstId}&isHeaderPNG={isHeaderPNG}&printBy={printBy}&branchId={branchId}";
+
+                // 6. QR + Barcode
+                string qrBase64 = GenerateQr(qrUrl);
+                string barcodeBase64 = GenerateBarcode(diagnosticsNo);
+
+                // 7. Build HTML
+                string html = BuildHtml(
+                    headerData.Rows[0],
+                    resultsHtml,
+                    qrBase64,
+                    barcodeBase64,
+                    doctorSignaturesHtml,
+                    currentDateTime);
+
+                // 8. Convert to PDF
+                byte[] pdfBytes = ConvertToPdf(html);
+
+                // ✅ 9. Convert PDF to Base64
+                string base64Pdf = Convert.ToBase64String(pdfBytes);
+
+                // ✅ 10. Return Base64 response
+                return Ok(new
+                {
+                    FileName = $"Report_{diagnosticsNo}.pdf",
+                    ContentType = "application/pdf",
+                    Base64Data = base64Pdf
+                });
+            }
+            catch (Exception ex)
+            {
+                var inner = ex.InnerException != null
+                    ? $" | Inner: {ex.InnerException.GetType().Name}: {ex.InnerException.Message}"
+                    : "";
+
+                return StatusCode(500, $"Error generating report: {ex.GetType().Name}: {ex.Message}{inner}");
+            }
+        }
+
+
     }
 }

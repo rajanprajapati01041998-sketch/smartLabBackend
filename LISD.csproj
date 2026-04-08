@@ -7,6 +7,7 @@
     <UseAppHost>false</UseAppHost>
   </PropertyGroup>
 
+  <!-- Package References -->
   <ItemGroup>
     <PackageReference Include="BarcodeLib" Version="3.1.5" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
@@ -26,8 +27,24 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="QRCoder" Version="1.7.0" />
+    <PackageReference Include="Razorpay" Version="3.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="ZXing.Net" Version="0.16.11" />
+  </ItemGroup>
+
+  <!-- Folders -->
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Library\" />
+  </ItemGroup>
+
+  <!-- Templates Content -->
+  <ItemGroup>
+    <None Remove="Templates\**\*" />
+    <Content Include="Templates\**\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using App.Models;
 
 namespace App.Data
 {
@@ -8,5 +9,7 @@ namespace App.Data
             : base(options)
         {
         }
+        public DbSet<LabAdvanceAmount> LabAdvanceAmounts { get; set; }
+
     }
 }

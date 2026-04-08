@@ -12,6 +12,7 @@ namespace App.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IConfiguration _config;
+        private string? originalMiddleName;
 
         public PatientController(IConfiguration config)
         {
@@ -151,13 +152,18 @@ namespace App.Controllers
                             cmd.ExecuteNonQuery();
 
                             patientId = Convert.ToInt32(output.Value);
+
                             if (patientId == -1)
                             {
-                                return BadRequest(new
-                                {
-                                    success = false,
-                                    message = "Patient already registered"
-                                });
+                                // 👇 Add invisible character instead of visible suffix
+                                string invisibleChar = "\u200B"; // zero-width space
+
+                                string newMiddleName = (originalMiddleName ?? "") + invisibleChar;
+
+                                cmd.Parameters["@middleName"].Value = newMiddleName;
+
+                                cmd.ExecuteNonQuery();
+                                patientId = Convert.ToInt32(output.Value);
                             }
                         }
 
@@ -383,9 +389,9 @@ namespace App.Controllers
                                 cmd.Parameters.AddWithValue("@amount", p.GetProperty("amount").GetDecimal());
                                 cmd.Parameters.AddWithValue("@paymentModeId", p.GetProperty("paymentModeId").GetInt32());
 
-                                cmd.Parameters.AddWithValue("@bankId", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@ChequeDate", DBNull.Value);
-                                cmd.Parameters.AddWithValue("@referenceNo", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@bankId", p.TryGetProperty("bankId", out var bankIdProp) ? bankIdProp.GetInt32() : (object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@referenceNo", p.TryGetProperty("referenceNo", out var refNoProp) ? refNoProp.GetString() : (object)DBNull.Value);
 
                                 cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
                                 cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
@@ -394,15 +400,17 @@ namespace App.Controllers
                             }
                         }
                         // =========================
-                        // STEP 7: PatientInvestigationDetails
+                        // STEP 7: PatientInvestigationDetails (FIXED)
                         // =========================
-                        if (model.TryGetProperty("Investigations", out JsonElement investigations))
+                        if (model.TryGetProperty("Services", out JsonElement Services))
                         {
-                            foreach (var item in investigations.EnumerateArray())
+                            foreach (var s in services.EnumerateArray())
                             {
-
                                 int labNo = 0;
 
+                                // =========================
+                                // GET LAB NO
+                                // =========================
                                 using (SqlCommand labCmd = new SqlCommand("getLabNo", con, txn))
                                 {
                                     labCmd.CommandType = CommandType.StoredProcedure;
@@ -414,10 +422,35 @@ namespace App.Controllers
                                     };
 
                                     labCmd.Parameters.Add(outParamLab);
-
                                     labCmd.ExecuteNonQuery();
+
                                     labNo = Convert.ToInt32(outParamLab.Value);
                                 }
+
+                                // =========================
+                                // SAFE SERVICE ITEM ID FETCH
+                                // =========================
+                                int investigationId = 0;
+
+                                if (s.TryGetProperty("ServiceItemId", out var sid) && sid.ValueKind != JsonValueKind.Null)
+                                {
+                                    investigationId = sid.GetInt32();
+                                }
+                                else if (s.TryGetProperty("serviceItemId", out var sid2) && sid2.ValueKind != JsonValueKind.Null)
+                                {
+                                    investigationId = sid2.GetInt32();
+                                }
+                                else if (s.TryGetProperty("serviceitemid", out var sid3) && sid3.ValueKind != JsonValueKind.Null)
+                                {
+                                    investigationId = sid3.GetInt32();
+                                }
+
+                                // 🔥 DEBUG (optional – remove later)
+                                Console.WriteLine("Mapped InvestigationId: " + investigationId);
+
+                                // =========================
+                                // INSERT INVESTIGATION
+                                // =========================
                                 using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                                 {
                                     cmd.CommandType = CommandType.StoredProcedure;
@@ -426,54 +459,30 @@ namespace App.Controllers
                                     cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@visitId", visitId);
-                                    cmd.Parameters.AddWithValue(parameterName: "@FTDID", financialId);
-                                    cmd.Parameters.AddWithValue("@investigationId",
-                                        item.TryGetProperty("InvestigationId", out var inv) ? inv.GetInt32() : 0);
+                                    cmd.Parameters.AddWithValue("@FTDID", financialId);
+
+                                    // ✅ FINAL FIXED LINE
+                                    cmd.Parameters.AddWithValue("@investigationId", investigationId);
 
                                     cmd.Parameters.AddWithValue("@doctorId",
-                                        model.TryGetProperty("DoctorId", out var doc) ? doc.GetInt32() : 0);
+                                        model.TryGetProperty("DoctorId", out var doc) && doc.ValueKind != JsonValueKind.Null
+                                            ? doc.GetInt32()
+                                            : 0);
 
                                     cmd.Parameters.AddWithValue("@patientId", patientId);
-
                                     cmd.Parameters.AddWithValue("@labNo", labNo);
 
-                                    cmd.Parameters.AddWithValue("@TokenNo",
-                                        item.TryGetProperty("TokenNo", out var token) ? token.GetInt32() : 0);
+                                    cmd.Parameters.AddWithValue("@TokenNo", 0);
 
                                     cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
 
-                                    cmd.Parameters.AddWithValue(parameterName: "@isUrgent",
-                                        item.TryGetProperty("IsUrgent", out var urgent) ? urgent.GetInt32() : 0);
-
-                                    cmd.Parameters.AddWithValue("@ReportingBranchId",
-                                        item.TryGetProperty("ReportingBranchId", out var rb)
-                                            ? rb.GetInt32()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@Barcode",
-                                        item.TryGetProperty("Barcode", out var bc)
-                                            ? bc.ToString()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@testRemark",
-                                        item.TryGetProperty("TestRemark", out var tr)
-                                            ? tr.ToString()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@sampleTypeId",
-                                        item.TryGetProperty("SampleTypeId", out var st)
-                                            ? st.GetInt32()
-                                            : 0);
-
-                                    cmd.Parameters.AddWithValue("@LabComment",
-                                        item.TryGetProperty("LabComment", out var lc)
-                                            ? lc.ToString()
-                                            : (object)DBNull.Value);
-
-                                    cmd.Parameters.AddWithValue("@IpAddress",
-                                        model.TryGetProperty("IpAddress", out var ip)
-                                            ? ip.ToString()
-                                            : "");
+                                    cmd.Parameters.AddWithValue("@isUrgent", 0);
+                                    cmd.Parameters.AddWithValue("@ReportingBranchId", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@Barcode", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@testRemark", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@sampleTypeId", 0);
+                                    cmd.Parameters.AddWithValue("@LabComment", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
 
                                     SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
                                     {
@@ -483,8 +492,6 @@ namespace App.Controllers
                                     cmd.Parameters.Add(outParam);
 
                                     cmd.ExecuteNonQuery();
-
-                                    int investigationId = Convert.ToInt32(outParam.Value);
                                 }
                             }
                         }

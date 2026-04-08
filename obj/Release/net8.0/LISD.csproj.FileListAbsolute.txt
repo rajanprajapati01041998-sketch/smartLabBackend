@@ -1,7 +1,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/appsettings.Development.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/appsettings.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/global.json
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/LISD
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/LISD.deps.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/LISD.runtimeconfig.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/LISD.dll
@@ -143,7 +142,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Release/net8.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Release/net8.0/ref/LISD.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/BarcodeStandard.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/BouncyCastle.Cryptography.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.barcodes.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.bouncy-castle-connector.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.forms.dll
@@ -151,7 +149,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.kernel.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.layout.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.pdfa.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.pdfua.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.sign.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.styledxmlparser.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/itext.svg.dll
@@ -161,10 +158,7 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/Microsoft.DotNet.PlatformAbstractions.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/QRCoder.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/SkiaSharp.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/System.IO.Pipelines.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/System.Resources.Extensions.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/System.Text.Encodings.Web.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/System.Text.Json.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/zxing.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/linux-arm/native/libSkiaSharp.so
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/linux-arm64/native/libSkiaSharp.so
@@ -174,4 +168,6 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/win-x64/native/libSkiaSharp.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/win-x86/native/libSkiaSharp.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/Templates/ReportTemplate.html
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/Newtonsoft.Json.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Release/net8.0/BouncyCastle.Crypto.dll

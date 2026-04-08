@@ -69,6 +69,8 @@ public partial class Program
             });
         });
 
+        builder.Services.Configure<RazorpaySettings>(
+        builder.Configuration.GetSection("Razorpay"));
         builder.Services.AddEndpointsApiExplorer();
         // SWAGGER WITH JWT
         builder.Services.AddSwaggerGen(options =>
@@ -129,7 +131,7 @@ public partial class Program
         // =============================
         // DEPENDENCY INJECTION
         // =============================
-        builder.Services.AddHttpContextAccessor();
+        // builder.Services.AddHttpContextAccessor();
         // builder.Services.AddScoped<IAuthService, AuthService>();
 
 
@@ -229,7 +231,7 @@ public partial class Program
         // =============================
         // SWAGGER
         // =============================
-        if (app.Environment.IsDevelopment())
+        if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         {
             app.UseSwagger();
             app.UseSwaggerUI();

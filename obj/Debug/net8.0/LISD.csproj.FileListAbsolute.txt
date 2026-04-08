@@ -322,3 +322,7 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.bouncy-castle-adapter.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/BouncyCastle.Crypto.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.html2pdf.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReportTemplate.html
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/web.config
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Razorpay.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/rpswa.dswa.cache.json
