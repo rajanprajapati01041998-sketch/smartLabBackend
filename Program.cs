@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json;
 using Microsoft.OpenApi.Models;
 using App.Data;
+using App.Settings;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -69,12 +70,17 @@ public partial class Program
             });
         });
 
+        // Razorpay config
+
         builder.Services.Configure<RazorpaySettings>(
-        builder.Configuration.GetSection("Razorpay"));
+            builder.Configuration.GetSection("RazorpaySettings"));
+
         builder.Services.AddEndpointsApiExplorer();
         // SWAGGER WITH JWT
         builder.Services.AddSwaggerGen(options =>
         {
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "LISD API", Version = "v1" });
+
             options.AddSecurityDefinition("Bearer",
                 new OpenApiSecurityScheme
                 {
@@ -192,6 +198,18 @@ public partial class Program
         // =============================
         var app = builder.Build();
 
+        // Avoid stale Swagger responses when testing on LAN / behind proxies.
+        app.UseWhen(ctx => ctx.Request.Path.StartsWithSegments("/swagger"), swaggerApp =>
+        {
+            swaggerApp.Use(async (ctx, next) =>
+            {
+                ctx.Response.Headers.CacheControl = "no-store, no-cache, must-revalidate, max-age=0";
+                ctx.Response.Headers.Pragma = "no-cache";
+                ctx.Response.Headers.Expires = "0";
+                await next();
+            });
+        });
+
         // Print reachable URLs on startup (useful when calling from another device on the same Wi‑Fi).
         app.Lifetime.ApplicationStarted.Register(() =>
         {
@@ -226,6 +244,30 @@ public partial class Program
             }
         });
 
+        // Non-blocking DB connectivity check (avoid delaying app startup / Swagger).
+        app.Lifetime.ApplicationStarted.Register(() =>
+        {
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    using var scope = app.Services.CreateScope();
+                    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+                    using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(3));
+                    var canConnect = await db.Database.CanConnectAsync(cts.Token);
+                    Console.WriteLine(canConnect
+                        ? "✅ Database connected successfully!"
+                        : "❌ Database connection failed!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("❌ Database connection error!");
+                    Console.WriteLine(ex.Message);
+                }
+            });
+        });
+
 
 
         // =============================
@@ -234,8 +276,15 @@ public partial class Program
         if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "LISD API v1");
+            });
         }
+
+        // Serve `wwwroot/index.html` at `/`
+        app.UseDefaultFiles();
+        app.UseStaticFiles();
 
 
 
@@ -258,34 +307,7 @@ public partial class Program
         app.UseAuthentication();
         app.UseAuthorization();
 
-        // Quick connectivity check: http://<PC-IP>:<PORT>/ping
-        app.MapGet("/ping", () => Results.Ok(new { status = "ok", atUtc = DateTimeOffset.UtcNow }));
-
         app.MapControllers();
-
-
-
-
-        // =============================
-        // DATABASE CONNECTION CHECK
-        // =============================
-        using (var scope = app.Services.CreateScope())
-        {
-            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-            try
-            {
-                if (db.Database.CanConnect())
-                    Console.WriteLine("✅ Database connected successfully!");
-                else
-                    Console.WriteLine("❌ Database connection failed!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("❌ Database connection error!");
-                Console.WriteLine(ex.Message);
-            }
-        }
 
         app.Run();
     }

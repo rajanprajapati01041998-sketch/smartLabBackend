@@ -150,9 +150,11 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/LISDBACKEND/obj/Debug/net8.0/LISD.pdb
 /Users/gravitywebtechnologiespvtltd/Desktop/LISDBACKEND/obj/Debug/net8.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/LISDBACKEND/obj/Debug/net8.0/ref/LISD.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/web.config
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/appsettings.Development.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/appsettings.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/global.json
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReportTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.deps.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.runtimeconfig.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.dll
@@ -175,7 +177,9 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.sign.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.styledxmlparser.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.svg.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.bouncy-castle-adapter.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.commons.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.html2pdf.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
@@ -204,7 +208,9 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Mono.TextTemplating.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/BouncyCastle.Crypto.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/QRCoder.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Razorpay.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/SkiaSharp.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -319,10 +325,3 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.pdb
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/ref/LISD.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.bouncy-castle-adapter.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/BouncyCastle.Crypto.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/itext.html2pdf.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReportTemplate.html
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/web.config
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Razorpay.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/rpswa.dswa.cache.json
