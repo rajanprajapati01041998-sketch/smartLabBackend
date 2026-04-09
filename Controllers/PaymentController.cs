@@ -3,9 +3,11 @@ using App.Models;
 using App.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Razorpay.Api;
+using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -111,7 +113,7 @@ namespace App.Controllers
                 };
 
                 var order = client.Order.Create(options);
-                var orderId = order["id"]?.ToString();
+                string? orderId = order["id"]?.ToString();
 
                 if (string.IsNullOrWhiteSpace(orderId))
                 {
@@ -121,50 +123,73 @@ namespace App.Controllers
                     });
                 }
 
-                var orderIdValue = orderId!;
-                var orderIdNormalized = orderIdValue.Trim();
-                var legacyOrderIdUpper = orderIdNormalized.ToUpperInvariant();
+                var orderIdNormalized = orderId.Trim();
 
-                var pending = new LabAdvanceAmount
+                var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                if (!string.IsNullOrWhiteSpace(ipAddress) && ipAddress.Length > 20)
+                    ipAddress = ipAddress.Substring(0, 20);
+
+                // Save pending advance amount via stored procedure (not EF entity insert).
+                // SP generates LabReceiptNo via getBranchSequenceNumber and sets status='Pending', statusId=0.
+                var spParams = new[]
                 {
-                    HospId = request.HospId,
-                    BranchId = request.BranchId,
-                    ClientID = request.ClientId,
-                    DepositDate = DateTime.UtcNow,
-                    PaymentModeId = request.PaymentModeId,
-                    PaymentMode = string.IsNullOrWhiteSpace(request.PaymentMode) ? "Online" : request.PaymentMode.Trim(),
-                    PayMode = "Razorpay",
-                    Amount = request.Amount,
+                    new SqlParameter("@hospId", SqlDbType.Int) { Value = request.HospId },
+                    new SqlParameter("@branchId", SqlDbType.Int) { Value = request.BranchId },
+                    new SqlParameter("@userId", SqlDbType.Int) { Value = request.CreatedBy },
+                    new SqlParameter("@ClientID", SqlDbType.Int) { Value = request.ClientId },
+                    new SqlParameter("@DepositDate", SqlDbType.Date) { Value = DateTime.UtcNow.Date },
+                    new SqlParameter("@PaymentMode", SqlDbType.NVarChar, 50)
+                    {
+                        Value = string.IsNullOrWhiteSpace(request.PaymentMode) ? (object)DBNull.Value : request.PaymentMode.Trim()
+                    },
+                    new SqlParameter("@PaymentModeId", SqlDbType.Int) { Value = request.PaymentModeId },
+                    new SqlParameter("@PaidAmount", SqlDbType.Decimal)
+                    {
+                        Precision = 16,
+                        Scale = 6,
+                        Value = request.Amount
+                    },
                     // Store Razorpay order id for later verification/webhook lookup.
-                    ChequeCardNo = orderIdNormalized,
-                    PaymentBankId = 0,
-                    Status = "Pending",
-                    StatusId = 0,
-                    IsCancel = false,
-                    CreatedBy = request.CreatedBy,
-                    CreatedOn = DateTime.UtcNow,
-                    IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString(),
-                    // Internal unique id in GUID uppercase format: D8D6934B-9D8F-4FC3-8D6A-068C1BBD71DF
-                    UniqueId = Guid.NewGuid().ToString().ToUpperInvariant(),
-                    remarks = request.Remarks
+                    new SqlParameter("@ChequeCardNo", SqlDbType.NVarChar, 50) { Value = orderIdNormalized },
+                    new SqlParameter("@ChequeCardDate", SqlDbType.Date) { Value = DBNull.Value },
+                    new SqlParameter("@PaymentBankId", SqlDbType.Int) { Value = 0 },
+                    new SqlParameter("@PayMode", SqlDbType.NVarChar, 20) { Value = "Razorpay" },
+                    new SqlParameter("@TransactionId", SqlDbType.NVarChar, 50) { Value = DBNull.Value },
+                    new SqlParameter("@remarks", SqlDbType.NVarChar, 512)
+                    {
+                        Value = string.IsNullOrWhiteSpace(request.Remarks) ? (object)DBNull.Value : request.Remarks.Trim()
+                    },
+                    new SqlParameter("@IpAddress", SqlDbType.NVarChar, 20)
+                    {
+                        Value = string.IsNullOrWhiteSpace(ipAddress) ? (object)DBNull.Value : ipAddress
+                    }
                 };
 
-                _context.LabAdvanceAmounts.Add(pending);
-                await _context.SaveChangesAsync();
+                await _context.Database.ExecuteSqlRawAsync(
+                    "EXEC [dbo].[I_SaveLabAdvanceAmount] " +
+                    "@hospId, @branchId, @userId, @ClientID, @DepositDate, @PaymentMode, @PaymentModeId, @PaidAmount, " +
+                    "@ChequeCardNo, @ChequeCardDate, @PaymentBankId, @PayMode, @TransactionId, @remarks, @IpAddress",
+                    spParams);
 
-                // After we have the identity (LabReceiptID), generate your receipt number format:
-                // e.g. CA/25-26/000010
-                pending.LabReceiptNo = BuildLabReceiptNo(pending.LabReceiptID, DateTimeOffset.UtcNow);
-                await _context.SaveChangesAsync();
+                // Read back the inserted row to return LabReceiptNo and identity.
+                var created = await _context.LabAdvanceAmounts
+                    .AsNoTracking()
+                    .OrderByDescending(x => x.LabReceiptID)
+                    .FirstOrDefaultAsync(x =>
+                        x.HospId == request.HospId &&
+                        x.BranchId == request.BranchId &&
+                        x.ClientID == request.ClientId &&
+                        x.ChequeCardNo == orderIdNormalized &&
+                        (x.Status == "Pending" || x.StatusId == 0));
 
                 return Ok(new
                 {
                     key = key,
                     orderId = orderIdNormalized,
-                    labReceiptNo = pending.LabReceiptNo,
+                    labReceiptNo = created?.LabReceiptNo,
                     amount = (int)amountPaise,
                     currency = currency,
-                    labAdvanceAmountId = pending.LabReceiptID
+                    labAdvanceAmountId = created?.LabReceiptID
                 });
             }
             catch (Razorpay.Api.Errors.BadRequestError ex) when (
@@ -449,7 +474,7 @@ namespace App.Controllers
             try
             {
                 // Windows: "India Standard Time", Linux/macOS: "Asia/Kolkata"
-                TimeZoneInfo ist;
+                nfo ist;
                 try
                 {
                     ist = TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata");
