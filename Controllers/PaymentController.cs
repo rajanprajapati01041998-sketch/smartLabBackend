@@ -474,7 +474,7 @@ namespace App.Controllers
             try
             {
                 // Windows: "India Standard Time", Linux/macOS: "Asia/Kolkata"
-                nfo ist;
+                TimeZoneInfo ist;
                 try
                 {
                     ist = TimeZoneInfo.FindSystemTimeZoneById("Asia/Kolkata");
