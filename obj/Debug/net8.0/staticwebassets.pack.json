@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/Reports/DeltaReport_1_20260411104243.pdf",
+      "PackagePath": "staticwebassets/Reports/DeltaReport_1_20260411104243.pdf"
+    },
+    {
+      "Id": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/Reports/DeltaReport_1_20260411104950.pdf",
+      "PackagePath": "staticwebassets/Reports/DeltaReport_1_20260411104950.pdf"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LISD.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LISD.props",
+      "PackagePath": "build\\LISD.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LISD.props",
+      "PackagePath": "buildMultiTargeting\\LISD.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LISD.props",
+      "PackagePath": "buildTransitive\\LISD.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

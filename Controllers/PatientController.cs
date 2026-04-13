@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Text.Json;
@@ -203,7 +203,7 @@ namespace App.Controllers
                                     : (object)DBNull.Value);
 
                             // Corporate / Insurance
-                            cmd.Parameters.AddWithValue("@corporateId", 0);
+                            cmd.Parameters.AddWithValue("@corporateId", model.GetProperty("CorporateId").GetInt32());
                             cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
 
                             // Billing
@@ -308,6 +308,8 @@ namespace App.Controllers
                         // =========================
                         // STEP 4: SERVICES
                         // =========================
+                        var serviceFtdList = new List<(int ServiceItemId, int FTDId)>();
+
                         foreach (var s in model.GetProperty("Services").EnumerateArray())
                         {
                             using (SqlCommand cmd = new SqlCommand("I_FinancialTransactionDetails", con, txn))
@@ -318,16 +320,22 @@ namespace App.Controllers
                                 decimal rate = s.GetProperty("Amount").GetDecimal();
                                 decimal total = qty * rate;
 
+                                int serviceItemId = s.GetProperty("ServiceItemId").GetInt32();
+
                                 cmd.Parameters.AddWithValue("@hospId", model.GetProperty("HospId").GetInt32());
                                 cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
                                 cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
                                 cmd.Parameters.AddWithValue("@FTID", financialId);
                                 cmd.Parameters.AddWithValue("@visitId", visitId);
                                 cmd.Parameters.AddWithValue("@patientId", patientId);
-
-                                cmd.Parameters.AddWithValue("@serviceItemId", s.GetProperty("ServiceItemId").GetInt32());
+                                cmd.Parameters.AddWithValue("@corporateId",
+                                        model.TryGetProperty("CorporateId", out var corp) && corp.ValueKind != JsonValueKind.Null
+                                            ? corp.GetInt32()
+                                            : 0
+                                    );
+                                cmd.Parameters.AddWithValue("@serviceItemId", serviceItemId);
                                 cmd.Parameters.AddWithValue("@subSubCategoryId", s.GetProperty("SubSubCategoryId").GetInt32());
-                                cmd.Parameters.AddWithValue("@serviceName", s.GetProperty("ServiceName").GetString());
+                                cmd.Parameters.AddWithValue("@serviceName", s.GetProperty("ServiceName").GetString() ?? "");
 
                                 cmd.Parameters.AddWithValue("@rate", rate);
                                 cmd.Parameters.AddWithValue("@qty", qty);
@@ -337,7 +345,18 @@ namespace App.Controllers
                                 cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
                                 cmd.Parameters.AddWithValue("@IpAddress", DbVal(model.GetProperty("IpAddress")));
 
+                                // IMPORTANT: capture inserted FTDId
+                                SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                                {
+                                    Direction = ParameterDirection.Output
+                                };
+                                cmd.Parameters.Add(outParam);
+
                                 cmd.ExecuteNonQuery();
+
+                                int generatedFtdId = Convert.ToInt32(outParam.Value);
+
+                                serviceFtdList.Add((serviceItemId, generatedFtdId));
                             }
                         }
 
@@ -399,8 +418,9 @@ namespace App.Controllers
                                 cmd.ExecuteNonQuery();
                             }
                         }
+
                         // =========================
-                        // STEP 7: PatientInvestigationDetails (FIXED)
+                        // STEP 7: PatientInvestigationDetails
                         // =========================
                         if (model.TryGetProperty("Services", out JsonElement Services))
                         {
@@ -408,9 +428,6 @@ namespace App.Controllers
                             {
                                 int labNo = 0;
 
-                                // =========================
-                                // GET LAB NO
-                                // =========================
                                 using (SqlCommand labCmd = new SqlCommand("getLabNo", con, txn))
                                 {
                                     labCmd.CommandType = CommandType.StoredProcedure;
@@ -427,9 +444,6 @@ namespace App.Controllers
                                     labNo = Convert.ToInt32(outParamLab.Value);
                                 }
 
-                                // =========================
-                                // SAFE SERVICE ITEM ID FETCH
-                                // =========================
                                 int investigationId = 0;
 
                                 if (s.TryGetProperty("ServiceItemId", out var sid) && sid.ValueKind != JsonValueKind.Null)
@@ -445,12 +459,16 @@ namespace App.Controllers
                                     investigationId = sid3.GetInt32();
                                 }
 
-                                // 🔥 DEBUG (optional – remove later)
-                                Console.WriteLine("Mapped InvestigationId: " + investigationId);
+                                // find correct FTDId for this service
+                                int matchedFtdId = serviceFtdList
+                                    .FirstOrDefault(x => x.ServiceItemId == investigationId)
+                                    .FTDId;
 
-                                // =========================
-                                // INSERT INVESTIGATION
-                                // =========================
+                                if (matchedFtdId <= 0)
+                                {
+                                    throw new Exception($"FTDId not found for investigation/service item id {investigationId}");
+                                }
+
                                 using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                                 {
                                     cmd.CommandType = CommandType.StoredProcedure;
@@ -459,9 +477,10 @@ namespace App.Controllers
                                     cmd.Parameters.AddWithValue("@branchId", model.GetProperty("BranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@loginBranchId", model.GetProperty("LoginBranchId").GetInt32());
                                     cmd.Parameters.AddWithValue("@visitId", visitId);
-                                    cmd.Parameters.AddWithValue("@FTDID", financialId);
 
-                                    // ✅ FINAL FIXED LINE
+                                    // CORRECT VALUE
+                                    cmd.Parameters.AddWithValue("@FTDID", matchedFtdId);
+
                                     cmd.Parameters.AddWithValue("@investigationId", investigationId);
 
                                     cmd.Parameters.AddWithValue("@doctorId",
@@ -471,11 +490,8 @@ namespace App.Controllers
 
                                     cmd.Parameters.AddWithValue("@patientId", patientId);
                                     cmd.Parameters.AddWithValue("@labNo", labNo);
-
                                     cmd.Parameters.AddWithValue("@TokenNo", 0);
-
                                     cmd.Parameters.AddWithValue("@userId", model.GetProperty("UserId").GetInt32());
-
                                     cmd.Parameters.AddWithValue("@isUrgent", 0);
                                     cmd.Parameters.AddWithValue("@ReportingBranchId", DBNull.Value);
                                     cmd.Parameters.AddWithValue("@Barcode", DBNull.Value);
@@ -490,7 +506,6 @@ namespace App.Controllers
                                     };
 
                                     cmd.Parameters.Add(outParam);
-
                                     cmd.ExecuteNonQuery();
                                 }
                             }

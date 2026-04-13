@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "y570v0CUuC/YX1NyO92ZGDp+pXikzSzDgNxONryTicA=",
+  "Hash": "y4ElIhCyCX6NoCkMkHHOYIx59+PYYSMMnhxyJ9oHMXg=",
   "Source": "LISD",
   "BasePath": "_content/LISD",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "LISD/wwwroot",
+      "Source": "LISD",
+      "ContentRoot": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/",
+      "BasePath": "_content/LISD",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/Reports/DeltaReport_1_20260411104243.pdf",
+      "SourceId": "LISD",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/",
+      "BasePath": "_content/LISD",
+      "RelativePath": "Reports/DeltaReport_1_20260411104243.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Reports/DeltaReport_1_20260411104243.pdf"
+    },
+    {
+      "Identity": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/Reports/DeltaReport_1_20260411104950.pdf",
+      "SourceId": "LISD",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/wwwroot/",
+      "BasePath": "_content/LISD",
+      "RelativePath": "Reports/DeltaReport_1_20260411104950.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Reports/DeltaReport_1_20260411104950.pdf"
+    }
+  ]
 }

@@ -154,6 +154,8 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/appsettings.Development.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/appsettings.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/global.json
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.staticwebassets.runtime.json
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/DeltaReportTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReportTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.deps.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.runtimeconfig.json

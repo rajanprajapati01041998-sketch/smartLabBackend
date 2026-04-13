@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Lab Report</title>
+
+    <style>
+        @page {
+            size: A4;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-box {
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 95%;
+            box-sizing: border-box;
+
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            /* table-layout: fixed; */
+
+        }
+
+        .header-table td {
+            vertical-align: top;
+            padding: 0 6px;
+        }
+
+        .left-col {
+            width: 38%;
+        }
+
+        .mid-col {
+            width: 47%;
+        }
+
+        .right-col {
+            /* width: 15%; */
+            text-align: center;
+        }
+
+        .line-item {
+            margin-bottom: 4px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .label {
+            display: inline-block;
+            min-width: 110px;
+            font-size: 14px;
+        }
+
+        .colon {
+            display: inline-block;
+            width: 14px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .value {
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .right-wrap {
+            width: 100%;
+            /* min-height: 200px; */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 8px;
+            box-sizing: border-box;
+        }
+
+        .qr-box {
+
+            width: 130px;
+            text-align: center;
+        }
+
+        .barcode-box {
+            /* border: 1px solid; */
+            overflow: hidden;
+            text-align: start;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 16px 0 12px 0;
+            text-transform: uppercase;
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 4px;
+        }
+
+        .report-table th,
+        .report-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+
+        .report-table th {
+            background: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .interpretation-box {
+            margin-top: 14px;
+            font-size: 15px;
+        }
+
+        .interpretation-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .end-text {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .doctor-box {
+            margin-top: 28px;
+            text-align: right;
+        }
+
+        .doctor-sign {
+            display: inline-block;
+            min-width: 240px;
+            text-align: center;
+        }
+
+        .doctor-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .doctor-title,
+        .doctor-date {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .footer-bar {
+            position: fixed;
+            bottom: -35px;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #000;
+            padding: 6px 10px 0 10px;
+            font-size: 12px;
+        }
+
+        .footer-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .footer-table td {
+            border: none;
+            padding: 0;
+            vertical-align: top;
+            white-space: nowrap;
+        }
+
+        .footer-left {
+            width: 24%;
+            text-align: left;
+        }
+
+        .footer-mid {
+            width: 28%;
+            text-align: center;
+        }
+
+        .footer-mid2 {
+            width: 28%;
+            text-align: center;
+        }
+
+        .footer-right {
+            width: 20%;
+            text-align: right;
+        }
+
+        .pageNumber:before {
+            content: counter(page);
+        }
+
+        .totalPages:before {
+            content: counter(pages);
+        }
+        .doctor-signature{
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-box">
+        <table class="header-table">
+            <tr>
+                <td class="left-col">
+                    <div class="line-item"><span class="label">Diagnostics No.</span><span class="colon">:</span><span
+                            class="value">{{DiagnosticsNo}}</span></div>
+                    <div class="line-item"><span class="label">Patient Name</span><span class="colon">:</span><span
+                            class="value">{{PName}}</span></div>
+                    <div class="line-item"><span class="label">Age/Gender</span><span class="colon">:</span><span
+                            class="value">{{AgeGender}}</span></div>
+                    <div class="line-item"><span class="label">Contact No.</span><span class="colon">:</span><span
+                            class="value">{{ContactNo}}</span></div>
+                    <div class="line-item"><span class="label">Referred By</span><span class="colon">:</span><span
+                            class="value">{{ReferredBy}}</span></div>
+                    <div class="line-item"><span class="label">Sample Type</span><span class="colon">:</span><span
+                            class="value">{{SampleType}}</span></div>
+                </td>
+
+                <td class="mid-col">
+                    <div class="line-item"><span class="label">UHID</span><span class="colon">:</span><span
+                            class="value">{{UHID}}</span></div>
+                    <div class="line-item"><span class="label">Reg. Date &amp; Time</span><span
+                            class="colon">:</span><span class="value">{{InvBillingDateTime}}</span></div>
+                    <div class="line-item"><span class="label">Collection Date &amp; Time</span><span
+                            class="colon">:</span><span class="value">{{CollectionDateTime}}</span></div>
+                    <div class="line-item"><span class="label">Reporting Date/Time</span><span
+                            class="colon">:</span><span class="value">{{ReportingDateTime}}</span></div>
+                    <div class="line-item"><span class="label">Report Status</span><span class="colon">:</span><span
+                            class="value">{{ReportStatus}}</span></div>
+                    <div class="line-item"><span class="label">Referred Lab</span><span class="colon">:</span><span
+                            class="value">{{ReferredLab}}</span></div>
+                </td>
+
+                <td class="right-col">
+                    <div class="right-wrap">
+                        <div class="qr-box">
+                            {{QRCodeHtml}}
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+        <div class="barcode-box">
+            {{BarcodeHtml}}
+        </div>
+    </div>
+
+    <div class="section-title">{{Department}}</div>
+
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th style="width:38%;">Test Name</th>
+                <th style="width:16%;">Result</th>
+                <th style="width:14%;">Unit</th>
+                <th style="width:20%;">Bio. Ref. Range</th>
+                <th style="width:12%;">Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{TableRows}}
+        </tbody>
+    </table>
+
+    {{InterpretationSection}}
+
+    <div class="end-text">************ End of Report ************</div>
+
+    <div class="doctor-box">
+        <div class="doctor-sign">
+            <div class="doctor-name">{{DoctorName}}</div>
+            <div class="doctor-title">{{DoctorTitle}}</div>
+            <div class="doctor-signature">{{DoctorSign}}</div>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <table class="footer-table">
+            <tr>
+                <td class="footer-left">{{FooterDateTime}}</td>
+                <td class="footer-mid">Prepared By : {{PreparedBy}}</td>
+                <td class="footer-mid2">Printed By : {{PrintedBy}}</td>
+                <td class="footer-right">Page <span class="pageNumber"></span> of <span class="totalPages"></span></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
