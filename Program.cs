@@ -7,6 +7,10 @@ using App.Settings;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using log4net.Config;
+using log4net;
+using System.Reflection;
+using LISD.Extensions;
 
 
 
@@ -69,6 +73,20 @@ public partial class Program
                 }
             });
         });
+
+
+        // ✅ create date-wise folder path
+        var todayFolder = Path.Combine(AppContext.BaseDirectory, "Logs", DateTime.Now.ToString("yyyy-MM-dd"));
+        Directory.CreateDirectory(todayFolder);
+
+        // ✅ pass folder path to log4net
+        GlobalContext.Properties["LogPath"] = Path.Combine(todayFolder, "application.log");
+
+        // ✅ load log4net config
+        var repository = LogManager.GetRepository(Assembly.GetEntryAssembly()!);
+        XmlConfigurator.Configure(repository, new FileInfo(Path.Combine(AppContext.BaseDirectory, "log4net.config")));
+
+
 
         // Razorpay config
 
@@ -285,6 +303,7 @@ public partial class Program
         // Serve `wwwroot/index.html` at `/`
         app.UseDefaultFiles();
         app.UseStaticFiles();
+        app.UseErrorLogging();
 
 
 

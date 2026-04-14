@@ -22,7 +22,8 @@
           "ZXing.Net": "0.16.11",
           "itext": "8.0.1",
           "itext.bouncy-castle-adapter": "8.0.1",
-          "itext.pdfhtml": "5.0.1"
+          "itext.pdfhtml": "5.0.1",
+          "log4net": "2.0.15"
         },
         "runtime": {
           "LISD.dll": {}
@@ -217,6 +218,17 @@
           "lib/netstandard2.0/itext.html2pdf.dll": {
             "assemblyVersion": "5.0.1.0",
             "fileVersion": "5.0.1.0"
+          }
+        }
+      },
+      "log4net/2.0.15": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "6.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.15.0",
+            "fileVersion": "2.0.15.0"
           }
         }
       },
@@ -1711,6 +1723,13 @@
       "sha512": "sha512-vyDtl35h4OFnWFLAal0qtCdbGUCv4DcjnLT32icodgmUpEKLCytgWVRF+XFjyHWidtqVdGErbouQ2mNa32AKDA==",
       "path": "itext.pdfhtml/5.0.1",
       "hashPath": "itext.pdfhtml.5.0.1.nupkg.sha512"
+    },
+    "log4net/2.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "path": "log4net/2.0.15",
+      "hashPath": "log4net.2.0.15.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.0": {
       "type": "package",

@@ -6,6 +6,8 @@ namespace App.Models
         public decimal Rate { get; set; }
         public int RateListId { get; set; }
         public bool IsRateEditable { get; set; }
+        public string? SampleVolume { get; set; }
+        public string? ContainerColor { get; set; }
 
         public string ServiceName { get; set; }
         public string Code { get; set; }

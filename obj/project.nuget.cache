@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Typ+ekeQDnQ=",
+  "dgSpecHash": "nxuTXI3x6rw=",
   "success": true,
   "projectFilePath": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/LISD.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/itext.bouncy-castle-adapter/8.0.1/itext.bouncy-castle-adapter.8.0.1.nupkg.sha512",
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/itext.commons/8.0.1/itext.commons.8.0.1.nupkg.sha512",
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/itext.pdfhtml/5.0.1/itext.pdfhtml.5.0.1.nupkg.sha512",
+    "/Users/gravitywebtechnologiespvtltd/.nuget/packages/log4net/2.0.15/log4net.2.0.15.nupkg.sha512",
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.0/microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
@@ -161,6 +162,18 @@
     "/Users/gravitywebtechnologiespvtltd/.nuget/packages/zxing.net/0.16.11/zxing.net.0.16.11.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'log4net' 2.0.15 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w",
+      "projectPath": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/LISD.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/LISD.csproj",
+      "libraryId": "log4net",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

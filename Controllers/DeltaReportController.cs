@@ -8,6 +8,7 @@ using System.Net;
 using QRCoder;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using log4net;
 
 namespace LISD.Controllers
 {
@@ -17,6 +18,8 @@ namespace LISD.Controllers
     {
         private readonly IConfiguration _config;
         private readonly IWebHostEnvironment _env;
+
+        private static readonly ILog _log = LogManager.GetLogger(typeof(DeltaReportController));
 
         public DeltaReportController(IConfiguration config, IWebHostEnvironment env)
         {
@@ -35,8 +38,11 @@ namespace LISD.Controllers
         {
             try
             {
+                _log.Info($"DownloadDeltaReport API called with PatientInvestigationIdList={PatientInvestigationIdList}, isHeaderPNG={isHeaderPNG}, PrintBy={PrintBy}, branchId={branchId}, ViewReport={ViewReport}");
+
                 if (string.IsNullOrWhiteSpace(PatientInvestigationIdList))
                 {
+                    _log.Warn("PatientInvestigationIdList is required.");
                     return BadRequest(new
                     {
                         status = false,
@@ -47,6 +53,7 @@ namespace LISD.Controllers
                 var connectionString = _config.GetConnectionString("DefaultConnection");
                 if (string.IsNullOrWhiteSpace(connectionString))
                 {
+                    _log.Error("Connection string missing.");
                     return StatusCode(500, new
                     {
                         status = false,
@@ -347,6 +354,7 @@ namespace LISD.Controllers
             }
             catch (Exception ex)
             {
+                _log.Error("Error in DownloadDeltaReport API", ex);
                 return StatusCode(500, new
                 {
                     status = false,
@@ -571,10 +579,10 @@ namespace LISD.Controllers
                 return "";
 
             return $@"
-<div class='interpretation-box'>
-    <div class='interpretation-title'>Interpretation :</div>
-    <div>{interpretation}</div>
-</div>";
+        <div class='interpretation-box'>
+            <div class='interpretation-title'>Interpretation :</div>
+            <div>{interpretation}</div>
+        </div>";
         }
     }
 }

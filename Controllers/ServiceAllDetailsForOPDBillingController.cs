@@ -17,9 +17,6 @@ namespace App.Controllers
             _configuration = configuration;
         }
 
-        /// <summary>
-        /// Get Service Details for OPD Billing
-        /// </summary>
         [HttpGet("GetServiceDetails")]
         public async Task<IActionResult> GetServiceDetails(
             int corporateId,
@@ -28,7 +25,7 @@ namespace App.Controllers
             int categoryId,
             int subCategoryId,
             int subSubCategoryId,
-            string previlegedCardNo = null,
+            string? previlegedCardNo = null,
             int bedTypeId = 0)
         {
             try
@@ -46,7 +43,7 @@ namespace App.Controllers
                     cmd.Parameters.AddWithValue("@categoryId", categoryId);
                     cmd.Parameters.AddWithValue("@subCategoryId", subCategoryId);
                     cmd.Parameters.AddWithValue("@subSubCategoryId", subSubCategoryId);
-                    cmd.Parameters.AddWithValue("@previlegedCardNo", (object)previlegedCardNo ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@previlegedCardNo", string.IsNullOrWhiteSpace(previlegedCardNo) ? DBNull.Value : previlegedCardNo);
                     cmd.Parameters.AddWithValue("@bedTypeId", bedTypeId);
 
                     await con.OpenAsync();
@@ -57,27 +54,29 @@ namespace App.Controllers
                         {
                             result = new ServiceAllDetailsForOPDBillingModel
                             {
-                                MRP = Convert.ToDecimal(reader["MRP"]),
-                                Rate = Convert.ToDecimal(reader["Rate"]),
-                                RateListId = Convert.ToInt32(reader["RateListId"]),
-                                IsRateEditable = Convert.ToBoolean(reader["IsRateEditable"]),
-                                ServiceName = reader["ServiceName"]?.ToString(),
-                                Code = reader["Code"]?.ToString(),
-                                CorporateAlias = reader["CorporateAlias"]?.ToString(),
-                                CorporateCode = reader["CorporateCode"]?.ToString(),
-                                ValidityDays = Convert.ToInt32(reader["ValidityDays"]),
-                                DiscountPer = Convert.ToDecimal(reader["DiscountPer"]),
-                                DiscountReason = reader["DiscountReason"]?.ToString(),
-                                IsNonPayable = Convert.ToInt32(reader["IsNonPayable"]),
-                                ServiceItemId = Convert.ToInt32(reader["ServiceItemId"]),
-                                CategoryId = Convert.ToInt32(reader["CategoryId"]),
-                                SubCategoryId = Convert.ToInt32(reader["SubCategoryId"]),
-                                SubSubCategoryId = Convert.ToInt32(reader["SubSubCategoryId"]),
-                                IsCorporateDiscount = Convert.ToInt32(reader["IsCorporateDiscount"]),
-                                IsPrivilegedCardDiscount = Convert.ToInt32(reader["IsPrivilegedCardDiscount"]),
-                                DefaultSampleTypeId = Convert.ToInt32(reader["DefaultSampleTypeId"]),
-                                SampleTypeIdList = reader["SampleTypeIdList"]?.ToString(),
-                                SampleTypeList = reader["SampleTypeList"]?.ToString()
+                                MRP = GetDecimal(reader, "MRP"),
+                                Rate = GetDecimal(reader, "Rate"),
+                                RateListId = GetInt(reader, "RateListId"),
+                                IsRateEditable = GetBool(reader, "IsRateEditable"),
+                                ServiceName = GetString(reader, "ServiceName"),
+                                SampleVolume = GetString(reader, "SampleVolume"),
+                                ContainerColor = GetString(reader, "ContainerColor"),
+                                Code = GetString(reader, "Code"),
+                                CorporateAlias = GetString(reader, "CorporateAlias"),
+                                CorporateCode = GetString(reader, "CorporateCode"),
+                                ValidityDays = GetInt(reader, "ValidityDays"),
+                                DiscountPer = GetDecimal(reader, "DiscountPer"),
+                                DiscountReason = GetString(reader, "DiscountReason"),
+                                IsNonPayable = GetInt(reader, "IsNonPayable"),
+                                ServiceItemId = GetInt(reader, "ServiceItemId"),
+                                CategoryId = GetInt(reader, "CategoryId"),
+                                SubCategoryId = GetInt(reader, "SubCategoryId"),
+                                SubSubCategoryId = GetInt(reader, "SubSubCategoryId"),
+                                IsCorporateDiscount = GetInt(reader, "IsCorporateDiscount"),
+                                IsPrivilegedCardDiscount = GetInt(reader, "IsPrivilegedCardDiscount"),
+                                DefaultSampleTypeId = GetInt(reader, "DefaultSampleTypeId"),
+                                SampleTypeIdList = GetString(reader, "SampleTypeIdList"),
+                                SampleTypeList = GetString(reader, "SampleTypeList")
                             };
                         }
                     }
@@ -99,6 +98,52 @@ namespace App.Controllers
                     Data = ex.Message
                 });
             }
+        }
+
+        private static bool HasColumn(IDataRecord reader, string columnName)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                if (string.Equals(reader.GetName(i), columnName, StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
+        }
+
+        private static string? GetString(IDataRecord reader, string columnName)
+        {
+            if (!HasColumn(reader, columnName))
+                return null;
+
+            object value = reader[columnName];
+            return value == DBNull.Value ? null : value.ToString();
+        }
+
+        private static int GetInt(IDataRecord reader, string columnName)
+        {
+            if (!HasColumn(reader, columnName))
+                return 0;
+
+            object value = reader[columnName];
+            return value == DBNull.Value ? 0 : Convert.ToInt32(value);
+        }
+
+        private static decimal GetDecimal(IDataRecord reader, string columnName)
+        {
+            if (!HasColumn(reader, columnName))
+                return 0;
+
+            object value = reader[columnName];
+            return value == DBNull.Value ? 0 : Convert.ToDecimal(value);
+        }
+
+        private static bool GetBool(IDataRecord reader, string columnName)
+        {
+            if (!HasColumn(reader, columnName))
+                return false;
+
+            object value = reader[columnName];
+            return value != DBNull.Value && Convert.ToBoolean(value);
         }
     }
 }

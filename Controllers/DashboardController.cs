@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using log4net;
 
 namespace App.Controllers
 {
@@ -10,6 +11,8 @@ namespace App.Controllers
     public class DashboardController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private static readonly ILog _log = LogManager.GetLogger(typeof(DashboardController));
+
 
         public DashboardController(IConfiguration configuration)
         {
@@ -27,6 +30,8 @@ namespace App.Controllers
         {
             try
             {
+                _log.Info($"GetDashboardStates API called. branchId={branchId}, userId={userId}");
+
                 using SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
                 using SqlCommand cmd = new SqlCommand("S_DashBoard_States", con);
 
@@ -64,11 +69,13 @@ namespace App.Controllers
 
                     return Ok(result);
                 }
+                _log.Info($"GetDashboardStates success.");
 
                 return Ok(new { message = "No data found" });
             }
             catch (Exception ex)
             {
+                _log.Error("Unhandled error in GetDashboardStates API", ex);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -78,6 +85,7 @@ namespace App.Controllers
         {
             try
             {
+                _log.Info($"GetWalletAmount API called. clientIds={clientIds}");
                 using SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
                 using SqlCommand cmd = new SqlCommand("S_GetWelletAMTData", con);
 
@@ -104,11 +112,12 @@ namespace App.Controllers
 
                     return Ok(result);
                 }
-
+                _log.Info($"GetWalletAmount success.");
                 return Ok(new { message = "No data found" });
             }
             catch (Exception ex)
             {
+                _log.Error("Unhandled error in GetWalletAmount API", ex);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -116,13 +125,14 @@ namespace App.Controllers
 
         [HttpGet("bill-advance")]
         public async Task<IActionResult> GetBillAndAdvanceDash(
-    string? filter = null,
-    string clientIdList = "",
-    string? fromDate = null,
-    string? toDate = null)
+            string? filter = null,
+            string clientIdList = "",
+            string? fromDate = null,
+            string? toDate = null)
         {
             try
             {
+                _log.Info($"GetBillAndAdvanceDash API called. filter={filter}, clientIdList={clientIdList}, fromDate={fromDate}, toDate={toDate}");
                 using SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
                 using SqlCommand cmd = new SqlCommand("S_GetBillAndAdvanceDash", con);
 
@@ -174,6 +184,7 @@ namespace App.Controllers
                     }
                 }
 
+                _log.Info($"GetBillAndAdvanceDash success. transactionsCount={transactions.Count}, summaryExists={summary != null}");
                 return Ok(new
                 {
                     transactions,
@@ -182,7 +193,9 @@ namespace App.Controllers
             }
             catch (Exception ex)
             {
+                _log.Error("Unhandled error in GetBillAndAdvanceDash API", ex);
                 return StatusCode(500, ex.Message);
+
             }
         }
     }

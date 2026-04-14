@@ -1,0 +1,145 @@
+2026-04-14 12:18:10,380 INFO  LISD.Controllers.CountryController - GetCountries API called. filter=
+2026-04-14 12:18:10,647 INFO  LISD.Controllers.CountryController - GetCountries success. count=1
+2026-04-14 12:26:11,956 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 12:26:11,957 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 12:26:12,055 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 12:26:30,662 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 12:40:38,771 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=GET, Path=/api/DeltaReport/download-delta-report, Query=?PatientInvestigationIdList=4123&isHeaderPNG=0&PrintBy=1&branchId=1&ViewReport=false
+2026-04-14 12:40:48,047 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=GET, Path=/api/DeltaReport/download-delta-report, Query=?PatientInvestigationIdList=4123&isHeaderPNG=0&PrintBy=1&branchId=1&ViewReport=true
+2026-04-14 12:41:40,119 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=4123&isHeaderPNG=0&PrintBy=1&branchId=1&ViewReport=true
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LISD.Controllers.DeltaReportController.DownloadDeltaReport(String PatientInvestigationIdList, Int32 isHeaderPNG, Int32 PrintBy, Int32 branchId, Boolean ViewReport)
+   at lambda_method24(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-14 12:42:27,131 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4123, isHeaderPNG=0, PrintBy=1, branchId=1, ViewReport=True
+2026-04-14 12:42:35,650 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4123, isHeaderPNG=0, PrintBy=1, branchId=1, ViewReport=False
+2026-04-14 12:44:36,875 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4123, isHeaderPNG=0, PrintBy=1, branchId=1, ViewReport=True
+2026-04-14 12:44:44,169 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4123, isHeaderPNG=0, PrintBy=1, branchId=1, ViewReport=False
+2026-04-14 12:48:24,158 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Method     : GET
+Path       : /api/Doctor/GetDoctorList
+Query      : ?branchId=1
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Controllers.DoctorController.GetDoctorList(Int32 branchId, String filter)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-14 12:49:28,314 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Method     : GET
+Path       : /api/Doctor/GetDoctorList
+Query      : ?branchId=1
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at App.Controllers.DoctorController.GetDoctorList(Int32 branchId, String filter)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-14 12:50:10,085 INFO  App.Controllers.DoctorController - GetDoctorList API called. branchId=1, filter=
+2026-04-14 12:50:10,130 INFO  App.Controllers.DoctorController - GetDoctorList success.
+2026-04-14 15:16:27,753 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 15:16:27,879 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-14 15:37:43,973 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 15:37:43,973 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 15:37:43,973 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 15:49:40,446 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 15:49:40,454 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 15:49:40,550 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 15:49:45,970 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 15:49:46,007 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-14 15:49:48,145 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 15:49:48,145 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:14:29,548 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:14:29,548 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:14:29,615 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:18:40,542 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:18:40,552 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:18:40,716 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:35:46,864 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:35:46,864 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:35:46,954 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:36:49,703 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:36:49,703 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:36:49,768 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:55:40,617 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:55:40,623 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:55:40,656 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:55:42,510 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 16:55:42,514 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-14 16:55:42,521 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-14, toDate=2026-04-14
+2026-04-14 16:55:42,625 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-14, toDate=2026-04-14
+2026-04-14 16:55:42,625 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-14 16:55:42,631 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-14 16:55:44,654 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:55:44,654 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:56:51,250 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:56:51,250 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:56:51,298 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:57:04,636 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:57:04,636 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:57:04,707 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:58:43,059 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 16:58:43,057 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 16:58:43,256 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:00:51,385 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:00:51,388 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 17:00:51,428 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:02:37,880 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 17:02:37,881 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:02:37,953 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:03:17,933 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:03:17,943 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 17:03:18,114 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:28:45,802 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 17:28:45,802 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:28:45,914 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:29:17,573 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 17:29:17,573 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 17:29:17,685 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1

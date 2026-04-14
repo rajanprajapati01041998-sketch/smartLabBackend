@@ -3,6 +3,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using App.Models;
 using App.Common;
+using log4net;
 
 
 namespace App.Controllers
@@ -12,6 +13,7 @@ namespace App.Controllers
     public class DoctorController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private static readonly ILog _log = LogManager.GetLogger(typeof(DoctorController));
 
         public DoctorController(IConfiguration configuration)
         {
@@ -29,6 +31,8 @@ namespace App.Controllers
         {
             try
             {
+                _log.Info($"GetDoctorList API called. branchId={branchId}, filter={filter}");
+
                 var doctorList = new List<DoctorModel>();
 
                 using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -57,8 +61,9 @@ namespace App.Controllers
                         }
                     }
                 }
-
+                _log.Info($"GetDoctorList success.");
                 return Ok(new ApiResponse<List<DoctorModel>>
+
                 {
                     Success = true,
                     Message = "Doctor list fetched successfully",
@@ -68,6 +73,8 @@ namespace App.Controllers
             }
             catch (Exception ex)
             {
+                _log.Error("Unhandled error in GetDashboardStates API", ex);
+
                 return StatusCode(500, new ApiResponse<string>
                 {
                     Success = false,

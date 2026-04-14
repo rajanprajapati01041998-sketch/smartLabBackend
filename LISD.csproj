@@ -15,6 +15,7 @@
     <PackageReference Include="itext" Version="8.0.1" />
     <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.1" />
     <PackageReference Include="itext.pdfhtml" Version="5.0.1" />
+    <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
@@ -36,6 +37,13 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Library\" />
+  </ItemGroup>
+
+<!-- log4net.config file -->
+    <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <!-- Templates Content -->

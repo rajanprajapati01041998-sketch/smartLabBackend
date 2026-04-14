@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using System.Data.SqlClient;
+using log4net;
 using Microsoft.Data.SqlClient;
 
 [Route("api/[controller]")]
@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient;
 public class BranchController : ControllerBase
 {
     private readonly IConfiguration _config;
+    private static readonly ILog _log = LogManager.GetLogger(typeof(BranchController));
 
     public BranchController(IConfiguration config)
     {
@@ -19,13 +20,14 @@ public class BranchController : ControllerBase
     {
         try
         {
+            _log.Info($"GetBranchAndUserWiseBranchList API called. branchId={branchId}, userId={userId}");
+
             using (SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
             {
                 using (SqlCommand cmd = new SqlCommand("S_GetBranchAndUserWiseBranchList", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Parameters
                     cmd.Parameters.AddWithValue("@branchId", branchId);
                     cmd.Parameters.AddWithValue("@userId", userId);
 
@@ -41,20 +43,45 @@ public class BranchController : ControllerBase
 
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
-                                row[reader.GetName(i)] = reader[i];
+                                row[reader.GetName(i)] = reader[i] == DBNull.Value ? null : reader[i];
                             }
 
                             list.Add(row);
                         }
 
-                        return Ok(list);
+                        _log.Info($"GetBranchAndUserWiseBranchList success. branchId={branchId}, userId={userId}, count={list.Count}");
+
+                        return Ok(new
+                        {
+                            status = true,
+                            message = "Data fetched successfully",
+                            data = list
+                        });
                     }
                 }
             }
         }
+        catch (SqlException sqlEx)
+        {
+            _log.Error($"SQL error in GetBranchAndUserWiseBranchList. branchId={branchId}, userId={userId}", sqlEx);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Database error occurred",
+                error = sqlEx.Message
+            });
+        }
         catch (Exception ex)
         {
-            return StatusCode(500, ex.Message);
+            _log.Error($"Unhandled error in GetBranchAndUserWiseBranchList. branchId={branchId}, userId={userId}", ex);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Internal server error",
+                error = ex.Message
+            });
         }
     }
 }
