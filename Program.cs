@@ -295,9 +295,10 @@ public partial class Program
         {
             app.UseSwagger();
             app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "LISD API v1");
-            });
+                {
+                    options.RoutePrefix = "swagger";
+                    options.SwaggerEndpoint("v1/swagger.json", "LISD API v1");
+                });
         }
 
         // Serve `wwwroot/index.html` at `/`

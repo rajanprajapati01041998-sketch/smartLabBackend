@@ -143,3 +143,29 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2026-04-14 17:29:17,573 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
 2026-04-14 17:29:17,573 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
 2026-04-14 17:29:17,685 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 18:07:03,964 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9069
+2026-04-14 18:07:03,964 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9069, userId=28189
+2026-04-14 18:07:04,101 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9069, userId=28189
+2026-04-14 18:07:35,806 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9069
+2026-04-14 18:07:35,807 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9069, userId=28189
+2026-04-14 18:07:50,889 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
+2026-04-14 18:07:50,891 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9108
+2026-04-14 18:07:50,950 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
+2026-04-14 18:10:20,069 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
+2026-04-14 18:10:20,072 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9108
+2026-04-14 18:10:50,974 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 18:10:50,977 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 18:10:51,106 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 18:28:48,617 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 18:28:48,623 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-14 18:29:01,474 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/HelpDesk/help_desk, Query=
+2026-04-14 18:29:05,172 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 18:29:05,176 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-14 18:29:09,238 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/HelpDesk/help_desk, Query=
+2026-04-14 18:29:12,041 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-14 18:29:12,045 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-14 18:29:15,889 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-14 18:29:15,892 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-14 18:31:03,657 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9108
+2026-04-14 18:31:03,659 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
+2026-04-14 18:31:03,713 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
