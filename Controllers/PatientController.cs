@@ -523,6 +523,41 @@ namespace App.Controllers
                             if (matchedFtdId <= 0)
                                 throw new Exception($"FTDId not found for investigation/service item id {investigationId}");
 
+                            // ✅ Read IsUrgent
+                            int isUrgent = 0;
+                            if (s.TryGetProperty("IsUrgent", out var urgent1) && urgent1.ValueKind != JsonValueKind.Null)
+                                isUrgent = urgent1.GetInt32();
+                            else if (s.TryGetProperty("isUrgent", out var urgent2) && urgent2.ValueKind != JsonValueKind.Null)
+                                isUrgent = urgent2.GetInt32();
+
+                            // ✅ Read Barcode
+                            string? barcode = null;
+                            if (s.TryGetProperty("Barcode", out var barcode1) && barcode1.ValueKind != JsonValueKind.Null)
+                                barcode = barcode1.GetString();
+                            else if (s.TryGetProperty("barcode", out var barcode2) && barcode2.ValueKind != JsonValueKind.Null)
+                                barcode = barcode2.GetString();
+
+                            // ✅ Read TestRemark
+                            string? testRemark = null;
+                            if (s.TryGetProperty("TestRemark", out var remark1) && remark1.ValueKind != JsonValueKind.Null)
+                                testRemark = remark1.GetString();
+                            else if (s.TryGetProperty("testRemark", out var remark2) && remark2.ValueKind != JsonValueKind.Null)
+                                testRemark = remark2.GetString();
+
+                            // ✅ Read ReportingBranchId from root Investigations if needed
+                            int reportingBranchId = 0;
+                            if (model.TryGetProperty("Investigations", out var investigations) &&
+                                investigations.ValueKind == JsonValueKind.Array &&
+                                investigations.GetArrayLength() > 0)
+                            {
+                                var inv = investigations[0];
+
+                                if (inv.TryGetProperty("ReportingBranchId", out var rb1) && rb1.ValueKind != JsonValueKind.Null)
+                                    reportingBranchId = rb1.GetInt32();
+                                else if (inv.TryGetProperty("reportingBranchId", out var rb2) && rb2.ValueKind != JsonValueKind.Null)
+                                    reportingBranchId = rb2.GetInt32();
+                            }
+
                             using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
@@ -538,10 +573,10 @@ namespace App.Controllers
                                 cmd.Parameters.AddWithValue("@labNo", labNo);
                                 cmd.Parameters.AddWithValue("@TokenNo", 0);
                                 cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
-                                cmd.Parameters.AddWithValue("@isUrgent", 0);
-                                cmd.Parameters.AddWithValue("@ReportingBranchId", DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Barcode", DBNull.Value);
-                                cmd.Parameters.AddWithValue("@testRemark", DBNull.Value);
+                                cmd.Parameters.AddWithValue("@isUrgent", isUrgent);
+                                cmd.Parameters.AddWithValue("@ReportingBranchId", reportingBranchId > 0 ? reportingBranchId : DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Barcode", string.IsNullOrWhiteSpace(barcode) ? DBNull.Value : barcode);
+                                cmd.Parameters.AddWithValue("@testRemark", string.IsNullOrWhiteSpace(testRemark) ? DBNull.Value : testRemark);
                                 cmd.Parameters.AddWithValue("@sampleTypeId", 0);
                                 cmd.Parameters.AddWithValue("@LabComment", DBNull.Value);
                                 cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
@@ -553,6 +588,8 @@ namespace App.Controllers
 
                                 cmd.Parameters.Add(outParam);
                                 cmd.ExecuteNonQuery();
+
+                                Console.WriteLine($"Saved ServiceItemId={investigationId}, Barcode={barcode}, TestRemark={testRemark}");
                             }
                         }
 

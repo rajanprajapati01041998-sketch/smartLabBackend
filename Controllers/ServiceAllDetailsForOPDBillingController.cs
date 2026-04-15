@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using App.Models;
 using App.Common;
+using Microsoft.Identity.Client;
 
 namespace App.Controllers
 {
@@ -43,7 +44,8 @@ namespace App.Controllers
                     cmd.Parameters.AddWithValue("@categoryId", categoryId);
                     cmd.Parameters.AddWithValue("@subCategoryId", subCategoryId);
                     cmd.Parameters.AddWithValue("@subSubCategoryId", subSubCategoryId);
-                    cmd.Parameters.AddWithValue("@previlegedCardNo", string.IsNullOrWhiteSpace(previlegedCardNo) ? DBNull.Value : previlegedCardNo);
+                    cmd.Parameters.AddWithValue("@previlegedCardNo",
+                        string.IsNullOrWhiteSpace(previlegedCardNo) ? DBNull.Value : previlegedCardNo);
                     cmd.Parameters.AddWithValue("@bedTypeId", bedTypeId);
 
                     await con.OpenAsync();
@@ -107,6 +109,7 @@ namespace App.Controllers
                 if (string.Equals(reader.GetName(i), columnName, StringComparison.OrdinalIgnoreCase))
                     return true;
             }
+
             return false;
         }
 
@@ -145,5 +148,59 @@ namespace App.Controllers
             object value = reader[columnName];
             return value != DBNull.Value && Convert.ToBoolean(value);
         }
+
+        // Get test display range
+        [HttpGet("get-investigation-range")]
+        public async Task<IActionResult> GetInvestigationRange(int investigationId)
+        {
+            try
+            {
+                var list = new List<InvestigationRangeModel>();
+
+                using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                using (SqlCommand cmd = new SqlCommand("S_GetInvestigationRangeDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@InvestigationId", investigationId);
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            list.Add(new InvestigationRangeModel
+                            {
+                                ObservationName = reader["ObservationName"]?.ToString(),
+                                ObservationId = Convert.ToInt32(reader["ObservationId"]),
+                                InvastigationId = Convert.ToInt32(reader["InvastigationId"]),
+                                MinValue = reader["MinValue"]?.ToString(),
+                                MaxValue = reader["MaxValue"]?.ToString(),
+                                DisplayRange = reader["DisplayRange"]?.ToString(),
+                                Unit = reader["Unit"]?.ToString()
+                            });
+                        }
+                    }
+                }
+
+                return Ok(new
+                {
+                    status = true,
+                    message = "Data fetched successfully",
+                    data = list
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = false,
+                    message = "Error fetching data",
+                    error = ex.Message
+                });
+            }
+        }
+
     }
 }

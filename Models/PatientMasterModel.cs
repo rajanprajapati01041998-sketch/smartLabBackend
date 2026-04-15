@@ -122,7 +122,7 @@ namespace App.Models
         public int? IsUrgent { get; set; }
         public int? ReportingBranchId { get; set; }
         public string? Barcode { get; set; }
-        public string? TestRemark { get; set; }
+        public string? Remarks { get; set; }
         public int? SampleTypeId { get; set; }
         public string? LabComment { get; set; }
     }

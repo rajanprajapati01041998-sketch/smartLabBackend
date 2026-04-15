@@ -169,3 +169,4 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2026-04-14 18:31:03,657 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9108
 2026-04-14 18:31:03,659 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
 2026-04-14 18:31:03,713 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9108, userId=28226
+2026-04-15 10:32:36,298 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=GET, Path=/api/ServiceAllDetailsForOPDBilling/GetTestDisplayRange, Query=?serviceItemId=346

@@ -84,4 +84,75 @@ public class BranchController : ControllerBase
             });
         }
     }
+
+
+    [HttpGet("branch-details")]
+    public async Task<IActionResult> GetBranchDetailsByBranchId(int branchId)
+    {
+        try
+        {
+            _log.Info($"GetBranchDetailsByBranchId API called. branchId={branchId}");
+
+            using (SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand("S_GetBranchDetailsByBranchId", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@branchId", branchId);
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        var list = new List<Dictionary<string, object>>();
+
+                        while (await reader.ReadAsync())
+                        {
+                            var row = new Dictionary<string, object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row[reader.GetName(i)] =
+                                    reader[i] == DBNull.Value ? null : reader[i];
+                            }
+
+                            list.Add(row);
+                        }
+
+                        _log.Info($"GetBranchDetailsByBranchId success. branchId={branchId}, count={list.Count}");
+
+                        return Ok(new
+                        {
+                            status = true,
+                            message = "Branch details fetched successfully",
+                            data = list
+                        });
+                    }
+                }
+            }
+        }
+        catch (SqlException sqlEx)
+        {
+            _log.Error($"SQL error in GetBranchDetailsByBranchId. branchId={branchId}", sqlEx);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Database error occurred",
+                error = sqlEx.Message
+            });
+        }
+        catch (Exception ex)
+        {
+            _log.Error($"Unhandled error in GetBranchDetailsByBranchId. branchId={branchId}", ex);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Internal server error",
+                error = ex.Message
+            });
+        }
+    }
 }
