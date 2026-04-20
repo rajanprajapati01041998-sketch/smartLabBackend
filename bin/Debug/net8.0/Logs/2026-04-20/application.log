@@ -1,0 +1,399 @@
+2026-04-20 12:07:12,699 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:07:28,921 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:07:36,249 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:07:46,422 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:07:52,055 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:09:29,582 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:09:47,784 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:09:57,066 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:10:53,951 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:10:53,965 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:10:54,193 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:10:58,079 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:10:58,093 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:10:58,093 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:10:58,096 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:14:48,334 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:14:48,358 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:21:03,242 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:21:03,242 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:21:03,298 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:21:06,867 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:21:06,881 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:21:06,917 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:21:06,923 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:25:11,722 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:25:11,743 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:25:13,577 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:25:13,594 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:25:18,010 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:25:18,010 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:25:19,381 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:25:19,387 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:25:33,382 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:25:33,390 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:25:35,400 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:25:35,402 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:25:39,681 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:25:39,681 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:25:41,100 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:25:41,105 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:27:29,132 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:27:29,132 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:27:29,414 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:27:30,322 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:27:30,333 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:27:30,363 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:27:30,366 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:29:56,088 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:29:56,096 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:30:15,857 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:30:15,867 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:30:24,503 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:30:24,510 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:30:31,581 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:30:31,588 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:32:11,135 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:32:11,140 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:32:13,100 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:32:13,100 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:32:14,592 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:32:14,597 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:32:14,634 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-20, toDate=2026-04-20
+2026-04-20 12:32:14,668 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-20 12:32:14,806 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,9073,9084,9095,9135,9116,9119,9099,9167,9077,9097,9109,9151,9103,9158,9136,9104,9165,9123,9172,9105,9164,9154,9127,9088,9074,9166,9075,9163,9092,9081,9150,9147,9128,9132,9149,9174,9156,9138,9083,9171,9117,9161,9160,9110,9090,9080,9101,9106,9126,9146,9121,9076,9091,9082,9153,9108,9169,9134,9098,9143,9094,9162,9115,9086,9089,9125,9111,9071,9069,8066,9070,9067,9068,9066,9141,9113,9137,9130,9152,9122,9145,9129,9093,9140,9112,9168,9155,9114,9173,9118,9159,9087,9107,9142,9144,9072,9085,9096,9078,9079,9170,9124,9139,9100,9157,9120,9133,9102,9131,9148, fromDate=2026-04-20, toDate=2026-04-20
+2026-04-20 12:32:14,817 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-20 12:32:36,653 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:32:36,887 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-20, toDate=2026-04-20
+2026-04-20 12:32:36,913 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=1, summaryExists=True
+2026-04-20 12:32:40,787 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:32:40,790 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:32:42,907 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:32:42,913 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:33:35,548 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:33:42,524 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:33:47,339 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:34:13,294 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:36:31,772 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:36:55,043 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 12:42:00,423 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=0, PrintBy=1, branchId=0, clientId=0, ViewReport=False
+2026-04-20 12:42:08,467 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:42:08,478 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:42:23,293 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=0, clientId=0, ViewReport=False
+2026-04-20 12:45:08,244 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=0, clientId=0, ViewReport=False
+2026-04-20 12:45:18,420 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=0, clientId=0, ViewReport=False
+2026-04-20 12:45:39,696 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:45:47,457 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:46:27,468 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:46:41,784 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:46:48,710 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:47:03,790 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 12:49:16,095 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:49:24,722 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:50:34,851 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:54:31,954 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 12:54:31,954 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:54:32,132 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 12:54:35,178 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:54:35,191 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:54:35,200 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 12:54:35,204 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 12:54:45,055 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:57:04,688 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:57:26,901 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14547, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:57:48,004 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:58:17,773 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:59:14,019 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 12:59:49,710 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:00:09,783 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:00:20,747 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:00:50,333 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:01:05,069 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:01:14,705 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:01:30,387 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:01:44,310 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14045, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:05:03,260 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:05:03,264 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 13:05:03,504 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:05:05,064 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:05:05,069 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:05:05,088 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:05:05,091 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:09:51,843 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:09:51,843 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 13:09:52,079 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:09:56,391 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:09:56,401 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:09:56,427 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:09:56,431 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:10:14,312 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:14:43,680 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:14:48,850 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:14:54,951 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:15:12,025 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:15:18,376 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:16:27,692 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:16:45,192 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:13,513 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:21,871 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:27,777 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:33,265 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:41,861 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:17:49,136 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:18:04,652 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:18:17,307 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:18:37,550 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:18:50,399 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:19:46,013 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:19:55,141 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:20:01,202 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:20:11,984 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:20:17,470 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:20:24,502 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:20:24,503 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 13:20:24,652 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:20:41,620 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:20:41,638 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:20:41,645 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:20:41,645 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:20:53,828 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:21:05,448 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 13:21:14,704 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:22:21,690 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:22:21,700 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:27:59,966 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:28:00,623 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:28:26,745 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14026, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 13:28:38,391 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14026, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:29:14,184 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14043, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:33:15,769 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14043, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:33:22,385 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14043, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:33:59,057 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 13:33:59,057 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:33:59,242 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:34:01,858 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:34:01,865 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:34:01,882 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:34:01,886 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:40:18,496 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-04-20 13:50:23,549 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:50:23,549 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 13:50:23,710 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 13:50:25,707 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:50:25,712 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:50:25,730 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:50:25,735 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:50:44,708 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14132, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:51:14,331 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14132, isHeaderPNG=1, PrintBy=1, branchId=0, clientId=1, ViewReport=False
+2026-04-20 13:51:39,611 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14137, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:53:29,047 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14137, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:53:57,014 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14137, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:54:17,206 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14137, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 13:54:40,769 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 13:54:40,789 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 13:57:09,644 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 15:19:49,591 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 15:19:55,911 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 15:20:03,881 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 15:20:11,429 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:20:11,429 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:20:11,586 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:20:47,147 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:20:47,166 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:20:47,173 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:20:47,177 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:20:58,952 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 15:22:42,975 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 15:25:30,422 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-04-20 15:26:22,202 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-04-20 15:27:26,417 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:27:26,417 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:27:37,479 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:27:37,499 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:27:37,663 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:27:44,126 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:27:44,126 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:27:45,846 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:27:45,853 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:27:45,869 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:27:45,873 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:27:55,521 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=True
+2026-04-20 15:28:04,877 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14541, isHeaderPNG=1, PrintBy=1, branchId=0, clientId=1, ViewReport=True
+2026-04-20 15:30:58,659 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:30:58,673 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:31:07,935 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:31:07,940 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:34:03,168 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:34:03,171 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:34:03,274 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:34:28,439 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 15:34:28,450 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 15:34:28,629 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 15:34:28,631 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 15:35:52,856 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:35:52,869 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:35:52,871 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:35:52,877 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:36:33,766 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:36:33,789 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:36:38,504 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:36:38,505 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:36:38,632 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:36:43,894 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 15:36:43,899 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 15:36:44,124 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 15:36:44,126 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 15:40:27,997 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:40:28,016 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:40:28,023 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:40:28,026 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:40:32,957 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:40:32,961 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:40:40,292 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:40:40,299 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:40:55,184 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:40:55,191 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:41:08,112 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:41:08,119 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:41:10,040 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:41:10,040 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:47:39,508 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:47:39,524 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:47:39,651 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:56:39,481 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:56:39,487 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 15:56:39,698 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 15:56:42,811 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:56:42,823 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:56:42,834 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:56:42,838 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 15:58:53,682 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 15:58:53,701 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:09:25,528 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:09:25,570 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:09:29,012 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:09:29,022 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:09:32,274 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:09:32,290 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:09:32,663 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:09:32,669 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:09:59,351 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:09:59,357 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:23:19,871 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:23:19,928 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:23:22,447 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:23:22,448 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:23:25,159 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:23:25,164 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:28:01,768 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:28:01,768 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:28:01,938 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:28:05,505 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:28:05,518 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:28:05,915 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:28:05,919 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:28:35,898 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:28:35,904 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:28:35,956 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:28:35,959 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:29:33,794 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:29:33,817 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:29:45,881 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:29:45,892 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:30:06,167 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:30:06,167 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:30:06,318 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:30:08,686 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:30:08,690 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:30:08,708 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:30:08,711 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:30:31,956 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:30:31,963 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:30:32,120 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:30:41,663 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:30:41,672 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:30:41,688 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:30:41,691 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:31:38,586 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:31:38,590 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:31:38,903 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:31:43,424 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:31:43,444 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:31:43,446 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:31:43,451 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:37:22,179 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 16:37:22,216 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 16:37:24,980 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:37:25,003 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:37:25,438 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:37:25,442 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:38:10,616 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:38:10,616 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 16:38:10,741 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 16:38:13,441 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:38:13,450 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 16:38:13,844 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 16:38:13,850 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:03:48,624 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:03:48,645 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:03:48,648 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:03:48,653 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:06:34,515 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:06:34,532 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:06:35,717 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:06:35,722 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:17:37,978 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:17:37,979 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:17:38,100 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:18:08,127 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:18:08,179 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:18:08,436 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:18:08,439 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:19:02,197 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:19:02,204 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:19:02,248 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:19:02,254 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:25:04,269 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:25:04,363 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:28:22,344 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:28:22,372 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:31:48,793 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:31:48,801 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:31:50,800 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:31:50,803 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:34:19,055 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:34:19,083 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:34:35,242 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:34:35,265 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:34:37,243 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:34:37,245 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:34:38,103 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:34:38,109 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:34:45,990 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:34:45,990 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:34:46,154 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:35:03,798 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:35:03,802 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:35:04,112 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:35:10,306 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:35:10,306 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:35:10,495 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:35:12,505 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:35:12,509 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:35:12,795 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:35:12,798 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:37:05,981 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:37:05,981 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:37:09,875 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:37:09,881 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:37:09,923 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:37:09,933 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:37:23,807 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-20 17:37:23,831 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-20 17:37:25,790 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-20 17:37:25,795 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-20 17:37:26,670 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:37:26,676 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:38:32,167 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9072, userId=28190
+2026-04-20 17:38:32,172 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9072
+2026-04-20 17:38:32,290 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9072, userId=28190

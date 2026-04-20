@@ -33,12 +33,13 @@ namespace LISD.Controllers
             [FromQuery] int isHeaderPNG,
             [FromQuery] int PrintBy,
             [FromQuery] int branchId,
+            [FromQuery] int? clientId = null,
             [FromQuery] bool ViewReport = false
         )
         {
             try
             {
-                _log.Info($"DownloadDeltaReport API called with PatientInvestigationIdList={PatientInvestigationIdList}, isHeaderPNG={isHeaderPNG}, PrintBy={PrintBy}, branchId={branchId}, ViewReport={ViewReport}");
+                _log.Info($"DownloadDeltaReport API called with PatientInvestigationIdList={PatientInvestigationIdList}, isHeaderPNG={isHeaderPNG}, PrintBy={PrintBy}, branchId={branchId}, clientId={clientId}, ViewReport={ViewReport}");
 
                 if (string.IsNullOrWhiteSpace(PatientInvestigationIdList))
                 {
@@ -92,14 +93,81 @@ namespace LISD.Controllers
                 string barCodeValue = "";
                 string qrLink = "";
 
+                string headerBodyHtml = "";
+                string topBannerClass = "top-banner";
+                string topBannerSpacingClass = "with-banner";
+
                 var rowsHtml = new StringBuilder();
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
 
+                    // ================= HEADER SECTION =================
+                    if (isHeaderPNG == 1)
+                    {
+                        // If clientId is sent, execute new SP
+                        if (clientId.HasValue && clientId.Value > 0)
+                        {
+                            using (SqlCommand cmdLetterHead = new SqlCommand("dbo.S_getLabReportLetterHeadMasterList_ByClient", con))
+                            {
+                                cmdLetterHead.CommandType = CommandType.StoredProcedure;
+                                cmdLetterHead.Parameters.AddWithValue("@clientId", clientId.Value);
+
+                                using (SqlDataReader r = cmdLetterHead.ExecuteReader())
+                                {
+                                    if (r.Read())
+                                    {
+                                        string letterHeadFilePath = GetString(r, "LetterHeadFilePath");
+
+                                        if (!string.IsNullOrWhiteSpace(letterHeadFilePath))
+                                        {
+                                            headerBodyHtml = $@"<img alt='LETTER HEAD'
+                                                src='{HtmlEncodeAttribute(letterHeadFilePath)}'
+                                                style='width:100%; height:115px; display:block; object-fit:cover;' />";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Old flow as it is
+                            using (SqlCommand cmdHeader = new SqlCommand("dbo.S_GetPatientHeaderMaster", con))
+                            {
+                                cmdHeader.CommandType = CommandType.StoredProcedure;
+                                cmdHeader.Parameters.AddWithValue("@branchId", branchId);
+                                cmdHeader.Parameters.AddWithValue("@typeId", 1);
+
+                                using (SqlDataReader headerReader = cmdHeader.ExecuteReader())
+                                {
+                                    if (headerReader.Read())
+                                    {
+                                        headerBodyHtml = GetString(headerReader, "HeaderBody");
+
+                                        if (!string.IsNullOrWhiteSpace(headerBodyHtml))
+                                        {
+                                            headerBodyHtml = NormalizeHeaderHtml(headerBodyHtml);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // ✅ Keep space even when header is OFF
+                        headerBodyHtml = "<div style='height:150px; width:100%;'></div>";
+
+                        // Keep normal class (NO hide)
+                        topBannerClass = "top-banner";
+
+                        // Keep spacing same as header
+                        topBannerSpacingClass = "with-banner";
+                    }
+
                     // ================= FIRST SP =================
-                    using (SqlCommand cmd1 = new SqlCommand("dbo.S_GetPatientInvestigationsForReportPrint", con))
+                    using (SqlCommand cmd1 = new SqlCommand("dbo.S_GetPatientInvestigationsForReportPrintTebular", con))
                     {
                         cmd1.CommandType = CommandType.StoredProcedure;
                         cmd1.Parameters.AddWithValue("@PatientInvestigationIdList", PatientInvestigationIdList);
@@ -124,7 +192,6 @@ namespace LISD.Controllers
                                 investigationId = GetString(r, "InvestigationId");
                                 reportTypeId = GetString(r, "ReportTypeId");
 
-                                // doctor sign path from first SP
                                 doctorSignPath = GetString(r, "DoctorSignFilePath");
 
                                 diagnosticsNo = GetString(r, "DiagnosticsNo");
@@ -175,16 +242,13 @@ namespace LISD.Controllers
                                 if (string.IsNullOrWhiteSpace(printedBy))
                                     printedBy = preparedBy;
 
-                                // barcode text/no from SP
-                                diagnosticsNo = GetString(r, "LabNo");
-                                barCodeValue = string.IsNullOrWhiteSpace(diagnosticsNo) ? "0" : diagnosticsNo;
+                                string labNo = GetString(r, "LabNo");
+                                barCodeValue = string.IsNullOrWhiteSpace(labNo) ? "0" : labNo;
 
-                                // QR link from SP
                                 qrLink = GetString(r, "QRCode");
                                 if (string.IsNullOrWhiteSpace(qrLink))
                                     qrLink = GetString(r, "QRCodeUrl");
 
-                                // fallback link
                                 if (string.IsNullOrWhiteSpace(qrLink))
                                 {
                                     qrLink =
@@ -291,17 +355,15 @@ namespace LISD.Controllers
 
                 string html = System.IO.File.ReadAllText(templatePath);
 
-                // QR image from link
                 string qrHtml = BuildQrImageHtml(qrLink);
-
-                // Barcode image
                 string barcodeHtml = BuildBarcodeImageHtml(barCodeValue);
-
-                // Doctor signature image
                 string doctorSignHtml = BuildDoctorSignHtml(doctorSignPath);
-
                 string interpretationSection = BuildInterpretationSection(interpretation);
                 string footerDateTime = DateTime.Now.ToString("dd-MM-yyyy hh:mm tt");
+
+                html = html.Replace("{{TopBannerClass}}", topBannerClass);
+                html = html.Replace("{{TopBannerSpacingClass}}", topBannerSpacingClass);
+                html = html.Replace("{{TopBannerHtml}}", string.IsNullOrWhiteSpace(headerBodyHtml) ? "" : headerBodyHtml);
 
                 html = html.Replace("{{DiagnosticsNo}}", HtmlEncode(diagnosticsNo));
                 html = html.Replace("{{PName}}", HtmlEncode(pName));
@@ -364,6 +426,23 @@ namespace LISD.Controllers
             }
         }
 
+        private static string NormalizeHeaderHtml(string html)
+        {
+            if (string.IsNullOrWhiteSpace(html))
+                return "";
+
+            string updated = html;
+
+            updated = updated.Replace("float:left;", "", StringComparison.OrdinalIgnoreCase);
+            updated = updated.Replace("float: left;", "", StringComparison.OrdinalIgnoreCase);
+            updated = updated.Replace("width:800px", "width:100%", StringComparison.OrdinalIgnoreCase);
+            updated = updated.Replace("width: 800px", "width:100%", StringComparison.OrdinalIgnoreCase);
+            updated = updated.Replace("height:130px", "height:115px", StringComparison.OrdinalIgnoreCase);
+            updated = updated.Replace("height: 130px", "height:115px", StringComparison.OrdinalIgnoreCase);
+
+            return updated;
+        }
+
         private static string GetString(SqlDataReader r, string col, string fallback = "")
         {
             try
@@ -384,6 +463,11 @@ namespace LISD.Controllers
         }
 
         private static string HtmlEncode(string value)
+        {
+            return WebUtility.HtmlEncode(value ?? "");
+        }
+
+        private static string HtmlEncodeAttribute(string value)
         {
             return WebUtility.HtmlEncode(value ?? "");
         }

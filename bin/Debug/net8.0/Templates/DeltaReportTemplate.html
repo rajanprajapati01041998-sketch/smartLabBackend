@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>Lab Report</title>
@@ -8,96 +7,183 @@
     <style>
         @page {
             size: A4;
+            margin: 18px 22px 45px 22px;
         }
 
         body {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
+            margin: 0;
+            padding: 0;
             color: #000;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .top-banner {
+            width: 100%;
+            margin: 0 0 10px 0;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .top-banner img {
+            width: 100% !important;
+            height: 115px !important;
+            display: block !important;
+            object-fit: cover !important;
+            float: none !important;
+        }
+
+        .top-banner p {
             margin: 0;
             padding: 0;
         }
 
+        .no-banner {
+            display: none;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 0 !important;
+        }
+
+        .with-banner {
+            margin-top: 0;
+        }
+
+        .no-banner-spacing {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .top-wrap {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #fff;
+        }
+
+        .top-wrap td {
+            vertical-align: top;
+            padding: 0;
+            background: #fff;
+        }
+
+        .main-cell {
+            width: auto;
+            background: #fff;
+        }
+
+        .barcode-cell {
+            width: 56px;
+            padding-left: 8px !important;
+            vertical-align: middle !important;
+            text-align: center;
+            background: #fff;
+        }
+
         .header-box {
             border: 1px solid #000;
-            display: flex;
-            flex-direction: row;
-            padding: 5px;
-            width: 95%;
+            padding: 12px 14px;
             box-sizing: border-box;
-
+            min-height: 150px;
+            background: #fff;
         }
 
         .header-table {
             width: 100%;
             border-collapse: collapse;
-            /* table-layout: fixed; */
-
+            table-layout: fixed;
+            background: #fff;
         }
 
         .header-table td {
             vertical-align: top;
-            padding: 0 6px;
+            background: #fff;
         }
 
-        .left-col {
-            width: 38%;
+        .left-section {
+            width: 40%;
+            padding-right: 14px;
         }
 
-        .mid-col {
-            width: 47%;
+        .middle-section {
+            width: 44%;
+            padding-right: 10px;
         }
 
-        .right-col {
-            /* width: 15%; */
+        .qr-section {
+            width: 16%;
             text-align: center;
+            vertical-align: middle;
         }
 
-        .line-item {
-            margin-bottom: 4px;
-            line-height: 1;
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #fff;
+        }
+
+        .info-table tr td {
+            padding: 2px 0;
+            vertical-align: top;
+            background: #fff;
+        }
+
+        .label-col {
+            width: 22%;
+            font-size: 15px;
             white-space: nowrap;
         }
 
-        .label {
-            display: inline-block;
-            min-width: 110px;
-            font-size: 14px;
-        }
-
-        .colon {
-            display: inline-block;
-            width: 14px;
-            text-align: center;
+        .colon-col {
+            width: 2%;
             font-size: 18px;
             font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
         }
 
-        .value {
-            font-weight: 600;
+        .value-col {
+            width: 38%;
             font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        .right-wrap {
-            width: 100%;
-            /* min-height: 200px; */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 8px;
-            box-sizing: border-box;
+        .mid-label-col {
+            width: 50%;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .mid-colon-col {
+            width: 6%;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .mid-value-col {
+            width: 50%;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
         .qr-box {
-
-            width: 130px;
+            width: 40px;
+            margin: 0 auto;
             text-align: center;
+            background: #fff;
         }
 
         .barcode-box {
-            /* border: 1px solid; */
-            overflow: hidden;
-            text-align: start;
+            width: 42px;
+            margin: 0 auto;
+            text-align: center;
+            background: #fff;
         }
 
         .section-title {
@@ -106,12 +192,14 @@
             font-weight: bold;
             margin: 16px 0 12px 0;
             text-transform: uppercase;
+            background: #fff;
         }
 
         .report-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 4px;
+            background: #fff;
         }
 
         .report-table th,
@@ -120,10 +208,10 @@
             padding: 6px 8px;
             font-size: 16px;
             vertical-align: top;
+            background: #fff;
         }
 
         .report-table th {
-            background: #f2f2f2;
             font-weight: bold;
             text-align: left;
         }
@@ -131,6 +219,7 @@
         .interpretation-box {
             margin-top: 14px;
             font-size: 15px;
+            background: #fff;
         }
 
         .interpretation-title {
@@ -143,17 +232,20 @@
             text-align: center;
             font-size: 16px;
             font-weight: bold;
+            background: #fff;
         }
 
         .doctor-box {
             margin-top: 28px;
             text-align: right;
+            background: #fff;
         }
 
         .doctor-sign {
             display: inline-block;
             min-width: 240px;
             text-align: center;
+            background: #fff;
         }
 
         .doctor-name {
@@ -169,18 +261,20 @@
 
         .footer-bar {
             position: fixed;
-            bottom: -35px;
+            bottom: -30px;
             left: 0;
             right: 0;
             border-top: 1px solid #000;
             padding: 6px 10px 0 10px;
             font-size: 12px;
+            background: #fff;
         }
 
         .footer-table {
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed;
+            background: #fff;
         }
 
         .footer-table td {
@@ -188,89 +282,119 @@
             padding: 0;
             vertical-align: top;
             white-space: nowrap;
+            background: #fff;
         }
 
-        .footer-left {
-            width: 24%;
-            text-align: left;
-        }
+        .footer-left { width: 24%; text-align: left; }
+        .footer-mid { width: 28%; text-align: center; }
+        .footer-mid2 { width: 28%; text-align: center; }
+        .footer-right { width: 20%; text-align: right; }
 
-        .footer-mid {
-            width: 28%;
-            text-align: center;
-        }
-
-        .footer-mid2 {
-            width: 28%;
-            text-align: center;
-        }
-
-        .footer-right {
-            width: 20%;
-            text-align: right;
-        }
-
-        .pageNumber:before {
-            content: counter(page);
-        }
-
-        .totalPages:before {
-            content: counter(pages);
-        }
-        .doctor-signature{
-        }
+        .pageNumber:before { content: counter(page); }
+        .totalPages:before { content: counter(pages); }
     </style>
 </head>
 
 <body>
 
-    <div class="header-box">
-        <table class="header-table">
+    <div class="{{TopBannerClass}}">
+        {{TopBannerHtml}}
+    </div>
+
+    <div class="{{TopBannerSpacingClass}}">
+        <table class="top-wrap">
             <tr>
-                <td class="left-col">
-                    <div class="line-item"><span class="label">Diagnostics No.</span><span class="colon">:</span><span
-                            class="value">{{DiagnosticsNo}}</span></div>
-                    <div class="line-item"><span class="label">Patient Name</span><span class="colon">:</span><span
-                            class="value">{{PName}}</span></div>
-                    <div class="line-item"><span class="label">Age/Gender</span><span class="colon">:</span><span
-                            class="value">{{AgeGender}}</span></div>
-                    <div class="line-item"><span class="label">Contact No.</span><span class="colon">:</span><span
-                            class="value">{{ContactNo}}</span></div>
-                    <div class="line-item"><span class="label">Referred By</span><span class="colon">:</span><span
-                            class="value">{{ReferredBy}}</span></div>
-                    <div class="line-item"><span class="label">Sample Type</span><span class="colon">:</span><span
-                            class="value">{{SampleType}}</span></div>
+                <td class="main-cell">
+                    <div class="header-box">
+                        <table class="header-table">
+                            <tr>
+                                <td class="left-section">
+                                    <table class="info-table">
+                                        <tr>
+                                            <td class="label-col">Diagnostics No.</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{DiagnosticsNo}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-col">Patient Name</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{PName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-col">Age/Gender</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{AgeGender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-col">Contact No.</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{ContactNo}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-col">Referred By</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{ReferredBy}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-col">Sample Type</td>
+                                            <td class="colon-col">:</td>
+                                            <td class="value-col">{{SampleType}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td class="middle-section">
+                                    <table class="info-table">
+                                        <tr>
+                                            <td class="mid-label-col">UHID</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{UHID}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mid-label-col">Reg. Date &amp; Time</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{InvBillingDateTime}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mid-label-col">Collection Date &amp; Time</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{CollectionDateTime}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mid-label-col">Reporting Date/Time</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{ReportingDateTime}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mid-label-col">Report Status</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{ReportStatus}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mid-label-col">Referred Lab</td>
+                                            <td class="mid-colon-col">:</td>
+                                            <td class="mid-value-col">{{ReferredLab}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td class="qr-section">
+                                    <div class="qr-box">
+                                        {{QRCodeHtml}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </td>
 
-                <td class="mid-col">
-                    <div class="line-item"><span class="label">UHID</span><span class="colon">:</span><span
-                            class="value">{{UHID}}</span></div>
-                    <div class="line-item"><span class="label">Reg. Date &amp; Time</span><span
-                            class="colon">:</span><span class="value">{{InvBillingDateTime}}</span></div>
-                    <div class="line-item"><span class="label">Collection Date &amp; Time</span><span
-                            class="colon">:</span><span class="value">{{CollectionDateTime}}</span></div>
-                    <div class="line-item"><span class="label">Reporting Date/Time</span><span
-                            class="colon">:</span><span class="value">{{ReportingDateTime}}</span></div>
-                    <div class="line-item"><span class="label">Report Status</span><span class="colon">:</span><span
-                            class="value">{{ReportStatus}}</span></div>
-                    <div class="line-item"><span class="label">Referred Lab</span><span class="colon">:</span><span
-                            class="value">{{ReferredLab}}</span></div>
-                </td>
-
-                <td class="right-col">
-                    <div class="right-wrap">
-                        <div class="qr-box">
-                            {{QRCodeHtml}}
-                        </div>
-
+                <td class="barcode-cell">
+                    <div class="barcode-box">
+                        {{BarcodeHtml}}
                     </div>
                 </td>
             </tr>
-
         </table>
-        <div class="barcode-box">
-            {{BarcodeHtml}}
-        </div>
     </div>
 
     <div class="section-title">{{Department}}</div>
@@ -298,7 +422,7 @@
         <div class="doctor-sign">
             <div class="doctor-name">{{DoctorName}}</div>
             <div class="doctor-title">{{DoctorTitle}}</div>
-            <div class="doctor-signature">{{DoctorSign}}</div>
+            <div>{{DoctorSign}}</div>
         </div>
     </div>
 
@@ -314,5 +438,4 @@
     </div>
 
 </body>
-
 </html>
