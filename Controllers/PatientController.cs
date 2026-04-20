@@ -25,6 +25,14 @@ namespace App.Controllers
                 ? DBNull.Value
                 : el.ToString() ?? (object)DBNull.Value;
         }
+        // ✅ NEW: get India current datetime
+        private DateTime GetIndianNow()
+        {
+            return TimeZoneInfo.ConvertTimeFromUtc(
+                DateTime.UtcNow,
+                TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")
+            );
+        }
 
         private string? GetString(JsonElement model, string key, string? defaultValue = null)
         {
@@ -158,6 +166,7 @@ namespace App.Controllers
                             totalPayment += amount;
                         }
 
+
                         // =========================
                         // STEP 1: PATIENT
                         // =========================
@@ -250,6 +259,22 @@ namespace App.Controllers
                                 cmd.ExecuteNonQuery();
                                 patientId = Convert.ToInt32(output.Value);
                             }
+
+                            // ✅ NEW: after SP insert, override CreatedOn with IST time
+                            if (patientId > 0)
+                            {
+                                var createdOnIST = GetIndianNow();
+
+                                using (SqlCommand createdOnCmd = new SqlCommand(@"
+                                UPDATE PatientMaster
+                                SET CreatedOn = @CreatedOn
+                                WHERE PatientId = @PatientId", con, txn))
+                                {
+                                    createdOnCmd.Parameters.AddWithValue("@CreatedOn", createdOnIST);
+                                    createdOnCmd.Parameters.AddWithValue("@PatientId", patientId);
+                                    createdOnCmd.ExecuteNonQuery();
+                                }
+                            }
                         }
 
                         string uhid = $"UHID{patientId}";
@@ -272,10 +297,10 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@currentAge", $"{GetInt(model, "AgeYears")}Y");
 
                             int doctorId = GetInt(model, "DoctorId", 0);
-                            cmd.Parameters.AddWithValue("@doctorId", doctorId == 0 ? DBNull.Value : doctorId);
+                            cmd.Parameters.AddWithValue("@doctorId", doctorId == 0 ? (object)DBNull.Value : doctorId);
 
                             int referDoctorId = GetInt(model, "ReferDoctorId", 0);
-                            cmd.Parameters.AddWithValue("@referDoctorId", referDoctorId == 0 ? DBNull.Value : referDoctorId);
+                            cmd.Parameters.AddWithValue("@referDoctorId", referDoctorId == 0 ? (object)DBNull.Value : referDoctorId);
 
                             cmd.Parameters.AddWithValue("@corporateId", GetInt(model, "CorporateId", 0));
                             cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
@@ -320,6 +345,22 @@ namespace App.Controllers
                             cmd.ExecuteNonQuery();
 
                             visitId = Convert.ToInt32(outParam.Value);
+
+                            // ✅ Update PatientVisitDetails.CreatedOn in IST
+                            if (visitId > 0)
+                            {
+                                DateTime createdOnIST = GetIndianNow();
+
+                                using (SqlCommand visitCreatedOnCmd = new SqlCommand(
+                                    @"UPDATE PatientVisitDetails
+                                    SET CreatedOn = @CreatedOn
+                                    WHERE VisitId = @VisitId", con, txn))
+                                {
+                                    visitCreatedOnCmd.Parameters.AddWithValue("@CreatedOn", createdOnIST);
+                                    visitCreatedOnCmd.Parameters.AddWithValue("@VisitId", visitId);
+                                    visitCreatedOnCmd.ExecuteNonQuery();
+                                }
+                            }
                         }
 
                         // =========================
@@ -449,38 +490,111 @@ namespace App.Controllers
                             cmd.ExecuteNonQuery();
 
                             receiptId = Convert.ToInt32(outParam.Value);
+
+                            // ✅ NEW: update Receipts.CreatedOn in IST
+                            if (receiptId > 0)
+                            {
+                                using (SqlCommand updateReceiptCmd = new SqlCommand(@"
+                                UPDATE Receipts
+                                SET CreatedOn = @CreatedOn
+                                WHERE ReceiptId = @ReceiptId", con, txn))
+                                {
+                                    updateReceiptCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
+                                    updateReceiptCmd.Parameters.AddWithValue("@ReceiptId", receiptId);
+                                    updateReceiptCmd.ExecuteNonQuery();
+                                }
+                            }
                         }
 
                         // =========================
                         // STEP 6: PAYMENTS
                         // =========================
-                        foreach (var p in payments.EnumerateArray())
+                        if (receiptId > 0 && payments.ValueKind == JsonValueKind.Array && payments.GetArrayLength() > 0)
                         {
-                            using (SqlCommand cmd = new SqlCommand("I_ReceiptsPaymentModeDetails", con, txn))
+                            foreach (var p in payments.EnumerateArray())
                             {
-                                cmd.CommandType = CommandType.StoredProcedure;
+                                int paymentModeId = 0;
+                                decimal amount = 0;
+                                int bankId = 0;
+                                string? referenceNo = null;
 
-                                int paymentModeId = p.TryGetProperty("paymentModeId", out var pm) ? pm.GetInt32() : 0;
-                                decimal amount = p.TryGetProperty("amount", out var am) ? am.GetDecimal() : 0;
-                                int bankId = p.TryGetProperty("bankId", out var bank) && bank.ValueKind != JsonValueKind.Null ? bank.GetInt32() : 0;
-                                string? referenceNo = p.TryGetProperty("referenceNo", out var refNo) ? refNo.GetString() : null;
+                                if (p.TryGetProperty("paymentModeId", out var pm) && pm.ValueKind != JsonValueKind.Null)
+                                    paymentModeId = pm.ValueKind == JsonValueKind.Number ? pm.GetInt32() : int.Parse(pm.ToString());
 
-                                cmd.Parameters.AddWithValue("@hospId", GetInt(model, "HospId"));
-                                cmd.Parameters.AddWithValue("@branchId", GetInt(model, "BranchId"));
-                                cmd.Parameters.AddWithValue("@loginBranchId", GetInt(model, "LoginBranchId"));
-                                cmd.Parameters.AddWithValue("@receiptID", receiptId);
+                                if (p.TryGetProperty("amount", out var am) && am.ValueKind != JsonValueKind.Null)
+                                    amount = am.ValueKind == JsonValueKind.Number ? am.GetDecimal() : decimal.Parse(am.ToString());
 
-                                cmd.Parameters.AddWithValue("@amount", amount);
-                                cmd.Parameters.AddWithValue("@paymentModeId", paymentModeId);
+                                if (p.TryGetProperty("bankId", out var bank) && bank.ValueKind != JsonValueKind.Null)
+                                    bankId = bank.ValueKind == JsonValueKind.Number ? bank.GetInt32() : int.Parse(bank.ToString());
 
-                                cmd.Parameters.AddWithValue("@ChequeDate", DBNull.Value);
-                                cmd.Parameters.AddWithValue("@bankId", bankId == 0 ? DBNull.Value : bankId);
-                                cmd.Parameters.AddWithValue("@referenceNo", (object?)referenceNo ?? DBNull.Value);
+                                if (p.TryGetProperty("referenceNo", out var refNo) && refNo.ValueKind != JsonValueKind.Null)
+                                    referenceNo = refNo.GetString();
 
-                                cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
-                                cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+                                // ✅ skip invalid payment rows
+                                if (paymentModeId <= 0 || amount <= 0)
+                                    continue;
 
-                                cmd.ExecuteNonQuery();
+                                using (SqlCommand cmd = new SqlCommand("I_ReceiptsPaymentModeDetails", con, txn))
+                                {
+                                    cmd.CommandType = CommandType.StoredProcedure;
+
+                                    cmd.Parameters.AddWithValue("@hospId", GetInt(model, "HospId"));
+                                    cmd.Parameters.AddWithValue("@branchId", GetInt(model, "BranchId"));
+                                    cmd.Parameters.AddWithValue("@loginBranchId", GetInt(model, "LoginBranchId"));
+                                    cmd.Parameters.AddWithValue("@receiptID", receiptId);
+                                    cmd.Parameters.AddWithValue("@amount", amount);
+                                    cmd.Parameters.AddWithValue("@paymentModeId", paymentModeId);
+                                    cmd.Parameters.AddWithValue("@ChequeDate", DBNull.Value);
+                                    cmd.Parameters.AddWithValue("@bankId", bankId == 0 ? (object)DBNull.Value : bankId);
+                                    cmd.Parameters.AddWithValue("@referenceNo", string.IsNullOrWhiteSpace(referenceNo) ? (object)DBNull.Value : referenceNo);
+                                    cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
+                                    cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+
+                                    SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                                    {
+                                        Direction = ParameterDirection.Output
+                                    };
+
+                                    cmd.Parameters.Add(outParam);
+                                    cmd.ExecuteNonQuery();
+
+                                    int receiptPaymentModeDetailId = 0;
+                                    if (outParam.Value != DBNull.Value)
+                                        receiptPaymentModeDetailId = Convert.ToInt32(outParam.Value);
+
+                                    // ✅ update ReceiptsPaymentModeDetails.CreatedOn in IST
+                                    if (receiptPaymentModeDetailId > 0)
+                                    {
+                                        using (SqlCommand updateDetailCmd = new SqlCommand(@"
+                    UPDATE ReceiptsPaymentModeDetails
+                    SET CreatedOn = @CreatedOn
+                    WHERE ID = @ID", con, txn))
+                                        {
+                                            updateDetailCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
+                                            updateDetailCmd.Parameters.AddWithValue("@ID", receiptPaymentModeDetailId);
+                                            updateDetailCmd.ExecuteNonQuery();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        // fallback if SP does not return inserted detail ID
+                                        using (SqlCommand updateDetailCmd = new SqlCommand(@"
+                                        UPDATE ReceiptsPaymentModeDetails
+                                        SET CreatedOn = @CreatedOn
+                                        WHERE ReceiptID = @ReceiptID
+                                        AND PaymentModeId = @PaymentModeId
+                                        AND Amount = @Amount
+                                        AND CreatedBy = @CreatedBy", con, txn))
+                                        {
+                                            updateDetailCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
+                                            updateDetailCmd.Parameters.AddWithValue("@ReceiptID", receiptId);
+                                            updateDetailCmd.Parameters.AddWithValue("@PaymentModeId", paymentModeId);
+                                            updateDetailCmd.Parameters.AddWithValue("@Amount", amount);
+                                            updateDetailCmd.Parameters.AddWithValue("@CreatedBy", GetInt(model, "UserId"));
+                                            updateDetailCmd.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -558,6 +672,9 @@ namespace App.Controllers
                                     reportingBranchId = rb2.GetInt32();
                             }
 
+                            // ✅ NEW: store inserted PatientInvestigationId
+                            int patientInvestigationId = 0;
+
                             using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
@@ -589,7 +706,24 @@ namespace App.Controllers
                                 cmd.Parameters.Add(outParam);
                                 cmd.ExecuteNonQuery();
 
+                                // ✅ NEW: get inserted PatientInvestigationId
+                                patientInvestigationId = Convert.ToInt32(outParam.Value);
+
                                 Console.WriteLine($"Saved ServiceItemId={investigationId}, Barcode={barcode}, TestRemark={testRemark}");
+                            }
+
+                            // ✅ NEW: update CreatedOn in IST for PatientInvestigationDetails
+                            if (patientInvestigationId > 0)
+                            {
+                                using (SqlCommand updateCmd = new SqlCommand(@"
+                                UPDATE PatientInvestigationDetails
+                                SET CreatedOn = @CreatedOn
+                                WHERE PatientInvestigationId = @PatientInvestigationId", con, txn))
+                                {
+                                    updateCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
+                                    updateCmd.Parameters.AddWithValue("@PatientInvestigationId", patientInvestigationId);
+                                    updateCmd.ExecuteNonQuery();
+                                }
                             }
                         }
 

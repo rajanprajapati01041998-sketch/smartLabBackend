@@ -160,3 +160,144 @@ Error Number:8178,State:1,Class:16
 2026-04-16 12:56:50,802 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
 2026-04-16 12:56:50,922 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
 2026-04-16 12:56:50,932 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:41:12,053 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:41:12,065 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:41:12,150 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:41:17,581 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:41:17,585 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:41:17,602 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:41:17,610 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:41:17,762 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:41:17,767 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:41:44,129 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:41:44,130 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:41:44,214 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:41:51,417 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:41:51,421 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:41:51,429 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:41:51,435 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:41:51,626 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:41:51,631 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:42:20,493 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:42:20,493 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:42:20,585 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:46:40,430 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:46:40,451 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:46:40,572 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:46:46,578 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:46:46,584 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:46:46,590 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:46:46,598 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:46:46,761 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:46:46,766 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:16,930 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:47:16,936 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:47:17,016 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:47:21,013 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:47:21,017 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:47:21,024 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:21,029 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:21,174 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:21,178 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:25,968 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:25,974 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:27,714 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:27,719 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:47,971 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:48,000 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:54,936 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:54,949 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:47:55,161 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:47:55,167 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:05,774 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:05,780 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:08,497 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:08,504 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:23,944 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:23,974 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:24,060 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:24,064 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:30,896 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:30,902 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:34,301 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:48:34,311 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:48:47,980 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:48:47,982 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:48:48,069 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:56:11,973 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:56:11,977 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:56:11,986 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:56:11,995 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:56:12,136 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:56:12,141 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:57:12,968 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:57:12,968 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:57:13,057 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:57:15,109 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:57:15,113 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:57:15,125 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:57:15,132 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:57:15,264 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:57:15,268 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:58:05,210 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:58:05,214 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 13:58:05,312 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 13:58:06,896 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 13:58:06,901 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 13:58:06,912 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:58:06,919 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 13:58:07,070 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 13:58:07,073 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 14:22:34,710 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 14:22:34,710 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 14:22:34,782 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 14:22:36,419 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:22:36,428 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:22:36,432 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 14:22:36,440 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 14:22:36,566 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 14:22:36,576 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=5, summaryExists=True
+2026-04-16 14:22:58,881 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 14:22:58,988 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 14:22:58,996 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=6, summaryExists=True
+2026-04-16 14:23:03,152 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 14:23:03,153 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 14:23:30,939 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:23:30,945 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:23:30,956 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:23:30,959 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:23:39,544 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:23:39,548 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:26:27,813 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:26:27,846 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:27:39,950 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:27:39,962 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 14:29:46,225 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-16 14:29:46,255 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-16 18:39:48,743 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 18:39:48,743 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-16 18:39:48,848 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-16 18:40:06,201 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-04-16 18:40:06,205 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-04-16 18:40:06,313 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-04-16 18:40:26,311 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=9066, userId=1
+2026-04-16 18:40:26,319 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 18:40:26,330 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=9066, userId=1, count=1
+2026-04-16 18:40:26,347 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-16 18:40:26,527 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 18:40:26,531 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-16 18:49:48,179 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-04-16 18:49:48,179 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-04-16 18:49:48,284 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-04-16 18:49:50,114 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=9066, userId=1
+2026-04-16 18:49:50,127 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=9066, userId=1, count=1
+2026-04-16 18:49:50,163 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=9066, userId=1
+2026-04-16 18:49:50,165 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=9066, userId=1, count=1
+2026-04-16 18:49:59,403 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-04-16 18:49:59,403 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-04-16 18:50:01,455 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=9066, userId=1
+2026-04-16 18:50:01,458 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=9066, userId=1, count=1
+2026-04-16 18:50:01,481 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 18:50:01,520 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-04-16 18:50:01,754 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=9066, fromDate=2026-04-16, toDate=2026-04-16
+2026-04-16 18:50:01,759 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
