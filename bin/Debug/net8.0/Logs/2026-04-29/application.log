@@ -612,3 +612,273 @@ User-Agent : PostmanRuntime/7.53.0
 2026-04-29 16:07:55,167 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=22, summaryExists=True
 2026-04-29 16:07:59,562 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
 2026-04-29 16:07:59,562 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 16:21:36,865 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-60b5642e35c64848d7028c4f1f993193-c3189a26a2da4fff-00
+Status     : 404
+Method     : GET
+Path       : /api/Service/ChekDuplicateService
+Query      : ?serviceItemId=123&patientId=2
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+
+2026-04-29 16:23:20,937 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-da905277be7c371234a6703eb170e0c8-7c1b093cf6b06f60-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:25:04,112 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-24c8cfe4ef8bd629940bf782b5c5c273-3b8d19c32348e120-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:27:59,618 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-382fcbfa9729a3f2cfd4107e8745bf90-0df83b614451218e-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:28:11,683 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-a867888e7d5fa056c9f7ead84052b78a-a5c0c440b660fdfd-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:28:31,483 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-081f39c86e02152d56a5255ed9236404-d0692e78f2cc3f6b-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:32:33,024 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-3585ea853a1f30c9052ee23c97ab1bb7-fab0ec09a6435ada-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:34:30,910 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-38e02fefeac55b3ffdc67b6f529894c9-fb32b0dd41ab2439-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:36:09,860 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-3e5be1ef10daa8e514598fee4d0642a5-4e051dd7290d3489-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:44:58,984 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-cec210ef5a1fee814460bbe05cde08dd-19499b7a82fc58f4-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:47:38,093 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-90aab6511da7836da4d93a983d85286c-bf2936b99139d897-00
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-04-29 16:53:18,256 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-ef32ace0231ecf4633ad0dcf722d91cd-c7bddca48b0ec6d4-00
+Status     : 401
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-ef32ace0231ecf4633ad0dcf722d91cd-c7bddca48b0ec6d4-00","data":null}
+2026-04-29 16:56:54,308 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7b599d0162fd555cdfff54ae4b89685c-46b62af691ba110e-00
+Status     : 401
+Method     : GET
+Path       : /api/ReceiptBill/details-bill
+Query      : ?ftId=10860&receiptId=10784&printUserId=1&isReceipt=true&mode=view
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-7b599d0162fd555cdfff54ae4b89685c-46b62af691ba110e-00","data":null}
+2026-04-29 17:04:08,862 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-cd1bb12944a6c4e8c7d5d378aafcf8c3-ee2ec66cd36c03b9-00
+Status     : 401
+Method     : GET
+Path       : /api/ReceiptBill/details-bill
+Query      : ?ftId=10860&receiptId=10784&printUserId=1&isReceipt=true&mode=view
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-cd1bb12944a6c4e8c7d5d378aafcf8c3-ee2ec66cd36c03b9-00","data":null}
+2026-04-29 17:12:18,615 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7a9c49163c613782e2e02ca73725d110-21c1d3f35fac5624-00
+Status     : 401
+Method     : GET
+Path       : /api/ReceiptBill/details-bill
+Query      : ?ftId=10860&receiptId=10784&printUserId=1&isReceipt=true&mode=view
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-7a9c49163c613782e2e02ca73725d110-21c1d3f35fac5624-00","data":null}
+2026-04-29 17:16:37,836 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-eb151c83a68292d4177918a6b23dd4e7-b3bbef3b597111e2-00
+Status     : 401
+Method     : GET
+Path       : /api/ReceiptBill/details-bill
+Query      : ?ftId=10860&receiptId=10784&printUserId=1&isReceipt=true&mode=view
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-eb151c83a68292d4177918a6b23dd4e7-b3bbef3b597111e2-00","data":null}
+2026-04-29 17:18:56,759 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-071d19880beb5a90116aeeefd1bdddb9-7c6676e7ca0c4b47-00
+Status     : 401
+Method     : GET
+Path       : /api/Patient/get-by-uhid
+Query      : ?uhid=002&branchId=1
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-071d19880beb5a90116aeeefd1bdddb9-7c6676e7ca0c4b47-00","data":null}
+2026-04-29 17:19:28,989 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-447350d769737d335c9e2627746b6790-9093d39c377dc547-00
+Status     : 401
+Method     : GET
+Path       : /api/Service/GetActiveSampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-447350d769737d335c9e2627746b6790-9093d39c377dc547-00","data":null}
+2026-04-29 17:20:04,147 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-64e6ca6f1e87190e3b0c71301800c016-b7525f9e41c8a34a-00
+Status     : 400
+Method     : GET
+Path       : /api/ReportPrint/ViewReport
+Query      : ?isHeaderPNG=0
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: ptInvstId must be provided
+2026-04-29 17:23:20,816 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a3e2a24fe0d6a45e89d174a7a20a0f65-06719604e386d56f-00
+Status     : 401
+Method     : GET
+Path       : /api/Patient/get-by-uhid
+Query      : ?uhid=002&branchId=1
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Unauthorized","correlationId":"00-a3e2a24fe0d6a45e89d174a7a20a0f65-06719604e386d56f-00","data":null}

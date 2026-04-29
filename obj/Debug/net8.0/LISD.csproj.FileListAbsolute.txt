@@ -157,7 +157,9 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/global.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.staticwebassets.runtime.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/DeltaReportTemplate.html
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReceiptBillTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReportTemplate.html
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/TRFTemplate.html
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.deps.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.runtimeconfig.json
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/LISD.dll
@@ -329,5 +331,3 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.pdb
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/ref/LISD.dll
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/TRFTemplate.html
-/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReceiptBillTemplate.html

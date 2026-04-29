@@ -8,6 +8,7 @@ using iText.Html2pdf;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.Controllers
 {
@@ -89,7 +90,7 @@ namespace App.Controllers
             }
             return null;
         }
-
+        // [Authorize]
         [HttpPost("save")]
         public IActionResult SavePatient([FromBody] JsonElement model)
         {
@@ -800,7 +801,7 @@ namespace App.Controllers
                 }
             }
         }
-
+        // [Authorize]
         [HttpGet("get-by-uhid")]
         public async Task<IActionResult> GetPatientByUHID(string uhid, int branchId)
         {

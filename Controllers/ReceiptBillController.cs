@@ -6,6 +6,7 @@ using iText.Html2pdf;
 using iText.Kernel.Pdf;
 using ZXing;
 using ZXing.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LISDBACKEND.Controllers
 {
@@ -22,6 +23,7 @@ namespace LISDBACKEND.Controllers
             _env = env;
         }
 
+        // [Authorize]
         [HttpGet("details-bill")]
         public async Task<IActionResult> GetDetailsBill(
             [FromQuery] int ftId,

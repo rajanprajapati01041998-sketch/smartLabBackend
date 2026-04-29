@@ -3,6 +3,8 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using App.Models;
 using App.Common;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace App.Controllers
 {
@@ -71,7 +73,7 @@ namespace App.Controllers
             }
         }
 
-
+        // [Authorize]
         [HttpGet("GetActiveSampleTypesRaw")]
         public async Task<IActionResult> GetActiveSampleTypesRaw(string sampleTypeIds)
         {

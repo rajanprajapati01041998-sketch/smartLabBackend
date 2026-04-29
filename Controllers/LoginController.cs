@@ -158,6 +158,8 @@ public class LoginController : ControllerBase
             return Ok(new
             {
                 message = "Login successful",
+                serverNowUtc = DateTime.UtcNow.ToString("o"),
+                serverNowLocal = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt"),
                 branchId = request.BranchId,
                 sessionId,
                 user = new
@@ -173,7 +175,9 @@ public class LoginController : ControllerBase
 
                 roles,
                 token = result.token,
-                expiresAt = result.expiry.ToString("yyyy-MM-dd hh:mm:ss tt")
+                // Token expiry is generated in UTC; return both UTC and local for clarity.
+                expiresAtUtc = result.expiry.ToString("o"),
+                expiresAtLocal = result.expiry.ToLocalTime().ToString("yyyy-MM-dd hh:mm:ss tt")
             });
         }
         catch (Exception ex)
