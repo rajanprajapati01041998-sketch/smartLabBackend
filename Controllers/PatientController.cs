@@ -4,6 +4,10 @@ using System.Linq;
 using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Text.Json;
+using iText.Html2pdf;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace App.Controllers
 {
@@ -668,6 +672,8 @@ namespace App.Controllers
 
                             int patientInvestigationId = 0;
 
+
+
                             using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1164,18 +1170,18 @@ namespace App.Controllers
                 }
 
                 using (SqlCommand ftCmd = new SqlCommand(@"
-            SELECT TOP 1
-                ft.FTId,
-                ft.VisitId,
-                ISNULL(pvd.TotalPaidAmount, 0) AS TotalPaidAmount,
-                ISNULL(pvd.DoctorId, 0) AS DoctorId
-            FROM FinancialTransactions ft
-            INNER JOIN PatientVisitDetails pvd ON pvd.VisitId = ft.VisitId
-            WHERE ft.PatientId = @PatientId
-              AND ft.BranchId = @BranchId
-              AND ISNULL(ft.IsCancel, 0) = 0
-              AND ISNULL(pvd.IsCancel, 0) = 0
-            ORDER BY ft.FTId DESC", con, txn))
+                SELECT TOP 1
+                    ft.FTId,
+                    ft.VisitId,
+                    ISNULL(pvd.TotalPaidAmount, 0) AS TotalPaidAmount,
+                    ISNULL(pvd.DoctorId, 0) AS DoctorId
+                FROM FinancialTransactions ft
+                INNER JOIN PatientVisitDetails pvd ON pvd.VisitId = ft.VisitId
+                WHERE ft.PatientId = @PatientId
+                AND ft.BranchId = @BranchId
+                AND ISNULL(ft.IsCancel, 0) = 0
+                AND ISNULL(pvd.IsCancel, 0) = 0
+                ORDER BY ft.FTId DESC", con, txn))
                 {
                     ftCmd.Parameters.AddWithValue("@PatientId", patientId);
                     ftCmd.Parameters.AddWithValue("@BranchId", request.BranchId);
@@ -1201,13 +1207,13 @@ namespace App.Controllers
                 }
 
                 using (SqlCommand labFindCmd = new SqlCommand(@"
-            SELECT TOP 1 LabNo
-            FROM PatientInvestigationDetails
-            WHERE VisitId = @VisitId
-              AND PatientId = @PatientId
-              AND ISNULL(IsCancel, 0) = 0
-              AND ISNULL(LabNo, 0) > 0
-            ORDER BY PatientInvestigationId ASC", con, txn))
+                SELECT TOP 1 LabNo
+                FROM PatientInvestigationDetails
+                WHERE VisitId = @VisitId
+                AND PatientId = @PatientId
+                AND ISNULL(IsCancel, 0) = 0
+                AND ISNULL(LabNo, 0) > 0
+                ORDER BY PatientInvestigationId ASC", con, txn))
                 {
                     labFindCmd.Parameters.AddWithValue("@VisitId", visitId);
                     labFindCmd.Parameters.AddWithValue("@PatientId", patientId);
@@ -1256,14 +1262,14 @@ namespace App.Controllers
                     int ftdId = 0;
 
                     using (SqlCommand findCmd = new SqlCommand(@"
-                SELECT TOP 1 FTDId
-                FROM FinancialTransactionDetails
-                WHERE FTId = @FTId
-                  AND PatientId = @PatientId
-                  AND VisitId = @VisitId
-                  AND ServiceItemId = @ServiceItemId
-                  AND ISNULL(IsCancel, 0) = 0
-                ORDER BY FTDId DESC", con, txn))
+                    SELECT TOP 1 FTDId
+                    FROM FinancialTransactionDetails
+                    WHERE FTId = @FTId
+                    AND PatientId = @PatientId
+                    AND VisitId = @VisitId
+                    AND ServiceItemId = @ServiceItemId
+                    AND ISNULL(IsCancel, 0) = 0
+                    ORDER BY FTDId DESC", con, txn))
                     {
                         findCmd.Parameters.AddWithValue("@FTId", ftId);
                         findCmd.Parameters.AddWithValue("@PatientId", patientId);
@@ -1289,7 +1295,7 @@ namespace App.Controllers
                         cmd.Parameters.AddWithValue("@corporateAlias", DBNull.Value);
                         cmd.Parameters.AddWithValue("@corporateCode", DBNull.Value);
                         cmd.Parameters.AddWithValue("@doctorId", doctorId == 0 ? (object)DBNull.Value : doctorId);
-                        cmd.Parameters.AddWithValue("@corporateId", 0);
+                        cmd.Parameters.AddWithValue("@corporateId", service.CorporateId);
                         cmd.Parameters.AddWithValue("@rate", rate);
                         cmd.Parameters.AddWithValue("@qty", qty);
                         cmd.Parameters.AddWithValue("@grossAmt", total);
@@ -1332,19 +1338,19 @@ namespace App.Controllers
                         await cmd.ExecuteNonQueryAsync();
 
                         using (SqlCommand updPidCmd = new SqlCommand(@"
-                    UPDATE PatientInvestigationDetails
-                    SET
-                        IsUrgent = @IsUrgent,
-                        Barcode = @Barcode,
-                        TestRemark = @TestRemark,
-                        LastModifiedBy = @UserId,
-                        LastModifiedOn = GETDATE(),
-                        IpAddress = @IpAddress
-                    WHERE VisitId = @VisitId
-                      AND PatientId = @PatientId
-                      AND FTDId = @FTDId
-                      AND InvestigationId = @InvestigationId
-                      AND ISNULL(IsCancel, 0) = 0", con, txn))
+                        UPDATE PatientInvestigationDetails
+                        SET
+                            IsUrgent = @IsUrgent,
+                            Barcode = @Barcode,
+                            TestRemark = @TestRemark,
+                            LastModifiedBy = @UserId,
+                            LastModifiedOn = GETDATE(),
+                            IpAddress = @IpAddress
+                        WHERE VisitId = @VisitId
+                        AND PatientId = @PatientId
+                        AND FTDId = @FTDId
+                        AND InvestigationId = @InvestigationId
+                        AND ISNULL(IsCancel, 0) = 0", con, txn))
                         {
                             updPidCmd.Parameters.AddWithValue("@IsUrgent", service.IsUrgent);
                             updPidCmd.Parameters.AddWithValue("@Barcode", string.IsNullOrWhiteSpace(service.Barcode) ? (object)DBNull.Value : service.Barcode);
@@ -1371,7 +1377,7 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@FTID", ftId);
                             cmd.Parameters.AddWithValue("@visitId", visitId);
                             cmd.Parameters.AddWithValue("@patientId", patientId);
-                            cmd.Parameters.AddWithValue("@corporateId", 0);
+                            cmd.Parameters.AddWithValue("@corporateId", service.CorporateId);
                             cmd.Parameters.AddWithValue("@serviceItemId", service.ServiceItemId);
                             cmd.Parameters.AddWithValue("@subSubCategoryId", service.SubSubCategoryId);
                             cmd.Parameters.AddWithValue("@serviceName", string.IsNullOrWhiteSpace(service.ServiceName) ? (object)DBNull.Value : service.ServiceName);
@@ -1436,16 +1442,16 @@ namespace App.Controllers
                         }
 
                         using (SqlCommand updInsertedPidCmd = new SqlCommand(@"
-                    UPDATE PatientInvestigationDetails
-                    SET
-                        LastModifiedBy = @UserId,
-                        LastModifiedOn = GETDATE(),
-                        IpAddress = @IpAddress
-                    WHERE VisitId = @VisitId
-                      AND PatientId = @PatientId
-                      AND FTDId = @FTDId
-                      AND InvestigationId = @InvestigationId
-                      AND ISNULL(IsCancel, 0) = 0", con, txn))
+                        UPDATE PatientInvestigationDetails
+                        SET
+                            LastModifiedBy = @UserId,
+                            LastModifiedOn = GETDATE(),
+                            IpAddress = @IpAddress
+                        WHERE VisitId = @VisitId
+                        AND PatientId = @PatientId
+                        AND FTDId = @FTDId
+                        AND InvestigationId = @InvestigationId
+                        AND ISNULL(IsCancel, 0) = 0", con, txn))
                         {
                             updInsertedPidCmd.Parameters.AddWithValue("@UserId", request.UserId);
                             updInsertedPidCmd.Parameters.AddWithValue("@IpAddress", string.IsNullOrWhiteSpace(request.IpAddress) ? (object)DBNull.Value : request.IpAddress);
@@ -1463,14 +1469,14 @@ namespace App.Controllers
                 decimal netAmount = 0;
 
                 using (SqlCommand totalCmd = new SqlCommand(@"
-            SELECT
-                ISNULL(SUM(ISNULL(GrossAmt, 0)), 0) AS GrossAmount,
-                ISNULL(SUM(ISNULL(NetAmt, 0)), 0) AS NetAmount
-            FROM FinancialTransactionDetails
-            WHERE FTId = @FTId
-              AND PatientId = @PatientId
-              AND VisitId = @VisitId
-              AND ISNULL(IsCancel, 0) = 0", con, txn))
+                SELECT
+                    ISNULL(SUM(ISNULL(GrossAmt, 0)), 0) AS GrossAmount,
+                    ISNULL(SUM(ISNULL(NetAmt, 0)), 0) AS NetAmount
+                FROM FinancialTransactionDetails
+                WHERE FTId = @FTId
+                AND PatientId = @PatientId
+                AND VisitId = @VisitId
+                AND ISNULL(IsCancel, 0) = 0", con, txn))
                 {
                     totalCmd.Parameters.AddWithValue("@FTId", ftId);
                     totalCmd.Parameters.AddWithValue("@PatientId", patientId);
@@ -1546,10 +1552,10 @@ namespace App.Controllers
 
         [HttpGet("get-patient-investigation-details")]
         public async Task<IActionResult> GetPatientInvestigationDetails(
-    [FromQuery] string branchId,
-    [FromQuery] string? uhid = null,
-    [FromQuery] string? labNo = null,
-    [FromQuery] string? visitId = null)
+        [FromQuery] string branchId,
+        [FromQuery] string? uhid = null,
+        [FromQuery] string? labNo = null,
+        [FromQuery] string? visitId = null)
         {
             try
             {
@@ -1620,6 +1626,123 @@ namespace App.Controllers
                     success = false,
                     message = ex.Message,
                     details = ex.InnerException?.Message
+                });
+            }
+        }
+
+        [HttpGet("test-requisition-form")]
+        public async Task<IActionResult> GetTestRequisitionForm(
+        [FromQuery] int filter,
+        [FromQuery] string mode = "view")
+        {
+            try
+            {
+                var data = new List<dynamic>();
+
+                using SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+                using SqlCommand cmd = new SqlCommand("getTestRequisitionForm", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@filter", filter);
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    data.Add(new
+                    {
+                        UHID = reader["UHID"]?.ToString(),
+                        PatientName = reader["PatientName"]?.ToString(),
+                        Age = reader["Age"]?.ToString(),
+                        Gender = reader["Gender"]?.ToString(),
+                        Address = reader["Address"]?.ToString(),
+                        Contact = reader["ContactNumber"]?.ToString(),
+                        ServiceName = reader["ServiceName"]?.ToString(),
+                        Client = reader["ClientName"]?.ToString(),
+                        BillDate = reader["BillDate"]?.ToString(),
+                        SubSubCategory = reader["SubSubCategoryName"]?.ToString(),
+                        SampleType = reader["SampleType"]?.ToString(),
+                        Doctor = reader["ReferDoctorName"]?.ToString(),
+                        DiagnosticNo = reader["DiagnosticNo"]?.ToString(),
+                        VisitId = reader["VisitId"]?.ToString()
+                    });
+                }
+
+                if (data.Count == 0)
+                    return Ok(new { success = false, message = "No data" });
+
+                var first = data[0];
+
+                // 🔥 LOAD TEMPLATE
+                string templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Templates", "TRFTemplate.html");
+                string html = System.IO.File.ReadAllText(templatePath);
+
+                // 🔥 BUILD ROWS
+                StringBuilder rows = new StringBuilder();
+                int i = 1;
+
+                foreach (var item in data)
+                {
+                    rows.Append($@"
+                        <tr>
+                            <td>{i}</td>
+                            <td>{item.ServiceName}</td>
+                            <td>{item.SubSubCategory}</td>
+                            <td>{item.SampleType}</td>
+                        </tr>");
+                    i++;
+                }
+
+                // 🔥 REPLACE PLACEHOLDERS
+                html = html.Replace("{{UHID}}", first.UHID ?? "")
+                        .Replace("{{PATIENT_NAME}}", first.PatientName ?? "")
+                        .Replace("{{AGE}}", first.Age ?? "")
+                        .Replace("{{GENDER}}", first.Gender ?? "")
+                        .Replace("{{CONTACT}}", first.Contact ?? "")
+                        .Replace("{{ADDRESS}}", first.Address ?? "")
+                        .Replace("{{VISIT_ID}}", first.VisitId ?? "")
+                        .Replace("{{DIAGNOSTIC_NO}}", first.DiagnosticNo ?? "")
+                        .Replace("{{BILL_DATE}}", first.BillDate ?? "")
+                        .Replace("{{CLIENT}}", first.Client ?? "")
+                        .Replace("{{DOCTOR}}", first.Doctor ?? "")
+                        .Replace("{{TEST_ROWS}}", rows.ToString());
+
+                // 🔥 CONVERT TO PDF
+                byte[] pdfBytes;
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    iText.Html2pdf.HtmlConverter.ConvertToPdf(html, ms);
+                    pdfBytes = ms.ToArray();
+                }
+
+                string fileName = $"TRF_{first.UHID}_{first.VisitId}.pdf";
+
+                // ✅ MODE: PDF DOWNLOAD
+                if (mode == "pdf")
+                {
+                    return File(pdfBytes, "application/pdf", fileName);
+                }
+
+                // ✅ MODE: BASE64
+                string base64 = Convert.ToBase64String(pdfBytes);
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "PDF generated",
+                    base64,
+                    fileName,
+                    count = data.Count
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message
                 });
             }
         }

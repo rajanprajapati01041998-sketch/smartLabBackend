@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 8px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .page {
+            border: 1px solid #cfd6df;
+            padding: 6px;
+        }
+
+        .receipt-header {
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            margin-bottom: 5px;
+            overflow: hidden;
+        }
+
+        .receipt-header p {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .receipt-header img {
+            width: 100% !important;
+            height: 120px !important;
+            max-width: 100% !important;
+            display: block !important;
+            object-fit: cover !important;
+            float: none !important;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            border: 1px solid #cfd6df;
+            padding: 3px;
+        }
+
+        .no-border td {
+            border: none;
+        }
+
+        .barcode-text {
+            text-align: center;
+            font-family: monospace;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .info td {
+            border: none;
+            padding: 3px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .label {
+            width: 145px;
+        }
+
+        .colon {
+            width: 20px;
+        }
+
+        .service-table th,
+        .service-table td,
+        .receipt-table th,
+        .receipt-table td {
+            border: 1px solid #000;
+            padding: 4px;
+            font-size: 15px;
+        }
+
+        .service-table th,
+        .receipt-table th {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .summary td {
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding-top: 8px;
+        }
+
+        .words {
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .footer td {
+            border: none;
+            font-size: 17px;
+            padding-top: 7px;
+        }
+
+        .bottom td {
+            border-top: 1px solid #000;
+            font-size: 16px;
+            padding-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="receipt-header">
+            {{HEADER_HTML}}
+        </div>
+
+        <div class="title">Details Bill</div>
+
+        <table class="no-border">
+            <tr>
+                <td class="barcode-text" style="width:50%;">
+                    {{UHID_BARCODE}}
+                    <div>{{UHID}}</div>
+                </td>
+                <td class="barcode-text" style="width:50%;">
+                    {{BILL_BARCODE}}
+                    <div>{{BILL_NO}}</div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="info">
+            <tr>
+                <td style="width:50%;">
+                    <table>
+                        <tr>
+                            <td class="label">UHID</td>
+                            <td class="colon">:</td>
+                            <td>{{UHID}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Name</td>
+                            <td class="colon">:</td>
+                            <td>{{PATIENT_NAME}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Age/Sex</td>
+                            <td class="colon">:</td>
+                            <td>{{AGE_SEX}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Contact No</td>
+                            <td class="colon">:</td>
+                            <td>{{CONTACT_NO}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Relative Name</td>
+                            <td class="colon">:</td>
+                            <td>{{RELATIVE_NAME}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Address</td>
+                            <td class="colon">:</td>
+                            <td>{{ADDRESS}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Lab No.</td>
+                            <td class="colon">:</td>
+                            <td>{{LAB_NO}}</td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td style="width:50%;">
+                    <table>
+                        <tr>
+                            <td class="label">BillDate & Time</td>
+                            <td class="colon">:</td>
+                            <td>{{BILL_DATE}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Doctor</td>
+                            <td class="colon">:</td>
+                            <td>{{DOCTOR}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Refer Doctor</td>
+                            <td class="colon">:</td>
+                            <td>{{REFER_DOCTOR}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Corporate</td>
+                            <td class="colon">:</td>
+                            <td>{{CORPORATE}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Bill No.</td>
+                            <td class="colon">:</td>
+                            <td>{{BILL_NO}}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Receipt No.</td>
+                            <td class="colon">:</td>
+                            <td>{{RECEIPT_NO}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table class="service-table">
+            <thead>
+                <tr>
+                    <th>Service Name</th>
+                    <th>Code</th>
+                    <th>QTY</th>
+                    <th>Rate</th>
+                    <th>Delivery Date</th>
+                    <th>Net Amt</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{SERVICE_ROWS}}
+            </tbody>
+        </table>
+
+        <table class="summary">
+            <tr>
+                <td>Total Amount : {{TOTAL_AMOUNT}}</td>
+                <td>Total Discount : {{TOTAL_DISCOUNT}}</td>
+                <td>Net Amount : {{NET_AMOUNT}}</td>
+                <td>Paid Amount : {{PAID_AMOUNT}}</td>
+                <td>Balance Amount : {{BALANCE_AMOUNT}}</td>
+            </tr>
+        </table>
+
+        <div class="words">Amount In Words(INR): {{AMOUNT_WORDS}}</div>
+
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th>Receipt Date & Time.</th>
+                    <th>Receipt No</th>
+                    <th>Amount</th>
+                    <th>Payment Mode</th>
+                    <th>Collected By</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{RECEIPT_ROWS}}
+            </tbody>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td>Prepared By : {{CREATED_BY}}</td>
+                <td style="text-align:right;">Printed By : {{PRINT_BY}}</td>
+            </tr>
+        </table>
+
+        <table class="bottom">
+            <tr>
+                <td>Subject to Varanasi Jurisdiction</td>
+                <td style="text-align:center;">E. & O.E.</td>
+                <td style="text-align:right;">For GWS</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+</html>

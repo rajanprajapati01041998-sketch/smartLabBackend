@@ -1,0 +1,105 @@
+2026-04-25 11:47:58,586 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 11:47:58,586 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 11:47:58,586 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 11:48:46,912 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 11:48:46,912 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 11:48:46,916 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 11:48:46,918 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 11:48:47,274 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 11:48:47,276 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 11:55:18,808 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 11:55:18,843 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 11:55:18,852 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 11:55:18,888 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 12:53:35,332 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 12:53:35,338 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 12:53:35,812 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 12:53:38,133 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 12:53:38,147 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 12:53:38,163 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 12:53:38,169 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 12:53:40,737 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 12:53:40,737 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 12:53:43,901 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 12:53:43,906 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 12:53:43,909 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 12:53:43,917 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 12:53:44,425 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 12:53:44,428 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 13:52:12,466 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 13:52:12,466 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 13:52:12,516 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 13:52:12,523 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-25 13:52:19,215 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 13:52:19,218 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-04-25 13:52:19,228 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 13:52:19,231 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:01:40,653 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:01:40,901 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:01:42,668 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:02:04,069 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:02:04,092 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:02:04,209 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:02:04,222 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:02:07,422 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:02:07,431 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:02:52,082 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:02:52,100 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:02:54,109 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:03:03,585 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:03:03,595 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:03:03,754 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:03:03,764 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:03:05,099 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:03:05,111 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:32:21,879 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:32:21,952 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:32:23,291 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:32:32,129 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:32:32,139 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:32:32,237 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:32:32,250 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:32:33,586 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:32:33,596 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:37:40,916 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:37:40,917 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:37:41,675 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:38:02,030 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:38:02,037 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:38:02,050 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:38:02,052 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:38:02,486 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:38:02,490 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:45:38,300 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:45:38,300 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:45:38,301 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:45:52,756 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:45:52,759 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:45:52,815 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:45:52,820 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:45:53,067 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:45:53,068 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:51:10,192 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:51:10,196 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:51:11,141 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:51:20,981 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:51:20,991 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:51:21,194 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:51:21,205 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:51:23,741 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:51:23,747 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:54:08,311 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:54:08,314 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 14:54:09,542 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 14:54:17,254 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:54:17,262 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 14:54:17,355 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-25 14:54:17,367 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-25 14:54:18,963 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-25 14:54:18,973 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-25 18:11:22,098 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-25 18:11:22,098 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 18:11:22,098 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 18:19:59,041 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 18:19:59,041 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-25 18:19:59,042 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1

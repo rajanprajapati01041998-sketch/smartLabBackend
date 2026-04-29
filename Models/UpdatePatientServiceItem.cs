@@ -8,4 +8,6 @@ public class UpdatePatientServiceItem
     public int IsUrgent { get; set; } = 0;
     public string? Barcode { get; set; }
     public string? TestRemark { get; set; }
+    public int CorporateId { get; set; }   // ✅ add this
+
 }

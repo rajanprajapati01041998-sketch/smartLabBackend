@@ -1,0 +1,11 @@
+2026-04-29 10:39:28,912 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 10:39:28,912 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 10:39:28,912 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 10:39:32,923 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 10:39:32,943 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 10:39:33,401 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 10:39:33,404 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 10:40:29,510 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 10:40:53,187 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 10:42:51,843 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 10:44:24,347 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=

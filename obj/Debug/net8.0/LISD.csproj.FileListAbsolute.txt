@@ -329,3 +329,5 @@
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.pdb
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/LISD.genruntimeconfig.cache
 /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/obj/Debug/net8.0/ref/LISD.dll
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/TRFTemplate.html
+/Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/bin/Debug/net8.0/Templates/ReceiptBillTemplate.html

@@ -70,5 +70,57 @@ namespace App.Controllers
                 });
             }
         }
+
+
+        [HttpGet("GetActiveSampleTypesRaw")]
+        public async Task<IActionResult> GetActiveSampleTypesRaw(string sampleTypeIds)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                using (SqlCommand cmd = new SqlCommand("S_GetActiveSampleTypesByIds", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@SampleTypeIds", sampleTypeIds);
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+
+                        // convert to dynamic list
+                        var data = new List<Dictionary<string, object>>();
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            var dict = new Dictionary<string, object>();
+                            foreach (DataColumn col in dt.Columns)
+                            {
+                                dict[col.ColumnName] = row[col];
+                            }
+                            data.Add(dict);
+                        }
+
+                        return Ok(new ApiResponse<object>
+                        {
+                            Success = true,
+                            Message = "Data fetched successfully",
+                            Data = data
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "Error executing SP",
+                    Data = ex.Message
+                });
+            }
+        }
     }
 }
