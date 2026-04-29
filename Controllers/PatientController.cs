@@ -617,6 +617,47 @@ namespace App.Controllers
                         // =========================
                         // PatientInvestigationDetails
                         // =========================
+                        // 🔹 STEP 1: Collect UNIQUE barcodes from request
+                        var barcodeList = new List<string>();
+
+                        foreach (var s in services.EnumerateArray())
+                        {
+                            string? bc = null;
+
+                            if (s.TryGetProperty("Barcode", out var b1) && b1.ValueKind != JsonValueKind.Null)
+                                bc = b1.GetString();
+                            else if (s.TryGetProperty("barcode", out var b2) && b2.ValueKind != JsonValueKind.Null)
+                                bc = b2.GetString();
+
+                            if (!string.IsNullOrWhiteSpace(bc))
+                                barcodeList.Add(bc.Trim());
+                        }
+
+                        // 🔹 DISTINCT barcodes only
+                        var distinctBarcodes = barcodeList.Distinct().ToList();
+
+                        // 🔹 STEP 2: Check barcode existence in DB (ONLY ONCE BEFORE INSERT)
+                        foreach (var bc in distinctBarcodes)
+                        {
+                            using (SqlCommand checkCmd = new SqlCommand(@"
+        SELECT COUNT(1)
+        FROM PatientInvestigationDetails
+        WHERE Barcode = @Barcode", con, txn))
+                            {
+                                checkCmd.Parameters.Add("@Barcode", SqlDbType.VarChar).Value = bc;
+
+                                int exists = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                                if (exists > 0)
+                                {
+                                    throw new Exception($"Barcode already used: {bc}");
+                                }
+                            }
+                        }
+
+
+                        // 🔹 STEP 3: INSERT LOOP (your original logic, unchanged)
+
                         foreach (var s in services.EnumerateArray())
                         {
                             int investigationId = 0;
@@ -672,8 +713,6 @@ namespace App.Controllers
 
                             int patientInvestigationId = 0;
 
-
-
                             using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
@@ -690,12 +729,21 @@ namespace App.Controllers
                                 cmd.Parameters.AddWithValue("@TokenNo", 0);
                                 cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
                                 cmd.Parameters.AddWithValue("@isUrgent", isUrgent);
-                                cmd.Parameters.AddWithValue("@ReportingBranchId", reportingBranchId > 0 ? reportingBranchId : DBNull.Value);
-                                cmd.Parameters.AddWithValue("@Barcode", string.IsNullOrWhiteSpace(barcode) ? DBNull.Value : barcode);
-                                cmd.Parameters.AddWithValue("@testRemark", string.IsNullOrWhiteSpace(testRemark) ? DBNull.Value : testRemark);
+
+                                cmd.Parameters.AddWithValue("@ReportingBranchId",
+                                    reportingBranchId > 0 ? reportingBranchId : DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@Barcode",
+                                    string.IsNullOrWhiteSpace(barcode) ? DBNull.Value : barcode);
+
+                                cmd.Parameters.AddWithValue("@testRemark",
+                                    string.IsNullOrWhiteSpace(testRemark) ? DBNull.Value : testRemark);
+
                                 cmd.Parameters.AddWithValue("@sampleTypeId", 0);
                                 cmd.Parameters.AddWithValue("@LabComment", DBNull.Value);
-                                cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@IpAddress",
+                                    (object?)GetString(model, "IpAddress") ?? DBNull.Value);
 
                                 SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
                                 {
@@ -711,9 +759,9 @@ namespace App.Controllers
                             if (patientInvestigationId > 0)
                             {
                                 using (SqlCommand updateCmd = new SqlCommand(@"
-                            UPDATE PatientInvestigationDetails
-                            SET CreatedOn = @CreatedOn
-                            WHERE PatientInvestigationId = @PatientInvestigationId", con, txn))
+                                UPDATE PatientInvestigationDetails
+                                SET CreatedOn = @CreatedOn
+                                WHERE PatientInvestigationId = @PatientInvestigationId", con, txn))
                                 {
                                     updateCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
                                     updateCmd.Parameters.AddWithValue("@PatientInvestigationId", patientInvestigationId);

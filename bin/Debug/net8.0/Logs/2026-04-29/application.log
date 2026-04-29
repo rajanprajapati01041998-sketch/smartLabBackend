@@ -9,3 +9,247 @@
 2026-04-29 10:40:53,187 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
 2026-04-29 10:42:51,843 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
 2026-04-29 10:44:24,347 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:00:07,369 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:00:31,524 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:00:41,746 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:01:06,379 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:05,838 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:15,050 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:22,075 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:36,903 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:40,200 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:02:42,332 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:04:46,926 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:05:01,697 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:05:36,730 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:06:20,822 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:08:03,680 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:38:01,493 INFO  LISD.Controllers.CountryController - GetCountries API called. filter=
+2026-04-29 11:38:01,542 INFO  LISD.Controllers.CountryController - GetCountries success. count=1
+2026-04-29 11:40:24,131 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 11:42:52,344 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 11:58:29,663 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 11:58:29,663 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 11:58:29,720 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 11:58:30,619 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 11:58:30,623 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 11:58:30,938 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 11:58:30,941 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:02:49,087 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:02:49,087 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 12:02:49,184 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:03:36,765 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:03:36,774 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:03:37,059 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:03:37,061 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:32:09,368 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 12:32:09,369 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:32:09,369 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:37:06,593 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:37:06,593 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 12:37:06,593 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:37:08,409 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:37:08,415 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:37:08,738 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:37:08,746 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:38:10,116 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:38:10,154 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:38:10,443 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:38:10,445 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:39:13,399 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:39:13,407 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:39:13,660 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:39:13,662 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:39:43,709 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:39:43,719 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:39:44,005 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:39:44,009 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:40:22,971 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:40:22,979 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:40:23,509 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:40:23,511 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:41:10,446 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:41:10,456 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:41:11,395 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:41:11,397 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:41:21,442 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:42:00,419 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:42:00,434 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:42:00,681 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:42:00,683 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 12:42:08,604 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:51:21,781 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:53:28,148 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:55:22,694 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:55:22,931 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:57:07,717 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 12:59:31,527 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 12:59:31,528 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:59:32,031 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 12:59:36,073 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 12:59:36,077 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:00:04,281 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:00:04,281 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:00:04,415 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:00:06,554 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:00:06,557 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:00:06,914 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:00:06,917 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:00:41,579 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:00:41,594 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:00:41,875 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:00:41,881 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:00:50,086 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:05:18,331 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:05:18,334 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:05:18,397 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:05:18,398 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:05:26,283 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:06:11,577 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:06:11,587 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:06:11,938 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:06:11,942 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:06:18,482 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:06:34,118 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=231216
+2026-04-29 13:06:55,367 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221204
+2026-04-29 13:07:37,442 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:07:37,487 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:07:37,732 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:07:37,735 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:07:47,671 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:08:08,459 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:08:08,477 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:08:08,752 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:08:08,754 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:08:13,700 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:08:27,029 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:08:27,044 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:08:27,275 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:08:27,278 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:08:44,250 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:28:47,658 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:28:47,703 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:28:48,154 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:28:48,157 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:29:14,691 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:30:24,804 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:30:24,816 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:30:25,109 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:30:25,113 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:30:35,878 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:33:29,862 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:33:29,862 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:33:32,470 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:33:32,472 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:33:33,724 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:33:33,794 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:33:33,801 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:33:33,801 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:33:51,226 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:33:51,239 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:33:53,524 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:33:53,526 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:34:36,444 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=400001
+2026-04-29 13:35:27,476 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 13:35:40,814 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:35:40,820 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:36:17,345 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:36:17,352 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:36:19,436 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:36:19,438 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:37:05,765 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:37:05,775 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:37:06,228 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:37:06,232 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:37:47,294 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221207
+2026-04-29 13:41:23,253 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=220052
+2026-04-29 13:41:34,170 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 13:43:09,462 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221007
+2026-04-29 13:44:15,366 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:44:15,366 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:44:25,657 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:44:25,662 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:44:26,156 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:44:26,723 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:44:26,733 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:44:26,785 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 13:44:26,789 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 13:44:30,588 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:44:30,593 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:44:31,107 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:44:31,110 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:44:43,271 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=220875
+2026-04-29 13:44:54,046 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221008
+2026-04-29 13:46:40,095 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:46:40,120 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:46:40,395 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:46:40,399 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:46:52,687 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221004
+2026-04-29 13:49:46,319 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:49:46,328 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:52:38,545 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:52:38,545 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:52:38,658 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:52:40,548 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:52:40,551 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:52:57,894 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:52:57,894 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 13:52:58,300 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 13:52:59,520 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:52:59,522 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:52:59,944 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:52:59,946 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:53:18,747 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=220114
+2026-04-29 13:53:24,686 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=220004
+2026-04-29 13:53:31,825 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221004
+2026-04-29 13:54:22,755 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:54:22,772 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:54:23,049 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:54:23,052 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:54:40,592 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221004
+2026-04-29 13:56:50,050 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:56:50,078 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:56:50,355 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 13:56:50,357 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 13:57:14,260 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221006
+2026-04-29 13:57:36,529 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 14:01:58,305 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:01:58,308 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:01:58,324 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:01:58,342 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:02:35,082 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:02:35,085 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:02:35,324 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:02:35,332 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:03:20,180 ERROR LISD.Middleware.ErrorLoggingMiddleware - Server error response. StatusCode=500, Method=POST, Path=/api/Patient/save, Query=
+2026-04-29 14:04:07,539 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:07,553 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:04:07,795 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:07,802 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:04:18,092 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 14:04:18,092 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 14:04:18,093 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 14:04:19,980 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:19,985 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:04:20,483 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:20,489 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:04:41,096 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:41,107 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:04:41,401 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:04:41,403 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:58:49,103 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 14:58:49,103 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 14:58:52,517 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 14:58:52,523 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 14:58:52,541 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 14:58:52,544 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 14:58:54,345 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 14:58:54,345 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 14:59:00,040 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:59:00,043 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:59:00,045 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 14:59:00,054 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 14:59:06,501 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 14:59:06,502 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 14:59:15,202 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 14:59:15,204 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
