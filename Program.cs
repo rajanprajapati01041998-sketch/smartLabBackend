@@ -11,6 +11,7 @@ using log4net.Config;
 using log4net;
 using System.Reflection;
 using LISD.Extensions;
+using LISD.Filters;
 
 
 
@@ -34,7 +35,11 @@ public partial class Program
             builder.WebHost.UseUrls(configuredUrls);
         }
 
-        builder.Services.AddControllers()
+        builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<ApiExceptionFilter>();
+                options.Filters.Add<ModelStateValidationFilter>();
+            })
             .ConfigureApiBehaviorOptions(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;

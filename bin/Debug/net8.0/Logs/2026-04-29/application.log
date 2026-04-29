@@ -253,3 +253,362 @@
 2026-04-29 14:59:06,502 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
 2026-04-29 14:59:15,202 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
 2026-04-29 14:59:15,204 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 15:06:06,984 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a98e0052554d9c7974e71a86b9939f9f-55db917e7b80d502-00
+Status     : 400
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "Address": "",
+  "AgeDays": 0,
+  "AgeMonths": 0,
+  "AgeYears": 21,
+  "BranchId": 1,
+  "City": "Chamaon",
+  "CityId": 60591,
+  "CollectionDateTime": null,
+  "ContactNumber": "",
+  "CorporateId": 2,
+  "Country": "India",
+  "CountryId": 1,
+  "DOB": "2005-04-28",
+  "DiscountAmount": 0,
+  "District": "VARANASI",
+  "DistrictId": 137,
+  "DoctorId": 0,
+  "FieldBoyId": 0,
+  "FirstName": "Anmika",
+  "Gender": "FEMALE",
+  "GrossAmount": 1600,
+  "HospId": 1,
+  "Investigations": [],
+  "IpAddress": "10.0.2.16",
+  "LastName": "",
+  "LoginBranchId": 1,
+  "MaritalStatus": "",
+  "MedicalHistory": "",
+  "MiddleName": "",
+  "NetAmount": 1600,
+  "ReferDoctorId": 0,
+  "ReferLabId": 0,
+  "Relation": "",
+  "RelativeName": "",
+  "Services": [
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 298,
+      "ServiceName": "LIVER FUNCTION TEST (LFT )",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    },
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 291,
+      "ServiceName": "KFT/RFT WITH ELECTROLYTE",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    }
+  ],
+  "State": "Uttar Pradesh",
+  "StateId": 28,
+  "Title": "",
+
+  "payments": []
+}
+ResponseBody: {"success":false,"message":"UserId is required"}
+2026-04-29 15:06:17,698 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-31ef313db096f3d7250127c2d0042449-1f907794e3e26c20-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "Address": "",
+  "AgeDays": 0,
+  "AgeMonths": 0,
+  "AgeYears": 21,
+  "BranchId": 1,
+  "City": "Chamaon",
+  "CityId": 60591,
+  "CollectionDateTime": null,
+  "ContactNumber": "",
+  "CorporateId": 2,
+  "Country": "India",
+  "CountryId": 1,
+  "DOB": "2005-04-28",
+  "DiscountAmount": 0,
+  "District": "VARANASI",
+  "DistrictId": 137,
+  "DoctorId": 0,
+  "FieldBoyId": 0,
+  "FirstName": "Anmika",
+  "Gender": "FEMALE",
+  "GrossAmount": 1600,
+  "HospId": 1,
+  "Investigations": [],
+  "IpAddress": "10.0.2.16",
+  "LastName": "",
+  "LoginBranchId": 1,
+  "MaritalStatus": "",
+  "MedicalHistory": "",
+  "MiddleName": "",
+  "NetAmount": 1600,
+  "ReferDoctorId": 0,
+  "ReferLabId": 0,
+  "Relation": "",
+  "RelativeName": "",
+  "Services": [
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 298,
+      "ServiceName": "LIVER FUNCTION TEST (LFT )",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    },
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 291,
+      "ServiceName": "KFT/RFT WITH ELECTROLYTE",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    }
+  ],
+  "State": "Uttar Pradesh",
+  "StateId": 28,
+  "Title": "",
+  "UserId": ,
+  "payments": []
+}
+ResponseBody: {"success":false,"message":"Operation is not valid due to the current state of the object."}
+2026-04-29 15:09:51,800 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-fa970108f618f624dfa449eb8778ea29-8b5b04bffdb66ca6-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "Address": "",
+  "AgeDays": 0,
+  "AgeMonths": 0,
+  "AgeYears": 21,
+  "BranchId": 1,
+  "City": "Chamaon",
+  "CityId": 60591,
+  "CollectionDateTime": null,
+  "ContactNumber": "",
+  "CorporateId": 2,
+  "Country": "India",
+  "CountryId": 1,
+  "DOB": "2005-04-28",
+  "DiscountAmount": 0,
+  "District": "VARANASI",
+  "DistrictId": 137,
+  "DoctorId": 0,
+  "FieldBoyId": 0,
+  "FirstName": "Anmika",
+  "Gender": "FEMALE",
+  "GrossAmount": 1600,
+  "HospId": 1,
+  "Investigations": [],
+  "IpAddress": "10.0.2.16",
+  "LastName": "",
+  "LoginBranchId": 1,
+  "MaritalStatus": "",
+  "MedicalHistory": "",
+  "MiddleName": "",
+  "NetAmount": 1600,
+  "ReferDoctorId": 0,
+  "ReferLabId": 0,
+  "Relation": "",
+  "RelativeName": "",
+  "Services": [
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 298,
+      "ServiceName": "LIVER FUNCTION TEST (LFT )",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    },
+    {
+      "Amount": 800,
+      "Barcode": "194784",
+      "IsUrgent": 0,
+      "ServiceItemId": 291,
+      "ServiceName": "KFT/RFT WITH ELECTROLYTE",
+      "SubSubCategoryId": 10,
+      "TestRemark": "",
+      "qty": 1
+    }
+  ],
+  "State": "Uttar Pradesh",
+  "StateId": 28,
+  "Title": "",
+  "UserId": 1,
+  "payments": []
+}
+ResponseBody: {"success":false,"message":"Barcode already used: 194784"}
+2026-04-29 15:10:54,802 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=0
+2026-04-29 15:11:50,998 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-04-29 15:16:02,546 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5a4bb18c5f47728d5bc0a3f90fcb6cec-5ec5204a77166c8a-00
+Status     : 404
+Method     : GET
+Path       : /api/ServiceAllDetailsForOPDBilling/GetServiceDetai
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+
+2026-04-29 15:16:49,385 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 15:16:49,400 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 15:17:25,971 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=0
+2026-04-29 15:17:25,976 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=0, count=0
+2026-04-29 15:17:33,826 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=0
+2026-04-29 15:17:33,834 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=0, count=0
+2026-04-29 15:17:46,667 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-00ea4de5165518baebb8b4e4bac424c4-94af0c723e58dfad-00
+Status     : 404
+Method     : GET
+Path       : /api/Branc/branch-user-list
+Query      : ?branchId=1&userId=1
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+
+2026-04-29 15:36:08,323 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=9066
+2026-04-29 15:36:08,360 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=9066, count=1
+2026-04-29 15:36:22,741 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 15:36:22,746 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 15:36:28,760 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-04-29 15:36:28,763 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-04-29 15:36:34,943 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=4
+2026-04-29 15:36:34,950 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=4, count=0
+2026-04-29 15:36:40,242 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=846
+2026-04-29 15:36:40,244 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=846, count=0
+2026-04-29 15:36:50,791 INFO  LISD.Controllers.CountryController - GetCountries API called. filter=1
+2026-04-29 15:36:50,844 ERROR LISD.Controllers.CountryController - SQL error in GetCountries API. filter=1
+Microsoft.Data.SqlClient.SqlException (0x80131904): An expression of non-boolean type specified in a context where a condition is expected, near '1'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader()
+   at LISD.Controllers.CountryController.GetCountries(String filter)
+ClientConnectionId:db717a76-16a6-4b74-a466-67b5363b7437
+Error Number:4145,State:1,Class:15
+2026-04-29 15:36:50,862 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-aca5459c65e76173b5335e498ee81e32-c5db392800e600f7-00
+Status     : 500
+Method     : GET
+Path       : /api/Country/GetCountries
+Query      : ?filter=1
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Database error occurred"}
+2026-04-29 15:37:02,308 INFO  LISD.Controllers.CountryController - GetCountries API called. filter=1
+2026-04-29 15:37:02,314 ERROR LISD.Controllers.CountryController - SQL error in GetCountries API. filter=1
+Microsoft.Data.SqlClient.SqlException (0x80131904): An expression of non-boolean type specified in a context where a condition is expected, near '1'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader()
+   at LISD.Controllers.CountryController.GetCountries(String filter)
+ClientConnectionId:db717a76-16a6-4b74-a466-67b5363b7437
+Error Number:4145,State:1,Class:15
+2026-04-29 15:37:02,315 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8016968687f3bfb6ae3e4893d8b4a7cf-ab5f27893e96bec1-00
+Status     : 500
+Method     : GET
+Path       : /api/Country/GetCountries
+Query      : ?filter=1
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Database error occurred"}
+2026-04-29 15:37:31,460 INFO  LISD.Controllers.CountryController - GetCountries API called. filter=
+2026-04-29 15:37:31,467 INFO  LISD.Controllers.CountryController - GetCountries success. count=1
+2026-04-29 15:37:59,654 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 15:38:09,659 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1000
+2026-04-29 15:38:45,973 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=, toDate=
+2026-04-29 15:38:46,166 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=2880, summaryExists=True
+2026-04-29 16:02:34,648 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7c760e77f6aedac5c388a8eeaffd5745-26a06a79a78f9b92-00
+Status     : 404
+Method     : GET
+Path       : /api/Service/GetActiveampleTypesRaw
+Query      : ?sampleTypeIds=123
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+
+2026-04-29 16:04:15,311 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-4df7a514b942f7eae76fd6c7d4a30f99-7108eec7f5fe3846-00
+Status     : 404
+Method     : GET
+Path       : /api/Service/ChekDuplicateService
+Query      : ?serviceItemId=123&patientId=2
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+
+2026-04-29 16:07:46,673 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 16:07:46,674 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 16:07:46,674 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-29 16:07:54,977 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-04-29 16:07:54,981 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-04-29 16:07:55,058 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-04-29, toDate=2026-04-29
+2026-04-29 16:07:55,080 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=22, summaryExists=True
+2026-04-29 16:07:55,143 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,9073,9084,9095,9135,9116,9119,9099,9167,9077,9097,9109,9151,9103,9158,9136,9104,9165,9123,9172,9105,9164,9154,9127,9088,9074,9166,9075,9163,9092,9081,9150,9147,9128,9132,9149,9174,9156,9138,9083,9171,9117,9161,9160,9110,9090,9080,9101,9106,9126,9146,9121,9076,9091,9082,9153,9108,9169,9134,9098,9143,9094,9162,9115,9086,9089,9125,9111,9071,9069,8066,9070,9067,9068,9066,9141,9113,9137,9130,9152,9122,9145,9129,9093,9140,9112,9168,9155,9114,9173,9118,9159,9087,9107,9142,9144,9072,9085,9096,9078,9079,9170,9124,9139,9100,9157,9120,9133,9102,9131,9148, fromDate=2026-04-29, toDate=2026-04-29
+2026-04-29 16:07:55,167 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=22, summaryExists=True
+2026-04-29 16:07:59,562 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-29 16:07:59,562 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
