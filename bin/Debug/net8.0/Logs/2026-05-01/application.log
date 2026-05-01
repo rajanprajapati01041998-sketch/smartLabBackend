@@ -1,0 +1,272 @@
+2026-05-01 10:24:34,011 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-eff776e81a4bbe0a8c1f03f042faec15-f488d880d5e6e661-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/update-patient-services
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientId":60151,"branchId":1,"loginBranchId":1,"userId":1,"ipAddress":"10.0.2.16","discountAmount":0,"services":[{"serviceItemId":61088,"subSubCategoryId":5,"serviceName":"KFT/RFT WITHOUT ELECTROLYTE","amount":600,"qty":1,"isUrgent":1,"barcode":"","testRemark":"","corporateId":2}]}
+ResponseBody: {"success":false,"message":"There is already an open DataReader associated with this Connection which must be closed first."}
+2026-05-01 10:24:34,011 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-df7b174ae7feeff0368fca641ea51547-3a6c77bf506def13-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/update-patient-services
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientId":60151,"branchId":1,"loginBranchId":1,"userId":1,"ipAddress":"10.0.2.16","discountAmount":0,"services":[{"serviceItemId":61088,"subSubCategoryId":5,"serviceName":"KFT/RFT WITHOUT ELECTROLYTE","amount":600,"qty":1,"isUrgent":1,"barcode":"","testRemark":"","corporateId":2}]}
+ResponseBody: {"success":false,"message":"There is already an open DataReader associated with this Connection which must be closed first."}
+2026-05-01 10:26:32,606 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-670928ffe2c4e9a561cf4a7a8cfd9014-dff115366110b0c9-00
+Status     : 404
+Method     : POST
+Path       : /api/Patient/update-patient-services
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientId":60151,"branchId":1,"loginBranchId":1,"userId":1,"ipAddress":"10.0.2.16","discountAmount":0,"services":[{"serviceItemId":61088,"subSubCategoryId":5,"serviceName":"KFT/RFT WITHOUT ELECTROLYTE","amount":600,"qty":1,"isUrgent":1,"barcode":"","testRemark":"","corporateId":2}]}
+ResponseBody: {"success":false,"message":"Financial transaction not found"}
+2026-05-01 10:27:18,583 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:27:18,583 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 10:27:18,583 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:27:25,095 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:27:25,100 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:27:25,102 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 10:27:25,111 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 10:27:25,283 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:27:25,286 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:29:19,654 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 10:29:19,673 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 10:29:19,677 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:29:19,686 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:29:28,895 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 10:29:28,907 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 10:29:28,918 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:29:28,921 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:29:35,609 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 10:29:35,613 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 10:29:35,639 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:29:35,642 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:29:55,368 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 10:29:55,377 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 10:29:55,385 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:29:55,388 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:37:01,490 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 10:37:01,495 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:37:01,966 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:44:27,489 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:44:27,546 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:44:27,985 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:44:27,987 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:52:13,368 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 10:52:13,368 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:52:13,852 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 10:52:23,611 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:52:23,615 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 10:52:23,921 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 10:52:23,923 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:00:43,255 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:00:43,256 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:00:48,416 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:00:48,421 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:00:48,519 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-05-01, toDate=2026-05-01
+2026-05-01 11:00:48,539 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=1, summaryExists=True
+2026-05-01 11:00:48,662 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,9073,9084,9095,9135,9116,9119,9099,9167,9077,9097,9109,9151,9103,9158,9136,9104,9165,9123,9172,9105,9164,9154,9127,9088,9074,9166,9075,9163,9092,9081,9150,9147,9128,9132,9149,9174,9156,9138,9083,9171,9117,9161,9160,9110,9090,9080,9101,9106,9126,9146,9121,9076,9091,9082,9153,9108,9169,9134,9098,9143,9094,9162,9115,9086,9089,9125,9111,9071,9069,8066,9070,9067,9068,9066,9141,9113,9137,9130,9152,9122,9145,9129,9093,9140,9112,9168,9155,9114,9173,9118,9159,9087,9107,9142,9144,9072,9085,9096,9078,9079,9170,9124,9139,9100,9157,9120,9133,9102,9131,9148, fromDate=2026-05-01, toDate=2026-05-01
+2026-05-01 11:00:48,689 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=1, summaryExists=True
+2026-05-01 11:00:50,985 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:00:50,996 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:00:55,796 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:00:55,800 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:00:55,900 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:00:55,903 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:05:26,432 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-77363bc2f2ec40d69813e4d5077e1cbb-314bb834811948c0-00
+Status     : 400
+Method     : POST
+Path       : /api/Patient/update-patient
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "patient": {
+    "hospId": 0,
+    "branchId": 0,
+    "loginBranchId": 0,
+    "patientId": 0,
+    "uhid": "string",
+    "title": "string",
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "ageYears": 0,
+    "ageMonths": 0,
+    "ageDays": 0,
+    "dob": "2026-05-01T05:35:24.433Z",
+    "gender": "string",
+    "maritalStatus": "string",
+    "relation": "string",
+    "relativeName": "string",
+    "aadharNumber": "string",
+    "idProofName": "string",
+    "idProofNumber": "string",
+    "contactNumber": "string",
+    "emergencyContactNumber": "string",
+    "email": "string",
+    "address": "string",
+    "countryId": 0,
+    "country": "string",
+    "stateId": 0,
+    "state": "string",
+    "districtId": 0,
+    "district": "string",
+    "cityId": 0,
+    "city": "string",
+    "insuranceCompanyId": 0,
+    "corporateId": 0,
+    "cardNo": "string",
+    "privilegedCardNumber": "string",
+    "policyNo": "string",
+    "policyCardNo": "string",
+    "expiryDate": "string",
+    "cardHolder": "string",
+    "userId": 0,
+    "ipAddress": "string",
+    "uniqueId": "string",
+    "isVaccination": 0,
+    "vipPatient": 0,
+    "type": "string",
+    "typeId": 0,
+    "doctorId": 0,
+    "referDoctorId": 0,
+    "referalDoctor": "string",
+    "referLabId": 0,
+    "visitTypeId": 0,
+    "fieldBoyId": 0,
+    "collectionDateTime": "2026-05-01T05:35:24.433Z",
+    "referalNo": "string",
+    "referalDate": "string",
+    "medicalHistory": "string",
+    "patientImagePath": "string",
+    "services": [
+      {
+        "serviceItemId": 0,
+        "subSubCategoryId": 0,
+        "serviceName": "string",
+        "amount": 0,
+        "qty": 0
+      }
+    ],
+    "payments": [
+      {
+        "paymentModeId": 0,
+        "hospId": 0,
+        "paymentModeName": "string",
+        "payModeType": "string",
+        "payModeTypeId": 0,
+        "isRefundAllowed": true,
+        "isActive": true,
+        "referenceNo": "string",
+        "remarks": "string",
+        "createdBy": 0,
+        "createdOn": "2026-05-01T05:35:24.433Z",
+        "lastModifiedBy": 0,
+        "lastModifiedOn": "2026-05-01T05:35:24.433Z",
+        "ipAddress": "string",
+        "uniqueId": "string",
+        "amount": 0
+      }
+    ],
+    "investigations": [
+      {
+        "ftdid": 0,
+        "investigationId": 0,
+        "labNo": 0,
+        "tokenNo": 0,
+        "isUrgent": 0,
+        "reportingBranchId": 0,
+        "barcode": "string",
+        "remarks": "string",
+        "sampleTypeId": 0,
+        "labComment": "string"
+      }
+    ],
+    "grossAmount": 0,
+    "discountPercentage": 0,
+    "discountAmount": 0,
+    "totalTaxAmount": 0,
+    "roundOff": 0,
+    "netAmount": 0
+  },
+  "patientImagePath": "string",
+  "documentList": [
+    {
+      "documentId": 0,
+      "documentName": "string",
+      "documentPath": "string",
+      "documentBytes": "string",
+      "fileExtension": "string"
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"HospId is required"}
+2026-05-01 11:08:53,628 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:08:53,645 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:11:54,269 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:11:54,269 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:11:54,269 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:11:55,677 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:11:55,685 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:11:55,728 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:11:55,734 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:12:17,348 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:12:17,366 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:12:19,349 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:12:19,351 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:12:22,035 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:12:22,045 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:12:22,099 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:12:22,102 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:12:22,465 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:12:22,469 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:12:26,552 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:12:26,556 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:12:26,565 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:12:26,568 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:12:32,927 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:12:32,927 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:12:35,081 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:12:35,085 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:12:48,949 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:12:48,953 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:13:04,502 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:13:04,508 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:13:06,330 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:13:06,334 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:13:08,563 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:13:08,566 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:13:08,574 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:13:08,578 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:13:08,792 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:13:08,795 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:13:15,941 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:13:15,947 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:13:15,958 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:13:15,961 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:16:43,022 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:16:43,028 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 11:16:43,080 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 11:16:43,084 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 11:16:43,961 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 11:16:43,968 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 11:16:47,510 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-01 11:16:47,514 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
