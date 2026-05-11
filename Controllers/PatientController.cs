@@ -303,6 +303,33 @@ namespace App.Controllers
                         // =========================
                         // STEP 2: VISIT
                         // =========================
+                        // =========================
+                        // STEP 2: VISIT
+                        // =========================
+
+                        // Bill level values
+                        decimal grossAmount = GetDecimal(model, "GrossAmount", totalService);
+                        decimal discountPercentage = GetDecimal(model, "DiscountPercentage", 0);
+                        decimal discountAmount = GetDecimal(model, "DiscountAmount", 0);
+                        decimal roundOff = GetDecimal(model, "RoundOff", 0);
+                        decimal netAmount = GetDecimal(model, "NetAmount", grossAmount - discountAmount - roundOff);
+
+                        // Payment values
+                        decimal totalPaidAmount = GetDecimal(model, "TotalPaidAmount", totalPayment);
+                        decimal totalBalanceAmount = GetDecimal(model, "TotalBalanceAmount", netAmount - totalPaidAmount);
+
+                        // Payable split
+                        decimal totalPayableAmount = GetDecimal(model, "TotalPayableAmount", netAmount);
+                        decimal totalPatientPayableAmount = GetDecimal(model, "TotalPatientPayableAmount", netAmount);
+                        decimal totalCorporatePayableAmount = GetDecimal(model, "TotalCorporatePayableAmount", 0);
+
+                        decimal totalPatientPaidAmount = GetDecimal(model, "TotalPatientPaidAmount", totalPaidAmount);
+                        decimal totalCorporatePaidAmount = GetDecimal(model, "TotalCorporatePaidAmount", 0);
+
+                        // Discount approval
+                        int discountApprovedById = GetInt(model, "DiscountApprovedById", 0);
+                        string? discountReason = GetString(model, "DiscountReason");
+
                         using (SqlCommand cmd = new SqlCommand("I_PatientVisitDetails", con, txn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -326,10 +353,23 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@corporateId", GetInt(model, "CorporateId", 0));
                             cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
 
-                            cmd.Parameters.AddWithValue("@totalBillAmount", totalService);
-                            cmd.Parameters.AddWithValue("@totalPaidAmount", totalPayment);
-                            cmd.Parameters.AddWithValue("@totalBalanceAmount", totalService - totalPayment);
-                            cmd.Parameters.AddWithValue("@totalPayableAmount", totalService);
+                            // ✅ PatientVisitDetails amount fields
+                            cmd.Parameters.AddWithValue("@totalBillAmount", grossAmount);
+                            cmd.Parameters.AddWithValue("@totalDiscountPerOnBill", discountPercentage);
+                            cmd.Parameters.AddWithValue("@totalDiscountAmountOnBill", discountAmount);
+                            cmd.Parameters.AddWithValue("@discountApprovedById", discountApprovedById);
+                            cmd.Parameters.AddWithValue("@discountReason",
+                                string.IsNullOrWhiteSpace(discountReason) ? (object)DBNull.Value : discountReason);
+                            cmd.Parameters.AddWithValue("@roundOff", roundOff);
+
+                            cmd.Parameters.AddWithValue("@totalPayableAmount", totalPayableAmount);
+                            cmd.Parameters.AddWithValue("@totalPaidAmount", totalPaidAmount);
+                            cmd.Parameters.AddWithValue("@totalBalanceAmount", totalBalanceAmount);
+
+                            cmd.Parameters.AddWithValue("@totalPatientPayableAmount", totalPatientPayableAmount);
+                            cmd.Parameters.AddWithValue("@totalCorporatePayableAmount", totalCorporatePayableAmount);
+                            cmd.Parameters.AddWithValue("@totalPatientPaidAmount", totalPatientPaidAmount);
+                            cmd.Parameters.AddWithValue("@totalCorporatePaidAmount", totalCorporatePaidAmount);
 
                             cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
                             cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
@@ -346,7 +386,8 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@status", DBNull.Value);
                             cmd.Parameters.AddWithValue("@mlc", DBNull.Value);
                             cmd.Parameters.AddWithValue("@pi", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@Remark", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Remark", (object?)GetString(model, "Remarks") ?? DBNull.Value);
+
                             cmd.Parameters.AddWithValue("@PolicyNo", DBNull.Value);
                             cmd.Parameters.AddWithValue("@PolicyCardNo", DBNull.Value);
                             cmd.Parameters.AddWithValue("@ExpiryDate", DBNull.Value);
@@ -354,7 +395,7 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@ReferalNo", DBNull.Value);
                             cmd.Parameters.AddWithValue("@ReferalDate", DBNull.Value);
                             cmd.Parameters.AddWithValue("@UploadPatientDocPath", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@MedicalHistory", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@MedicalHistory", (object?)GetString(model, "MedicalHistory") ?? DBNull.Value);
                             cmd.Parameters.AddWithValue("@TokenNo", 0);
 
                             SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
@@ -370,10 +411,10 @@ namespace App.Controllers
                             if (visitId > 0)
                             {
                                 using (SqlCommand visitCreatedOnCmd = new SqlCommand(@"
-                            UPDATE PatientVisitDetails
-                            SET CreatedOn = @CreatedOn,
-                                UHID = @UHID
-                            WHERE VisitId = @VisitId", con, txn))
+                                UPDATE PatientVisitDetails
+                                SET CreatedOn = @CreatedOn,
+                                    UHID = @UHID
+                                WHERE VisitId = @VisitId", con, txn))
                                 {
                                     visitCreatedOnCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
                                     visitCreatedOnCmd.Parameters.AddWithValue("@UHID", uhid);
@@ -386,6 +427,17 @@ namespace App.Controllers
                         // =========================
                         // STEP 3: FINANCIAL
                         // =========================
+                        grossAmount = GetDecimal(model, "GrossAmount", totalService);
+                        discountAmount = GetDecimal(model, "DiscountAmount", 0);
+                        roundOff = GetDecimal(model, "RoundOff", 0);
+                        netAmount = GetDecimal(model, "NetAmount", grossAmount - discountAmount + roundOff);
+
+                        discountPercentage = grossAmount > 0
+                            ? Math.Round((discountAmount / grossAmount) * 100, 6)
+                            : 0;
+
+                        string? remarks = GetString(model, "Remarks");
+
                         using (SqlCommand cmd = new SqlCommand("I_FinancialTransactions", con, txn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -399,12 +451,20 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@tnxType", "OPD");
                             cmd.Parameters.AddWithValue("@tnxTypeId", 1);
 
-                            cmd.Parameters.AddWithValue("@grossAmount", totalService);
-                            cmd.Parameters.AddWithValue("@discountAmount", 0);
-                            cmd.Parameters.AddWithValue("@netAmount", totalService);
+                            cmd.Parameters.AddWithValue("@grossAmount", grossAmount);
+                            cmd.Parameters.AddWithValue("@discountPercentage", discountPercentage);
+                            cmd.Parameters.AddWithValue("@discountAmount", discountAmount);
+                            cmd.Parameters.AddWithValue("@totalTaxAmount", 0);
+                            cmd.Parameters.AddWithValue("@roundOff", roundOff);
+                            cmd.Parameters.AddWithValue("@netAmount", netAmount);
+
+                            cmd.Parameters.AddWithValue("@remarks",
+                                string.IsNullOrWhiteSpace(remarks) ? (object)DBNull.Value : remarks);
 
                             cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
-                            cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@IpAddress",
+                                (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+
                             cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
 
                             SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
@@ -429,22 +489,71 @@ namespace App.Controllers
                                 int qty = 1;
                                 decimal rate = 0;
 
-                                if (s.TryGetProperty("qty", out var q))
+                                if (s.TryGetProperty("Qty", out var q1) && q1.ValueKind != JsonValueKind.Null)
                                 {
-                                    if (q.ValueKind == JsonValueKind.Number) qty = q.GetInt32();
-                                    else int.TryParse(q.ToString(), out qty);
+                                    if (q1.ValueKind == JsonValueKind.Number) qty = q1.GetInt32();
+                                    else int.TryParse(q1.ToString(), out qty);
+                                }
+                                else if (s.TryGetProperty("qty", out var q2) && q2.ValueKind != JsonValueKind.Null)
+                                {
+                                    if (q2.ValueKind == JsonValueKind.Number) qty = q2.GetInt32();
+                                    else int.TryParse(q2.ToString(), out qty);
                                 }
 
-                                if (s.TryGetProperty("Amount", out var amountEl))
+                                if (s.TryGetProperty("Rate", out var rateEl) && rateEl.ValueKind != JsonValueKind.Null)
+                                {
+                                    if (rateEl.ValueKind == JsonValueKind.Number) rate = rateEl.GetDecimal();
+                                    else decimal.TryParse(rateEl.ToString(), out rate);
+                                }
+                                else if (s.TryGetProperty("Amount", out var amountEl) && amountEl.ValueKind != JsonValueKind.Null)
                                 {
                                     if (amountEl.ValueKind == JsonValueKind.Number) rate = amountEl.GetDecimal();
                                     else decimal.TryParse(amountEl.ToString(), out rate);
                                 }
 
-                                decimal total = qty * rate;
-                                int serviceItemId = s.TryGetProperty("ServiceItemId", out var sid) ? sid.GetInt32() : 0;
-                                int subSubCategoryId = s.TryGetProperty("SubSubCategoryId", out var sub) ? sub.GetInt32() : 0;
-                                string serviceName = s.TryGetProperty("ServiceName", out var sn) ? sn.GetString() ?? "" : "";
+                                decimal total = GetDecimal(s, "GrossAmt", qty * rate);
+
+                                int serviceItemId = s.TryGetProperty("ServiceItemId", out var sid) && sid.ValueKind != JsonValueKind.Null
+                                    ? sid.GetInt32()
+                                    : 0;
+
+                                int subSubCategoryId = s.TryGetProperty("SubSubCategoryId", out var sub) && sub.ValueKind != JsonValueKind.Null
+                                    ? sub.GetInt32()
+                                    : 0;
+
+                                string serviceName = s.TryGetProperty("ServiceName", out var sn) && sn.ValueKind != JsonValueKind.Null
+                                    ? sn.GetString() ?? ""
+                                    : "";
+
+                                int doctorId = GetInt(model, "DoctorId", 0);
+                                int corporateId = GetInt(s, "CorporateId", GetInt(model, "CorporateId", 0));
+                                int rateListId = GetInt(s, "RateListId", 0);
+                                int stockId = GetInt(s, "StockId", 0);
+                                int equipmentId = GetInt(s, "EquipmentId", 0);
+                                int packageId = GetInt(s, "PackageId", 0);
+                                int deal1 = GetInt(s, "Deal1", 0);
+                                int deal2 = GetInt(s, "Deal2", 0);
+
+                                decimal discPer = GetDecimal(s, "DiscPer", 0);
+                                decimal discAmt = GetDecimal(s, "DiscAmt", 0);
+                                decimal totalTaxPer = GetDecimal(s, "TotalTaxPer", 0);
+                                decimal totalTaxAmt = GetDecimal(s, "TotalTaxAmt", 0);
+                                decimal netAmt = GetDecimal(s, "NetAmt", total - discAmt + totalTaxAmt);
+
+                                int reportingBranchId = GetInt(s, "ReportingBranchId", 0);
+
+                                if (reportingBranchId <= 0 &&
+                                    model.TryGetProperty("Investigations", out var investigations) &&
+                                    investigations.ValueKind == JsonValueKind.Array &&
+                                    investigations.GetArrayLength() > 0)
+                                {
+                                    var inv = investigations[0];
+
+                                    if (inv.TryGetProperty("ReportingBranchId", out var rb1) && rb1.ValueKind != JsonValueKind.Null)
+                                        reportingBranchId = rb1.GetInt32();
+                                    else if (inv.TryGetProperty("reportingBranchId", out var rb2) && rb2.ValueKind != JsonValueKind.Null)
+                                        reportingBranchId = rb2.GetInt32();
+                                }
 
                                 cmd.Parameters.AddWithValue("@hospId", GetInt(model, "HospId"));
                                 cmd.Parameters.AddWithValue("@branchId", GetInt(model, "BranchId"));
@@ -452,18 +561,50 @@ namespace App.Controllers
                                 cmd.Parameters.AddWithValue("@FTID", financialId);
                                 cmd.Parameters.AddWithValue("@visitId", visitId);
                                 cmd.Parameters.AddWithValue("@patientId", patientId);
-                                cmd.Parameters.AddWithValue("@corporateId", GetInt(model, "CorporateId", 0));
+
                                 cmd.Parameters.AddWithValue("@serviceItemId", serviceItemId);
                                 cmd.Parameters.AddWithValue("@subSubCategoryId", subSubCategoryId);
-                                cmd.Parameters.AddWithValue("@serviceName", serviceName);
+                                cmd.Parameters.AddWithValue("@serviceName",
+                                    string.IsNullOrWhiteSpace(serviceName) ? (object)DBNull.Value : serviceName);
+
+                                cmd.Parameters.AddWithValue("@serviceCode", (object?)GetString(s, "ServiceCode") ?? DBNull.Value);
+                                cmd.Parameters.AddWithValue("@corporateAlias", (object?)GetString(s, "CorporateAlias") ?? DBNull.Value);
+                                cmd.Parameters.AddWithValue("@corporateCode", (object?)GetString(s, "CorporateCode") ?? DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@doctorId", doctorId > 0 ? doctorId : DBNull.Value);
+                                cmd.Parameters.AddWithValue("@corporateId", corporateId > 0 ? corporateId : DBNull.Value);
 
                                 cmd.Parameters.AddWithValue("@rate", rate);
                                 cmd.Parameters.AddWithValue("@qty", qty);
                                 cmd.Parameters.AddWithValue("@grossAmt", total);
-                                cmd.Parameters.AddWithValue("@netAmt", total);
+                                cmd.Parameters.AddWithValue("@discPer", discPer);
+                                cmd.Parameters.AddWithValue("@discAmt", discAmt);
+                                cmd.Parameters.AddWithValue("@totalTaxPer", totalTaxPer);
+                                cmd.Parameters.AddWithValue("@totalTaxAmt", totalTaxAmt);
+                                cmd.Parameters.AddWithValue("@netAmt", netAmt);
+
+                                cmd.Parameters.AddWithValue("@isCorporateNonPayable", GetInt(s, "IsCorporateNonPayable", 0));
+                                cmd.Parameters.AddWithValue("@isUnderPackage", GetInt(s, "IsUnderPackage", 0));
+                                cmd.Parameters.AddWithValue("@discountReason",
+                                    (object?)GetString(s, "DiscountReason") ?? DBNull.Value);
+                                cmd.Parameters.AddWithValue("@rateListId", rateListId);
 
                                 cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
+                                cmd.Parameters.AddWithValue("@stockId", stockId > 0 ? stockId : DBNull.Value);
+                                cmd.Parameters.AddWithValue("@EquipmentId", equipmentId > 0 ? equipmentId : DBNull.Value);
                                 cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@fromFTDID", 0);
+                                cmd.Parameters.AddWithValue("@packageId", packageId);
+                                cmd.Parameters.AddWithValue("@billingDate", DBNull.Value);
+
+                                cmd.Parameters.AddWithValue("@specialDiscPer", GetDecimal(s, "SpecialDiscPer", 0));
+                                cmd.Parameters.AddWithValue("@specialDiscAmt", GetDecimal(s, "SpecialDiscAmt", 0));
+                                cmd.Parameters.AddWithValue("@deal1", deal1);
+                                cmd.Parameters.AddWithValue("@deal2", deal2);
+
+                                cmd.Parameters.AddWithValue("@ReportingBranchId",
+                                    reportingBranchId > 0 ? reportingBranchId : DBNull.Value);
 
                                 SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
                                 {
@@ -481,6 +622,8 @@ namespace App.Controllers
                         // =========================
                         // RECEIPT
                         // =========================
+                        decimal receiptAmount = GetDecimal(model, "ReceiptAmount", 0);
+
                         using (SqlCommand cmd = new SqlCommand("I_Receipts", con, txn))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -492,7 +635,7 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@visitId", visitId);
                             cmd.Parameters.AddWithValue("@patientId", patientId);
 
-                            cmd.Parameters.AddWithValue("@amount", totalPayment);
+                            cmd.Parameters.AddWithValue("@amount", receiptAmount);
 
                             cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
                             cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
@@ -507,19 +650,6 @@ namespace App.Controllers
                             cmd.ExecuteNonQuery();
 
                             receiptId = Convert.ToInt32(outParam.Value);
-
-                            if (receiptId > 0)
-                            {
-                                using (SqlCommand updateReceiptCmd = new SqlCommand(@"
-                            UPDATE Receipts
-                            SET CreatedOn = @CreatedOn
-                            WHERE ReceiptId = @ReceiptId", con, txn))
-                                {
-                                    updateReceiptCmd.Parameters.AddWithValue("@CreatedOn", GetIndianNow());
-                                    updateReceiptCmd.Parameters.AddWithValue("@ReceiptId", receiptId);
-                                    updateReceiptCmd.ExecuteNonQuery();
-                                }
-                            }
                         }
 
                         // =========================
@@ -1206,9 +1336,9 @@ namespace App.Controllers
                 else
                 {
                     using SqlCommand uhidCmd = new SqlCommand(@"
-                SELECT TOP 1 UHID
-                FROM PatientMaster
-                WHERE PatientId = @PatientId", con, txn);
+                    SELECT TOP 1 UHID
+                    FROM PatientMaster
+                    WHERE PatientId = @PatientId", con, txn);
 
                     uhidCmd.Parameters.AddWithValue("@PatientId", patientId);
 

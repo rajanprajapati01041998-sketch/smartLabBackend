@@ -1,0 +1,146 @@
+2026-05-11 10:27:27,826 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:27:27,826 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:27:28,272 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:29:43,906 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:29:43,906 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:43:06,648 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:43:06,648 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:43:08,141 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=1
+2026-05-11 10:43:08,141 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=1
+2026-05-11 10:43:08,146 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=1, count=2
+2026-05-11 10:43:08,146 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=1, count=2
+2026-05-11 10:43:09,924 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:43:09,924 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:43:19,633 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:43:19,633 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:43:19,748 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:46:03,201 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:46:03,201 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:46:03,700 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:47:36,619 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:47:36,619 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:47:36,619 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:48:36,153 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:48:36,153 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:48:52,577 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:48:52,577 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:50:46,276 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:50:46,276 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:50:46,276 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:54:51,608 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 10:54:51,608 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 10:54:51,608 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:02:08,492 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:02:08,492 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:02:08,493 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:02:09,527 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=1
+2026-05-11 11:02:09,540 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=1
+2026-05-11 11:02:09,541 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=1, count=2
+2026-05-11 11:02:09,542 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=1, count=2
+2026-05-11 11:02:11,236 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:02:11,239 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:05:47,765 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:05:47,765 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:05:47,765 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:07:20,837 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:07:20,837 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:07:20,837 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:21:39,383 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:21:39,384 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:21:39,385 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:26:31,839 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:26:31,839 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:26:39,350 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:27:59,918 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:28:02,408 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=8066
+2026-05-11 11:28:02,416 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=8066, count=1
+2026-05-11 11:28:02,599 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=8066
+2026-05-11 11:28:02,601 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=8066, count=1
+2026-05-11 11:28:03,203 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:28:03,203 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:28:06,842 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:28:06,842 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:34:43,563 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:34:43,563 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:34:43,563 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:36:36,297 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:36:36,297 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:36:36,297 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:38:29,774 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:38:29,774 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:38:29,774 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:45:47,119 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:45:47,119 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:45:47,119 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:57:48,137 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 11:57:48,137 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 11:57:48,220 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:02:26,859 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:02:26,859 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:02:26,859 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:03:11,908 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:03:11,909 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:03:18,912 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:04:17,982 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:04:17,982 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:04:25,983 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:05:29,542 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:05:29,545 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:05:29,545 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:33:34,160 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:33:34,163 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:33:34,310 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:40:23,312 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:40:23,317 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:40:24,309 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:41:27,351 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:41:27,351 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:41:27,355 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:51:10,942 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:51:10,942 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:51:10,942 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:54:41,442 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:54:41,442 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:54:41,442 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:56:43,032 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 12:56:43,032 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 12:56:43,032 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:01:40,745 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:01:40,745 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:01:40,745 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:11:28,709 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:11:28,709 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:11:28,709 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:12:53,193 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:12:53,193 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:12:53,193 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:13:02,546 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:13:02,546 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:13:02,547 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:13:18,999 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:13:19,000 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:13:19,024 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:15:18,086 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:15:18,086 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:15:26,004 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:25:47,532 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:25:47,532 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:25:47,532 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:30:29,850 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:30:29,850 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:30:29,850 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:51:18,838 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-11 13:51:18,840 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:51:18,840 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=8066, userId=1
+2026-05-11 13:52:11,143 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3b787e613aab144b9052f64f328a71be-6926af5939046872-00
+Status     : 404
+Method     : POST
+Path       : /api/Tracking/update-location
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"userId":1,"latitude":37.4219983,"longitude":-122.084,"capturedAt":"2026-05-11T08:22:10.796Z"}
+

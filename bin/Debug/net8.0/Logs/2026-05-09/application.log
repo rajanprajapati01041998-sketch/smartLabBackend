@@ -1,0 +1,204 @@
+2026-05-09 13:49:18,936 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-20d9448cf0f3aa274bd2fb556a334ebc-863aaf886f5bd1d6-00
+Status     : 401
+Method     : POST
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "userName": "string",
+  "userPassword": "string",
+  "branchId": 0,
+  "browser": "string",
+  "device": "string",
+  "os": "string",
+  "latitudeApp": 0,
+  "longitudeApp": 0
+}
+ResponseBody: {"message":"Invalid username, password or branch"}
+2026-05-09 13:49:30,507 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-04e72637cf8ac6d2af90db74822866ce-46c58338c6e3ef7d-00
+Status     : 405
+Method     : GET
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userName": "gws",
+  "userPassword": "gravitys@0542",
+  "branchId": 9084,
+  "browser": "Handset",
+  "device": "sdk_gphone16k_arm64",
+  "os": "Android 17",
+  "latitudeApp": 26.8467,
+  "longitudeApp": 80.9462
+}
+
+2026-05-09 13:49:36,277 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-22a74ec2ddb2ebe58aa3f4e0fa4e1301-a16ecc4dc25c0250-00
+Status     : 401
+Method     : POST
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userName": "gws",
+  "userPassword": "gravitys@0542",
+  "branchId": 9084,
+  "browser": "Handset",
+  "device": "sdk_gphone16k_arm64",
+  "os": "Android 17",
+  "latitudeApp": 26.8467,
+  "longitudeApp": 80.9462
+}
+ResponseBody: {"message":"Invalid username, password or branch"}
+2026-05-09 13:51:33,479 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-351096d08f7cd00ec3f4d8c265e55b8d-e62a68dac22cdb20-00
+Status     : 404
+Method     : GET
+Path       : /api/Login/login-history/1
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"message":"No login history found"}
+2026-05-09 13:51:51,893 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a362c182839b3e829fc7baf92ed9e972-3bf1458e814bb6a4-00
+Status     : 404
+Method     : GET
+Path       : /api/Login/login-history/28183
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"message":"No login history found"}
+2026-05-09 13:52:10,146 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-9c1a74677106696ab985d0c5144947f0-b758a9bc66e9ab75-00
+Status     : 404
+Method     : GET
+Path       : /api/Login/login-history/3
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"message":"No login history found"}
+2026-05-09 14:09:50,946 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:09:50,946 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 14:09:50,946 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:10:17,250 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:10:17,250 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:10:17,250 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 14:10:20,163 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-09 14:10:20,188 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-09 14:10:20,380 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-09 14:10:20,383 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-09 14:10:22,044 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 14:10:22,044 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:14:26,448 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 14:14:26,448 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:14:53,560 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:14:53,561 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 14:14:53,710 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 14:16:38,765 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-230f8037318ef60493694460b5ee5d7f-33bf84994c326a9f-00
+Status     : 404
+Method     : GET
+Path       : /api/Login/login-history/16518
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"message":"No login history found"}
+2026-05-09 16:24:27,278 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:24:27,278 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:24:34,756 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:24:35,212 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-09 16:24:35,217 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-09 16:24:35,458 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-09 16:24:35,460 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-09 16:24:38,051 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:24:38,053 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:32:18,020 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:32:18,020 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:32:18,119 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:34:08,073 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:34:08,073 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:34:08,073 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:34:48,514 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:34:48,514 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:34:48,587 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:46:19,612 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:46:19,643 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:49:15,156 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-09 16:49:15,186 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-09 16:49:59,748 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 16:49:59,751 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 16:49:59,874 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 16:50:44,380 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 16:50:44,380 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 16:51:52,849 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 16:51:52,860 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 16:59:59,621 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 16:59:59,622 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 16:59:59,621 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:00:50,675 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:00:50,675 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:00:50,735 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:01:49,607 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:01:49,612 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:01:49,690 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:03:18,903 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:03:18,903 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:03:18,972 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:07:57,467 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:07:57,503 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:10:23,983 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:10:23,983 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:10:23,984 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:15:24,155 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:15:24,200 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:19:43,504 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:19:43,504 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:19:43,504 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:22:40,161 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:22:40,161 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:22:40,651 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:28:53,638 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:28:53,652 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:31:31,546 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 17:31:31,578 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:31:51,675 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9066, userId=1
+2026-05-09 17:31:51,675 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-09 23:38:58,748 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b019286ac34d4556820c66e9860497b1-e4f279b4079d702f-00
+Status     : 400
+Method     : POST
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.71:5021
+Scheme     : http
+Remote IP  : 192.168.31.71
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userName": "gws",
+  "userPassword": "gravitys@0542",
+  "branchId": 1,
+  "browser": "Handset",
+  "device": "sdk_gphone16k_arm64",
+  "os": "Android 17",
+  "latitudeApp": 26.8467,
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-b019286ac34d4556820c66e9860497b1-e4f279b4079d702f-00","data":{"$":["The JSON object contains a trailing comma at the end which is not supported in this mode. Change the reader options. Path: $ | LineNumber: 8 | BytePositionInLine: 0."],"request":["The request field is required."]}}

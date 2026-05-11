@@ -270,3 +270,490 @@ ResponseBody: {"success":false,"message":"HospId is required"}
 2026-05-01 11:16:43,968 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
 2026-05-01 11:16:47,510 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
 2026-05-01 11:16:47,514 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-01 12:09:08,960 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-05-01 12:10:19,682 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-05-01 12:10:19,800 ERROR LISD.Controllers.CountryController - SQL error in GetFullLocationByPincode API. pincode=221003
+Microsoft.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'S_GetFullLocationByPincode'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader()
+   at LISD.Controllers.CountryController.GetFullLocationByPincode(Int32 pincode) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/CountryController.cs:line 113
+ClientConnectionId:9458273d-2524-437f-aed8-6aa0d226cf88
+Error Number:2812,State:62,Class:16
+2026-05-01 12:10:19,814 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-55e3589462621fe858a53366a710556c-617cb631b80f555d-00
+Status     : 500
+Method     : GET
+Path       : /api/Country/GetFullLocationByPincode
+Query      : ?pincode=221003
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Database error occurred"}
+2026-05-01 12:10:22,831 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-05-01 12:10:22,838 ERROR LISD.Controllers.CountryController - SQL error in GetFullLocationByPincode API. pincode=221003
+Microsoft.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'S_GetFullLocationByPincode'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader()
+   at LISD.Controllers.CountryController.GetFullLocationByPincode(Int32 pincode) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/CountryController.cs:line 113
+ClientConnectionId:9458273d-2524-437f-aed8-6aa0d226cf88
+Error Number:2812,State:62,Class:16
+2026-05-01 12:10:22,839 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3426a665d092e073f58aa807e9b43c5a-67c0e349cc2a6eec-00
+Status     : 500
+Method     : GET
+Path       : /api/Country/GetFullLocationByPincode
+Query      : ?pincode=221003
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+ResponseBody: {"status":false,"message":"Database error occurred"}
+2026-05-01 12:16:22,583 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003
+2026-05-01 15:57:49,922 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 15:57:49,922 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 15:57:49,922 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 15:58:15,065 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 15:58:15,066 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 15:58:15,151 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 16:00:20,956 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 16:00:21,016 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 16:00:21,376 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 16:00:21,379 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 16:48:13,491 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-ddbe689bc4590b333343238d1eb39b5f-5772c48d530c9730-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 1,
+  "LoginBranchId": 1,
+  "CorporateId": 1,
+  "Title": "Mr",
+  "FirstName": "Rohan k",
+  "MiddleName": "A",
+  "LastName": "Yadav",
+  "AgeYears": 30,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1995-01-01",
+  "Gender": "Male",
+  "MaritalStatus": "Single",
+  "Relation": "Father",
+  "RelativeName": "Robert Doe",
+  "ContactNumber": "6786585585",
+  "Address": "123 Street, City",
+  "DoctorId": 2,
+  "ReferDoctorId": 2,
+  "ReferLabId": 2,
+  "FieldBoyId": 3,
+  "MedicalHistory": "No major illness",
+  "CollectionDateTime": "2026-03-18T11:30:00",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "Delhi",
+  "DistrictId": 1,
+  "District": "New Delhi",
+  "CityId": 1,
+  "City": "Delhi",
+  "UserId": 1,
+  "IpAddress": "127.0.0.1",
+  "GrossAmount": 1500,
+  "DiscountAmount": 100,
+  "NetAmount": 1400,
+  "Services": [
+    {
+      "ServiceItemId": 1,
+      "SubSubCategoryId": 10,
+      "ServiceName": "ACETYLCHOLINE RECEPTOR BINDING ANTIBODIES (ACHR)",
+      "Amount": 500,
+      "Rate": 500,
+      "qty": 2,
+      "Qty": 2,
+      "GrossAmt": 1000,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 950,
+      "IsUrgent": 1,
+      "Barcode": "BAR123",
+      "TestRemark": "Fasting"
+    },
+    {
+      "ServiceItemId": 263,
+      "SubSubCategoryId": 11,
+      "ServiceName": "HEPATITIS E ANTIBODY - Anti HEV-IGG",
+      "Amount": 500,
+      "Rate": 500,
+      "qty": 1,
+      "Qty": 1,
+      "GrossAmt": 500,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 450,
+      "IsUrgent": 1,
+      "Barcode": "BAR124",
+      "TestRemark": "Fasting"
+    }
+  ],
+  "payments": [],
+  "Investigations": [
+    {
+      "ReportingBranchId": 1,
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"UHID not found in PatientMaster"}
+2026-05-01 16:48:26,789 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-6ea2861911fd068bcd703dae079c0a81-9df007662d691893-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 1,
+  "LoginBranchId": 1,
+  "CorporateId": 1,
+  "Title": "Mr",
+  "FirstName": "Rohan kumar h",
+  "MiddleName": "A",
+  "LastName": "Yadav",
+  "AgeYears": 30,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1995-01-01",
+  "Gender": "Male",
+  "MaritalStatus": "Single",
+  "Relation": "Father",
+  "RelativeName": "Robert Doe",
+  "ContactNumber": "6786585585",
+  "Address": "123 Street, City",
+  "DoctorId": 2,
+  "ReferDoctorId": 2,
+  "ReferLabId": 2,
+  "FieldBoyId": 3,
+  "MedicalHistory": "No major illness",
+  "CollectionDateTime": "2026-03-18T11:30:00",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "Delhi",
+  "DistrictId": 1,
+  "District": "New Delhi",
+  "CityId": 1,
+  "City": "Delhi",
+  "UserId": 1,
+  "IpAddress": "127.0.0.1",
+  "GrossAmount": 1500,
+  "DiscountAmount": 100,
+  "NetAmount": 1400,
+  "Services": [
+    {
+      "ServiceItemId": 1,
+      "SubSubCategoryId": 10,
+      "ServiceName": "ACETYLCHOLINE RECEPTOR BINDING ANTIBODIES (ACHR)",
+      "Amount": 500,
+      "Rate": 500,
+      "qty": 2,
+      "Qty": 2,
+      "GrossAmt": 1000,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 950,
+      "IsUrgent": 1,
+      "Barcode": "BAR123",
+      "TestRemark": "Fasting"
+    },
+    {
+      "ServiceItemId": 263,
+      "SubSubCategoryId": 11,
+      "ServiceName": "HEPATITIS E ANTIBODY - Anti HEV-IGG",
+      "Amount": 500,
+      "Rate": 500,
+      "qty": 1,
+      "Qty": 1,
+      "GrossAmt": 500,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 450,
+      "IsUrgent": 1,
+      "Barcode": "BAR124",
+      "TestRemark": "Fasting"
+    }
+  ],
+  "payments": [],
+  "Investigations": [
+    {
+      "ReportingBranchId": 1,
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"Barcode already used: BAR123"}
+2026-05-01 17:22:07,738 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-40b73e587ff92372f657d23ebcb8c9c1-d6c26e4409276d6a-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 1,
+  "LoginBranchId": 1,
+  "CorporateId": 1,
+  "Title": "Mr",
+  "FirstName": "pawan kumar",
+  "MiddleName": "",
+  "LastName": "singh",
+  "AgeYears": 30,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1995-01-01",
+  "Gender": "Male",
+  "MaritalStatus": "Single",
+  "Relation": "Father",
+  "RelativeName": "Robert Doe",
+  "ContactNumber": "",
+  "Address": "123 Street, City",
+  "DoctorId": 2,
+  "ReferDoctorId": 2,
+  "ReferLabId": 2,
+  "FieldBoyId": 3,
+  "MedicalHistory": "No major illness",
+  "CollectionDateTime": "2026-03-18T11:30:00",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "Delhi",
+  "DistrictId": 1,
+  "District": "New Delhi",
+  "CityId": 1,
+  "City": "Delhi",
+  "UserId": 1,
+  "IpAddress": "127.0.0.1",
+
+  "GrossAmount": 1500,
+  "DiscountPercentage": 10,
+  "DiscountAmount": 150,
+  "RoundOff": 50,
+  "NetAmount": 1300,
+  "Remarks": "10% overall discount",
+
+  "Services": [
+    {
+      "ServiceItemId": 1,
+      "SubSubCategoryId": 10,
+      "ServiceName": "ACETYLCHOLINE RECEPTOR BINDING ANTIBODIES (ACHR)",
+      "Amount": 1000,
+      "Rate": 1000,
+      "Qty": 1,
+      "GrossAmt": 1000,
+      "DiscPer": 10,
+      "DiscAmt": 100,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 900,
+      "IsUrgent": 1,
+      "Barcode": "",
+      "TestRemark": "Fasting"
+    },
+    {
+      "ServiceItemId": 263,
+      "SubSubCategoryId": 11,
+      "ServiceName": "HEPATITIS E ANTIBODY - Anti HEV-IGG",
+      "Amount": 500,
+      "Rate": 500,
+      "Qty": 1,
+      "GrossAmt": 500,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 450,
+      "IsUrgent": 1,
+      "Barcode": "",
+      "TestRemark": "Fasting"
+    }
+  ],
+
+  "payments": [],
+  "Investigations": [
+    {
+      "ReportingBranchId": 1,
+      "Barcode": "",
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"UHID not found in PatientMaster"}
+2026-05-01 17:22:40,011 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-56518f125549a5704754a9faa05b642c-e7bba313a5f083ff-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 1,
+  "LoginBranchId": 1,
+  "CorporateId": 1,
+  "Title": "Mr",
+  "FirstName": "pawan kumar",
+  "MiddleName": "",
+  "LastName": "singh",
+  "AgeYears": 30,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1995-01-01",
+  "Gender": "Male",
+  "MaritalStatus": "Single",
+  "Relation": "Father",
+  "RelativeName": "Robert Doe",
+  "ContactNumber": "",
+  "Address": "123 Street, City",
+  "DoctorId": 2,
+  "ReferDoctorId": 2,
+  "ReferLabId": 2,
+  "FieldBoyId": 3,
+  "MedicalHistory": "No major illness",
+  "CollectionDateTime": "2026-03-18T11:30:00",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "Delhi",
+  "DistrictId": 1,
+  "District": "New Delhi",
+  "CityId": 1,
+  "City": "Delhi",
+  "UserId": 1,
+  "IpAddress": "127.0.0.1",
+
+  "GrossAmount": 1500,
+  "DiscountPercentage": 10,
+  "DiscountAmount": 150,
+  "RoundOff": 50,
+  "NetAmount": 1300,
+  "Remarks": "10% overall discount",
+
+  "Services": [
+    {
+      "ServiceItemId": 1,
+      "SubSubCategoryId": 10,
+      "ServiceName": "ACETYLCHOLINE RECEPTOR BINDING ANTIBODIES (ACHR)",
+      "Amount": 1000,
+      "Rate": 1000,
+      "Qty": 1,
+      "GrossAmt": 1000,
+      "DiscPer": 10,
+      "DiscAmt": 100,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 900,
+      "IsUrgent": 1,
+      "Barcode": "",
+      "TestRemark": "Fasting"
+    },
+    {
+      "ServiceItemId": 263,
+      "SubSubCategoryId": 11,
+      "ServiceName": "HEPATITIS E ANTIBODY - Anti HEV-IGG",
+      "Amount": 500,
+      "Rate": 500,
+      "Qty": 1,
+      "GrossAmt": 500,
+      "DiscPer": 10,
+      "DiscAmt": 50,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 450,
+      "IsUrgent": 1,
+      "Barcode": "",
+      "TestRemark": "Fasting"
+    }
+  ],
+
+  "payments": [],
+  "Investigations": [
+    {
+      "ReportingBranchId": 1,
+      "Barcode": "",
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"UHID not found in PatientMaster"}
+2026-05-01 17:47:06,449 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 17:47:06,449 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 17:47:54,708 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 17:47:54,709 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 17:47:54,846 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 17:47:56,916 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 17:47:56,927 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 17:47:57,277 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 17:47:57,280 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 17:48:38,934 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-ced4266904c799a3d684c5b83938e1b8-df27ba46ef2b9069-00
+Status     : 404
+Method     : GET
+Path       : /favicon.ico
+Query      : 
+Host       : 192.168.1.38:5021
+Scheme     : http
+Remote IP  : 192.168.1.38
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+
+2026-05-01 18:13:29,766 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-01 18:13:29,767 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 18:13:29,767 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-01 18:13:32,667 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 18:13:32,678 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-01 18:13:33,178 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-01 18:13:33,181 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
