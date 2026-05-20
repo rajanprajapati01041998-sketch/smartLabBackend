@@ -15,6 +15,7 @@ using LISD.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using LISDBACKEND.Hubs;
 
 
 
@@ -98,6 +99,7 @@ public partial class Program
 
         // Razorpay config
 
+        builder.Services.AddSignalR();
         builder.Services.Configure<RazorpaySettings>(
             builder.Configuration.GetSection("RazorpaySettings"));
 
@@ -353,11 +355,8 @@ public partial class Program
 
         app.UseAuthentication();
         app.UseAuthorization();
-
         app.MapControllers();
-
-        app.Run();
-
+        app.MapHub<LocationHub>("/locationHub");
         app.Run();
     }
 

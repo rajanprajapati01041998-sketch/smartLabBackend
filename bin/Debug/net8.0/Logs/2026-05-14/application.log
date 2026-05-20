@@ -1,0 +1,301 @@
+2026-05-14 10:40:23,370 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:40:23,373 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:44:41,770 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:48:33,114 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:48:33,612 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:59:39,179 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 10:59:39,179 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:09:06,081 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:09:06,081 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:09:17,831 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:09:18,301 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:11:54,505 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:11:55,006 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:20:04,418 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:20:04,418 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:35:51,087 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:35:51,575 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:43:55,121 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:43:55,204 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:43:57,445 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:43:58,862 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:44:05,025 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:46:57,571 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:48:24,656 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:48:26,174 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:48:29,340 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:48:29,406 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:49:06,478 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:49:22,391 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:49:22,463 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:49:39,219 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:49:39,346 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:49:47,562 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:50:23,978 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 11:50:37,378 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:50:37,511 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:56:06,768 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 11:56:06,818 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:03:56,275 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:27:57,720 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:27:57,720 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:28:03,475 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:37:54,087 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:37:54,147 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:37:56,264 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:37:56,264 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:58:05,030 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 12:58:05,508 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:19:21,383 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:19:21,504 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:19:21,817 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:19:21,885 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:24:15,268 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:25:00,490 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:25:17,305 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:28:18,185 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:28:18,196 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:30:53,389 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:30:53,389 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:34:12,030 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:34:12,030 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:34:37,931 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:36:06,059 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:36:06,059 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:36:20,316 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:36:20,371 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:37:23,728 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:37:27,450 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:40:11,542 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:40:17,502 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:40:43,255 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:47:14,539 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:47:14,622 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:47:46,138 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:47:56,293 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 13:49:33,326 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:12:49,978 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:19:33,433 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:19:33,434 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:19:58,458 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:19:58,961 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:20:18,736 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:20:19,225 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:20:28,466 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:20:28,964 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:22:36,951 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:22:36,951 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:22:38,737 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:22:39,225 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:23:08,270 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:23:15,482 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 15:26:32,381 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:00:33,742 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-707a1b525c4d1920565aec30415052a9-c02486328004bcd7-00
+Status     : 400
+Method     : GET
+Path       : /api/FlaboDashBoard/sample-summary
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+ResponseBody: {"success":false,"message":"fieldBoyId is required"}
+2026-05-14 16:36:32,566 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:36:32,566 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:36:33,129 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:37:01,102 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:37:01,207 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:37:08,248 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-14 16:37:08,330 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-14 16:37:08,930 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-14 16:37:08,943 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-14 16:37:18,629 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-14 16:37:18,636 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-14 16:37:21,252 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:37:21,315 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:37:25,331 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:37:25,368 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:37:28,445 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:37:28,450 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:38:14,993 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:38:15,082 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:38:15,336 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:38:15,344 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:38:32,313 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:38:32,386 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:38:32,571 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-14 16:38:32,574 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-14 16:43:55,103 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:44:29,645 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:44:30,049 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:44:33,002 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-14 16:54:37,046 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:54:37,260 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-14 16:54:58,887 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:54:59,025 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:55:27,199 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:55:27,208 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:56:18,276 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:56:18,766 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:58:59,320 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:58:59,820 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:59:34,051 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 16:59:42,046 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 17:01:15,885 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 17:01:16,380 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 17:04:37,353 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 17:04:37,353 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-14 17:24:08,699 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-6ceb28d4ebe89de5a1a21d4c24d49e7f-4fc2eae03dce1aad-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-6ceb28d4ebe89de5a1a21d4c24d49e7f-4fc2eae03dce1aad-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:24:38,052 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-1f56530c169af8bec3b6b9458247b6b6-9a32d6abb0ae156c-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-1f56530c169af8bec3b6b9458247b6b6-9a32d6abb0ae156c-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:24:38,132 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b2aa22b385bfe2992a2b6284bff3fcbb-5e24ef1ff73750e0-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-b2aa22b385bfe2992a2b6284bff3fcbb-5e24ef1ff73750e0-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:25:31,879 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-627b8d5eb3e86955cc07abd84a4c15ea-7bafe567db2d4acb-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-627b8d5eb3e86955cc07abd84a4c15ea-7bafe567db2d4acb-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:25:31,966 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-bb2ff4b745921bd96ba37be011f65a37-7dc4f867dfcb2987-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-bb2ff4b745921bd96ba37be011f65a37-7dc4f867dfcb2987-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:26:41,638 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-d281250ff366506aeb8e646c1f3f91ed-de029862ed5079a6-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":"[object Object]","samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-d281250ff366506aeb8e646c1f3f91ed-de029862ed5079a6-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 23."]}}
+2026-05-14 17:26:41,718 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-fe63b90babfe81e86200961c6e9fd8c7-dbc0bcb1a811c3ea-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":"[object Object]","samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-fe63b90babfe81e86200961c6e9fd8c7-dbc0bcb1a811c3ea-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 23."]}}
+2026-05-14 17:27:01,689 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-008b76970fb0d0f3d34b3a215221aef7-e965133dad03565b-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-008b76970fb0d0f3d34b3a215221aef7-e965133dad03565b-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:27:01,880 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-bcaf28c0c0f1825e2d48b81fe57cc7dc-0d6a318439db6395-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-bcaf28c0c0f1825e2d48b81fe57cc7dc-0d6a318439db6395-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:27:31,137 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-bed4a211b6342021910bf2c42e44b929-4cd5850b1a10a6ed-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{"BillDate":"14-May-2026","Type":"OPD","UHID":"GWT/26-27/00000112","ContactNumber":"","Email":{},"IPDNo":0,"LabNo":266,"WardName":"","PatientName":"MR. PRADEEP KUMAR","CurrentAge":"23Y","CorporateName":"01 CASH","ClientName":"02 : GRAVITY- VARANASI","Gender":"MALE","VisitId":17069,"IsUrgent":1,"Barcode":"","IsSampleRequired":1,"IsOutSource":0,"IsSampleSegregationRequired":0,"IsDepartmentReceivingRequired":0,"PatientInvestigationId":18134,"PatientSampleTrackingId":{},"SamplePickup":{},"SampleDelivered":{},"SamplePickupDateTime":{},"SampleDeliveredDateTime":{},"ReportTypeId":1,"IsReportHold":0,"CreatedOn":"May 14 2026 11:47AM","VIPPatient":0,"IsAbnormalResult":0,"IsSampleSegregated":0,"SampleSegregationOn":"","IsSampleCollected":0,"SampleCollectedOn":"","IsSampleReceivedByDepartment":0,"SampleReceivedByDepartmentOn":"","IsResultDone":0,"ResultDoneOn":"","IsReportApproved":0,"ReportApprovedOn":"","IsDispatched":0,"DispatchedOn":"","IsSampleRejected":0,"IsUnderPackage":0,"Name":"LIVER FUNCTION TEST (LFT)"},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-bed4a211b6342021910bf2c42e44b929-4cd5850b1a10a6ed-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:27:31,281 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7dff79353a603719db42ea6acab1ec3e-4b8806496d83c735-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{"BillDate":"14-May-2026","Type":"OPD","UHID":"GWT/26-27/00000112","ContactNumber":"","Email":{},"IPDNo":0,"LabNo":266,"WardName":"","PatientName":"MR. PRADEEP KUMAR","CurrentAge":"23Y","CorporateName":"01 CASH","ClientName":"02 : GRAVITY- VARANASI","Gender":"MALE","VisitId":17069,"IsUrgent":1,"Barcode":"","IsSampleRequired":1,"IsOutSource":0,"IsSampleSegregationRequired":0,"IsDepartmentReceivingRequired":0,"PatientInvestigationId":18134,"PatientSampleTrackingId":{},"SamplePickup":{},"SampleDelivered":{},"SamplePickupDateTime":{},"SampleDeliveredDateTime":{},"ReportTypeId":1,"IsReportHold":0,"CreatedOn":"May 14 2026 11:47AM","VIPPatient":0,"IsAbnormalResult":0,"IsSampleSegregated":0,"SampleSegregationOn":"","IsSampleCollected":0,"SampleCollectedOn":"","IsSampleReceivedByDepartment":0,"SampleReceivedByDepartmentOn":"","IsResultDone":0,"ResultDoneOn":"","IsReportApproved":0,"ReportApprovedOn":"","IsDispatched":0,"DispatchedOn":"","IsSampleRejected":0,"IsUnderPackage":0,"Name":"LIVER FUNCTION TEST (LFT)"},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-7dff79353a603719db42ea6acab1ec3e-4b8806496d83c735-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-14 17:28:35,130 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-9f0fc568cb33e8cc0d0dbad076bacbcd-2f5817b4f140c0a8-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":{"BillDate":"14-May-2026","Type":"OPD","UHID":"GWT/26-27/00000115","ContactNumber":"","Email":{},"IPDNo":0,"LabNo":269,"WardName":"","PatientName":"MR. KAMLESH KUMAR","CurrentAge":"27Y","CorporateName":"01 CASH","ClientName":"02 : GRAVITY- VARANASI","Gender":"MALE","VisitId":17072,"IsUrgent":1,"Barcode":"","IsSampleRequired":1,"IsOutSource":0,"IsSampleSegregationRequired":0,"IsDepartmentReceivingRequired":0,"PatientInvestigationId":18137,"PatientSampleTrackingId":1007,"SamplePickup":false,"SampleDelivered":false,"SamplePickupDateTime":{},"SampleDeliveredDateTime":{},"ReportTypeId":1,"IsReportHold":0,"CreatedOn":"May 14 2026  5:28PM","VIPPatient":0,"IsAbnormalResult":0,"IsSampleSegregated":0,"SampleSegregationOn":"","IsSampleCollected":0,"SampleCollectedOn":"","IsSampleReceivedByDepartment":0,"SampleReceivedByDepartmentOn":"","IsResultDone":0,"ResultDoneOn":"","IsReportApproved":0,"ReportApprovedOn":"","IsDispatched":0,"DispatchedOn":"","IsSampleRejected":0,"IsUnderPackage":0,"Name":"LIVER FUNCTION TEST (LFT)"},"samplePickup":true}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-9f0fc568cb33e8cc0d0dbad076bacbcd-2f5817b4f140c0a8-00","data":{"request":["The request field is required."],"$.id":["The JSON value could not be converted to System.Int32. Path: $.id | LineNumber: 0 | BytePositionInLine: 7."]}}
+2026-05-16 10:51:01,733 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 10:51:01,733 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 10:55:11,944 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 10:55:12,121 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 11:00:19,187 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 11:02:29,790 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 11:02:30,276 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 11:04:57,781 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 11:05:04,285 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066

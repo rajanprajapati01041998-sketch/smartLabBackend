@@ -303,9 +303,6 @@ namespace App.Controllers
                         // =========================
                         // STEP 2: VISIT
                         // =========================
-                        // =========================
-                        // STEP 2: VISIT
-                        // =========================
 
                         // Bill level values
                         decimal grossAmount = GetDecimal(model, "GrossAmount", totalService);
@@ -771,9 +768,9 @@ namespace App.Controllers
                         foreach (var bc in distinctBarcodes)
                         {
                             using (SqlCommand checkCmd = new SqlCommand(@"
-        SELECT COUNT(1)
-        FROM PatientInvestigationDetails
-        WHERE Barcode = @Barcode", con, txn))
+                        SELECT COUNT(1)
+                        FROM PatientInvestigationDetails
+                        WHERE Barcode = @Barcode", con, txn))
                             {
                                 checkCmd.Parameters.Add("@Barcode", SqlDbType.VarChar).Value = bc;
 
@@ -898,6 +895,55 @@ namespace App.Controllers
                                     updateCmd.Parameters.AddWithValue("@PatientInvestigationId", patientInvestigationId);
                                     updateCmd.ExecuteNonQuery();
                                 }
+                            }
+                        }
+
+                        // =========================
+                        // STEP 7: SAVE SAMPLE TRACKING
+                        // =========================
+
+                        int fieldBoyId = GetInt(model, "FieldBoyId", 0);
+                        DateTime? collectionDateTime = GetDateTime(model, "CollectionDateTime");
+
+                        if (fieldBoyId > 0)
+                        {
+                            using (SqlCommand cmd = new SqlCommand("I_PatientSampleTracking", con, txn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                cmd.Parameters.Add("@PatientId", SqlDbType.Int).Value = patientId;
+                                cmd.Parameters.Add("@UHID", SqlDbType.NVarChar, 100).Value = uhid;
+                                cmd.Parameters.Add("@VisitId", SqlDbType.Int).Value = visitId;
+                                cmd.Parameters.Add("@FTID", SqlDbType.Int).Value = financialId;
+                                cmd.Parameters.Add("@ReceiptId", SqlDbType.Int).Value = receiptId;
+
+                                cmd.Parameters.Add("@LabNo", SqlDbType.Int).Value =
+                                    commonLabNo > 0 ? commonLabNo : DBNull.Value;
+
+                                cmd.Parameters.Add("@TotalPayment", SqlDbType.Decimal).Value = totalPayment;
+                                cmd.Parameters["@TotalPayment"].Precision = 18;
+                                cmd.Parameters["@TotalPayment"].Scale = 2;
+
+                                cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value = fieldBoyId;
+
+                                cmd.Parameters.Add("@CollectionDateTime", SqlDbType.DateTime).Value =
+                                    collectionDateTime.HasValue
+                                        ? collectionDateTime.Value
+                                        : DBNull.Value;
+
+                                SqlParameter outParam = new SqlParameter("@Result", SqlDbType.Int)
+                                {
+                                    Direction = ParameterDirection.Output
+                                };
+
+                                cmd.Parameters.Add(outParam);
+
+                                cmd.ExecuteNonQuery();
+
+                                int patientSampleTrackingId =
+                                    outParam.Value == DBNull.Value ? 0 : Convert.ToInt32(outParam.Value);
+
+                                Console.WriteLine($"PatientSampleTracking Saved: {patientSampleTrackingId}");
                             }
                         }
 

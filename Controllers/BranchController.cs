@@ -228,6 +228,66 @@ public class BranchController : ControllerBase
                 error = ex.Message
             });
         }
+
+
+    }
+
+
+    [HttpGet("flabo-branch-list")]
+    public async Task<IActionResult> GetBranchList()
+    {
+        try
+        {
+            List<object> branches = new List<object>();
+
+            using (SqlConnection con = new SqlConnection(
+                _config.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand(
+                    "S_GetBranchList",
+                    con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader =
+                        await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            branches.Add(new
+                            {
+                                branchId =
+                                    Convert.ToInt32(reader["BranchId"]),
+
+                                branchName =
+                                    reader["BranchName"]?.ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = "Branch list fetched successfully",
+                count = branches.Count,
+                data = branches
+            });
+        }
+        catch (Exception ex)
+        {
+            _log.Error("Error fetching branch list", ex);
+
+            return StatusCode(500, new
+            {
+                success = false,
+                message = "Error fetching branch list",
+                error = ex.Message
+            });
+        }
     }
 
 
