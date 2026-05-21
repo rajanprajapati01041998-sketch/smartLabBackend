@@ -256,14 +256,14 @@ namespace LISDBACKEND.Controllers
             foreach (var item in receiptDetails)
             {
                 serviceRows.Append($@"
-<tr>
-    <td>{Html(GetString(item, "ServiceName"))}</td>
-    <td>{Html(GetString(item, "CorporateCode"))}</td>
-    <td class='center'>{FormatAmount(GetDecimal(item, "Qty"))}</td>
-    <td class='right'>{FormatAmount(GetDecimal(item, "Rate"))}</td>
-    <td>{Html(GetString(item, "BillDate"))}</td>
-    <td class='right'>{FormatAmount(GetDecimal(item, "NetAmt"))}</td>
-</tr>");
+        <tr>
+            <td>{Html(GetString(item, "ServiceName"))}</td>
+            <td>{Html(GetString(item, "CorporateCode"))}</td>
+            <td class='center'>{FormatAmount(GetDecimal(item, "Qty"))}</td>
+            <td class='right'>{FormatAmount(GetDecimal(item, "Rate"))}</td>
+            <td>{Html(GetString(item, "BillDate"))}</td>
+            <td class='right'>{FormatAmount(GetDecimal(item, "NetAmt"))}</td>
+        </tr>");
             }
 
             var receiptRows = new StringBuilder();

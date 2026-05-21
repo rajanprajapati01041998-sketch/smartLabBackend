@@ -1866,7 +1866,7 @@ namespace App.Controllers
 
         [HttpGet("test-requisition-form")]
         public async Task<IActionResult> GetTestRequisitionForm(
-        [FromQuery] int filter,
+        [FromQuery] int ftid,
         [FromQuery] string mode = "view")
         {
             try
@@ -1877,8 +1877,7 @@ namespace App.Controllers
                 using SqlCommand cmd = new SqlCommand("getTestRequisitionForm", con);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@filter", filter);
-
+                cmd.Parameters.AddWithValue("@filter", ftid);
                 await con.OpenAsync();
 
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();

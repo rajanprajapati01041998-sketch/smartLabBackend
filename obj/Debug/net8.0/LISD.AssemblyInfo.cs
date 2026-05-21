@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LISD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6935c4091e782cc6fb1fbe200b0faf45bf04e15e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c1cb7e200af441ec37d79b60fdeacb9ba9c1bd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("LISD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LISD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

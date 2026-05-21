@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using iText.Kernel.Geom;
@@ -56,6 +57,7 @@ namespace App.Controllers
 
                 string doctorSignaturesHtml = GetDoctorSignatures(headerData);
                 string currentDateTime = DateTime.Now.ToString("dd-MMM-yyyy hh:mm:ss tt");
+                string investigationNames = GetInvestigationNames(headerData);
 
                 string qrUrl =
                     $"{Request.Scheme}://{Request.Host}/api/ReportPrint/DownloadCombinedReport?ptInvstId={ptInvstId}&isHeaderPNG={isHeaderPNG}&printBy={printBy}&branchId={branchId}&pdf=true";
@@ -70,7 +72,8 @@ namespace App.Controllers
                     barcodeBase64,
                     doctorSignaturesHtml,
                     currentDateTime,
-                    isHeaderPNG
+                    isHeaderPNG,
+                    investigationNames
                 );
 
                 byte[] pdfBytes = ConvertToPdf(html);
@@ -220,7 +223,8 @@ namespace App.Controllers
     string barcode,
     string doctorSignatures,
     string currentDateTime,
-    int isHeaderPNG)
+    int isHeaderPNG,
+    string investigationNames)
         {
             string path = Path.Combine(
                 Directory.GetCurrentDirectory(),
@@ -241,8 +245,8 @@ namespace App.Controllers
                     : "";
             }
 
-            string headerHtml = "";
-            string topSpaceHtml = "";
+            string headerSectionHtml = "";
+            string topSpaceSectionHtml = "";
 
             if (isHeaderPNG == 1)
             {
@@ -254,7 +258,7 @@ namespace App.Controllers
 
                     if (!string.IsNullOrWhiteSpace(headerBase64))
                     {
-                        headerHtml = $@"
+                        headerSectionHtml = $@"
                 <div class='report-header'>
                     <img src='data:image/png;base64,{headerBase64}' class='letter-head-img' />
                 </div>";
@@ -263,7 +267,8 @@ namespace App.Controllers
             }
             else
             {
-                topSpaceHtml = "<div class='top-empty-space'></div>";
+                // When header is hidden, keep a fixed top gap (requested 150px via CSS).
+                topSpaceSectionHtml = "<div class='top-empty-space'></div>";
             }
 
             string nablHtml = "";
@@ -282,8 +287,8 @@ namespace App.Controllers
                 }
             }
 
-            html = html.Replace("{{HEADER_IMAGE}}", headerHtml);
-            html = html.Replace("{{TOP_SPACE}}", topSpaceHtml);
+            html = html.Replace("{{HEADER_SECTION}}", headerSectionHtml);
+            html = html.Replace("{{TOP_SPACE_SECTION}}", topSpaceSectionHtml);
             html = html.Replace("{{NABL_IMAGE}}", nablHtml);
 
             html = html.Replace("{{LabNo}}", Get("LabNo"));
@@ -300,7 +305,9 @@ namespace App.Controllers
             html = html.Replace("{{ReferLab}}", Get("ReferLabName"));
             html = html.Replace("{{PreparedBy}}", Get("InvResultEntryBy"));
             html = html.Replace("{{PrintedBy}}", Get("InvResultPrintBy"));
+            html = html.Replace("{{SubSubCategoryName}}", Get("SubSubCategoryName"));
             html = html.Replace("{{Results}}", results);
+            html = html.Replace("{{InvestigationNames}}", investigationNames ?? "");
             html = html.Replace("{{DoctorSignatures}}", doctorSignatures);
             html = html.Replace("{{CurrentDateTime}}", currentDateTime);
 
@@ -308,6 +315,36 @@ namespace App.Controllers
             html = html.Replace("{{BARCODE}}", $"data:image/svg+xml;base64,{barcode}");
 
             return html;
+        }
+
+        private static string GetInvestigationNames(DataTable dt)
+        {
+            if (dt == null || dt.Rows.Count == 0)
+                return "";
+
+            // Stored proc column names can differ across deployments; try common variants.
+            string[] candidates =
+            {
+                "InvestigationName",
+                "Investigation",
+                "InvName",
+                "TestName",
+                "InvestigationTitle",
+                "SubSubCategoryName"
+            };
+
+            string col = candidates.FirstOrDefault(dt.Columns.Contains);
+            if (string.IsNullOrWhiteSpace(col))
+                return "";
+
+            var distinct = dt.Rows
+                .Cast<DataRow>()
+                .Select(r => r[col] == DBNull.Value ? "" : r[col]?.ToString()?.Trim() ?? "")
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            return distinct.Count == 0 ? "" : string.Join(", ", distinct);
         }
 
         private byte[] ConvertToPdf(string html)
@@ -379,9 +416,9 @@ namespace App.Controllers
                     Format = ZXing.BarcodeFormat.CODE_128,
                     Options = new ZXing.Common.EncodingOptions
                     {
-                        Width = 288,
+                        Width = 280,
                         Height = 72,
-                        Margin = 2,
+                        Margin = 4,
                         PureBarcode = false
                     }
                 };
@@ -413,7 +450,6 @@ namespace App.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Barcode generation error: {ex.Message}");
 
                 string fallbackSvg = $@"<?xml version=""1.0"" encoding=""UTF-8""?>
                 <svg xmlns=""http://www.w3.org/2000/svg"" width=""62"" height=""288"" viewBox=""0 0 62 288"">
