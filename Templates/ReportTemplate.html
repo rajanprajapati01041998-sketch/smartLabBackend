@@ -23,6 +23,8 @@
             font-size: 11px;
             color: #000;
             background: #fff;
+            border: 1px solid #000;
+            padding: 4px;
         }
 
         /* FLEX LAYOUT: Ensures footer always stays at bottom of page */
@@ -62,7 +64,7 @@
 
         /* Main info panel with border */
         .header-box {
-            border: 2px solid #000;
+            border: 1px solid #000;
             border-collapse: collapse;
             table-layout: fixed;
             width: 100%;
@@ -162,6 +164,13 @@
             padding: 8px 12px;
             border-bottom: 1px solid #000;
             font-size: 12px;
+        }
+
+        .department-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 12px;
         }
 
         .results-body {
@@ -305,14 +314,10 @@
         <!-- ============================================= -->
         <!-- HEADER SECTION: Dynamic letterhead / logo     -->
         <!-- ============================================= -->
-        <div class="report-header">
-            {{HEADER_IMAGE}}
-        </div>
+        {{HEADER_SECTION}}
 
         <!-- OPTIONAL TOP EMPTY SPACE (if needed) -->
-        <div class="top-empty-space">
-            {{TOP_SPACE}}
-        </div>
+        {{TOP_SPACE_SECTION}}
 
         <div class="report-body">
             <!-- ============================================= -->
@@ -379,6 +384,12 @@
                                             <td class="colon">:</td>
                                             <td class="value">{{ReferLab}}</td>
                                         </tr>
+                                        <!-- Row 7 -->
+                                        <tr>
+                                            <td class="label">Investigation Name</td>
+                                            <td class="colon">:</td>
+                                            <td class="value" colspan="4">{{InvestigationNames}}</td>
+                                        </tr>
                                     </table>
                                 </td>
 
@@ -402,6 +413,7 @@
             <!-- ============================================= -->
             <!-- TEST RESULTS SECTION                          -->
             <!-- ============================================= -->
+            <div class="department-title">{{SubSubCategoryName}}</div>
             <div class="results-container">
                 <div class="results-header">Test Results</div>
                 <div class="results-body">
