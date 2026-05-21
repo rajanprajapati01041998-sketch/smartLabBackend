@@ -154,5 +154,141 @@ public class BranchController : ControllerBase
                 error = ex.Message
             });
         }
+
+
+
     }
+
+    [HttpGet("discount-approval-list")]
+    public async Task<IActionResult> GetDiscountApprovalForBilling(string discountType, int branchId)
+    {
+        try
+        {
+            _log.Info($"GetDiscountApprovalForBilling API called. discountType={discountType}, branchId={branchId}");
+
+            using (SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand("S_GetDiscountApprovalForBilling", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@discountType", discountType ?? "");
+                    cmd.Parameters.AddWithValue("@branchId", branchId);
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        var list = new List<Dictionary<string, object>>();
+
+                        while (await reader.ReadAsync())
+                        {
+                            var row = new Dictionary<string, object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row[reader.GetName(i)] =
+                                    reader[i] == DBNull.Value ? null : reader[i];
+                            }
+
+                            list.Add(row);
+                        }
+
+                        _log.Info($"GetDiscountApprovalForBilling success. count={list.Count}");
+
+                        return Ok(new
+                        {
+                            status = true,
+                            message = "Discount approval fetched successfully",
+                            data = list
+                        });
+                    }
+                }
+            }
+        }
+        catch (SqlException sqlEx)
+        {
+            _log.Error($"SQL error in GetDiscountApprovalForBilling", sqlEx);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Database error occurred",
+                error = sqlEx.Message
+            });
+        }
+        catch (Exception ex)
+        {
+            _log.Error($"Unhandled error in GetDiscountApprovalForBilling", ex);
+
+            return StatusCode(500, new
+            {
+                status = false,
+                message = "Internal server error",
+                error = ex.Message
+            });
+        }
+
+
+    }
+
+
+    [HttpGet("flabo-branch-list")]
+    public async Task<IActionResult> GetBranchList()
+    {
+        try
+        {
+            List<object> branches = new List<object>();
+
+            using (SqlConnection con = new SqlConnection(
+                _config.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand(
+                    "S_GetBranchList",
+                    con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader =
+                        await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            branches.Add(new
+                            {
+                                branchId =
+                                    Convert.ToInt32(reader["BranchId"]),
+
+                                branchName =
+                                    reader["BranchName"]?.ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = "Branch list fetched successfully",
+                count = branches.Count,
+                data = branches
+            });
+        }
+        catch (Exception ex)
+        {
+            _log.Error("Error fetching branch list", ex);
+
+            return StatusCode(500, new
+            {
+                success = false,
+                message = "Error fetching branch list",
+                error = ex.Message
+            });
+        }
+    }
+
+
 }

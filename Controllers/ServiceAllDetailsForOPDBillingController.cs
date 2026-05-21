@@ -20,67 +20,103 @@ namespace App.Controllers
 
         [HttpGet("GetServiceDetails")]
         public async Task<IActionResult> GetServiceDetails(
-            int corporateId,
-            int doctorId,
-            int serviceItemId,
-            int categoryId,
-            int subCategoryId,
-            int subSubCategoryId,
-            string? previlegedCardNo = null,
-            int bedTypeId = 0)
+        int corporateId,
+        int doctorId,
+        int serviceItemId,
+        int categoryId,
+        int subCategoryId,
+        int subSubCategoryId,
+        string? previlegedCardNo = null,
+        int bedTypeId = 0)
         {
             try
             {
                 ServiceAllDetailsForOPDBillingModel result = new ServiceAllDetailsForOPDBillingModel();
 
                 using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-                using (SqlCommand cmd = new SqlCommand("S_GetServiceAllDetailsForOPDBilling", con))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@corporateId", corporateId);
-                    cmd.Parameters.AddWithValue("@doctorId", doctorId);
-                    cmd.Parameters.AddWithValue("@serviceItemId", serviceItemId);
-                    cmd.Parameters.AddWithValue("@categoryId", categoryId);
-                    cmd.Parameters.AddWithValue("@subCategoryId", subCategoryId);
-                    cmd.Parameters.AddWithValue("@subSubCategoryId", subSubCategoryId);
-                    cmd.Parameters.AddWithValue("@previlegedCardNo",
-                        string.IsNullOrWhiteSpace(previlegedCardNo) ? DBNull.Value : previlegedCardNo);
-                    cmd.Parameters.AddWithValue("@bedTypeId", bedTypeId);
-
                     await con.OpenAsync();
 
-                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    using (SqlCommand cmd = new SqlCommand("S_GetServiceAllDetailsForOPDBilling", con))
                     {
-                        if (await reader.ReadAsync())
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@corporateId", corporateId);
+                        cmd.Parameters.AddWithValue("@doctorId", doctorId);
+                        cmd.Parameters.AddWithValue("@serviceItemId", serviceItemId);
+                        cmd.Parameters.AddWithValue("@categoryId", categoryId);
+                        cmd.Parameters.AddWithValue("@subCategoryId", subCategoryId);
+                        cmd.Parameters.AddWithValue("@subSubCategoryId", subSubCategoryId);
+                        cmd.Parameters.AddWithValue("@previlegedCardNo", previlegedCardNo ?? "");
+                        cmd.Parameters.AddWithValue("@bedTypeId", bedTypeId);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            result = new ServiceAllDetailsForOPDBillingModel
+                            if (await reader.ReadAsync())
                             {
-                                MRP = GetDecimal(reader, "MRP"),
-                                Rate = GetDecimal(reader, "Rate"),
-                                RateListId = GetInt(reader, "RateListId"),
-                                IsRateEditable = GetBool(reader, "IsRateEditable"),
-                                ServiceName = GetString(reader, "ServiceName"),
-                                SampleVolume = GetString(reader, "SampleVolume"),
-                                ContainerColor = GetString(reader, "ContainerColor"),
-                                Code = GetString(reader, "Code"),
-                                CorporateAlias = GetString(reader, "CorporateAlias"),
-                                CorporateCode = GetString(reader, "CorporateCode"),
-                                ValidityDays = GetInt(reader, "ValidityDays"),
-                                DiscountPer = GetDecimal(reader, "DiscountPer"),
-                                DiscountReason = GetString(reader, "DiscountReason"),
-                                IsNonPayable = GetInt(reader, "IsNonPayable"),
-                                ServiceItemId = GetInt(reader, "ServiceItemId"),
-                                CategoryId = GetInt(reader, "CategoryId"),
-                                SubCategoryId = GetInt(reader, "SubCategoryId"),
-                                SubSubCategoryId = GetInt(reader, "SubSubCategoryId"),
-                                IsCorporateDiscount = GetInt(reader, "IsCorporateDiscount"),
-                                IsPrivilegedCardDiscount = GetInt(reader, "IsPrivilegedCardDiscount"),
-                                DefaultSampleTypeId = GetInt(reader, "DefaultSampleTypeId"),
-                                SampleTypeIdList = GetString(reader, "SampleTypeIdList"),
-                                SampleTypeList = GetString(reader, "SampleTypeList")
-                            };
+                                result = new ServiceAllDetailsForOPDBillingModel
+                                {
+                                    MRP = GetDecimal(reader, "MRP"),
+                                    Rate = GetDecimal(reader, "Rate"),
+                                    RateListId = GetInt(reader, "RateListId"),
+                                    IsRateEditable = GetBool(reader, "IsRateEditable"),
+                                    SampleVolume = GetString(reader, "SampleVolume"),
+                                    ContainerColor = GetString(reader, "ContainerColor"),
+                                    ServiceName = GetString(reader, "ServiceName"),
+                                    Code = GetString(reader, "Code"),
+                                    CorporateAlias = GetString(reader, "CorporateAlias"),
+                                    CorporateCode = GetString(reader, "CorporateCode"),
+                                    ValidityDays = GetInt(reader, "ValidityDays"),
+                                    DiscountPer = GetDecimal(reader, "DiscountPer"),
+                                    DiscountReason = GetString(reader, "DiscountReason"),
+                                    IsNonPayable = GetInt(reader, "IsNonPayable"),
+                                    ServiceItemId = GetInt(reader, "ServiceItemId"),
+                                    CategoryId = GetInt(reader, "CategoryId"),
+                                    SubCategoryId = GetInt(reader, "SubCategoryId"),
+                                    SubSubCategoryId = GetInt(reader, "SubSubCategoryId"),
+                                    IsCorporateDiscount = GetInt(reader, "IsCorporateDiscount"),
+                                    IsPrivilegedCardDiscount = GetInt(reader, "IsPrivilegedCardDiscount"),
+                                    DefaultSampleTypeId = GetInt(reader, "DefaultSampleTypeId"),
+                                    SampleTypeIdList = GetString(reader, "SampleTypeIdList"),
+                                    SampleTypeList = GetString(reader, "SampleTypeList"),
+                                    SampleTypes = new List<SampleTypeModel>()
+                                };
+                            }
                         }
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(result.SampleTypeIdList))
+                    {
+                        using (SqlCommand sampleCmd = new SqlCommand("S_GetActiveSampleTypesByIds", con))
+                        {
+                            sampleCmd.CommandType = CommandType.StoredProcedure;
+                            sampleCmd.Parameters.AddWithValue("@SampleTypeIds", result.SampleTypeIdList);
+
+                            using (SqlDataReader sampleReader = await sampleCmd.ExecuteReaderAsync())
+                            {
+                                while (await sampleReader.ReadAsync())
+                                {
+                                    result.SampleTypes.Add(new SampleTypeModel
+                                    {
+                                        HospId = GetInt(sampleReader, "HospId"),
+                                        SampleTypeId = GetInt(sampleReader, "SampleTypeId"),
+                                        SampleType = GetString(sampleReader, "SampleType"),
+                                        IsActive = GetInt(sampleReader, "IsActive"),
+                                        CreatedBy = GetString(sampleReader, "CreatedBy"),
+                                        CreatedOn = GetString(sampleReader, "CreatedOn"),
+                                        LastModifiedBy = GetString(sampleReader, "LastModifiedBy"),
+                                        LastModifiedOn = GetString(sampleReader, "LastModifiedOn"),
+                                        IpAddress = GetString(sampleReader, "IpAddress")
+                                    });
+                                }
+                            }
+                        }
+
+                        result.SampleType = string.Join(", ",
+                            result.SampleTypes
+                                .Where(x => !string.IsNullOrWhiteSpace(x.SampleType))
+                                .Select(x => x.SampleType)
+                        );
                     }
                 }
 
@@ -101,7 +137,6 @@ namespace App.Controllers
                 });
             }
         }
-
         private static bool HasColumn(IDataRecord reader, string columnName)
         {
             for (int i = 0; i < reader.FieldCount; i++)
@@ -198,6 +233,95 @@ namespace App.Controllers
                     status = false,
                     message = "Error fetching data",
                     error = ex.Message
+                });
+            }
+        }
+
+
+
+        // get package details 
+        [HttpGet("GetPackageAllDetails")]
+        public IActionResult GetPackageAllDetails(string id, string? filter = null)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(id))
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Package id is required",
+                        data = (object?)null
+                    });
+                }
+
+                var list = new List<object>();
+
+                using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                {
+                    using (SqlCommand cmd = new SqlCommand("S_GetPackageAllDetails", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@filter",
+                            string.IsNullOrWhiteSpace(filter) ? (object)DBNull.Value : filter);
+
+                        con.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                list.Add(new
+                                {
+                                    PackageId = reader["PackageId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PackageId"]),
+                                    PackageName = reader["PackageName"]?.ToString(),
+                                    PackageCode = reader["PackageCode"]?.ToString(),
+                                    IsActive = reader["IsActive"] == DBNull.Value ? false : Convert.ToBoolean(reader["IsActive"]),
+
+                                    SubSubCategoryId = reader["SubSubCategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["SubSubCategoryId"]),
+                                    SubCategoryId = reader["SubCategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["SubCategoryId"]),
+                                    CategoryId = reader["CategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["CategoryId"]),
+
+                                    StartsFrom = reader["StartsFrom"]?.ToString(),
+                                    ExpiresOn = reader["ExpiresOn"]?.ToString(),
+
+                                    PackageServiceNameCode = reader["PackageServiceNameCode"]?.ToString(),
+                                    PackageServiceName = reader["PackageServiceName"]?.ToString(),
+                                    PackageServiceId = reader["PackageServiceId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PackageServiceId"]),
+                                    QTY = reader["QTY"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["QTY"]),
+
+                                    PackageServiceCategory = reader["PackageServiceCategory"]?.ToString(),
+                                    PackageServiceSubSubCategoryId = reader["PackageServiceSubSubCategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PackageServiceSubSubCategoryId"]),
+                                    PackageServiceCode = reader["PackageServiceCode"]?.ToString(),
+                                    PackageServiceCategoryId = reader["PackageServiceCategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PackageServiceCategoryId"]),
+                                    PackageServiceSubCategoryId = reader["PackageServiceSubCategoryId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PackageServiceSubCategoryId"]),
+
+                                    DefaultSampleTypeId = reader["DefaultSampleTypeId"] == DBNull.Value ? 0 : Convert.ToInt32(reader["DefaultSampleTypeId"]),
+                                    SampleTypeIdList = reader["SampleTypeIdList"]?.ToString(),
+                                    SampleTypeList = reader["SampleTypeList"]?.ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Data fetched successfully",
+                    count = list.Count,
+                    data = list
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message,
+                    data = (object?)null
                 });
             }
         }

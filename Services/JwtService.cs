@@ -34,7 +34,9 @@ public class JwtService
             claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
         }
 
-        var expiry = DateTime.Now.AddMinutes(
+        // IMPORTANT: token validation uses UTC time. If we generate `exp` using local time,
+        // the token can appear expired (or valid) at the wrong time depending on server timezone.
+        var expiry = DateTime.UtcNow.AddMinutes(
             Convert.ToDouble(jwtSettings["DurationInMinutes"])
         );
 

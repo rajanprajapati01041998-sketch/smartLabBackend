@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Diagnostic Report</title>
+
     <style>
         @page {
             size: A4;
@@ -18,49 +18,53 @@
         }
 
         body {
-            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 11px;
-            background: #fff;
-            margin: 0;
-            padding: 10px;
             color: #000;
-            min-height: 100vh;
+            background: #fff;
+        }
+
+        /* Top space placeholder - will be replaced dynamically */
+        .top-empty-space {
+            height: 150px;
+            width: 100%;
+        }
+
+        .report-header {
+            width: 100%;
+            height: 110px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .letter-head-img {
+            width: 100%;
+            height: 110px;
+            display: block;
+            object-fit: fill;
+        }
+
+        .report-body {
+            width: 100%;
+            min-height: 960px;
             display: flex;
             flex-direction: column;
         }
 
-        .report-container {
-            max-width: 100%;
-            margin: 0 auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: calc(100vh - 20px);
-        }
-
-        /* Main content wrapper - pushes footer to bottom */
-        .main-content {
-            flex: 1;
-        }
-
-        /* Header Section */
-        table.header-box {
-            border: 2px solid #000000;
+        .header-box {
+            border: 2px solid #000;
             border-collapse: collapse;
             table-layout: fixed;
             width: 100%;
-            margin-top: 10px;
             background: #fff;
-            page-break-inside: avoid;
         }
 
         .header-main-cell {
             vertical-align: top;
             padding: 12px;
-            width: auto;
         }
 
-        table.header-inner {
+        .header-inner {
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed;
@@ -68,33 +72,26 @@
 
         .header-content-td {
             vertical-align: top;
-            width: auto;
         }
 
         .qr-cell {
             width: 92px;
-            max-width: 92px;
             vertical-align: top;
             text-align: center;
-            padding: 0 0 0 8px;
+            padding-left: 8px;
         }
 
         .barcode-cell {
-            width: 62px;
-            max-width: 62px;
+            width: 70px;
             vertical-align: middle;
             text-align: center;
-            border-left: 2px solid #000000;
-            padding: 8px 6px;
-            background: #ffffff;
+            border-left: 2px solid #000;
+            padding: 8px 0;
         }
 
         .barcode-cell img {
-            display: block;
-            width: 100%;
-            max-width: 58px;
+            width: 58px;
             height: auto;
-            margin: 0 auto;
         }
 
         .info-table {
@@ -114,11 +111,6 @@
             width: 28%;
         }
 
-        .labelCollection {
-            font-weight: 500;
-            width: 28%;
-        }
-
         .colon {
             width: 3%;
             text-align: center;
@@ -132,273 +124,282 @@
         .qr-wrap {
             width: 80px;
             height: 80px;
-            margin: 0 auto;
-            background: #ffffff;
-            border: 1px solid #aaaaaa;
-            overflow: hidden;
+            border: 1px solid #aaa;
             text-align: center;
-            line-height: 76px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .qr-wrap img {
-            max-width: 100%;
-            max-height: 100%;
-            vertical-align: middle;
+            width: 78px;
+            height: 78px;
+            object-fit: contain;
         }
 
-        /* Results Section */
+        /* RESULTS CONTAINER - FULL WIDTH */
         .results-container {
-            border: 1px solid #000000;
+            border: 2px solid #000;
             margin-top: 16px;
             width: 100%;
-            overflow: hidden;
-            page-break-inside: avoid;
+            overflow-x: auto;
         }
 
         .results-header {
-            background: #e5e5e5;
-            font-weight: 700;
-            padding: 8px 12px;
-            border-bottom: 1px solid #000;
-            font-size: 12px;
+            background: #d9d9d9;
+            font-weight: bold;
+            padding: 10px 14px;
+            border-bottom: 2px solid #000;
+            font-size: 13px;
+            width: 100%;
+            letter-spacing: .5px;
         }
 
         .results-body {
-            padding: 12px;
+            padding: 0;
             width: 100%;
+            min-height: 120px;
         }
 
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
+        /* CRITICAL: Table takes full width of parent */
+        .results-body table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            table-layout: auto !important;
+            min-width: 100%;
         }
 
-        .results-table th,
-        .results-table td {
+        .results-body th {
+            background: #f2f2f2;
+            border: 1px solid #000;
             padding: 8px;
+            font-size: 11px;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
         }
 
-        .results-table th {
-            background-color: #f5f5f5;
-            font-weight: 700;
+        .results-body td {
+            border: 1px solid #000;
+            padding: 8px;
+            font-size: 11px;
+            vertical-align: top;
         }
 
-        /* Doctor Signature Section */
-        .doctor-section {
-            margin-top: 20px;
-            padding-top: 15px;
+        .results-body p {
+            margin: 6px 10px;
         }
 
-        .doctor-signature {
+        .results-body strong {
+            font-weight: bold;
+        }
+
+        .end_report {
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .end_report_text {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        /* BOTTOM AREA - FLEXBOX for proper left/right alignment */
+        .bottom-area {
+            margin-top: 60px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
-            gap: 20px;
+            align-items: flex-end;
+            page-break-inside: avoid;
+            flex-wrap: wrap;
+        }
+
+        .nabl-bottom {
+            flex: 1;
+            text-align: left;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nabl-img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+        }
+
+        .doctor-bottom {
+            flex: 1;
+            text-align: right;
+            padding-right: 20px;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .doctor-card {
-            text-align: right;
-            flex: 1;
-            padding: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            vertical-align: bottom;
+        }
+
+        .doctor-sign {
+            width: 110px;
+            height: 55px;
+            object-fit: contain;
+            margin-bottom: 2px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 2px;
+            margin-bottom: 2px;
         }
 
         .doctor-name {
+            font-size: 10px;
             font-weight: bold;
-            font-size: 10px;
-            margin-bottom: 4px;
         }
 
-        .doctor-qualification {
-            font-size: 10px;
-            color: #555;
-            margin-bottom: 4px;
-        }
-
-        .doctor-designation {
-            font-size: 10px;
-            color: #666;
-            font-style: italic;
-        }
-
-       
-
-        /* Footer Section - Fixed at bottom */
+        /* FOOTER SECTION - stays at bottom */
         .footer-section {
-            margin-top: auto;
+            margin-top: 25px;
             width: 100%;
         }
 
         .print-info {
-        
-            margin-top: 20px;
             font-size: 9px;
             color: #666;
             border-top: 1px dashed #ccc;
             padding-top: 8px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                min-height: 100%;
-            }
-
-            .report-container {
-                min-height: 100%;
-            }
-
-            .header-box {
-                margin-top: 5px;
-            }
-
-            .doctor-card {
-                break-inside: avoid;
-            }
-
-            .print-info {
-                break-inside: avoid;
-            }
-
-            .footer-section {
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                background: white;
-            }
-
-            .doctor-sign {
-                border: 1px solid; 
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-end;
-                margin-top: 20px;
-                gap: 20px;
-            }
-
-            .doctor-card {
-                border: 1px solid;
-                text-align: right;
-                width: 180px;
-                /* 👉 FIX WIDTH (important for right alignment) */
-            }
-
-            .doctor-sign {
-                max-height: 60px;
-                margin-top: 5px;
-            }
-        }
-
-        /* For screen view - ensure footer stays at bottom */
-        @media screen {
-            .footer-section {
-                margin-top: auto;
-            }
+        /* Ensure no static content overrides */
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 
 <body>
-    <div class="report-container">
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Header Section -->
-            <table class="header-box">
-                <tr>
-                    <td class="header-main-cell">
-                        <table class="header-inner">
-                            <tr>
-                                <td class="header-content-td">
-                                    <table class="info-table">
-                                        <tr>
-                                            <td class="label">Diagnostics No.</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{LabNo}}</td>
-                                            <td class="label">UHID</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{UHID}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Patient Name</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{PName}}</td>
-                                            <td class="label">Reg. Date & Time</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{RegDate}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Age/Gender</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{AgeGender}}</td>
-                                            <td class="label">Collection Date & Time</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{CollectionDate}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Contact No.</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{ContactNo}}</td>
-                                            <td class="label">Reporting Date/Time</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{ReportDate}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Referred By</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{ReferredBy}}</td>
-                                            <td class="label">Report Status</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{Status}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="label">Sample Type</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{SampleType}}</td>
-                                            <td class="label">Referred Lab</td>
-                                            <td class="colon">:</td>
-                                            <td class="value">{{ReferLab}}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td class="qr-cell">
-                                    <div class="qr-wrap">
-                                        <img src="{{QR}}" alt="QR Code">
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td class="barcode-cell">
-                        <img src="{{BARCODE}}" alt="Barcode">
-                    </td>
-                </tr>
-            </table>
 
-            <!-- Test Results Section -->
-            <div class="results-container">
-                <div class="results-header">
-                    Test Results
-                </div>
-                <div class="results-body">
-                    {{Results}}
-                </div>
+    <!-- ============================================= -->
+    <!-- FULLY DYNAMIC TEMPLATE - NO STATIC VALUES     -->
+    <!-- All content will be replaced by backend data  -->
+    <!-- ============================================= -->
+
+    {{HEADER_IMAGE}}
+
+    {{TOP_SPACE}}
+
+    <div class="report-body">
+
+        <!-- PATIENT & REPORT INFORMATION TABLE -->
+        <table class="header-box">
+            <tr>
+                <td class="header-main-cell">
+                    <table class="header-inner">
+                        <tr>
+                            <td class="header-content-td">
+                                <table class="info-table">
+                                    <tr>
+                                        <td class="label">Diagnostics No.</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{LabNo}}</td>
+                                        <td class="label">UHID</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{UHID}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Patient Name</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{PName}}</td>
+                                        <td class="label">Reg. Date & Time</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{RegDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Age/Gender</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{AgeGender}}</td>
+                                        <td class="label">Collection Date & Time</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{CollectionDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Contact No.</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{ContactNo}}</td>
+                                        <td class="label">Reporting Date/Time</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{ReportDate}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Referred By</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{ReferredBy}}</td>
+                                        <td class="label">Report Status</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{Status}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Sample Type</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{SampleType}}</td>
+                                        <td class="label">Referred Lab</td>
+                                        <td class="colon">:</td>
+                                        <td class="value">{{ReferLab}}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="qr-cell">
+                                <div class="qr-wrap">
+                                    <img src="{{QR}}" alt="QR Code" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="barcode-cell">
+                    <img src="{{BARCODE}}" alt="Barcode" />
+                </td>
+            </tr>
+        </table>
+
+        <!-- TEST RESULTS SECTION - FULL WIDTH -->
+        <div class="results-container">
+            <div class="results-header">
+                Test Results
             </div>
-
-            <!-- Doctor Signature Section -->
-            <div class="doctor-section">
-                <div class="doctor-signature">
-                    {{DoctorSignatures}}
-                </div>
+            <div class="results-body">
+                {{Results}}
             </div>
         </div>
 
-        <!-- Footer Section - Always at bottom -->
+        <!-- END REPORT MARKER -->
+        <div class="end_report">
+            <p class="end_report_text">
+                *********** End Report ************
+            </p>
+        </div>
+
+        <!-- BOTTOM AREA: NABL LEFT | DOCTOR SIGNATURE RIGHT -->
+        <div class="bottom-area">
+            <div class="nabl-bottom">
+                {{NABL_IMAGE}}
+            </div>
+            <div class="doctor-bottom">
+                {{DoctorSignatures}}
+            </div>
+        </div>
+
+        <!-- FOOTER SECTION WITH PRINT INFORMATION -->
         <div class="footer-section">
             <div class="print-info">
                 <span>Prepared By: {{PreparedBy}}</span>
@@ -406,7 +407,9 @@
                 <span>Report Printed On: {{CurrentDateTime}}</span>
             </div>
         </div>
+
     </div>
+
 </body>
 
 </html>

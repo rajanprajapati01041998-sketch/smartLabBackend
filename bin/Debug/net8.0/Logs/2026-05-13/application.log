@@ -1,0 +1,1816 @@
+2026-05-13 10:39:04,493 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0bbc048b6412724e593b136261872719-7ab1983bde1821cb-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 8066,
+  "LoginBranchId": 8066,
+  "CorporateId": 1,
+  "Title": "MR.",
+  "FirstName": "pradum",
+  "MiddleName": "",
+  "LastName": "",
+  "AgeYears": 37,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1989-05-11",
+  "Gender": "MALE",
+  "MaritalStatus": "",
+  "Relation": "",
+  "RelativeName": "",
+  "ContactNumber": "",
+  "Address": "",
+  "DoctorId": 0,
+  "ReferDoctorId": 3,
+  "ReferLabId": 0,
+  "FieldBoyId": 1,
+  "MedicalHistory": "",
+  "CollectionDateTime": "2026-05-13T07:34:00.000Z",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "",
+  "DistrictId": 0,
+  "District": "",
+  "CityId": 0,
+  "City": "",
+  "UserId": 1,
+  "IpAddress": "10.0.2.16",
+  "GrossAmount": 60,
+  "DiscountPercentage": 0,
+  "DiscountAmount": 0,
+  "RoundOff": 0,
+  "NetAmount": 60,
+  "TotalPayableAmount": 60,
+  "TotalPaidAmount": 60,
+  "TotalBalanceAmount": 0,
+  "TotalPatientPayableAmount": 60,
+  "TotalCorporatePayableAmount": 0,
+  "TotalPatientPaidAmount": 60,
+  "TotalCorporatePaidAmount": 0,
+  "ReceiptAmount": 60,
+  "DiscountApprovedById": 0,
+  "DiscountReason": "",
+  "Remarks": "",
+  "Services": [
+    {
+      "ServiceItemId": 346,
+      "SubSubCategoryId": 29261,
+      "SubCategoryId": 1,
+      "CategoryId": 3,
+      "ServiceName": "CBC -(COMPLETE BLOOD COUNT)",
+      "Code": "",
+      "Rate": 60,
+      "Amount": 60,
+      "Qty": 1,
+      "GrossAmt": 60,
+      "DiscPer": 0,
+      "DiscAmt": 0,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 60,
+      "IsUrgent": 1,
+      "IsUnderPackage": 0,
+      "PackageId": 0,
+      "Barcode": "8765376",
+      "TestRemark": "",
+      "SampleTypeId": 2,
+      "SampleType": ""
+    }
+  ],
+  "payments": [
+    {
+      "paymentModeId": 1,
+      "amount": 60,
+      "bankId": 0,
+      "referenceNo": ""
+    }
+  ],
+  "Investigations": [
+    {
+      "ReportingBranchId": 8066,
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"Procedure or function 'I_PatientSampleTracking' expects parameter '@FTID', which was not supplied."}
+2026-05-13 10:40:42,357 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-ffd03d9e51d15ee3c2088e28f97074c9-5f8c0872d5f885b4-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 8066,
+  "LoginBranchId": 8066,
+  "CorporateId": 1,
+  "Title": "MR.",
+  "FirstName": "pradum",
+  "MiddleName": "",
+  "LastName": "",
+  "AgeYears": 37,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1989-05-11",
+  "Gender": "MALE",
+  "MaritalStatus": "",
+  "Relation": "",
+  "RelativeName": "",
+  "ContactNumber": "",
+  "Address": "",
+  "DoctorId": 0,
+  "ReferDoctorId": 3,
+  "ReferLabId": 0,
+  "FieldBoyId": 1,
+  "MedicalHistory": "",
+  "CollectionDateTime": "2026-05-13T07:34:00.000Z",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "",
+  "DistrictId": 0,
+  "District": "",
+  "CityId": 0,
+  "City": "",
+  "UserId": 1,
+  "IpAddress": "10.0.2.16",
+  "GrossAmount": 60,
+  "DiscountPercentage": 0,
+  "DiscountAmount": 0,
+  "RoundOff": 0,
+  "NetAmount": 60,
+  "TotalPayableAmount": 60,
+  "TotalPaidAmount": 60,
+  "TotalBalanceAmount": 0,
+  "TotalPatientPayableAmount": 60,
+  "TotalCorporatePayableAmount": 0,
+  "TotalPatientPaidAmount": 60,
+  "TotalCorporatePaidAmount": 0,
+  "ReceiptAmount": 60,
+  "DiscountApprovedById": 0,
+  "DiscountReason": "",
+  "Remarks": "",
+  "Services": [
+    {
+      "ServiceItemId": 346,
+      "SubSubCategoryId": 29261,
+      "SubCategoryId": 1,
+      "CategoryId": 3,
+      "ServiceName": "CBC -(COMPLETE BLOOD COUNT)",
+      "Code": "",
+      "Rate": 60,
+      "Amount": 60,
+      "Qty": 1,
+      "GrossAmt": 60,
+      "DiscPer": 0,
+      "DiscAmt": 0,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 60,
+      "IsUrgent": 1,
+      "IsUnderPackage": 0,
+      "PackageId": 0,
+      "Barcode": "8765376",
+      "TestRemark": "",
+      "SampleTypeId": 2,
+      "SampleType": ""
+    }
+  ],
+  "payments": [
+    {
+      "paymentModeId": 1,
+      "amount": 60,
+      "bankId": 0,
+      "referenceNo": ""
+    }
+  ],
+  "Investigations": [
+    {
+      "ReportingBranchId": 8066,
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"Procedure or function 'I_PatientSampleTracking' expects parameter '@FTID', which was not supplied."}
+2026-05-13 10:41:51,302 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-bd479383c3974acc1b160b2a71735764-a0a46990200629e4-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "HospId": 1,
+  "BranchId": 8066,
+  "LoginBranchId": 8066,
+  "CorporateId": 1,
+  "Title": "MR.",
+  "FirstName": "pradum",
+  "MiddleName": "",
+  "LastName": "",
+  "AgeYears": 37,
+  "AgeMonths": 0,
+  "AgeDays": 0,
+  "DOB": "1989-05-11",
+  "Gender": "MALE",
+  "MaritalStatus": "",
+  "Relation": "",
+  "RelativeName": "",
+  "ContactNumber": "",
+  "Address": "",
+  "DoctorId": 0,
+  "ReferDoctorId": 3,
+  "ReferLabId": 0,
+  "FieldBoyId": 1,
+  "MedicalHistory": "",
+  "CollectionDateTime": "2026-05-13T07:34:00.000Z",
+  "CountryId": 1,
+  "Country": "India",
+  "StateId": 1,
+  "State": "",
+  "DistrictId": 0,
+  "District": "",
+  "CityId": 0,
+  "City": "",
+  "UserId": 1,
+  "IpAddress": "10.0.2.16",
+  "GrossAmount": 60,
+  "DiscountPercentage": 0,
+  "DiscountAmount": 0,
+  "RoundOff": 0,
+  "NetAmount": 60,
+  "TotalPayableAmount": 60,
+  "TotalPaidAmount": 60,
+  "TotalBalanceAmount": 0,
+  "TotalPatientPayableAmount": 60,
+  "TotalCorporatePayableAmount": 0,
+  "TotalPatientPaidAmount": 60,
+  "TotalCorporatePaidAmount": 0,
+  "ReceiptAmount": 60,
+  "DiscountApprovedById": 0,
+  "DiscountReason": "",
+  "Remarks": "",
+  "Services": [
+    {
+      "ServiceItemId": 346,
+      "SubSubCategoryId": 29261,
+      "SubCategoryId": 1,
+      "CategoryId": 3,
+      "ServiceName": "CBC -(COMPLETE BLOOD COUNT)",
+      "Code": "",
+      "Rate": 60,
+      "Amount": 60,
+      "Qty": 1,
+      "GrossAmt": 60,
+      "DiscPer": 0,
+      "DiscAmt": 0,
+      "TotalTaxPer": 0,
+      "TotalTaxAmt": 0,
+      "NetAmt": 60,
+      "IsUrgent": 1,
+      "IsUnderPackage": 0,
+      "PackageId": 0,
+      "Barcode": "8765376",
+      "TestRemark": "",
+      "SampleTypeId": 2,
+      "SampleType": ""
+    }
+  ],
+  "payments": [
+    {
+      "paymentModeId": 1,
+      "amount": 60,
+      "bankId": 0,
+      "referenceNo": ""
+    }
+  ],
+  "Investigations": [
+    {
+      "ReportingBranchId": 8066,
+      "TestRemark": ""
+    }
+  ]
+}
+ResponseBody: {"success":false,"message":"Procedure or function 'I_PatientSampleTracking' expects parameter '@FTID', which was not supplied."}
+2026-05-13 10:58:15,336 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-38ef39d50d9fe4d95464ded9f420a901-0671370fb8e03b98-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"","corporateId":"","filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-38ef39d50d9fe4d95464ded9f420a901-0671370fb8e03b98-00","data":{"branchIdList":["The branchIdList field is required."]}}
+2026-05-13 11:02:46,378 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:02:46,408 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:152ba1d9-5ebc-4180-ba6d-71cbc6c84db7
+Error Number:245,State:1,Class:16
+2026-05-13 11:02:46,430 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-f516028cfaeb9f2a6975f3c02cb5cc49-d1a3ab57c9f96bd1-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:03:23,562 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:03:23,570 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3c700269-8291-4c17-a90c-4404eb5836ae
+Error Number:245,State:1,Class:16
+2026-05-13 11:03:23,571 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5f21837a5e25c92e814a6778a0de2fcc-cf308794053a0a98-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:03:23,775 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:03:23,779 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3c700269-8291-4c17-a90c-4404eb5836ae
+Error Number:245,State:1,Class:16
+2026-05-13 11:03:23,780 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-468ba1425a4cbcd7ab1f5289a311e669-be0efebc87ce4d38-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:05:15,080 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:05:15,088 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3c700269-8291-4c17-a90c-4404eb5836ae
+Error Number:245,State:1,Class:16
+2026-05-13 11:05:15,089 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-243ad64ad9ecd20ef1b3541b2d3946b0-ecae10e1dff84b98-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:05:15,251 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:05:15,260 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3c700269-8291-4c17-a90c-4404eb5836ae
+Error Number:245,State:1,Class:16
+2026-05-13 11:05:15,261 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-54b622231d6811816df4127cb5a53418-762da689cf16ed5f-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:06:06,253 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:06:06,259 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:152ba1d9-5ebc-4180-ba6d-71cbc6c84db7
+Error Number:245,State:1,Class:16
+2026-05-13 11:06:06,261 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-17af50653f84771c5b4ac5c59628158b-4e6db4398e73cae9-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:06:06,331 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:06:06,335 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:152ba1d9-5ebc-4180-ba6d-71cbc6c84db7
+Error Number:245,State:1,Class:16
+2026-05-13 11:06:06,335 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b4b19b90abb04b96948b652f61e1946c-e534210f07185208-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:07:54,148 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:07:54,148 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:07:54,177 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3c700269-8291-4c17-a90c-4404eb5836ae
+Error Number:245,State:1,Class:16
+2026-05-13 11:07:54,181 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c4881ba6eaf50c72eeb2ec35c750bd4a-b146f9753e43bd26-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:07:54,204 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:2c7fc8ac-50a5-4d3d-a57e-45818106d71e
+Error Number:245,State:1,Class:16
+2026-05-13 11:07:54,204 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-936ff8f5e9fb113c30b194508a5ff8e8-47f7081341d7c8f8-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:13:12,906 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:13:12,906 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:13:12,982 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:13:12,983 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0413bbccbe8f12a96be33d98abd6a5e6-2efa4fa3c1eb937a-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:13:12,991 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:21686d03-eb6e-411d-82d4-734c7a7ca9fa
+Error Number:245,State:1,Class:16
+2026-05-13 11:13:12,991 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8baa6c0a7bedca6c54d4c21b2a268083-1b375be85bf9dc4b-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:15:12,503 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:15:12,521 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:15:12,523 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-f42534d61b333a5188f27243ba10a5fb-ca751b4cc58564d9-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:15:12,708 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:15:12,713 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:15:12,714 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0636d2f5c9446f76f42308fe900f2fad-f20999d93b7ad323-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:17:21,095 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:17:21,314 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:20:35,782 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:20:35,782 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:20:35,805 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:21686d03-eb6e-411d-82d4-734c7a7ca9fa
+Error Number:245,State:1,Class:16
+2026-05-13 11:20:35,806 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-802e4819448a0e5f5cc5fc3d801f1569-d914042382f1a1ed-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:20:35,813 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:20:35,814 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a852892a6379e9cfb4add5741568d274-e69c43ed3a920ee3-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:21:28,827 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:21:28,827 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:21:28,842 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:21686d03-eb6e-411d-82d4-734c7a7ca9fa
+Error Number:245,State:1,Class:16
+2026-05-13 11:21:28,843 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-65e80d33bbcb57917e0668e946bc1453-c46b50370266871a-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:21:28,843 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:21:28,844 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-bac7fb61da3b12d76a8cae36c460f00e-6d03cac037312637-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:23:25,955 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:23:25,955 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:23:25,981 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:23:25,982 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5ce3d05685e191d23d187da30358f96f-c4b3f2708011d0d3-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:23:25,984 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:21686d03-eb6e-411d-82d4-734c7a7ca9fa
+Error Number:245,State:1,Class:16
+2026-05-13 11:23:25,984 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-931457cc1a36ea2cf6228dddceff384f-7078676cddb2bcbf-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:26:29,120 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:26:29,145 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:26:29,146 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3ea3f5bf6724655a6f09b25a3f5d0527-8dd741f3084dc4f5-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:26:29,233 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:26:29,239 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:e6e933ce-e5a8-472a-8a4f-67a6b77f927c
+Error Number:245,State:1,Class:16
+2026-05-13 11:26:29,240 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-aa4544fa984f5bef6eee78c45c508c1f-51667261c1f9ed47-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:27:07,649 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:27:07,652 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:28:11,679 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:28:11,679 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-13 11:28:55,847 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:28:56,045 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:29:28,730 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:37:46,723 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-13 11:37:46,740 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-13 11:38:30,734 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:38:30,734 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:39:45,432 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-13 11:39:45,443 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-13 11:40:56,893 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:40:56,893 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:40:56,915 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:22719b01-1f71-4dab-a4ab-98570a75d9ba
+Error Number:245,State:1,Class:16
+2026-05-13 11:40:56,915 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:3dca2d80-dacb-4042-a7cb-27f9afad7133
+Error Number:245,State:1,Class:16
+2026-05-13 11:40:56,917 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8508dbc3e8eef3ab95c1d60783b5e4c9-9406b873c7f28e8a-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:40:56,917 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-fecc31711063b6fbbfcdc150983fbf7b-4682357a4bdaab53-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:46:23,146 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:46:23,146 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:46:23,198 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:2163f988-1fb6-481d-a56d-76e6456b98ec
+Error Number:245,State:1,Class:16
+2026-05-13 11:46:23,200 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c0bf2cbe7d0826e0561c24d7212c528a-a198bd15bdacd046-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:46:23,210 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:9c440055-8d13-47e7-9b40-fad7629f40ed
+Error Number:245,State:1,Class:16
+2026-05-13 11:46:23,211 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-26fb3e1b721e57f4ac092aa85625f561-babf5371bf5d7ac2-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:46:41,645 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:46:41,651 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:9c440055-8d13-47e7-9b40-fad7629f40ed
+Error Number:245,State:1,Class:16
+2026-05-13 11:46:41,652 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-6be2bf007d66538ddc2040594a6cb5a3-4c9b18d186711886-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:47:46,710 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:47:46,710 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:47:46,723 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:9c440055-8d13-47e7-9b40-fad7629f40ed
+Error Number:245,State:1,Class:16
+2026-05-13 11:47:46,728 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-cf6280f83bebc7e375b719964797e377-6b03cc7344b4ba36-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:47:46,728 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:2163f988-1fb6-481d-a56d-76e6456b98ec
+Error Number:245,State:1,Class:16
+2026-05-13 11:47:46,729 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3006f026483c89372200a5dd73d8f73b-9ff442058ffcb9e8-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:53:50,496 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:53:50,496 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:53:50,553 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:aa7a2940-66a3-4246-b857-a1c19da4b63b
+Error Number:245,State:1,Class:16
+2026-05-13 11:53:50,554 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-dc39192fd3b8ce35be486e1aa851d3be-4b3746dbc4137916-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:53:50,566 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:645ddeb3-5ba1-48ab-bcd0-3a25226b3a47
+Error Number:245,State:1,Class:16
+2026-05-13 11:53:50,567 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-e1a755e344b1ff3228202ee9e96020a2-836cb8d61bbf1140-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:55:42,001 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:55:42,023 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:aa7a2940-66a3-4246-b857-a1c19da4b63b
+Error Number:245,State:1,Class:16
+2026-05-13 11:55:42,027 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-49e7640a6af8360da8e427f4f0c50a91-ac82e83d37c49659-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:55:42,227 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:55:42,232 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:aa7a2940-66a3-4246-b857-a1c19da4b63b
+Error Number:245,State:1,Class:16
+2026-05-13 11:55:42,234 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-d26727dbf5f35f7466c146db9811f6a8-794ed8d1833716dc-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:57:07,692 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:57:07,692 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=null
+2026-05-13 11:57:07,709 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:645ddeb3-5ba1-48ab-bcd0-3a25226b3a47
+Error Number:245,State:1,Class:16
+2026-05-13 11:57:07,710 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-fe205b63ac4517474144b528d7a1e07f-d122a0864b0d3469-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:57:07,711 ERROR App.Controllers.DashboardController - Unhandled error in GetWalletAmount API
+Microsoft.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting the nvarchar value 'null' to data type int.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.DashboardController.GetWalletAmount(String clientIds) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/DashboardController.cs:line 99
+ClientConnectionId:aa7a2940-66a3-4246-b857-a1c19da4b63b
+Error Number:245,State:1,Class:16
+2026-05-13 11:57:07,712 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-1ca5383d13e062d8a453a2a9991a53cd-c6cb9a9ae079e268-00
+Status     : 500
+Method     : GET
+Path       : /api/Dashboard/wallet
+Query      : ?clientIds=null
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: Conversion failed when converting the nvarchar value 'null' to data type int.
+2026-05-13 11:57:57,241 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:57:57,242 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 11:59:19,828 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:01:57,105 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:06:13,612 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:06:13,612 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:12:34,949 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2d7a83c8f1044ccb25f44c05b68a3c22-8ab620bb51aead5b-00
+Status     : 400
+Method     : POST
+Path       : /api/ReferDoctor/save-refer-doctor
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"hospId":1,"title":"Dr","name":"Majulata","doctorContacNo":"","userId":null,"ipAddress":"10.0.2.16"}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-2d7a83c8f1044ccb25f44c05b68a3c22-8ab620bb51aead5b-00","data":{"model":["The model field is required."],"$.userId":["The JSON value could not be converted to System.Int32. Path: $.userId | LineNumber: 0 | BytePositionInLine: 76."]}}
+2026-05-13 12:21:48,824 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8b52ef0dbb6475766ac74b1b6969db1d-5eb92e6754f272b5-00
+Status     : 400
+Method     : POST
+Path       : /api/ReferDoctor/save-refer-doctor
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"hospId":1,"title":"Dr","name":"Majulata","doctorContacNo":"","userId":null,"ipAddress":"10.0.2.16"}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-8b52ef0dbb6475766ac74b1b6969db1d-5eb92e6754f272b5-00","data":{"model":["The model field is required."],"$.userId":["The JSON value could not be converted to System.Int32. Path: $.userId | LineNumber: 0 | BytePositionInLine: 76."]}}
+2026-05-13 12:22:35,866 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:22:35,866 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:23:31,430 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-af891a502ee8bfefa185182d30bf636b-57bb3017b036aadb-00
+Status     : 500
+Method     : POST
+Path       : /api/Patient/save
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"HospId":1,"BranchId":1,"LoginBranchId":1,"CorporateId":1,"Title":"MR.","FirstName":"MANOJ KUMAR JI","MiddleName":"","LastName":"","AgeYears":21,"AgeMonths":1,"AgeDays":23,"DOB":"2005-03-19","Gender":"MALE","MaritalStatus":"","Relation":"","RelativeName":"","ContactNumber":"","Address":"","DoctorId":0,"ReferDoctorId":0,"ReferLabId":0,"FieldBoyId":1,"MedicalHistory":"","CollectionDateTime":"2026-05-13T06:53:00.000Z","CountryId":1,"Country":"India","StateId":1,"State":"","DistrictId":0,"District":"","CityId":0,"City":"","UserId":null,"IpAddress":"10.0.2.16","GrossAmount":1000,"DiscountPercentage":0,"DiscountAmount":0,"RoundOff":0,"NetAmount":1000,"TotalPayableAmount":1000,"TotalPaidAmount":1000,"TotalBalanceAmount":0,"TotalPatientPayableAmount":1000,"TotalCorporatePayableAmount":0,"TotalPatientPaidAmount":1000,"TotalCorporatePaidAmount":0,"ReceiptAmount":1000,"DiscountApprovedById":0,"DiscountReason":"","Remarks":"","Services":[{"ServiceItemId":379,"SubSubCategoryId":29261,"SubCategoryId":1,"CategoryId":3,"ServiceName":"HPLC - BASIC WITHOUT CBC","Code":"","Rate":1000,"Amount":1000,"Qty":1,"GrossAmt":1000,"DiscPer":0,"DiscAmt":0,"TotalTaxPer":0,"TotalTaxAmt":0,"NetAmt":1000,"IsUrgent":0,"IsUnderPackage":0,"PackageId":0,"Barcode":"","TestRemark":"","SampleTypeId":1,"SampleType":""}],"payments":[{"paymentModeId":1,"amount":1000,"bankId":0,"referenceNo":""}],"Investigations":[{"ReportingBranchId":1,"TestRemark":""}]}
+ResponseBody: {"success":false,"message":"UHID not found in PatientMaster"}
+2026-05-13 12:28:10,685 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:28:10,709 ERROR App.Controllers.FlaboDashBoardController - Error fetching sample summary
+Microsoft.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'S_GetFieldBoySampleSummary'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.FlaboDashBoardController.GetFieldBoySampleSummary(Int32 fieldBoyId, Nullable`1 fromDate, Nullable`1 toDate) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Controllers/FlaboDashBoardController.cs:line 62
+ClientConnectionId:5552b4e1-ab62-4308-ab40-27a8cceaf0d6
+Error Number:2812,State:62,Class:16
+2026-05-13 12:28:10,723 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-e7df7cc6c0f962dbe72b402e44482d7e-84533701ddeb3ec0-00
+Status     : 500
+Method     : GET
+Path       : /api/FlaboDashBoard/sample-summary
+Query      : ?fieldBoyId=1&fromDate=2026-05-13&toDate=2026-05-13
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: {"success":false,"message":"Error fetching sample summary","error":"Could not find stored procedure 'S_GetFieldBoySampleSummary'."}
+2026-05-13 12:30:08,295 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-56be31fe20fbed56b040ad03a78f5cc8-110329019fbacb4c-00
+Status     : 500
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"userIdApp":"xyz","passwordApp":"123"}
+ResponseBody: {"success":false,"message":"Error fetching branch list","error":"Could not find stored procedure 'S_GetFieldBoyWiseBranchListForLogin'."}
+2026-05-13 12:30:41,748 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:30:41,787 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:30:53,158 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-08064108edd24060719982cff9185e1f-87fd6b8f57770c8c-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"","corporateId":"","filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-08064108edd24060719982cff9185e1f-87fd6b8f57770c8c-00","data":{"branchIdList":["The branchIdList field is required."]}}
+2026-05-13 12:31:06,403 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b44422957fcf7f730d833626337b2c9b-32171e5dcc418536-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"","corporateId":"","filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-b44422957fcf7f730d833626337b2c9b-32171e5dcc418536-00","data":{"branchIdList":["The branchIdList field is required."]}}
+2026-05-13 12:32:35,388 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a6c4ab29bba3dd5dc1656c59b2a7b65c-b4211610df813d7e-00
+Status     : 500
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "typeId": "3",
+  "uhid": "",
+  "ipdNo": "",
+  "labNo": "",
+  "fromDate": "13-06-2026",
+  "toDate": "13-06-2026",
+  "barCode": "",
+  "subCategoryId": "",
+  "subSubCategoryId": "",
+  "investigationName": "",
+  "patientName": "",
+  "branchIdList": "1",
+  "corporateId": "1"
+
+}
+ResponseBody: {"success":false,"message":"Conversion failed when converting date and/or time from character string."}
+2026-05-13 12:32:58,533 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-55b08c78e64aa614572526531b6ecf4f-eca6b2135e353ef1-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "fromDate": "13-06-2026",
+  "toDate": "13-06-2026",
+  "barCode": "",
+  "subCategoryId": "",
+  "subSubCategoryId": "",
+  "investigationName": "",
+  "patientName": "",
+  "branchIdList": "1",
+  "corporateId": "1"
+
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-55b08c78e64aa614572526531b6ecf4f-eca6b2135e353ef1-00","data":{"typeId":["The typeId field is required."]}}
+2026-05-13 12:33:20,465 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c543bab0816459c7db471725dd592d2f-4e939a9ea23c035c-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "fromDate": "13-06-2026",
+  "toDate": "13-06-2026",
+  "branchIdList": "1",
+  "corporateId": "1"
+
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-c543bab0816459c7db471725dd592d2f-4e939a9ea23c035c-00","data":{"typeId":["The typeId field is required."]}}
+2026-05-13 12:36:49,114 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-1f7fb3f7875f132ae7c00b84f8d11072-a7b44ffaea25ac8b-00
+Status     : 404
+Method     : POST
+Path       : /api/HelpDesk/help_desk%0A
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+    "barCode": "",
+    "branchId": "1",
+    "branchIdList": "1",
+    "corporateId": "1",
+    "filter": null,
+    "fromDate": "2026-05-13",
+    "investigationName": "",
+    "ipdNo": "",
+    "labNo": "",
+    "patientName": "",
+    "toDate": "2026-05-13",
+    "typeId": "0",
+    "uhid": ""
+}
+
+2026-05-13 12:37:40,707 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-73b1a7a3c17062df56341881f4fae0ec-9c6f536e40364dde-00
+Status     : 404
+Method     : POST
+Path       : /api/HelpDesk/help_desk%0A
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+    "barCode": "",
+    "branchId": "1",
+    "branchIdList": "1",
+    "corporateId": "1",
+    "filter": null,
+    "fromDate": "2026-05-13",
+    "investigationName": "",
+    "ipdNo": "",
+    "labNo": "",
+    "patientName": "",
+    "toDate": "2026-05-13",
+    "typeId": "1",
+    "uhid": ""
+}
+
+2026-05-13 12:42:07,778 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a34e8fe771977ac47854541f5818b298-76fa40442b6ce8ba-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":1,"typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":1,"corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-a34e8fe771977ac47854541f5818b298-76fa40442b6ce8ba-00","data":{"request":["The request field is required."],"$.branchId":["The JSON value could not be converted to System.String. Path: $.branchId | LineNumber: 0 | BytePositionInLine: 13."]}}
+2026-05-13 12:42:07,778 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b63f2c0cd81242dac18e0dc1e17f8199-2b989d51947b63a1-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":1,"typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":1,"corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-b63f2c0cd81242dac18e0dc1e17f8199-2b989d51947b63a1-00","data":{"request":["The request field is required."],"$.branchId":["The JSON value could not be converted to System.String. Path: $.branchId | LineNumber: 0 | BytePositionInLine: 13."]}}
+2026-05-13 12:44:22,898 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0315eef03ad5393d49a30ff1476406b0-27978a788b9ca585-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":1,"corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-0315eef03ad5393d49a30ff1476406b0-27978a788b9ca585-00","data":{"request":["The request field is required."],"$.branchIdList":["The JSON value could not be converted to System.String. Path: $.branchIdList | LineNumber: 0 | BytePositionInLine: 176."]}}
+2026-05-13 12:44:23,372 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-14d201b40004cda95d24889450056a7b-37e9d9af41b0e848-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":1,"corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-14d201b40004cda95d24889450056a7b-37e9d9af41b0e848-00","data":{"request":["The request field is required."],"$.branchIdList":["The JSON value could not be converted to System.String. Path: $.branchIdList | LineNumber: 0 | BytePositionInLine: 176."]}}
+2026-05-13 12:44:57,529 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8e5b91185fdbca679c3b8a361280ca3c-7bd1489fe80d7c7c-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":1,"corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-8e5b91185fdbca679c3b8a361280ca3c-7bd1489fe80d7c7c-00","data":{"request":["The request field is required."],"$.branchIdList":["The JSON value could not be converted to System.String. Path: $.branchIdList | LineNumber: 0 | BytePositionInLine: 176."]}}
+2026-05-13 12:45:04,092 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-799de5e56344f5f2b355114eb7c4b549-2d477201d404dd45-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"1","corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-799de5e56344f5f2b355114eb7c4b549-2d477201d404dd45-00","data":{"request":["The request field is required."],"$.corporateId":["The JSON value could not be converted to System.String. Path: $.corporateId | LineNumber: 0 | BytePositionInLine: 194."]}}
+2026-05-13 12:45:04,230 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-152783d467d94399393968f2b73675db-b2e2867637fc28fb-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"1","corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-152783d467d94399393968f2b73675db-b2e2867637fc28fb-00","data":{"request":["The request field is required."],"$.corporateId":["The JSON value could not be converted to System.String. Path: $.corporateId | LineNumber: 0 | BytePositionInLine: 194."]}}
+2026-05-13 12:45:33,441 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2951cb58af394dc83463e96becee99e4-dd7d0abb200d29de-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"branchId":"1","typeId":"0","uhid":"","ipdNo":"","labNo":"","fromDate":"2026-05-13","toDate":"2026-05-13","barCode":"","investigationName":"","patientName":"","branchIdList":"1","corporateId":1,"filter":null}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-2951cb58af394dc83463e96becee99e4-dd7d0abb200d29de-00","data":{"request":["The request field is required."],"$.corporateId":["The JSON value could not be converted to System.String. Path: $.corporateId | LineNumber: 0 | BytePositionInLine: 194."]}}
+2026-05-13 12:48:06,560 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:48:06,560 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 12:49:09,199 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:14:42,029 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:14:42,029 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:38:55,700 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:38:55,704 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:39:06,576 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c246b6750bd966eca81f0a7d0a107d7d-7254dcbfb375b9d0-00
+Status     : 404
+Method     : POST
+Path       : /api/HelpDesk/mark-sample-picked
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientInvestigationId":17159}
+
+2026-05-13 15:39:32,103 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-da7f44886399a09e8e6d317d4cfa8c48-a566476ed1c0ce33-00
+Status     : 404
+Method     : POST
+Path       : /api/HelpDesk/mark-sample-picked
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientInvestigationId":17159}
+
+2026-05-13 15:39:38,589 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2fe674a49717eb8b6e0c864a3e139944-eb52f1b9403360df-00
+Status     : 404
+Method     : POST
+Path       : /api/HelpDesk/mark-sample-picked
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"patientInvestigationId":17159}
+
+2026-05-13 15:39:50,740 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:39:50,852 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:41:41,834 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:41:41,902 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:46:19,383 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:46:19,423 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:59:37,023 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 15:59:37,436 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:00:54,440 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:00:54,920 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:03:00,096 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:03:00,096 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:09:15,819 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:10:41,970 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2a74f5ae12cb6d14ada0e14c40dd03e2-283a6fb83ef280b2-00
+Status     : 405
+Method     : GET
+Path       : /api/HelpDesk/flabo_help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+
+2026-05-13 16:24:17,635 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:24:17,635 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:24:43,195 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:24:43,195 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:24:54,381 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:24:54,923 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:25:24,669 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:25:52,770 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:27:22,025 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:27:41,536 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:31:32,197 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:31:32,197 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:32:15,778 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:32:15,778 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:40:42,225 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:40:42,719 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:45:40,984 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 16:45:40,984 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:03:36,800 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-4ffc89dca70471e69b3a6896b0418adc-13cca8d909e59d55-00
+Status     : 400
+Method     : POST
+Path       : /api/Tracking/update-location
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "fieldBoyId": 0,
+  "userId": 0,
+  "latitude": 0,
+  "longitude": 0,
+  "accuracyMeters": 0,
+  "capturedAtUtc": "2026-05-13T11:33:34.358Z"
+}
+ResponseBody: {"message":"fieldBoyId (or userId) is required"}
+2026-05-13 17:27:47,889 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:27:48,205 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:38:33,697 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:38:34,196 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:39:16,999 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:39:17,497 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:40:31,303 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:46:13,490 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:46:13,947 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:48:16,238 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:48:16,737 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:52:11,559 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 17:52:12,049 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:01:37,502 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:01:37,996 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:18:41,418 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:18:41,420 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:38:10,538 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:38:11,054 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:39:47,869 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:39:48,059 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:40:54,643 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:40:54,643 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:41:30,194 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:41:30,680 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:41:34,195 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:41:34,195 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:43:18,523 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-13 18:43:18,543 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1

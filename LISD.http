@@ -5,3 +5,33 @@ GET {{LISD_HostAddress}}/ping
 Accept: application/json
 
 ###
+
+# =============================
+# Live Tracking
+# =============================
+
+# Phlebo sends location
+POST {{LISD_HostAddressHttp}}/api/Tracking/update-location
+Content-Type: application/json
+
+{
+  "fieldBoyId": 123,
+  "latitude": 28.613939,
+  "longitude": 77.209023,
+  "accuracyMeters": 12.5,
+  "capturedAtUtc": "2026-05-11T10:00:00Z"
+}
+
+###
+
+# Admin polls latest
+GET {{LISD_HostAddressHttp}}/api/Tracking/latest-location?fieldBoyId=123
+Accept: application/json
+
+###
+
+# Admin fetches recent path
+GET {{LISD_HostAddressHttp}}/api/Tracking/location-path?fieldBoyId=123&limit=200
+Accept: application/json
+
+###

@@ -11,6 +11,11 @@ using log4net.Config;
 using log4net;
 using System.Reflection;
 using LISD.Extensions;
+using LISD.Filters;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using LISDBACKEND.Hubs;
 
 
 
@@ -34,7 +39,11 @@ public partial class Program
             builder.WebHost.UseUrls(configuredUrls);
         }
 
-        builder.Services.AddControllers()
+        builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<ApiExceptionFilter>();
+                options.Filters.Add<ModelStateValidationFilter>();
+            })
             .ConfigureApiBehaviorOptions(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -90,6 +99,7 @@ public partial class Program
 
         // Razorpay config
 
+        builder.Services.AddSignalR();
         builder.Services.Configure<RazorpaySettings>(
             builder.Configuration.GetSection("RazorpaySettings"));
 
@@ -139,75 +149,93 @@ public partial class Program
 
 
         // =============================
-        // JWT SETTINGS
+        // JWT AUTHENTICATION / AUTHORIZATION
         // =============================
-        // var jwtSettings =
-        //     builder.Configuration.GetSection("Jwt")
-        //         .Get<JwtSettings>()
-        //     ?? throw new InvalidOperationException("JwtSettings configuration is missing.");
+        builder.Services.AddAuthorization();
 
-        // Console.WriteLine("ISSUER: " + jwtSettings.Issuer);
-        // Console.WriteLine("AUDIENCE: " + jwtSettings.Audience);
-        // Console.WriteLine("KEY: " + jwtSettings.Key);
+        builder.Services
+            .AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.MapInboundClaims = false;
 
+                options.Events = new JwtBearerEvents
+                {
+                    OnChallenge = async context =>
+                    {
+                        // Prevent the default 401 response (HTML / plain text) so we can return JSON
+                        context.HandleResponse();
 
+                        if (context.Response.HasStarted) return;
 
-        // =============================
-        // DEPENDENCY INJECTION
-        // =============================
-        // builder.Services.AddHttpContextAccessor();
-        // builder.Services.AddScoped<IAuthService, AuthService>();
+                        var correlationId = context.HttpContext.Items.TryGetValue("CorrelationId", out var v) && v is string s && !string.IsNullOrWhiteSpace(s)
+                            ? s
+                            : context.HttpContext.TraceIdentifier;
 
+                        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                        context.Response.ContentType = "application/json";
 
+                        var json = JsonSerializer.Serialize(new
+                        {
+                            status = false,
+                            message = "Unauthorized",
+                            correlationId,
+                            data = (object?)null
+                        });
 
+                        await context.Response.WriteAsync(json);
+                    },
+                    OnForbidden = async context =>
+                    {
+                        if (context.Response.HasStarted) return;
 
+                        var correlationId = context.HttpContext.Items.TryGetValue("CorrelationId", out var v) && v is string s && !string.IsNullOrWhiteSpace(s)
+                            ? s
+                            : context.HttpContext.TraceIdentifier;
 
+                        context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                        context.Response.ContentType = "application/json";
 
+                        var json = JsonSerializer.Serialize(new
+                        {
+                            status = false,
+                            message = "Forbidden",
+                            correlationId,
+                            data = (object?)null
+                        });
 
-        // =============================
-        // JWT AUTHENTICATION 🔥🔥🔥
-        // =============================
-        //     builder.Services
-        // .AddAuthentication(options =>
-        // {
-        //     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        //     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        // })
-        // .AddJwtBearer(options =>
-        // {
-        //     options.MapInboundClaims = false;
+                        await context.Response.WriteAsync(json);
+                    }
+                };
 
-        //     options.Events = new JwtBearerEvents
-        //     {
-        //         OnAuthenticationFailed = context =>
-        //         {
-        //             Console.WriteLine("❌ AUTH FAILED:");
-        //             Console.WriteLine(context.Exception.ToString());
-        //             return Task.CompletedTask;
-        //         },
-        //         OnTokenValidated = context =>
-        //         {
-        //             Console.WriteLine("✅ TOKEN VALIDATED");
-        //             return Task.CompletedTask;
-        //         }
-        //     };
+                var jwt = builder.Configuration.GetSection("Jwt");
+                var issuer = jwt["Issuer"];
+                var audience = jwt["Audience"];
+                var key = jwt["Key"];
 
-        //     options.TokenValidationParameters = new TokenValidationParameters
-        //     {
-        //         ValidateIssuer = true,
-        //         ValidateAudience = true,
-        //         ValidateLifetime = true,
-        //         ValidateIssuerSigningKey = true,
+                if (string.IsNullOrWhiteSpace(issuer) || string.IsNullOrWhiteSpace(audience) || string.IsNullOrWhiteSpace(key))
+                {
+                    throw new InvalidOperationException("Jwt configuration is missing. Please set Jwt:Issuer, Jwt:Audience, Jwt:Key in appsettings.");
+                }
 
-        //         ValidIssuer = jwtSettings.Issuer,
-        //         ValidAudience = jwtSettings.Audience,
-        //         IssuerSigningKey =
-        //             new SymmetricSecurityKey(
-        //                 Encoding.UTF8.GetBytes(jwtSettings.Key)),
-
-        //         ClockSkew = TimeSpan.FromMinutes(2)
-        //     };
-        // });
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    RequireExpirationTime = true,
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+                    // Make token expiry behave exactly as configured in Jwt:DurationInMinutes
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
 
 
 
@@ -324,11 +352,11 @@ public partial class Program
         // =============================
         // AUTH MIDDLEWARE ORDER 🔥
         // =============================
+
         app.UseAuthentication();
         app.UseAuthorization();
-
         app.MapControllers();
-
+        app.MapHub<LocationHub>("/locationHub");
         app.Run();
     }
 

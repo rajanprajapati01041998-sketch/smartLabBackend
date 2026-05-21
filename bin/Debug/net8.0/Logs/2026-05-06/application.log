@@ -1,0 +1,226 @@
+2026-05-06 11:32:27,179 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-e5ad60ad38288a433f24118618346b4d-40dc883e0156f9d5-00
+Status     : 500
+Method     : POST
+Path       : /api/Login/branch-list
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+RequestBody: {"userName":"gwt","userPassword":"gravitys@0542","branchId":0,"browser":"Handset","device":"Android Phone","os":"Android"}
+ResponseBody: {"message":"Error occurred","error":"BranchId"}
+2026-05-06 11:32:46,251 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-06 11:32:46,315 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-06 11:32:46,722 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-06 11:33:35,201 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-06 11:33:35,218 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1, fromDate=2026-05-06, toDate=2026-05-06
+2026-05-06 11:33:35,234 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-06 11:33:35,276 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-05-06 11:33:35,449 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash API called. filter=, clientIdList=1,8066,9066,9068, fromDate=2026-05-06, toDate=2026-05-06
+2026-05-06 11:33:35,454 INFO  App.Controllers.DashboardController - GetBillAndAdvanceDash success. transactionsCount=0, summaryExists=True
+2026-05-06 11:33:37,230 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-06 11:53:24,831 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-06 11:53:24,831 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-06 11:53:27,115 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-06 11:53:27,143 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-06 11:53:27,491 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-06 11:53:27,494 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-06 12:14:21,340 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-06 12:14:21,340 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-06 12:14:25,159 INFO  BranchController - GetBranchDetailsByBranchId API called. branchId=1
+2026-05-06 12:14:25,162 INFO  BranchController - GetBranchDetailsByBranchId success. branchId=1, count=1
+2026-05-06 12:28:46,254 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-f164f1cdaffa0f534952b593015a91b2-ac1c7165c70b3160-00
+Status     : 404
+Method     : GET
+Path       : /api/Patient/get-by-uhid
+Query      : ?uhid=0011GWT/26-27/00000095&branchId=1
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.9.2
+ResponseBody: {"success":false,"message":"Patient not found"}
+2026-05-06 12:29:49,098 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-06 12:29:49,104 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-06 12:29:49,151 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-06 12:29:49,154 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-06 12:30:10,148 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-06 12:30:10,152 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-06 12:30:12,884 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-06 12:30:12,901 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-06 12:33:33,576 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-87d8c79cccdcdd8e62d25ad5a64647dc-56db30e363b6ddfc-00
+Status     : 500
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "typeId": "string",
+  "uhid": "string",
+  "ipdNo": "string",
+  "labNo": "string",
+  "fromDate": "string",
+  "toDate": "string",
+  "barCode": "string",
+  "subCategoryId": "string",
+  "subSubCategoryId": "string",
+  "investigationName": "string",
+  "patientName": "string",
+  "branchIdList": "string",
+  "corporateId": "string",
+  "roleId": "string",
+  "filter": "string"
+}
+ResponseBody: {"success":false,"message":"Incorrect syntax near 'string'."}
+2026-05-06 12:33:58,045 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-aeda3bb102974aef1f447a214d670993-0c18a137f4d13c99-00
+Status     : 500
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "typeId": "string",
+  "uhid": "string",
+  "ipdNo": "string",
+  "labNo": "string",
+  "fromDate": "2026-05-06",
+  "toDate": "2026-05-06",
+  "barCode": "string",
+  "subCategoryId": "string",
+  "subSubCategoryId": "string",
+  "investigationName": "string",
+  "patientName": "string",
+  "branchIdList": "1",
+  "corporateId": "string",
+  "roleId": "1",
+  "filter": "string"
+}
+ResponseBody: {"success":false,"message":"Incorrect syntax near 'string'."}
+2026-05-06 12:34:25,299 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-492ff37c5c0464bd36257a039e63fd2a-ff23aa07c7999dce-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "typeId": "string",
+  "fromDate": "2026-05-06",
+  "toDate": "2026-05-06",
+  "branchIdList": "1",
+  "corporateId": "1",
+  "roleId": "1",
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-492ff37c5c0464bd36257a039e63fd2a-ff23aa07c7999dce-00","data":{"$":["The JSON object contains a trailing comma at the end which is not supported in this mode. Change the reader options. Path: $ | LineNumber: 8 | BytePositionInLine: 0."],"request":["The request field is required."]}}
+2026-05-06 12:34:32,475 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5149561ac997b37a4f79b3a410c5e272-11bdbd28077f53a4-00
+Status     : 500
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "typeId": "string",
+  "fromDate": "2026-05-06",
+  "toDate": "2026-05-06",
+  "branchIdList": "1",
+  "corporateId": "1",
+  "roleId": "1"
+}
+ResponseBody: {"success":false,"message":"Invalid column name 'string'."}
+2026-05-06 12:34:39,647 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a205c5a480a3144de38373f4f827fbf4-1492127f846895ae-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "fromDate": "2026-05-06",
+  "toDate": "2026-05-06",
+  "branchIdList": "1",
+  "corporateId": "1",
+  "roleId": "1"
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-a205c5a480a3144de38373f4f827fbf4-1492127f846895ae-00","data":{"typeId":["The typeId field is required."]}}
+2026-05-06 12:34:59,213 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b753f637432899f9f9328f1e234985b6-c230c6df98fb1b6e-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": "1",
+  "fromDate": 2026-05-06,
+  "toDate": 2026-05-06,
+  "branchIdList": "1",
+  "corporateId": "1",
+  "roleId": "1"
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-b753f637432899f9f9328f1e234985b6-c230c6df98fb1b6e-00","data":{"request":["The request field is required."],"$.fromDate":["'-' is an invalid end of a number. Expected a delimiter. Path: $.fromDate | LineNumber: 2 | BytePositionInLine: 18."]}}
+2026-05-06 12:35:14,365 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-81e51638d9aced45cffd40a4a87022c6-b4b8973009fc63c7-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": 1,
+  "fromDate": 2026-05-06,
+  "toDate": 2026-05-06,
+  "branchIdList": 1,
+  "corporateId": 1,
+  "roleId": 1
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-81e51638d9aced45cffd40a4a87022c6-b4b8973009fc63c7-00","data":{"request":["The request field is required."],"$.branchId":["The JSON value could not be converted to System.String. Path: $.branchId | LineNumber: 1 | BytePositionInLine: 15."]}}
+2026-05-06 12:35:43,793 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-703182fc3537e5a1e2aa78bf837027b6-3bfe32aebd038522-00
+Status     : 400
+Method     : POST
+Path       : /api/HelpDesk/help_desk
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+RequestBody: {
+  "branchId": 1,
+  "fromDate": "2026-05-06",
+  "toDate": "2026-05-06",
+  "branchIdList": "1",
+  "corporateId": 1,
+  "roleId": 1
+}
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-703182fc3537e5a1e2aa78bf837027b6-3bfe32aebd038522-00","data":{"request":["The request field is required."],"$.branchId":["The JSON value could not be converted to System.String. Path: $.branchId | LineNumber: 1 | BytePositionInLine: 15."]}}
+2026-05-06 13:15:00,345 INFO  LISD.Controllers.CountryController - GetFullLocationByPincode API called. pincode=221003

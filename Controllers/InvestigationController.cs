@@ -128,5 +128,61 @@ namespace App.Controllers
                 });
             }
         }
+
+        [HttpGet("service-item-list")]
+        public async Task<IActionResult> GetServiceItemList(string name, string filter = null, string corporateId = null)
+        {
+            try
+            {
+                var list = new List<object>();
+
+                using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                using (SqlCommand cmd = new SqlCommand("S_GetServiceItemList", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@name", name ?? "");
+                    cmd.Parameters.AddWithValue("@filter", string.IsNullOrEmpty(filter) ? (object)DBNull.Value : filter);
+                    cmd.Parameters.AddWithValue("@CorporateId", string.IsNullOrEmpty(corporateId) ? (object)DBNull.Value : corporateId);
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            list.Add(new
+                            {
+                                ServiceItemId = Convert.ToInt32(reader["ServiceItemId"]),
+                                Name = reader["Name"]?.ToString(),
+                                CategoryId = reader["CategoryId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["CategoryId"]),
+                                SubCategoryId = reader["SubCategoryId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["SubCategoryId"]),
+                                SubSubCategoryId = reader["SubSubCategoryId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["SubSubCategoryId"])
+                            });
+                        }
+                    }
+                }
+
+                return Ok(new ApiResponse<object>
+                {
+                    Success = true,
+                    Message = "Service item list fetched successfully",
+                    Data = list
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = "Error fetching service item list",
+                    Data = ex.Message
+                });
+            }
+        }
+
+
+
+
     }
 }

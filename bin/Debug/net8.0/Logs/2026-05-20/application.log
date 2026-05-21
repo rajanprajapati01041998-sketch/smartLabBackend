@@ -1,0 +1,460 @@
+2026-05-20 12:37:37,057 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c5cfedb88c63c24b1c53e69c0a6f9797-2b90b5e6bf96a0d4-00
+Status     : 400
+Method     : GET
+Path       : /api/FlaboDashBoard/sample-summary
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+ResponseBody: {"success":false,"message":"fieldBoyId is required"}
+2026-05-20 13:28:50,182 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-78b512b951743b4317768d165e12ec27-e3e10b25043fd262-00
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported. Path: $.data.Columns.DataType.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWriteAsObject(Utf8JsonWriter writer, Object value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableConverter`1.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, NotSupportedException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Middleware/ErrorLoggingMiddleware.cs:line 32
+2026-05-20 13:31:35,464 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-f908faea97fd840ce87179d20445b887-dfaab135401e16b7-00
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported. Path: $.data.Columns.DataType.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWriteAsObject(Utf8JsonWriter writer, Object value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableConverter`1.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, NotSupportedException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context)
+2026-05-20 13:32:12,689 ERROR LISD.Middleware.ErrorLoggingMiddleware - Unhandled API exception
+Correlation: 00-c75ec549fe505d5a3672ea8749c4e12f-10a5986dca660fbb-00
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported. Path: $.data.Columns.DataType.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Type' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWriteAsObject(Utf8JsonWriter writer, Object value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableConverter`1.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, NotSupportedException ex)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at LISD.Middleware.ErrorLoggingMiddleware.Invoke(HttpContext context) in /Users/gravitywebtechnologiespvtltd/Desktop/ClientMaster/LISDBACKEND/Middleware/ErrorLoggingMiddleware.cs:line 32
+2026-05-20 13:34:14,022 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5812b4eae6d1f8753da836bf9c1af8cc-3d613261115670d7-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:23,290 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c12b6b933bf870cf683118b101db89a3-8738e1a31a56503b-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:23,977 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7ab055787c030a3fd5e0b70a963b24d7-26f481e6aaf9a46d-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:24,172 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-e65d02ca8b279cc448587ec29fe09723-d93069042ce96de9-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:24,414 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-81d26d134f9671ca2bf45314aec1367d-0e1c046fa87f17fe-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:24,622 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-505e2103ab302efe9f33e5fb8b120089-a63a39116ff39ea7-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:24,874 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2cc383c209a5761cf5da3d36d4f2cf31-59d5f24e6a6339d2-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:25,100 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-a34ce933d6cbd8d1b34a3646be1c1928-43d07d3372bf79ca-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:34:25,324 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-59572577b1fd88694f190854b7f8f05b-46d5d1acc42d4d2a-00
+Status     : 404
+Method     : GET
+Path       : /api/Location/getBranchLocationById_flabo
+Query      : ?branchId=8066
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+
+2026-05-20 13:35:58,854 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:35:58,854 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:36:15,895 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:51:31,304 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:51:31,415 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:52:06,103 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:55:01,237 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:55:01,241 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 13:57:01,746 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-141c814de8642bc42c153c21984436d7-c314a833413b6c3b-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 13:57:06,849 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-337af8d069702d79254d0427d6bf27de-f87964d3894bb708-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 13:57:06,849 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b507c6211b516c78900f2e037536cf7f-2f6c696414078e96-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 13:57:22,818 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2852dc00ae18249c998c38798b860d87-1680c924ef77ab9e-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 13:57:27,819 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2cf4173557503353b1afc282c5dcbe77-22d7eb31d0bc26c6-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 13:57:27,819 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-33c112b79885154fbcde6cb117ea695e-f464f3505a68ff09-00
+Status     : 404
+Method     : GET
+Path       : //locationHub
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+
+2026-05-20 15:04:00,773 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:04:00,812 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:13:47,011 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:13:47,011 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:14:29,467 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:14:29,508 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:20:32,821 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:20:32,821 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:39:37,929 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:39:37,929 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:49:27,795 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:55:35,591 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 15:56:31,180 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:10:03,409 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:11:04,770 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:11:14,623 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:11:35,843 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:18:00,271 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:18:51,882 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 16:18:51,922 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 16:21:35,389 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 16:21:35,404 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 16:21:43,169 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 16:22:10,316 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:22:10,369 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:23:07,661 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:23:07,724 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:34:13,894 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:40:40,566 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:41:31,332 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 16:41:47,687 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-20 17:22:20,237 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-9eccf825ea81af44d487e95519530124-347f4a74898a0682-00
+Status     : 404
+Method     : GET
+Path       : /api/ReceiptBill/details-bill
+Query      : ?ftId=10860&receiptId=10784&printUserId=1&isReceipt=true&mode=pdf
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.54.0
+ResponseBody: {"status":false,"message":"No receipt details found"}
+2026-05-20 17:28:49,752 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-6dde8a205105f766489938e3ab9213ce-6ef1459558a80373-00
+Status     : 500
+Method     : POST
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"userName":"gws","userPassword":"gravitys@0542","branchId":1,"browser":"Handset","device":"sdk_gphone16k_arm64","os":"Android 17","latitudeApp":37.4219983,"longitudeApp":-122.084}
+ResponseBody: {"message":"Error occurred","error":"Could not find stored procedure 'sp_S_Login_AppLocation'."}
+2026-05-20 17:30:19,464 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-b5b992a909b44ea39d74ae6fa53de5a5-43dced4ea198d82d-00
+Status     : 500
+Method     : POST
+Path       : /api/Login/login
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"userName":"gws","userPassword":"gravitys@0542","branchId":1,"browser":"Handset","device":"sdk_gphone16k_arm64","os":"Android 17","latitudeApp":37.4219983,"longitudeApp":-122.084}
+ResponseBody: {"message":"Error occurred","error":"Could not find stored procedure 'sp_S_Login_AppLocation'."}
+2026-05-20 17:40:58,035 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-05-20 17:41:15,111 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=True
+2026-05-20 17:41:19,590 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=1, ViewReport=False
+2026-05-20 17:42:45,546 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-20 17:42:45,803 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-20 17:42:45,805 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-20 17:42:47,725 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-20 17:42:47,747 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-20 17:42:47,748 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-20 17:42:47,751 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-20 17:43:02,240 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-20 17:43:02,258 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-20 17:43:56,206 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-20 17:43:56,217 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-20 17:44:22,427 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-20 17:45:58,308 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-20 17:46:15,113 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-20 17:48:10,422 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-20 17:48:37,053 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=1002, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-20 17:51:07,023 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8ca20d02751c3948d5abfe2d33a30a12-39e1ecc21a9f1609-00
+Status     : 400
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=1&isHeaderPNG=true&PrintBy=1&branchId=1&ViewReport=true
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-8ca20d02751c3948d5abfe2d33a30a12-39e1ecc21a9f1609-00","data":{"isHeaderPNG":["The value 'true' is not valid."]}}
+2026-05-20 18:49:18,124 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:49:50,702 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:49:55,800 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:51:17,218 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:51:32,604 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:51:32,765 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3235ca0d306b930e039445ceb160a6fa-ab026135c5d4ae2e-00
+Status     : 404
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=14539&isHeaderPNG=1&PrintBy=1&branchId=1&clientId=0&ViewReport=false
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.54.0
+ResponseBody: {"status":false,"message":"No data found from S_GetPatientInvestigationsForReportPrint."}
+2026-05-20 18:54:14,644 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:54:14,721 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-c25e6d0c415b486fed8ace6fdcc63de1-e9db076b5b5311a3-00
+Status     : 404
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=14539&isHeaderPNG=1&PrintBy=1&branchId=1&clientId=0&ViewReport=false
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.54.0
+ResponseBody: {"status":false,"message":"No data found from S_GetPatientInvestigationsForReportPrintTebular"}
+2026-05-20 18:58:12,018 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4108, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:58:47,658 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4108, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-20 18:59:19,115 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4108, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-21 10:32:24,498 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4108, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-21 10:32:34,243 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4108, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False
+2026-05-21 10:34:29,013 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-21 10:34:29,013 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-05-21 10:34:29,014 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-21 10:34:34,901 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 10:34:34,909 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-21 10:34:34,925 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 10:34:34,928 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-21 10:35:06,708 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 10:35:06,721 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4

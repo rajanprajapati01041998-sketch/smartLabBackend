@@ -1,0 +1,516 @@
+2026-05-16 11:42:43,397 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-88c16cf4a8e36b139c08189a3a9f7e82-274d03d6aeccdb61-00
+Status     : 401
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogin
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+RequestBody: {
+  "userIdApp": "abc",
+  "passwordApp": "123456",
+  "branchId": 9068,
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"success":false,"message":"Invalid login or branch not mapped"}
+2026-05-16 11:46:28,648 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-5db7fc968880cb1928aa7bae1af38c56-b8756ee7898bbbef-00
+Status     : 405
+Method     : GET
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+
+2026-05-16 12:01:58,197 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-13a5f4798e87f89ff96429b83460d036-0d0250ba1aa2f8e7-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+RequestBody: {
+  "loginHistoryId": 0
+}
+ResponseBody: {"success":false,"message":"LoginHistoryId is required"}
+2026-05-16 12:02:51,170 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-47de4ebe2f25734a5a54a73984af12a3-58b125fa4e4cdebb-00
+Status     : 405
+Method     : GET
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "loginHistoryId":3 
+}
+
+2026-05-16 12:11:25,281 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-53773f719f61d50df64e035dbd9bbdc0-598d7e34a84f8034-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"success":false,"message":"FieldBoyIdApp and PasswordApp are required"}
+2026-05-16 12:11:30,394 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0db30cfa6f9635eabf1d2d6aecb7d3e3-ca7f84f297b2050e-00
+Status     : 500
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "FieldBoyIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"success":false,"message":"Error fetching branch list","error":"Procedure or function 'S_GetFieldBoyWiseBranchListForLogin' expects parameter '@userIdApp', which was not supplied."}
+2026-05-16 12:14:15,137 ERROR LISD.Filters.ApiExceptionFilter - Unhandled controller exception
+Correlation: 00-8ec5c86cf81a6e678ed03c8ae06c0ab2-caa24265776c29f7-00
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+System.MissingMethodException: Attempted to invoke a deleted method implementation. This can happen when a method is deleted or its name or signature is changed while the application is running.
+   at FieldBoyLoginRequest.set_FieldBoyIdApp(String value)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsObjectAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2026-05-16 12:14:15,149 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-8ec5c86cf81a6e678ed03c8ae06c0ab2-caa24265776c29f7-00
+Status     : 500
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "FieldBoyIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"status":false,"message":"Internal server error","correlationId":"00-8ec5c86cf81a6e678ed03c8ae06c0ab2-caa24265776c29f7-00"}
+2026-05-16 12:14:18,833 ERROR LISD.Filters.ApiExceptionFilter - Unhandled controller exception
+Correlation: 00-7eabfd7fcb3f1b84b54a609abde6fee3-c676627e7688e119-00
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+System.MissingMethodException: Attempted to invoke a deleted method implementation. This can happen when a method is deleted or its name or signature is changed while the application is running.
+   at FieldBoyLoginRequest.get_FieldBoyIdApp()
+   at Microsoft.Extensions.Internal.PropertyHelper.CallNullSafePropertyGetter[TDeclaringType,TValue](Func`2 getter, Object target)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationEntry.get_Model()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitChildren(IValidationStrategy strategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitComplexType(IValidationStrategy defaultStrategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitImplementation(ModelMetadata& metadata, String& key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ObjectModelValidator.Validate(ActionContext actionContext, ValidationStateDictionary validationState, String prefix, Object model, ModelMetadata metadata, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.EnforceBindRequiredAndValidate(ObjectModelValidator baseObjectValidator, ActionContext actionContext, ParameterDescriptor parameter, ModelMetadata metadata, ModelBindingContext modelBindingContext, ModelBindingResult modelBindingResult, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2026-05-16 12:14:18,836 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-7eabfd7fcb3f1b84b54a609abde6fee3-c676627e7688e119-00
+Status     : 500
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"status":false,"message":"Internal server error","correlationId":"00-7eabfd7fcb3f1b84b54a609abde6fee3-c676627e7688e119-00"}
+2026-05-16 12:14:26,339 ERROR LISD.Filters.ApiExceptionFilter - Unhandled controller exception
+Correlation: 00-3f045662f1c48699b49fa9f84ddd6ac2-c1d257bb1aad3acf-00
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+System.MissingMethodException: Attempted to invoke a deleted method implementation. This can happen when a method is deleted or its name or signature is changed while the application is running.
+   at FieldBoyLoginRequest.get_FieldBoyIdApp()
+   at Microsoft.Extensions.Internal.PropertyHelper.CallNullSafePropertyGetter[TDeclaringType,TValue](Func`2 getter, Object target)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationEntry.get_Model()
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitChildren(IValidationStrategy strategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitComplexType(IValidationStrategy defaultStrategy)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.VisitImplementation(ModelMetadata& metadata, String& key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor.Visit(ModelMetadata metadata, String key, Object model)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ObjectModelValidator.Validate(ActionContext actionContext, ValidationStateDictionary validationState, String prefix, Object model, ModelMetadata metadata, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.EnforceBindRequiredAndValidate(ObjectModelValidator baseObjectValidator, ActionContext actionContext, ParameterDescriptor parameter, ModelMetadata metadata, ModelBindingContext modelBindingContext, ModelBindingResult modelBindingResult, Object container)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2026-05-16 12:14:26,341 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-3f045662f1c48699b49fa9f84ddd6ac2-c1d257bb1aad3acf-00
+Status     : 500
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyBranchList
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.53.0
+RequestBody: {
+  "userIdApp": "rajan",
+  "passwordApp": "123456",
+  "browser": "mbile",
+  "device": "samsung",
+  "os": "Android",
+  "latitudeApp": 18.7276872,
+  "longitudeApp": 80.657478,
+  "ipAddress": "1.0.49.54.456"
+}
+ResponseBody: {"status":false,"message":"Internal server error","correlationId":"00-3f045662f1c48699b49fa9f84ddd6ac2-c1d257bb1aad3acf-00"}
+2026-05-16 12:24:55,496 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:24:55,549 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:27:28,743 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:27:29,213 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:29:37,815 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:29:37,815 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:06,837 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:06,837 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:20,861 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:20,861 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:29,149 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:30:29,149 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:34:09,978 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:34:10,046 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:35:26,371 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:35:26,371 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:35:45,944 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:35:45,944 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:36:51,998 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:36:51,998 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:38:10,126 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:38:10,134 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:38:38,730 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:38:38,730 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:38:45,005 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 12:54:38,107 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:54:38,272 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:56:06,417 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:57:08,687 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 12:57:09,177 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:06:29,077 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:24:33,029 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:24:33,036 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:25:09,063 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:25:09,563 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:30:44,830 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:30:44,831 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:30:51,343 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:32:05,980 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:32:39,343 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:32:39,452 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:32:52,882 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:35:14,438 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 13:42:43,063 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-200c89814c5dc4a340e8dd453e4cb431-4c04a9405bfb2d67-00
+Status     : 400
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+RequestBody: {
+  "id": 0,
+  "samplePickup": true,
+  "sampleDelivered": true,
+  "samplePickupDateTime": "2026-05-16T08:12:38.633Z",
+  "sampleDeliveredDateTime": "2026-05-16T08:12:38.633Z"
+}
+ResponseBody: {"success":false,"message":"Invalid request"}
+2026-05-16 15:11:00,119 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:12:46,082 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
+2026-05-16 15:12:46,092 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:12:46,176 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
+2026-05-16 15:12:46,179 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:12:54,113 ERROR App.Controllers.FlaboDashBoardController - Update sample status error
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function U_PatientSampleTrackingStatus has too many arguments specified.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__208_1(IAsyncResult result)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.FlaboDashBoardController.UpdateSampleStatus(UpdateSampleStatusRequest request)
+ClientConnectionId:15974dbc-560f-4bc7-9dd0-d223da2eb6c9
+Error Number:8144,State:2,Class:16
+2026-05-16 15:12:54,136 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-0eee9d3b6db6d8b1a7a4d882f952620f-8afa86900c0536d2-00
+Status     : 500
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":1009,"samplePickup":true}
+ResponseBody: {"success":false,"message":"Error updating sample status","error":"Procedure or function U_PatientSampleTrackingStatus has too many arguments specified."}
+2026-05-16 15:13:06,188 ERROR App.Controllers.FlaboDashBoardController - Update sample status error
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function U_PatientSampleTrackingStatus has too many arguments specified.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__208_1(IAsyncResult result)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.FlaboDashBoardController.UpdateSampleStatus(UpdateSampleStatusRequest request)
+ClientConnectionId:028d9682-f31c-4417-a686-58759907a750
+Error Number:8144,State:2,Class:16
+2026-05-16 15:13:06,190 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-edb7a7a54af14fa313fc2964e4fccee4-bbf2651ef0235c99-00
+Status     : 500
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":1009,"samplePickup":true}
+ResponseBody: {"success":false,"message":"Error updating sample status","error":"Procedure or function U_PatientSampleTrackingStatus has too many arguments specified."}
+2026-05-16 15:13:06,411 ERROR App.Controllers.FlaboDashBoardController - Update sample status error
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function U_PatientSampleTrackingStatus has too many arguments specified.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__208_1(IAsyncResult result)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.FlaboDashBoardController.UpdateSampleStatus(UpdateSampleStatusRequest request)
+ClientConnectionId:028d9682-f31c-4417-a686-58759907a750
+Error Number:8144,State:2,Class:16
+2026-05-16 15:13:06,412 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-2e73755c12f40a6b71c577b789f756d3-67761727c515ff2e-00
+Status     : 500
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+RequestBody: {"id":1009,"samplePickup":true}
+ResponseBody: {"success":false,"message":"Error updating sample status","error":"Procedure or function U_PatientSampleTrackingStatus has too many arguments specified."}
+2026-05-16 15:13:54,255 ERROR App.Controllers.FlaboDashBoardController - Update sample status error
+Microsoft.Data.SqlClient.SqlException (0x80131904): Procedure or function U_PatientSampleTrackingStatus has too many arguments specified.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__208_1(IAsyncResult result)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at App.Controllers.FlaboDashBoardController.UpdateSampleStatus(UpdateSampleStatusRequest request)
+ClientConnectionId:028d9682-f31c-4417-a686-58759907a750
+Error Number:8144,State:2,Class:16
+2026-05-16 15:13:54,258 ERROR LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-324606b54a037601e13f36cc6900b2af-2927c956e9ebb50e-00
+Status     : 500
+Method     : PUT
+Path       : /api/FlaboDashBoard/update-sample-status
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+RequestBody: {
+  "id": 1009,
+  "samplePickup": true
+}
+ResponseBody: {"success":false,"message":"Error updating sample status","error":"Procedure or function U_PatientSampleTrackingStatus has too many arguments specified."}
+2026-05-16 15:19:28,710 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
+2026-05-16 15:19:28,719 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:24:48,217 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
+2026-05-16 15:24:48,265 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:24:49,741 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:24:54,622 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
+2026-05-16 15:24:54,625 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:30:37,997 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:34:16,657 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:34:16,664 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:51:06,936 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:51:06,936 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:55:14,131 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:55:14,131 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:10:50,320 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:21:57,868 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:21:57,868 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:22:40,073 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:22:40,400 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:26:24,982 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:39:23,764 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:39:23,767 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:49:57,287 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:49:57,788 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:01:09,859 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:01:09,895 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:05:56,109 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:05:56,614 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:36,885 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:37,033 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:56,702 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:06:56,767 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:07:45,852 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:07:46,117 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:08:05,900 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:08:05,974 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:09:59,271 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:09:59,489 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:10:28,054 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-d08ae8f11beeca5cff68dc268392ef90-df2a28cf8ef6693c-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-d08ae8f11beeca5cff68dc268392ef90-df2a28cf8ef6693c-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 17:10:33,822 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-08bb3a4abdad4f142d2771816be4c733-1d06dbe0128dd1dd-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-08bb3a4abdad4f142d2771816be4c733-1d06dbe0128dd1dd-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 17:10:49,703 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:10:49,703 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:11:36,146 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:11:36,348 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:11:44,583 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:58:15,148 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:15,205 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:58:15,647 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:15,651 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:58:19,770 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:19,775 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:59:55,519 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:59:55,534 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 18:01:05,477 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 18:01:05,488 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 18:01:08,970 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:01:47,691 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:13:54,872 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-cc7ed99f7b521bef0ddcf731de0dcc46-55ef0562b76b2e3b-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-cc7ed99f7b521bef0ddcf731de0dcc46-55ef0562b76b2e3b-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 18:14:15,125 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:14:15,695 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:29:28,537 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:29:28,799 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:38:06,323 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1

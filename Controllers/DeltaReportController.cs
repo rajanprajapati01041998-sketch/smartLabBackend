@@ -182,7 +182,7 @@ namespace LISD.Controllers
                                 return NotFound(new
                                 {
                                     status = false,
-                                    message = "No data found from S_GetPatientInvestigationsForReportPrint."
+                                    message = "No data found from S_GetPatientInvestigationsForReportPrintTebular"
                                 });
                             }
 

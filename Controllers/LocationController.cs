@@ -50,5 +50,70 @@ namespace LISD.Controllers
 
             return Ok(locations);
         }
+
+
+        [HttpGet("getBranchLocationById_flabo")]
+        public async Task<IActionResult> TestBranchLocation([FromQuery] int branchId)
+        {
+            try
+            {
+                using SqlConnection con = new SqlConnection(
+                    _configuration.GetConnectionString("DefaultConnection")
+                );
+
+                using SqlCommand cmd = new SqlCommand("dbo.S_GetBranchLocationByBranchIdForFlabo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@BranchId", SqlDbType.Int).Value = branchId;
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                var result = new List<Dictionary<string, object?>>();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object?>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] = reader.IsDBNull(i) ? null : reader.GetValue(i);
+                    }
+
+                    result.Add(row);
+                }
+
+                return Ok(new
+                {
+                    status = true,
+                    message = "Success",
+                    count = result.Count,
+                    data = result
+                });
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = false,
+                    message = "SQL Error",
+                    error = ex.Message,
+                    procedure = ex.Procedure,
+                    line = ex.LineNumber
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = false,
+                    message = "API Error",
+                    error = ex.Message
+                });
+            }
+        }
+
+
+
     }
 }

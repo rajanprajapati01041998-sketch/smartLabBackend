@@ -30,7 +30,10 @@ namespace App.Models
         public int IsPrivilegedCardDiscount { get; set; }
 
         public int DefaultSampleTypeId { get; set; }
+        public string? SampleType { get; set; }   // 👈 ADD THIS
+
         public string SampleTypeIdList { get; set; }
         public string SampleTypeList { get; set; }
+        public List<SampleTypeModel> SampleTypes { get; set; } = new();
     }
 }

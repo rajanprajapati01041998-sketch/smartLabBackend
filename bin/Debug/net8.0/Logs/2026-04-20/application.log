@@ -397,3 +397,7 @@
 2026-04-20 17:38:32,167 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9072, userId=28190
 2026-04-20 17:38:32,172 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9072
 2026-04-20 17:38:32,290 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=9072, userId=28190
+2026-04-20 17:44:21,447 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 17:44:21,472 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-04-20 17:44:21,631 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
+2026-04-20 18:58:07,681 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=14539, isHeaderPNG=1, PrintBy=1, branchId=1, clientId=0, ViewReport=False

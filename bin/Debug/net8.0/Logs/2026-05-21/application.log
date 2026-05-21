@@ -1,0 +1,50 @@
+2026-05-21 11:33:57,231 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-19cfbba0f5f5d1be2244d7ca7c6fef14-2c164f67e043539f-00
+Status     : 404
+Method     : GET
+Path       : /api/ReportPrint/ViewReport
+Query      : ?ptInvstId=4108&isHeaderPNG=1&printBy=1&branchId=1&pdf=true
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : PostmanRuntime/7.54.0
+
+2026-05-21 12:47:44,225 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 12:47:44,295 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-21 12:47:51,332 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 12:47:51,336 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-21 12:48:30,369 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 12:48:30,378 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-21 12:48:53,199 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4099, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:49:23,153 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4099, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:49:46,587 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4104, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:49:54,404 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4109, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:49:54,441 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-814868c85b1571da1f4b1bf52dd4bfcd-c808294d0d4318d8-00
+Status     : 404
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=4109&isHeaderPNG=0&PrintBy=1&branchId=1&ViewReport=true
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"No data found from S_GetPatientDeltaReports."}
+2026-05-21 12:50:01,322 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4109, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:50:01,350 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-1e2d905f4d04d802635f80c046c53910-8fd8a4d73fd11cf3-00
+Status     : 404
+Method     : GET
+Path       : /api/DeltaReport/download-delta-report
+Query      : ?PatientInvestigationIdList=4109&isHeaderPNG=0&PrintBy=1&branchId=1&ViewReport=true
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"No data found from S_GetPatientDeltaReports."}
+2026-05-21 12:50:11,965 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4113, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:50:54,640 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 12:50:54,655 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111
+2026-05-21 12:51:55,143 INFO  LISD.Controllers.DeltaReportController - DownloadDeltaReport API called with PatientInvestigationIdList=4103, isHeaderPNG=0, PrintBy=1, branchId=1, clientId=, ViewReport=True
+2026-05-21 12:52:07,994 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-21 12:52:08,001 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=111

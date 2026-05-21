@@ -70,12 +70,14 @@ public class LoginController : ControllerBase
         try
         {
             using SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            using SqlCommand cmd = new SqlCommand("sp_S_Login", con);
+            using SqlCommand cmd = new SqlCommand("sp_S_Login_AppLocation", con);
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = request.UserName;
             cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = request.UserPassword;
             cmd.Parameters.Add("@BranchId", SqlDbType.Int).Value = request.BranchId;
+            cmd.Parameters.Add("@LatitudeApp", SqlDbType.Decimal).Value = request.LatitudeApp.HasValue ? request.LatitudeApp.Value : DBNull.Value;
+            cmd.Parameters.Add("@LongitudeApp", SqlDbType.Decimal).Value = request.LongitudeApp.HasValue ? request.LongitudeApp.Value : DBNull.Value;
 
             con.Open();
 
@@ -128,16 +130,30 @@ public class LoginController : ControllerBase
 
             try
             {
-                using SqlCommand loginCmd = new SqlCommand("sp_InsertUserLogin", con);
+                using SqlCommand loginCmd = new SqlCommand("sp_InsertUserLogin_AppLocation", con);
                 loginCmd.CommandType = CommandType.StoredProcedure;
 
                 string ipAddress = _ipService.GetIpAddress();
 
                 loginCmd.Parameters.AddWithValue("@UserId", id);
-                loginCmd.Parameters.AddWithValue("@IpAddress", ipAddress);
+                loginCmd.Parameters.AddWithValue("@IpAddress", ipAddress ?? (object)DBNull.Value);
                 loginCmd.Parameters.AddWithValue("@Browser", request.Browser ?? "React Native App");
                 loginCmd.Parameters.AddWithValue("@Device", request.Device ?? "Unknown");
                 loginCmd.Parameters.AddWithValue("@Os", request.Os ?? "Unknown");
+
+                var latitudeParam = loginCmd.Parameters.Add("@LatitudeApp", SqlDbType.Decimal);
+                latitudeParam.Precision = 18;
+                latitudeParam.Scale = 10;
+                latitudeParam.Value = request.LatitudeApp.HasValue
+                    ? request.LatitudeApp.Value
+                    : DBNull.Value;
+
+                var longitudeParam = loginCmd.Parameters.Add("@LongitudeApp", SqlDbType.Decimal);
+                longitudeParam.Precision = 18;
+                longitudeParam.Scale = 10;
+                longitudeParam.Value = request.LongitudeApp.HasValue
+                    ? request.LongitudeApp.Value
+                    : DBNull.Value;
 
                 SqlParameter outputId = new SqlParameter("@Result", SqlDbType.Int)
                 {
@@ -148,7 +164,7 @@ public class LoginController : ControllerBase
 
                 loginCmd.ExecuteNonQuery();
 
-                sessionId = (int)outputId.Value; // ✅ IMPORTANT
+                sessionId = outputId.Value != DBNull.Value ? Convert.ToInt32(outputId.Value) : 0;
             }
             catch (Exception ex)
             {
@@ -158,6 +174,8 @@ public class LoginController : ControllerBase
             return Ok(new
             {
                 message = "Login successful",
+                serverNowUtc = DateTime.UtcNow.ToString("o"),
+                serverNowLocal = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt"),
                 branchId = request.BranchId,
                 sessionId,
                 user = new
@@ -173,7 +191,9 @@ public class LoginController : ControllerBase
 
                 roles,
                 token = result.token,
-                expiresAt = result.expiry.ToString("yyyy-MM-dd hh:mm:ss tt")
+                // Token expiry is generated in UTC; return both UTC and local for clarity.
+                expiresAtUtc = result.expiry.ToString("o"),
+                expiresAtLocal = result.expiry.ToLocalTime().ToString("yyyy-MM-dd hh:mm:ss tt")
             });
         }
         catch (Exception ex)
@@ -251,7 +271,17 @@ public class LoginController : ControllerBase
                     device = reader["Device"]?.ToString(),
                     browser = reader["Browser"]?.ToString(),
                     os = reader["Os"]?.ToString(),
+
+                    latitudeApp = reader["LatitudeApp"] == DBNull.Value
+             ? null
+             : reader["LatitudeApp"],
+                    longitudeApp = reader["LongitudeApp"] == DBNull.Value
+             ? null
+             : reader["LongitudeApp"],
                     loginAt = reader["LoginAt"],
+                    logoutAt = reader["LogoutAt"] == DBNull.Value
+             ? null
+             : reader["LogoutAt"],
                     sessionId = reader["Id"]
                 });
             }
@@ -272,4 +302,9 @@ public class LoginController : ControllerBase
 
         return Ok(list);
     }
+
+
+
+
+
 }
