@@ -101,8 +101,8 @@ public class HelpDeskController : ControllerBase
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // ✅ Directly use DTO properties
-                cmd.Parameters.AddWithValue("@branchId", request.branchId ?? "1");
-                cmd.Parameters.AddWithValue("@typeId", request.typeId ?? "0");
+                cmd.Parameters.AddWithValue("@branchId", request.branchId);
+                cmd.Parameters.AddWithValue("@typeId", request.typeId);
                 cmd.Parameters.AddWithValue("@uhid", string.IsNullOrEmpty(request.uhid) ? DBNull.Value : request.uhid);
                 cmd.Parameters.AddWithValue("@ipdNo", string.IsNullOrEmpty(request.ipdNo) ? DBNull.Value : request.ipdNo);
                 cmd.Parameters.AddWithValue("@labNo", string.IsNullOrEmpty(request.labNo) ? DBNull.Value : request.labNo);

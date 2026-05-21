@@ -20,9 +20,10 @@ namespace App.Controllers
 
         [HttpGet("sample-summary")]
         public async Task<IActionResult> GetFieldBoySampleSummary(
-    [FromQuery] int fieldBoyId,
-    [FromQuery] DateTime? fromDate,
-    [FromQuery] DateTime? toDate)
+        [FromQuery] int fieldBoyId,
+        [FromQuery] string? loginBranchIdList,
+        [FromQuery] DateTime? fromDate,
+        [FromQuery] DateTime? toDate)
         {
             if (fieldBoyId <= 0)
             {
@@ -44,8 +45,12 @@ namespace App.Controllers
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value =
-                    fieldBoyId;
+                cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value = fieldBoyId;
+
+                cmd.Parameters.Add("@LoginBranchIdList", SqlDbType.NVarChar).Value =
+                    string.IsNullOrWhiteSpace(loginBranchIdList)
+                        ? DBNull.Value
+                        : loginBranchIdList;
 
                 cmd.Parameters.Add("@FromDate", SqlDbType.Date).Value =
                     fromDate.HasValue
@@ -67,29 +72,25 @@ namespace App.Controllers
                     {
                         success = true,
                         message = "No data found",
-                        data = new
-                        {
-                            fieldBoyId,
-                            totalSamples = 0,
-                            totalSamplePicked = 0,
-                            totalSampleDelivered = 0,
-                            totalPaymentCollected = 0
-                        }
+                        data = (object?)null
                     });
+                }
+
+                var data = new Dictionary<string, object?>();
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    data[reader.GetName(i)] =
+                        reader.IsDBNull(i)
+                            ? null
+                            : reader.GetValue(i);
                 }
 
                 return Ok(new
                 {
                     success = true,
                     message = "Sample summary fetched successfully",
-                    data = new
-                    {
-                        fieldBoyId = Convert.ToInt32(reader["FieldBoyId"]),
-                        totalSamples = Convert.ToInt32(reader["TotalSamples"]),
-                        totalSamplePicked = Convert.ToInt32(reader["TotalSamplePicked"]),
-                        totalSampleDelivered = Convert.ToInt32(reader["TotalSampleDelivered"]),
-                        totalPaymentCollected = Convert.ToDecimal(reader["TotalPaymentCollected"])
-                    }
+                    data
                 });
             }
             catch (Exception ex)
@@ -105,7 +106,112 @@ namespace App.Controllers
             }
         }
 
-        [HttpPut("update-sample-status")]
+
+        [HttpPost("patient-sample-tracking")]
+        public async Task<IActionResult> GetPatientSampleTracking(
+        [FromBody] PatientSampleTrackingRequest request)
+        {
+            try
+            {
+                using var con = new SqlConnection(
+                    _configuration.GetConnectionString("DefaultConnection"));
+
+                using var cmd = new SqlCommand(
+                    "S_GetPatientSampleTracking",
+                    con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value =
+                    request.FieldBoyId;
+
+                cmd.Parameters.Add("@LoginBranchIdList", SqlDbType.NVarChar).Value =
+                    string.IsNullOrWhiteSpace(request.LoginBranchIdList)
+                        ? DBNull.Value
+                        : request.LoginBranchIdList;
+
+                cmd.Parameters.Add("@FromDate", SqlDbType.Date).Value =
+                    request.FromDate.HasValue
+                        ? request.FromDate.Value.Date
+                        : DBNull.Value;
+
+                cmd.Parameters.Add("@ToDate", SqlDbType.Date).Value =
+                    request.ToDate.HasValue
+                        ? request.ToDate.Value.Date
+                        : DBNull.Value;
+
+                cmd.Parameters.Add("@UHID", SqlDbType.NVarChar).Value =
+                    string.IsNullOrWhiteSpace(request.UHID)
+                        ? DBNull.Value
+                        : request.UHID;
+
+                cmd.Parameters.Add("@PatientName", SqlDbType.NVarChar).Value =
+                    string.IsNullOrWhiteSpace(request.PatientName)
+                        ? DBNull.Value
+                        : request.PatientName;
+
+                await con.OpenAsync();
+
+                var data = new List<Dictionary<string, object?>>();
+
+                using var reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object?>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        var columnName = reader.GetName(i);
+
+                        if (columnName == "ServiceName")
+                        {
+                            var serviceNames = reader.IsDBNull(i)
+                                ? ""
+                                : reader.GetValue(i).ToString();
+
+                            row["ServiceList"] = string.IsNullOrWhiteSpace(serviceNames)
+                                ? new List<object>()
+                                : serviceNames
+                                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                                    .Select((x, index) => new
+                                    {
+                                        id = index + 1,
+                                        serviceName = x.Trim()
+                                    })
+                                    .ToList();
+
+                            continue;
+                        }
+                        row[columnName] =
+                            reader.IsDBNull(i)
+                                ? null
+                                : reader.GetValue(i);
+                    }
+                    data.Add(row);
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Patient sample tracking fetched successfully",
+                    data
+                });
+            }
+            catch (Exception ex)
+            {
+                _log.Error("Error fetching patient sample tracking", ex);
+
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Error fetching patient sample tracking",
+                    error = ex.Message
+                });
+            }
+        }
+
+        [HttpPost("update-sample-status")]
         public async Task<IActionResult> UpdateSampleStatus(
         [FromBody] UpdateSampleStatusRequest request)
         {
@@ -148,6 +254,7 @@ namespace App.Controllers
 
                 string message = "Sample status updated successfully";
 
+
                 if (request.SamplePickup == true)
                 {
                     message = "Sample picked successfully";
@@ -177,5 +284,6 @@ namespace App.Controllers
             }
         }
     }
+
 
 }

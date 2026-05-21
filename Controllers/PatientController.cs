@@ -903,6 +903,8 @@ namespace App.Controllers
                         // =========================
 
                         int fieldBoyId = GetInt(model, "FieldBoyId", 0);
+                        int loginBranchId = GetInt(model, "LoginBranchId", 0);
+
                         DateTime? collectionDateTime = GetDateTime(model, "CollectionDateTime");
 
                         if (fieldBoyId > 0)
@@ -912,19 +914,26 @@ namespace App.Controllers
                                 cmd.CommandType = CommandType.StoredProcedure;
 
                                 cmd.Parameters.Add("@PatientId", SqlDbType.Int).Value = patientId;
+
                                 cmd.Parameters.Add("@UHID", SqlDbType.NVarChar, 100).Value = uhid;
+
                                 cmd.Parameters.Add("@VisitId", SqlDbType.Int).Value = visitId;
+
                                 cmd.Parameters.Add("@FTID", SqlDbType.Int).Value = financialId;
+
                                 cmd.Parameters.Add("@ReceiptId", SqlDbType.Int).Value = receiptId;
 
                                 cmd.Parameters.Add("@LabNo", SqlDbType.Int).Value =
                                     commonLabNo > 0 ? commonLabNo : DBNull.Value;
 
                                 cmd.Parameters.Add("@TotalPayment", SqlDbType.Decimal).Value = totalPayment;
+
                                 cmd.Parameters["@TotalPayment"].Precision = 18;
                                 cmd.Parameters["@TotalPayment"].Scale = 2;
 
                                 cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value = fieldBoyId;
+
+                                cmd.Parameters.Add("@LoginBranchId", SqlDbType.Int).Value = loginBranchId;
 
                                 cmd.Parameters.Add("@CollectionDateTime", SqlDbType.DateTime).Value =
                                     collectionDateTime.HasValue

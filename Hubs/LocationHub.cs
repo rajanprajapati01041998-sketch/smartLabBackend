@@ -26,6 +26,52 @@ namespace LISDBACKEND.Hubs
             Console.WriteLine($"Admin left: {Context.ConnectionId}");
         }
 
+        public async Task<object> JoinFieldBoyLive(int fieldBoyId)
+        {
+            try
+            {
+                if (fieldBoyId <= 0)
+                {
+                    return new
+                    {
+                        status = false,
+                        message = "Invalid FieldBoyId"
+                    };
+                }
+
+                await Groups.AddToGroupAsync(
+                    Context.ConnectionId,
+                    $"FieldBoy_{fieldBoyId}"
+                );
+
+                await Clients.Group("Admins").SendAsync(
+                    "FieldBoyConnected",
+                    new
+                    {
+                        FieldBoyId = fieldBoyId,
+                        Message = "Field boy is live now",
+                        ConnectedAt = DateTime.Now
+                    }
+                );
+
+                Console.WriteLine($"Field boy live: {fieldBoyId}");
+
+                return new
+                {
+                    status = true,
+                    message = "Field boy joined live tracking"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new
+                {
+                    status = false,
+                    message = ex.Message
+                };
+            }
+        }
+
         public async Task<object> SendLocation(FieldBoyLocationDto location)
         {
             try

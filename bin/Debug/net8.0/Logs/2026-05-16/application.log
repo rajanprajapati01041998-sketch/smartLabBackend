@@ -428,3 +428,89 @@ ResponseBody: {"success":false,"message":"Error updating sample status","error":
 2026-05-16 15:24:49,741 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
 2026-05-16 15:24:54,622 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=3
 2026-05-16 15:24:54,625 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=3, count=0
+2026-05-16 15:30:37,997 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:34:16,657 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:34:16,664 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:51:06,936 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:51:06,936 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:55:14,131 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 15:55:14,131 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:10:50,320 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:21:57,868 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:21:57,868 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:22:40,073 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:22:40,400 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:26:24,982 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:39:23,764 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:39:23,767 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:49:57,287 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 16:49:57,788 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:01:09,859 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:01:09,895 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:05:56,109 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:05:56,614 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:36,885 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:37,033 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:06:56,702 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:06:56,767 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:07:45,852 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:07:46,117 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:08:05,900 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:08:05,974 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-16 17:09:59,271 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:09:59,489 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:10:28,054 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-d08ae8f11beeca5cff68dc268392ef90-df2a28cf8ef6693c-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-d08ae8f11beeca5cff68dc268392ef90-df2a28cf8ef6693c-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 17:10:33,822 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-08bb3a4abdad4f142d2771816be4c733-1d06dbe0128dd1dd-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-08bb3a4abdad4f142d2771816be4c733-1d06dbe0128dd1dd-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 17:10:49,703 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:10:49,703 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=9066
+2026-05-16 17:11:36,146 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:11:36,348 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:11:44,583 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 17:58:15,148 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:15,205 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:58:15,647 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:15,651 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:58:19,770 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:58:19,775 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 17:59:55,519 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 17:59:55,534 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 18:01:05,477 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-16 18:01:05,488 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-16 18:01:08,970 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:01:47,691 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:13:54,872 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-cc7ed99f7b521bef0ddcf731de0dcc46-55ef0562b76b2e3b-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogout
+Query      : ?loginHistoryId=undefined
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : okhttp/4.12.0
+ResponseBody: {"status":false,"message":"Validation error","correlationId":"00-cc7ed99f7b521bef0ddcf731de0dcc46-55ef0562b76b2e3b-00","data":{"loginHistoryId":["The value 'undefined' is not valid."]}}
+2026-05-16 18:14:15,125 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:14:15,695 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:29:28,537 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:29:28,799 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-16 18:38:06,323 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
