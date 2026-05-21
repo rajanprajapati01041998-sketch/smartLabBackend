@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Text;
+using System.Text.RegularExpressions;
 using iText.Html2pdf;
 using iText.Kernel.Pdf;
 using ZXing;
@@ -35,7 +36,7 @@ namespace LISDBACKEND.Controllers
         {
             try
             {
-                var receiptDetails = await GetReceiptDetails(ftId, isReceipt, receiptId, printUserId);
+                var (receiptDetails, receiptHeaderHtml) = await GetReceiptDetails(ftId, isReceipt, receiptId, printUserId);
 
                 if (receiptDetails.Count == 0)
                 {
@@ -59,7 +60,8 @@ namespace LISDBACKEND.Controllers
                     receiptDetails,
                     paymentDetails,
                     opdReceiptDetails,
-                    previousReceiptAmount
+                    previousReceiptAmount,
+                    receiptHeaderHtml
                 );
 
                 byte[] pdfBytes = GeneratePdfFromHtml(html);
@@ -102,7 +104,7 @@ namespace LISDBACKEND.Controllers
             }
         }
 
-        private async Task<List<Dictionary<string, object?>>> GetReceiptDetails(
+        private async Task<(List<Dictionary<string, object?>> Details, string ReceiptHeader)> GetReceiptDetails(
             int ftId,
             string isReceipt,
             int receiptId,
@@ -116,7 +118,69 @@ namespace LISDBACKEND.Controllers
                 new SqlParameter("@printUserId", printUserId)
             };
 
-            return await ExecuteStoredProcedure("S_GetReceiptDetails", parameters);
+            return await ExecuteReceiptDetailsProcedure(parameters);
+        }
+
+        private async Task<(List<Dictionary<string, object?>> Details, string ReceiptHeader)> ExecuteReceiptDetailsProcedure(
+            SqlParameter[] parameters)
+        {
+            var details = new List<Dictionary<string, object?>>();
+            string receiptHeader = "";
+
+            string? connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new Exception("DefaultConnection is missing in appsettings.json");
+
+            using SqlConnection con = new SqlConnection(connectionString);
+            using SqlCommand cmd = new SqlCommand("S_GetReceiptDetails", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddRange(parameters);
+
+            await con.OpenAsync();
+
+            using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+            do
+            {
+                var resultSet = new List<Dictionary<string, object?>>();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] = reader.IsDBNull(i) ? null : reader.GetValue(i);
+                    }
+
+                    resultSet.Add(row);
+                }
+
+                if (resultSet.Count == 0)
+                    continue;
+
+                bool isHeaderOnlyResultSet = resultSet.All(row =>
+                    row.Count == 1 && row.ContainsKey("ReceiptHeader"));
+
+                if (isHeaderOnlyResultSet)
+                {
+                    receiptHeader = GetString(resultSet[0], "ReceiptHeader");
+                    continue;
+                }
+
+                foreach (var row in resultSet)
+                {
+                    if (string.IsNullOrWhiteSpace(receiptHeader) && row.ContainsKey("ReceiptHeader"))
+                        receiptHeader = GetString(row, "ReceiptHeader");
+
+                    details.Add(row);
+                }
+            }
+            while (await reader.NextResultAsync());
+
+            return (details, receiptHeader);
         }
 
         private async Task<List<Dictionary<string, object?>>> GetReceiptPaymentDetails(string receiptNo)
@@ -172,7 +236,7 @@ namespace LISDBACKEND.Controllers
 
             while (await reader.ReadAsync())
             {
-                var row = new Dictionary<string, object?>();
+                var row = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
 
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
@@ -207,7 +271,8 @@ namespace LISDBACKEND.Controllers
             List<Dictionary<string, object?>> receiptDetails,
             List<Dictionary<string, object?>> paymentDetails,
             List<Dictionary<string, object?>> opdReceiptDetails,
-            List<Dictionary<string, object?>> previousReceiptAmount)
+            List<Dictionary<string, object?>> previousReceiptAmount,
+            string receiptHeaderHtml = "")
         {
             var first = receiptDetails.First();
 
@@ -222,10 +287,11 @@ namespace LISDBACKEND.Controllers
 
             string html = System.IO.File.ReadAllText(templatePath);
 
-            string headerHtml = GetString(first, "ReceiptHeader");
-            headerHtml = FixReceiptHeaderHtml(headerHtml);
+            string headerHtml = string.IsNullOrWhiteSpace(receiptHeaderHtml)
+                ? GetString(first, "ReceiptHeader")
+                : receiptHeaderHtml;
 
-            html = html.Replace("{{HEADER_HTML}}", headerHtml);
+            headerHtml = FixReceiptHeaderHtml(headerHtml);
 
             string patientName = GetString(first, "PatientName");
             string uhid = GetString(first, "UHID");
@@ -332,21 +398,93 @@ namespace LISDBACKEND.Controllers
             if (string.IsNullOrWhiteSpace(headerHtml))
                 return "";
 
-            // ❌ Remove <p> wrapper completely
-            headerHtml = headerHtml.Replace("<p>", "").Replace("</p>", "");
+            headerHtml = headerHtml.Replace("<p>", "", StringComparison.OrdinalIgnoreCase)
+                                   .Replace("</p>", "", StringComparison.OrdinalIgnoreCase);
 
-            // ❌ Remove float
-            headerHtml = headerHtml.Replace("float:left;", "");
-            headerHtml = headerHtml.Replace("float: left;", "");
+            headerHtml = Regex.Replace(
+                headerHtml,
+                @"float\s*:\s*left\s*;?",
+                "",
+                RegexOptions.IgnoreCase);
 
-            // ✅ Force full width
-            headerHtml = headerHtml.Replace("height:120px", "width:100%; height:120px; object-fit:contain;");
-            headerHtml = headerHtml.Replace("height: 120px", "width:100%; height:120px; object-fit:contain;");
+            headerHtml = Regex.Replace(
+                headerHtml,
+                @"width\s*:\s*\d+px\s*;?",
+                "width:100%;",
+                RegexOptions.IgnoreCase);
 
-            // ✅ Ensure image block behavior
-            headerHtml = headerHtml.Replace("<img", "<img style='display:block; margin:0 auto;'");
+            headerHtml = EmbedReceiptHeaderImages(headerHtml);
 
             return headerHtml;
+        }
+
+        private static string EmbedReceiptHeaderImages(string headerHtml)
+        {
+            return Regex.Replace(
+                headerHtml,
+                @"<img\b([^>]*?)\ssrc\s*=\s*([""'])([^""']+)\2([^>]*)>",
+                match =>
+                {
+                    string src = match.Groups[3].Value.Trim();
+
+                    if (src.StartsWith("data:", StringComparison.OrdinalIgnoreCase))
+                        return match.Value;
+
+                    string? dataUri = ImageToDataUri(src);
+                    if (string.IsNullOrWhiteSpace(dataUri))
+                        return match.Value;
+
+                    return $"<img{match.Groups[1].Value} src=\"{dataUri}\"{match.Groups[4].Value}>";
+                },
+                RegexOptions.IgnoreCase);
+        }
+
+        private static string? ImageToDataUri(string imagePathOrUrl)
+        {
+            if (string.IsNullOrWhiteSpace(imagePathOrUrl))
+                return null;
+
+            try
+            {
+                byte[] bytes;
+
+                if (imagePathOrUrl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                    imagePathOrUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                {
+                    using HttpClient client = new HttpClient();
+                    bytes = client.GetByteArrayAsync(imagePathOrUrl).GetAwaiter().GetResult();
+                }
+                else if (System.IO.File.Exists(imagePathOrUrl))
+                {
+                    bytes = System.IO.File.ReadAllBytes(imagePathOrUrl);
+                }
+                else
+                {
+                    return null;
+                }
+
+                string mimeType = GetImageMimeType(imagePathOrUrl);
+                return $"data:{mimeType};base64,{Convert.ToBase64String(bytes)}";
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static string GetImageMimeType(string pathOrUrl)
+        {
+            string ext = Path.GetExtension(pathOrUrl.Split('?')[0]).ToLowerInvariant();
+
+            return ext switch
+            {
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".gif" => "image/gif",
+                ".webp" => "image/webp",
+                ".bmp" => "image/bmp",
+                ".svg" => "image/svg+xml",
+                _ => "image/png"
+            };
         }
 
         private static string BuildBarcodeImageHtml(string text)
