@@ -1,0 +1,52 @@
+2026-05-25 11:38:35,481 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=0
+2026-05-25 11:38:35,532 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=0, count=0
+2026-05-25 11:38:39,976 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=8066, userId=1
+2026-05-25 11:38:39,989 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=8066, userId=1, count=2
+2026-05-25 11:48:51,555 WARN  LISD.Middleware.ErrorLoggingMiddleware - API error response
+Correlation: 00-cd00663cb9b9a36606183a1b63b6b7d6-9267e5b93ad655ca-00
+Status     : 400
+Method     : POST
+Path       : /api/FlaboLogin/fieldBoyLogin
+Query      : 
+Host       : 192.168.31.237:5021
+Scheme     : http
+Remote IP  : 192.168.31.237
+User-Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+RequestBody: {
+  "userIdApp": "string",
+  "passwordApp": "string",
+  "branchId": 0,
+  "browser": "string",
+  "device": "string",
+  "os": "string",
+  "latitudeApp": 0,
+  "longitudeApp": 0,
+  "ipAddress": "string"
+}
+ResponseBody: {"success":false,"message":"UserIdApp, PasswordApp and BranchId are required"}
+2026-05-25 12:03:07,050 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:03:07,555 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:05:33,786 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:05:33,914 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:05:46,121 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:05:46,142 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:06:42,817 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:06:42,864 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:07:46,436 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:07:46,436 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:08:30,963 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:08:30,963 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:10:48,566 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:10:48,568 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:11:04,583 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:11:04,583 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:14:17,019 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:14:17,065 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=8066
+2026-05-25 12:27:16,399 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:27:16,454 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:32:03,035 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
+2026-05-25 12:33:05,001 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-25 12:33:05,009 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-25 12:33:05,044 INFO  BranchController - GetBranchAndUserWiseBranchList API called. branchId=1, userId=1
+2026-05-25 12:33:05,047 INFO  BranchController - GetBranchAndUserWiseBranchList success. branchId=1, userId=1, count=4
+2026-05-25 12:33:06,347 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
