@@ -107,9 +107,6 @@ public class FlaboLoginController : ControllerBase
     // =========================
     // 2. Field Boy Login
     // =========================
-    // =========================
-    // 2. Field Boy Login
-    // =========================
     [HttpPost("fieldBoyLogin")]
     public async Task<IActionResult> FieldBoyLogin(
         [FromBody] FieldBoyLoginRequest request)
@@ -164,6 +161,9 @@ public class FlaboLoginController : ControllerBase
 
             string fieldBoyName =
                 reader["FieldBoyName"]?.ToString() ?? "";
+            int userId = reader["UserId"] == DBNull.Value
+            ? 0
+            : Convert.ToInt32(reader["UserId"]);
 
             string userIdApp =
                 reader["UserIdApp"]?.ToString() ?? "";
@@ -193,7 +193,7 @@ public class FlaboLoginController : ControllerBase
                     "@FieldBoyId",
                     fieldBoyId
                 );
-
+                loginCmd.Parameters.Add("@UserId", SqlDbType.Int).Value = userId;
                 loginCmd.Parameters.AddWithValue(
                 "@IpAddress",
                     request.IpAddress ?? ""
@@ -258,6 +258,7 @@ public class FlaboLoginController : ControllerBase
                 data = new
                 {
                     fieldBoyId,
+                    userId,
                     fieldBoyName,
                     userIdApp,
                     loginBranchId,
