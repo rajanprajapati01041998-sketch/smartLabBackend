@@ -5,8 +5,6 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Text.Json;
 using iText.Html2pdf;
-using System.Data;
-using System.Data.SqlClient;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 
@@ -952,7 +950,7 @@ namespace App.Controllers
                                 int patientSampleTrackingId =
                                     outParam.Value == DBNull.Value ? 0 : Convert.ToInt32(outParam.Value);
 
-                                Console.WriteLine($"PatientSampleTracking Saved: {patientSampleTrackingId}");
+                                // Console.WriteLine($"PatientSampleTracking Saved: {patientSampleTrackingId}");
                             }
                         }
 
