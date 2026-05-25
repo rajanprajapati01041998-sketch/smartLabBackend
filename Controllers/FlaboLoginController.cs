@@ -161,6 +161,9 @@ public class FlaboLoginController : ControllerBase
 
             int fieldBoyId =
                 Convert.ToInt32(reader["FieldBoyId"]);
+            int userId = reader["UserId"] == DBNull.Value
+            ? 0
+            : Convert.ToInt32(reader["UserId"]);
 
             string fieldBoyName =
                 reader["FieldBoyName"]?.ToString() ?? "";
@@ -183,8 +186,8 @@ public class FlaboLoginController : ControllerBase
             int loginHistoryId = 0;
 
             using (var loginCmd = new SqlCommand(
-                "I_FieldBoyLoginHistory",
-                con))
+    "I_FieldBoyLoginHistory",
+    con))
             {
                 loginCmd.CommandType =
                     CommandType.StoredProcedure;
@@ -195,7 +198,12 @@ public class FlaboLoginController : ControllerBase
                 );
 
                 loginCmd.Parameters.AddWithValue(
-                "@IpAddress",
+                    "@UserId",
+                    userId
+                );
+
+                loginCmd.Parameters.AddWithValue(
+                    "@IpAddress",
                     request.IpAddress ?? ""
                 );
 
@@ -258,6 +266,7 @@ public class FlaboLoginController : ControllerBase
                 data = new
                 {
                     fieldBoyId,
+                    userId,
                     fieldBoyName,
                     userIdApp,
                     loginBranchId,
