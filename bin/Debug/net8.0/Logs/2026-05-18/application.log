@@ -1,9 +1,0 @@
-2026-05-18 16:51:10,152 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
-2026-05-18 16:51:10,407 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
-2026-05-18 16:51:10,418 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
-2026-05-18 17:58:18,435 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
-2026-05-18 17:58:18,437 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
-2026-05-18 17:58:26,377 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
-2026-05-18 18:02:20,005 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
-2026-05-18 18:02:20,005 INFO  App.Controllers.DashboardController - GetWalletAmount API called. clientIds=1
-2026-05-18 18:02:20,005 INFO  App.Controllers.DashboardController - GetDashboardStates API called. branchId=1, userId=1
