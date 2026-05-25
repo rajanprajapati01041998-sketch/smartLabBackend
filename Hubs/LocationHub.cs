@@ -1,4 +1,5 @@
 using LISDBACKEND.Models;
+using LISD.Services;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -8,10 +9,14 @@ namespace LISDBACKEND.Hubs
     public class LocationHub : Hub
     {
         private readonly IConfiguration _configuration;
+        private readonly SseNotificationService _sseService;
 
-        public LocationHub(IConfiguration configuration)
+        public LocationHub(
+            IConfiguration configuration,
+            SseNotificationService sseService)
         {
             _configuration = configuration;
+            _sseService = sseService;
         }
 
         public async Task JoinAdminGroup()
@@ -54,6 +59,14 @@ namespace LISDBACKEND.Hubs
                     }
                 );
 
+                await _sseService.SendToAdminsAsync(new
+                {
+                    type = "FIELD_BOY_LIVE",
+                    message = "Field boy is live now",
+                    fieldBoyId = fieldBoyId,
+                    connectedAt = DateTime.Now
+                });
+
                 Console.WriteLine($"Field boy live: {fieldBoyId}");
 
                 return new
@@ -87,7 +100,11 @@ namespace LISDBACKEND.Hubs
 
                 if (location.FieldBoyId <= 0)
                 {
-                    return new { status = false, message = "Invalid FieldBoyId" };
+                    return new
+                    {
+                        status = false,
+                        message = "Invalid FieldBoyId"
+                    };
                 }
 
                 using SqlConnection con = new SqlConnection(
@@ -116,24 +133,25 @@ namespace LISDBACKEND.Hubs
 
                 await con.OpenAsync();
 
-                using var reader = await cmd.ExecuteReaderAsync();
-
                 FieldBoyLocationDto savedLocation = location;
 
-                if (await reader.ReadAsync())
+                using (var reader = await cmd.ExecuteReaderAsync())
                 {
-                    savedLocation = new FieldBoyLocationDto
+                    if (await reader.ReadAsync())
                     {
-                        FieldBoyId = Convert.ToInt32(reader["FieldBoyId"]),
-                        Latitude = Convert.ToDouble(reader["Latitude"]),
-                        Longitude = Convert.ToDouble(reader["Longitude"]),
-                        AccuracyMeters = reader["AccuracyMeters"] == DBNull.Value
-                            ? 0
-                            : Convert.ToDouble(reader["AccuracyMeters"]),
-                        CapturedAt = Convert.ToDateTime(reader["CapturedAtUtc"])
-                            .ToUniversalTime()
-                            .ToString("o")
-                    };
+                        savedLocation = new FieldBoyLocationDto
+                        {
+                            FieldBoyId = Convert.ToInt32(reader["FieldBoyId"]),
+                            Latitude = Convert.ToDouble(reader["Latitude"]),
+                            Longitude = Convert.ToDouble(reader["Longitude"]),
+                            AccuracyMeters = reader["AccuracyMeters"] == DBNull.Value
+                                ? 0
+                                : Convert.ToDouble(reader["AccuracyMeters"]),
+                            CapturedAt = Convert.ToDateTime(reader["CapturedAtUtc"])
+                                .ToUniversalTime()
+                                .ToString("o")
+                        };
+                    }
                 }
 
                 Console.WriteLine("Location saved successfully");
@@ -143,7 +161,39 @@ namespace LISDBACKEND.Hubs
                     savedLocation
                 );
 
-                Console.WriteLine("Location broadcasted to admins");
+                string fieldBoyName = "";
+
+                using (SqlCommand nameCmd = new SqlCommand(
+                    "SELECT FieldBoyName FROM FieldBoyMaster WHERE FieldBoyId = @FieldBoyId",
+                    con))
+                {
+                    nameCmd.Parameters.AddWithValue(
+                        "@FieldBoyId",
+                        savedLocation.FieldBoyId
+                    );
+
+                    var result = await nameCmd.ExecuteScalarAsync();
+
+                    if (result != null)
+                    {
+                        fieldBoyName = result.ToString();
+                    }
+                }
+
+                await _sseService.SendToAdminsAsync(new
+                {
+                    type = "LOCATION_SHARED",
+                    message = $"{fieldBoyName} shared live location successfully",
+                    fieldBoyId = savedLocation.FieldBoyId,
+                    fieldBoyName = fieldBoyName,
+                    latitude = savedLocation.Latitude,
+                    longitude = savedLocation.Longitude,
+                    accuracyMeters = savedLocation.AccuracyMeters,
+                    capturedAt = savedLocation.CapturedAt,
+                    time = DateTime.Now
+                });
+
+                Console.WriteLine("Location broadcasted to admins using SignalR and SSE");
 
                 return new
                 {

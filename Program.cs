@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LISDBACKEND.Hubs;
+using LISD.Services;
 
 
 
@@ -103,7 +104,11 @@ public partial class Program
         builder.Services.Configure<RazorpaySettings>(
             builder.Configuration.GetSection("RazorpaySettings"));
 
+        builder.Services.AddSingleton<LISD.Services.SseNotificationService>();
+
         builder.Services.AddEndpointsApiExplorer();
+
+        builder.Services.AddSingleton<SseNotificationService>();
         // SWAGGER WITH JWT
         builder.Services.AddSwaggerGen(options =>
         {
@@ -332,7 +337,9 @@ public partial class Program
         // Serve `wwwroot/index.html` at `/`
         app.UseDefaultFiles();
         app.UseStaticFiles();
-        app.UseErrorLogging();
+        app.UseWhen(
+            context => !context.Request.Path.StartsWithSegments("/api/Sse/admin-listen"),
+            branch => branch.UseErrorLogging());
 
 
 
