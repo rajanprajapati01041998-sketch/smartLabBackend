@@ -3,6 +3,7 @@ using LISD.Services;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Collections.Concurrent;
 
 namespace LISDBACKEND.Hubs
 {
@@ -10,6 +11,7 @@ namespace LISDBACKEND.Hubs
     {
         private readonly IConfiguration _configuration;
         private readonly SseNotificationService _sseService;
+        private static readonly ConcurrentDictionary<int, bool> LiveNotifiedFieldBoys = new();
 
         public LocationHub(
             IConfiguration configuration,
@@ -49,23 +51,34 @@ namespace LISDBACKEND.Hubs
                     $"FieldBoy_{fieldBoyId}"
                 );
 
-                await Clients.Group("Admins").SendAsync(
-                    "FieldBoyConnected",
-                    new
-                    {
-                        FieldBoyId = fieldBoyId,
-                        Message = "Field boy is live now",
-                        ConnectedAt = DateTime.Now
-                    }
-                );
+                bool shouldSendNotification = LiveNotifiedFieldBoys.TryAdd(fieldBoyId, true);
 
-                await _sseService.SendToAdminsAsync(new
+                if (shouldSendNotification)
                 {
-                    type = "FIELD_BOY_LIVE",
-                    message = "Field boy is live now",
-                    fieldBoyId = fieldBoyId,
-                    connectedAt = DateTime.Now
-                });
+                    await Clients.Group("Admins").SendAsync(
+                        "FieldBoyConnected",
+                        new
+                        {
+                            FieldBoyId = fieldBoyId,
+                            Message = "Field boy is live now",
+                            ConnectedAt = DateTime.Now
+                        }
+                    );
+
+                    await _sseService.SendToAdminsAsync(new
+                    {
+                        type = "FIELD_BOY_LIVE",
+                        message = "Field boy is live now",
+                        fieldBoyId = fieldBoyId,
+                        connectedAt = DateTime.Now
+                    });
+
+                    Console.WriteLine($"Notification sent one time for field boy: {fieldBoyId}");
+                }
+                else
+                {
+                    Console.WriteLine($"Notification already sent for field boy: {fieldBoyId}");
+                }
 
                 Console.WriteLine($"Field boy live: {fieldBoyId}");
 
