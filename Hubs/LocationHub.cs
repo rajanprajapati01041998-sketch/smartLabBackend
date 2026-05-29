@@ -64,7 +64,6 @@ namespace LISDBACKEND.Hubs
                             ConnectedAt = DateTime.Now
                         }
                     );
-
                     await _sseService.SendToAdminsAsync(new
                     {
                         type = "FIELD_BOY_LIVE",
@@ -72,7 +71,6 @@ namespace LISDBACKEND.Hubs
                         fieldBoyId = fieldBoyId,
                         connectedAt = DateTime.Now
                     });
-
                     Console.WriteLine($"Notification sent one time for field boy: {fieldBoyId}");
                 }
                 else
@@ -81,7 +79,6 @@ namespace LISDBACKEND.Hubs
                 }
 
                 Console.WriteLine($"Field boy live: {fieldBoyId}");
-
                 return new
                 {
                     status = true,
@@ -205,9 +202,7 @@ namespace LISDBACKEND.Hubs
                     capturedAt = savedLocation.CapturedAt,
                     time = DateTime.Now
                 });
-
                 Console.WriteLine("Location broadcasted to admins using SignalR and SSE");
-
                 return new
                 {
                     status = true,

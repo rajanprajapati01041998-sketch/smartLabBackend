@@ -35,7 +35,7 @@ namespace App.Controllers
 
             var client = new RazorpayClient(_razorpaySettings.Key, _razorpaySettings.Secret);
 
-            int amount = Convert.ToInt32(request.Amount * 100);
+            int amount = Convert.ToInt32(request.Amount);
 
             var options = new Dictionary<string, object>
             {
