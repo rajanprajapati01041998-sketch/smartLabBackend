@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bill & Advance Dashboard Report</title>
+
+    <style>
+        @page {
+            margin: 20px 20px 50px 20px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #222;
+            margin: 5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .sub-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .date-range {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .print-info {
+            text-align: right;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 11px;
+        }
+
+        .print-info-user {
+            margin-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f2f2f2;
+            color: #000;
+            border: 1px solid #d1d5db;
+            padding: 8px;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid #d1d5db;
+            padding: 7px;
+        }
+
+        .color-mode th {
+            background: #1e40af;
+            color: #ffffff;
+        }
+
+        .color-mode .credit-row td {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .color-mode .debit-row td {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .color-mode .refund-row td {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+
+        .bw-mode th {
+            background: #f2f2f2;
+            color: #000000;
+        }
+
+        .bw-mode .credit-row td,
+        .bw-mode .debit-row td,
+        .bw-mode .refund-row td {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+	        .summary {
+	            margin-top: 12px;
+	            page-break-inside: avoid;
+	            break-inside: avoid;
+	        }
+
+	        .summary td {
+	            text-align: center;
+	            font-weight: bold;
+	            font-size: 13px;
+	        }
+
+	        .summary th,
+	        .summary td {
+	            padding: 10px 8px;
+	        }
+
+	        .summary tr {
+	            page-break-inside: avoid;
+	            break-inside: avoid;
+	        }
+
+	        .summary thead {
+	            display: table-header-group;
+	        }
+
+        .color-mode .summary th {
+            background: #111827;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .bw-mode .summary th {
+            background: #f2f2f2;
+            color: #000000;
+            text-align: center;
+        }
+
+        .color-mode .credit {
+            color: #16a34a;
+        }
+
+        .color-mode .debit {
+            color: #dc2626;
+        }
+
+        .color-mode .refund {
+            color: #ca8a04;
+        }
+
+        .color-mode .balance {
+            color: #2563eb;
+        }
+
+        .bw-mode .credit,
+        .bw-mode .debit,
+        .bw-mode .refund,
+        .bw-mode .balance {
+            color: #000000;
+        }
+
+	        .section-title {
+	            margin-top: 25px;
+	            margin-bottom: 8px;
+	            font-size: 20px;
+	            font-weight: bold;
+	            color: #111827;
+	            page-break-after: avoid;
+	        }
+
+	        .summary-block {
+	            page-break-inside: avoid;
+	            break-inside: avoid;
+	        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 10px;
+        }
+
+        .end-text {
+            font-size: 15px;
+            color: gray;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .summary-block{
+            border: 1px solid rgb(217, 215, 215);
+            padding: 0px 10px 5px;
+            
+        }
+        .section-title{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="{{COLOR_MODE}}">
+
+    <div class="header">
+        <div class="title">GRAVITY LIS</div>
+
+        <div class="sub-title">
+            BILL & ADVANCE DASHBOARD REPORT
+        </div>
+
+        <div class="date-range">
+            From : <strong>{{FROM_DATE}}</strong>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            To : <strong>{{TO_DATE}}</strong>
+        </div>
+    </div>
+
+    <div class="print-info">
+        <span class="print-info_printDateTime">
+            Printed On : {{PRINT_DATE_TIME}}
+        </span>
+
+        <span class="print-info-user">
+            Prepared By : {{USER_NAME}}
+        </span>
+    </div>
+
+    <table>
+        <tbody>
+            {{ROWS}}
+        </tbody>
+    </table>
+
+	    <div class="summary-block">
+	        <div class="section-title">
+	            Overall Summary
+	        </div>
+	
+	        <table class="summary">
+	            <thead>
+	                <tr>
+	                    <th>Total Credit</th>
+	                    <th>Total Debit</th>
+	                    <th>Total Refund</th>
+	                    <th>Balance</th>
+	                </tr>
+	            </thead>
+	
+	            <tbody>
+	                <tr>
+	                    <td class="credit">{{TOTAL_CREDIT}}</td>
+	                    <td class="debit">{{TOTAL_DEBIT}}</td>
+	                    <td class="refund">{{TOTAL_REFUND}}</td>
+	                    <td class="balance">{{BALANCE}}</td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+
+    <div class="footer">
+        Generated By Gravity Laboratory Information System (LIS)
+        <br />
+        Print Date Time : {{PRINT_DATE_TIME}} - {{USER_NAME}}
+    </div>
+
+    <p class="end-text">
+        ************ End *************
+    </p>
+
+</body>
+
+</html>

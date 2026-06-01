@@ -186,7 +186,7 @@ namespace LISDBACKEND.Hubs
 
                     if (result != null)
                     {
-                        fieldBoyName = result.ToString();
+                        fieldBoyName = Convert.ToString(result) ?? "";
                     }
                 }
 
