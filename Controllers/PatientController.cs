@@ -1977,5 +1977,139 @@ namespace App.Controllers
                 });
             }
         }
+
+
+        // serach patient ReferDoctorMasterRequest like uhid ,name
+
+        [HttpGet("search-patient-master")]
+        public async Task<IActionResult> SearchPatientMaster(
+        [FromQuery] string? searchText,
+        [FromQuery] int branchId = 0)
+        {
+            try
+            {
+                string filter = "1=1";
+
+                if (!string.IsNullOrWhiteSpace(searchText))
+                {
+                    searchText = searchText.Replace("'", "''");
+
+                    filter = $@"
+                (
+                    UHID LIKE '%{searchText}%'
+                    OR PatientName LIKE '%{searchText}%'
+                    OR ContactNumber LIKE '%{searchText}%'
+                    OR AadharNumber LIKE '%{searchText}%'
+                )";
+                }
+
+                var result = new List<Dictionary<string, object>>();
+
+                using SqlConnection con = new SqlConnection(
+                    _config.GetConnectionString("DefaultConnection"));
+
+                using SqlCommand cmd = new SqlCommand(
+                    "S_SearchPatientMaster",
+                    con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@filter", filter);
+                cmd.Parameters.AddWithValue("@branchId", branchId);
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row.Add(
+                            reader.GetName(i),
+                            reader.IsDBNull(i) ? null : reader.GetValue(i)
+                        );
+                    }
+                    result.Add(row);
+                }
+
+                return Ok(new
+                {
+                    status = true,
+                    message = "Data fetched successfully",
+                    data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        // search patient by default 100 records 
+        [HttpGet("search-patient-topCount")]
+        public async Task<IActionResult> SearchPatient(
+        [FromQuery] string? clientIdList,
+        [FromQuery] string? searchText,
+        [FromQuery] int topCount = 100)
+        {
+            try
+            {
+                var data = new List<Dictionary<string, object>>();
+                using SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+                using SqlCommand cmd = new SqlCommand("S_GetPatientMasterListApp", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@clientIdList", string.IsNullOrWhiteSpace(clientIdList) ? DBNull.Value : clientIdList);
+                cmd.Parameters.AddWithValue("@searchText", string.IsNullOrWhiteSpace(searchText) ? DBNull.Value : searchText);
+                cmd.Parameters.AddWithValue("@topCount", topCount <= 0 ? 100 : topCount);
+                await con.OpenAsync();
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string columnName = reader.GetName(i);
+                        if (reader.IsDBNull(i))
+                        {
+                            row[columnName] = null;
+                        }
+                        else
+                        {
+                            object value = reader.GetValue(i);
+                            if (value is DateTime dateTime)
+                            {
+                                row[columnName] =
+                                    dateTime.ToString("dd-MMM-yyyy hh:mm tt");
+                            }
+                            else
+                            {
+                                row[columnName] = value;
+                            }
+                        }
+                    }
+                    data.Add(row);
+                }
+
+                return Ok(new
+                {
+                    status = true,
+                    message = "Patient List Found",
+                    count = data.Count,
+                    data
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
     }
 }

@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseAppHost>false</UseAppHost>
+    <!-- Keep build output clean when NuGet audit/feed is unreachable or a legacy package is used intentionally. -->
+    <NoWarn>$(NoWarn);NU1900;NU1701</NoWarn>
   </PropertyGroup>
 
   <!-- Package References -->
