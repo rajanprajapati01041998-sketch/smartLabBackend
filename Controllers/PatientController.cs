@@ -277,9 +277,9 @@ namespace App.Controllers
                         string uhid = "";
 
                         using (SqlCommand getUhidCmd = new SqlCommand(@"
-                    SELECT TOP 1 UHID
-                    FROM PatientMaster
-                    WHERE PatientId = @PatientId", con, txn))
+                            SELECT TOP 1 UHID
+                            FROM PatientMaster
+                            WHERE PatientId = @PatientId", con, txn))
                         {
                             getUhidCmd.Parameters.AddWithValue("@PatientId", patientId);
 
@@ -784,6 +784,8 @@ namespace App.Controllers
 
                         // 🔹 STEP 3: INSERT LOOP (your original logic, unchanged)
 
+                        var patientInvestigationIds = new List<int>();
+
                         foreach (var s in services.EnumerateArray())
                         {
                             int investigationId = 0;
@@ -880,6 +882,10 @@ namespace App.Controllers
                                 cmd.ExecuteNonQuery();
 
                                 patientInvestigationId = Convert.ToInt32(outParam.Value);
+                                if (patientInvestigationId > 0)
+                                {
+                                    patientInvestigationIds.Add(patientInvestigationId);
+                                }
                             }
 
                             if (patientInvestigationId > 0)
@@ -928,6 +934,15 @@ namespace App.Controllers
 
                                 cmd.Parameters["@TotalPayment"].Precision = 18;
                                 cmd.Parameters["@TotalPayment"].Scale = 2;
+
+                                string patientInvestigationIdsValue = patientInvestigationIds.Count > 0
+                                    ? string.Join(",", patientInvestigationIds)
+                                    : null;
+
+                                cmd.Parameters.Add("@PatientInvestigationIds", SqlDbType.NVarChar, 1000).Value =
+                                    string.IsNullOrWhiteSpace(patientInvestigationIdsValue)
+                                        ? (object)DBNull.Value
+                                        : patientInvestigationIdsValue;
 
                                 cmd.Parameters.Add("@FieldBoyId", SqlDbType.Int).Value = fieldBoyId;
 
@@ -1640,6 +1655,8 @@ namespace App.Controllers
                                 message = $"Unable to insert FinancialTransactionDetails for ServiceItemId {service.ServiceItemId}"
                             });
                         }
+                        int patientInvestigationId = 0;
+
 
                         using (SqlCommand cmd = new SqlCommand("I_PatientInvestigationDetails", con, txn))
                         {
@@ -1671,6 +1688,8 @@ namespace App.Controllers
 
                             cmd.Parameters.Add(outParam);
                             await cmd.ExecuteNonQueryAsync();
+                            patientInvestigationId = Convert.ToInt32(outParam.Value);
+
                         }
 
                         using (SqlCommand updInsertedPidCmd = new SqlCommand(@"
@@ -1766,6 +1785,7 @@ namespace App.Controllers
                     discountAmount = request.DiscountAmount,
                     netAmount = finalNetAmount,
                     totalPaidAmount
+
                 });
             }
             catch (Exception ex)
