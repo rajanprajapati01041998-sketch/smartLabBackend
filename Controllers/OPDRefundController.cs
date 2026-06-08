@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using iText.Html2pdf;
+using System.Text;
+using ZXing;
+using ZXing.Common;
 
 namespace LISDBACKEND.Controllers
 {
@@ -112,6 +116,507 @@ namespace LISDBACKEND.Controllers
                     error = ex.Message
                 });
             }
+        }
+
+        // generate bill for test refund
+
+        [HttpGet("receipt-details")]
+        public async Task<IActionResult> GetReceiptDetails(
+        int ftId,
+        int receiptId,
+        int printUserId,
+        bool pdf = false,
+        bool isReceiptHeader = true)
+        {
+            await using SqlConnection con =
+                new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+
+            try
+            {
+                await con.OpenAsync();
+
+                // ==========================
+                // STEP 1 : Receipt Details
+                // ==========================
+                DataSet receiptDetails = new DataSet();
+
+                using (SqlCommand cmd = new SqlCommand("S_GetReceiptDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@FTID", ftId);
+                    cmd.Parameters.AddWithValue("@isReceipt", "true");
+                    cmd.Parameters.AddWithValue("@receiptId", receiptId);
+                    cmd.Parameters.AddWithValue("@printUserId", printUserId);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(receiptDetails);
+                }
+
+                // ==========================
+                // STEP 2 : Previous Receipt
+                // ==========================
+                string receiptNo = string.Empty;
+                DataTable previousReceipt = new DataTable();
+
+                using (SqlCommand cmd = new SqlCommand("S_GetPreviousReceiptAmount", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@FTID", ftId);
+
+                    using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                    previousReceipt.Load(reader);
+
+                    if (previousReceipt.Rows.Count > 0)
+                    {
+                        if (previousReceipt.Columns.Contains("ReceiptNo"))
+                            receiptNo = Convert.ToString(previousReceipt.Rows[0]["ReceiptNo"]);
+                        else
+                            receiptNo = Convert.ToString(previousReceipt.Rows[0][0]);
+                    }
+                }
+
+                // ==========================
+                // STEP 3 : Payment Details
+                // ==========================
+                DataTable paymentDetails = new DataTable();
+
+                if (!string.IsNullOrWhiteSpace(receiptNo))
+                {
+                    using (SqlCommand cmd = new SqlCommand("S_GetReceiptPaymentDetails", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ReceiptNo", receiptNo);
+
+                        using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                        paymentDetails.Load(reader);
+                    }
+                }
+
+                // ==========================
+                // STEP 4 : Generate PDF
+                // ==========================
+                byte[] pdfBytes = GenerateReceiptPdf(
+                    receiptDetails,
+                    previousReceipt,
+                    paymentDetails,
+                    receiptNo,
+                    isReceiptHeader);
+
+                // Download PDF
+                if (pdf)
+                {
+                    return File(
+                        pdfBytes,
+                        "application/pdf",
+                        $"Receipt_{receiptNo.Replace("/", "_")}.pdf");
+                }
+
+                // Return Base64 PDF
+                return Ok(new
+                {
+                    result = true,
+                    receiptNo,
+                    pdfBase64 = Convert.ToBase64String(pdfBytes)
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    result = false,
+                    message = ex.Message,
+                    innerException = ex.InnerException?.Message
+                });
+            }
+        }
+
+        private string BuildBarcodeDataUri(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return string.Empty;
+
+            try
+            {
+                var writer = new BarcodeWriterSvg
+                {
+                    Format = BarcodeFormat.CODE_128,
+                    Options = new EncodingOptions
+                    {
+                        Width = 320,
+                        Height = 55,
+                        Margin = 2,
+                        PureBarcode = true
+                    }
+                };
+
+                string svg = writer.Write(text).Content;
+                string base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(svg));
+
+                return $"data:image/svg+xml;base64,{base64}";
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+
+        private string GetValue(DataRow row, string columnName)
+        {
+            return row.Table.Columns.Contains(columnName) &&
+                   row[columnName] != DBNull.Value
+                ? row[columnName]?.ToString() ?? ""
+                : "";
+        }
+
+        private byte[] GenerateReceiptPdf(
+            DataSet receiptDetails,
+            DataTable previousReceipt,
+            DataTable paymentDetails,
+            string receiptNo,
+            bool isReceiptHeader)
+        {
+            string templatePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Templates",
+                "ReceiptTemplate.html");
+
+            string html = System.IO.File.ReadAllText(templatePath);
+
+            if (receiptDetails.Tables.Count == 0 ||
+                receiptDetails.Tables[0].Rows.Count == 0)
+            {
+                throw new Exception("Receipt details not found.");
+            }
+
+            DataRow patient = receiptDetails.Tables[0].Rows[0];
+
+            string receiptHeaderHtml = "";
+
+            if (isReceiptHeader)
+            {
+                if (patient.Table.Columns.Contains("ReceiptHeader"))
+                {
+                    receiptHeaderHtml = GetValue(patient, "ReceiptHeader");
+                }
+                else if (patient.Table.Columns.Contains("ReceiptHeaderHtml"))
+                {
+                    receiptHeaderHtml = GetValue(patient, "ReceiptHeaderHtml");
+                }
+
+                if (string.IsNullOrWhiteSpace(receiptHeaderHtml))
+                {
+                    receiptHeaderHtml = "&nbsp;";
+                }
+            }
+            else
+            {
+                receiptHeaderHtml = "<div style=\"height:120px; width:100%;\">&nbsp;</div>";
+            }
+
+            html = html.Replace("{{ReceiptHeader}}", receiptHeaderHtml);
+
+
+            html = html.Replace("{{UHID}}",
+                GetValue(patient, "UHID"));
+
+            html = html.Replace("{{PatientName}}",
+                GetValue(patient, "PatientName"));
+
+            html = html.Replace("{{AgeSex}}",
+                GetValue(patient, "Gender"));
+
+            html = html.Replace("{{ContactNo}}",
+                GetValue(patient, "ContactNumber"));
+
+            html = html.Replace("{{RelativeName}}",
+                GetValue(patient, "RelativeName"));
+
+            html = html.Replace("{{PatientAddress}}",
+                GetValue(patient, "Address"));
+
+            html = html.Replace("{{Doctor}}",
+                GetValue(patient, "DoctorName"));
+
+            html = html.Replace("{{ReferDoctor}}",
+                GetValue(patient, "ReferDoctorName"));
+
+            html = html.Replace("{{Corporate}}",
+                GetValue(patient, "CorporateAliasName"));
+
+            html = html.Replace("{{LabNo}}",
+                GetValue(patient, "LabNo"));
+
+            string createdBy = GetValue(patient, "CreatedBy");
+            if (string.IsNullOrWhiteSpace(createdBy))
+                createdBy = "TEAM GWS";
+
+            string printBy = GetValue(patient, "PrintBy");
+            if (string.IsNullOrWhiteSpace(printBy))
+                printBy = "TEAM GWS";
+
+            string footerCenter = GetValue(patient, "FooterCenter");
+            if (string.IsNullOrWhiteSpace(footerCenter))
+                footerCenter = "E. & O.E.";
+
+            string footerMessage = GetValue(patient, "FooterMessage");
+            if (string.IsNullOrWhiteSpace(footerMessage))
+                footerMessage = "Subject to Varanasi Jurisdiction";
+
+            string footerRight = GetValue(patient, "FooterRight");
+            if (string.IsNullOrWhiteSpace(footerRight))
+                footerRight = "For GWS";
+
+            html = html.Replace("{{ReceiptNo}}",
+                receiptNo);
+
+            html = html.Replace("{{BillNo}}",
+                GetValue(patient, "BillNo"));
+
+            html = html.Replace("{{CREATED_BY}}", createdBy);
+            html = html.Replace("{{PRINT_BY}}", printBy);
+            html = html.Replace("{{FOOTER_CENTER}}", footerCenter);
+            html = html.Replace("{{FOOTER_MESSAGE}}", footerMessage);
+            html = html.Replace("{{FOOTER_RIGHT}}", footerRight);
+
+            // Receipt Date / Time
+            string receiptDate = "";
+
+            if (patient.Table.Columns.Contains("ReceiptDate") &&
+                patient["ReceiptDate"] != DBNull.Value)
+            {
+                receiptDate = Convert.ToDateTime(patient["ReceiptDate"])
+                    .ToString("dd-MMM-yyyy hh:mm tt");
+            }
+            else if (patient.Table.Columns.Contains("ReceiptDateTime") &&
+                patient["ReceiptDateTime"] != DBNull.Value)
+            {
+                receiptDate = Convert.ToDateTime(patient["ReceiptDateTime"])
+                    .ToString("dd-MMM-yyyy hh:mm tt");
+            }
+            else if (patient.Table.Columns.Contains("RegistrationDate") &&
+                patient["RegistrationDate"] != DBNull.Value)
+            {
+                receiptDate = Convert.ToDateTime(patient["RegistrationDate"])
+                    .ToString("dd-MMM-yyyy hh:mm tt");
+            }
+
+            html = html.Replace("{{BillDate}}", receiptDate);
+
+            // ==========================
+            // Service Rows
+            // ==========================
+            StringBuilder serviceRows = new StringBuilder();
+
+            decimal totalAmount = 0;
+
+            if (receiptDetails.Tables.Count > 0)
+            {
+                DataTable serviceTable = receiptDetails.Tables[0];
+
+                foreach (DataRow row in serviceTable.Rows)
+                {
+                    string serviceName = GetValue(row, "ServiceName");
+                    string code = GetValue(row, "Code");
+                    string qty = GetValue(row, "QTY");
+                    string rate = GetValue(row, "Rate");
+                    string deliveryDate = GetValue(row, "DeliveryDate");
+
+                    if (string.IsNullOrWhiteSpace(deliveryDate) && row.Table.Columns.Contains("BillDate"))
+                    {
+                        deliveryDate = GetValue(row, "BillDate");
+                    }
+
+                    if (decimal.TryParse(qty, out decimal qtyValue))
+                    {
+                        qty = qtyValue % 1 == 0
+                            ? qtyValue.ToString("0")
+                            : qtyValue.ToString("0.####");
+                    }
+
+                    if (decimal.TryParse(rate, out decimal rateValue))
+                    {
+                        rate = rateValue % 1 == 0
+                            ? rateValue.ToString("0")
+                            : rateValue.ToString("0.####");
+                    }
+
+                    string amount = GetValue(row, "Amount");
+
+                    decimal amt = 0;
+
+                    if (decimal.TryParse(amount, out decimal value))
+                    {
+                        amt = value;
+                        totalAmount += value;
+                    }
+
+                    string netAmountText = amt % 1 == 0
+                        ? amt.ToString("0")
+                        : amt.ToString("0.00");
+
+                    serviceRows.Append($@"
+            <tr>
+                <td>{serviceName}</td>
+                <td>{code}</td>
+                <td>{qty}</td>
+                <td>{rate}</td>
+                <td>{deliveryDate}</td>
+                <td align='right'>{netAmountText}</td>
+            </tr>");
+                }
+            }
+
+            html = html.Replace(
+                "{{ServiceRows}}",
+                serviceRows.ToString());
+
+            // ==========================
+            // Payment Rows
+            // ==========================
+            StringBuilder paymentRows = new StringBuilder();
+
+            foreach (DataRow row in paymentDetails.Rows)
+            {
+                decimal amount = 0;
+
+                if (row["Amount"] != DBNull.Value)
+                {
+                    amount = Convert.ToDecimal(row["Amount"]);
+                }
+
+                string paymentMode =
+                    paymentDetails.Columns.Contains("PaymentModeName")
+                    ? row["PaymentModeName"]?.ToString() ?? ""
+                    : "";
+
+                paymentRows.Append($@"
+                <tr>
+                    <td>{receiptDate}</td>
+                    <td>{receiptNo}</td>
+                    <td>{amount:0.00}</td>
+                    <td>{paymentMode}</td>
+                    <td>gws</td>
+                </tr>");
+            }
+
+            html = html.Replace(
+                "{{PaymentRows}}",
+                paymentRows.ToString());
+
+            // ==========================
+            // Totals
+            // ==========================
+            html = html.Replace(
+                "{{TotalAmount}}",
+                totalAmount.ToString("0.00"));
+
+            html = html.Replace(
+                "{{TotalDiscount}}",
+                "0.00");
+
+            html = html.Replace(
+                "{{NetAmount}}",
+                totalAmount.ToString("0.00"));
+
+            html = html.Replace(
+                "{{PaidAmount}}",
+                totalAmount.ToString("0.00"));
+
+            html = html.Replace(
+                "{{BalanceAmount}}",
+                "0.00");
+
+            html = html.Replace(
+                "{{AmountInWords}}",
+                NumberToWords((int)totalAmount) + " Only");
+
+            html = html.Replace(
+                "{{UHIDBarcode}}",
+                BuildBarcodeDataUri(GetValue(patient, "UHID")));
+
+            string billBarcodeValue = GetValue(patient, "BillNo");
+            if (string.IsNullOrWhiteSpace(billBarcodeValue))
+            {
+                billBarcodeValue = receiptNo;
+            }
+
+            html = html.Replace(
+                "{{BillBarcode}}",
+                BuildBarcodeDataUri(billBarcodeValue));
+
+            using MemoryStream ms = new MemoryStream();
+
+            HtmlConverter.ConvertToPdf(html, ms);
+
+            return ms.ToArray();
+        }
+
+        private string NumberToWords(int totalAmount)
+        {
+            if (totalAmount == 0)
+                return "Zero";
+
+            if (totalAmount < 0)
+                return "Minus " + NumberToWords(Math.Abs(totalAmount));
+
+            var unitsMap = new[]
+            {
+                "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+                "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+            };
+
+            var tensMap = new[]
+            {
+                "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+            };
+
+            var words = new StringBuilder();
+
+            if (totalAmount / 10000000 > 0)
+            {
+                words.Append(NumberToWords(totalAmount / 10000000) + " Crore ");
+                totalAmount %= 10000000;
+            }
+
+            if (totalAmount / 100000 > 0)
+            {
+                words.Append(NumberToWords(totalAmount / 100000) + " Lakh ");
+                totalAmount %= 100000;
+            }
+
+            if (totalAmount / 1000 > 0)
+            {
+                words.Append(NumberToWords(totalAmount / 1000) + " Thousand ");
+                totalAmount %= 1000;
+            }
+
+            if (totalAmount / 100 > 0)
+            {
+                words.Append(NumberToWords(totalAmount / 100) + " Hundred ");
+                totalAmount %= 100;
+            }
+
+            if (totalAmount > 0)
+            {
+                if (words.Length > 0)
+                    words.Append("and ");
+
+                if (totalAmount < 20)
+                {
+                    words.Append(unitsMap[totalAmount]);
+                }
+                else
+                {
+                    words.Append(tensMap[totalAmount / 10]);
+                    if ((totalAmount % 10) > 0)
+                        words.Append(" " + unitsMap[totalAmount % 10]);
+                }
+            }
+
+            return words.ToString().Trim();
         }
 
         private static async Task<int> InsertPatientVisitDetails(

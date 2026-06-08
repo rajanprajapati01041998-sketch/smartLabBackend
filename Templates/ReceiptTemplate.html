@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 14px;
+            margin: 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header td {
+            vertical-align: top;
+        }
+
+        .company-info {
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .barcode-section {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .barcode-table td {
+            text-align: center;
+            border: none;
+        }
+
+        .patient-table td {
+            border: none;
+            padding: 1px 5px;
+            font-size: 15px;
+        }
+
+        .service-table {
+            margin-top: 10px;
+        }
+
+        .service-table th,
+        .service-table td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .service-table th {
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .service-table td {
+            font-size: 16px;
+        }
+
+        .totals {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .amount-words {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .receipt-table {
+            margin-top: 10px;
+        }
+
+        .receipt-table th,
+        .receipt-table td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .footer-table td {
+            border: none;
+            padding-top: 8px;
+            font-size: 18px;
+        }
+
+        .receipt-header {
+            width: 100%;
+            min-height: 50px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .receipt-header img {
+            max-width: 100% !important;
+            height: auto !important;
+            float: none !important;
+            display: inline-block;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="receipt-header">
+        {{ReceiptHeader}}
+    </div>
+    <div class="title">Details Bill</div>
+
+    <div class="barcode-section">
+        <table class="barcode-table">
+            <tr>
+                <td>
+                    <img src="{{UHIDBarcode}}" height="30" width="300" /><br />
+                    {{UHID}}
+                </td>
+
+
+                <td></td>
+
+                <td>
+                    <img src="{{BillBarcode}}" height="30" width="300" /><br />
+                    {{BillNo}}
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    <table class="patient-table">
+        <tr>
+            <td><b>UHID</b></td>
+            <td>: {{UHID}}</td>
+
+
+            <td><b>BillDate & Time</b></td>
+            <td>: {{BillDate}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Name</b></td>
+            <td>: {{PatientName}}</td>
+
+            <td><b>Doctor</b></td>
+            <td>: {{Doctor}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Age/Sex</b></td>
+            <td>: {{AgeSex}}</td>
+
+            <td><b>Refer Doctor</b></td>
+            <td>: {{ReferDoctor}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Contact No</b></td>
+            <td>: {{ContactNo}}</td>
+
+            <td><b>Corporate</b></td>
+            <td>: {{Corporate}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Relative Name</b></td>
+            <td>: {{RelativeName}}</td>
+
+            <td><b>Bill No.</b></td>
+            <td>: {{BillNo}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Address</b></td>
+            <td>: {{PatientAddress}}</td>
+
+            <td><b>Receipt No.</b></td>
+            <td>: {{ReceiptNo}}</td>
+        </tr>
+
+        <tr>
+            <td><b>Lab No.</b></td>
+            <td>: {{LabNo}}</td>
+
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+
+    <table class="service-table">
+        <thead>
+            <tr>
+                <th width="42%">Service Name</th>
+                <th width="3%">Code</th>
+                <th width="4%">QTY</th>
+                <th width="8%">Rate</th>
+                <th width="26%">Delivery Date</th>
+                <th width="20%">Net Amt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ServiceRows}}
+        </tbody>
+    </table>
+
+    <div class="totals">
+        Total Amount : {{TotalAmount}}
+        &nbsp;&nbsp;&nbsp;
+        Total Discount : {{TotalDiscount}}
+        &nbsp;&nbsp;&nbsp;
+        Net Amount : {{NetAmount}}
+        &nbsp;&nbsp;&nbsp;
+        Paid Amount : {{PaidAmount}}
+        &nbsp;&nbsp;&nbsp;
+        Balance Amount : {{BalanceAmount}}
+    </div>
+
+    <div class="amount-words">
+        Amount In Words(INR): {{AmountInWords}}
+    </div>
+
+    <table class="receipt-table">
+        <thead>
+            <tr>
+                <th>Receipt Date & Time</th>
+                <th>Receipt No</th>
+                <th>Amount</th>
+                <th>Payment Mode</th>
+                <th>Collected By</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{PaymentRows}}
+        </tbody>
+    </table>
+
+    <table style="margin-top: 5px ;" class="footer-table">
+        <tr>
+            <td width="33%">Prepared By : {{CREATED_BY}}</td>
+            <td width="33%" align="center">{{FOOTER_CENTER}}</td>
+            <td width="34%" align="right">Printed By : {{PRINT_BY}}</td>
+        </tr>
+
+
+        <tr style=" margin-top: 5px;">
+
+            <td style="">{{FOOTER_MESSAGE}}</td>
+            <td></td>
+            <td align="right">{{FOOTER_RIGHT}}</td>
+        </tr>
+
+
+    </table>
+
+</body>
+
+</html>
