@@ -18,7 +18,7 @@ namespace LISDBACKEND.Controllers
 
         [HttpPost("save-page-setting")]
         public async Task<IActionResult> SavePageSetting(
-    [FromBody] PageMasterAppInsertRequest request)
+        [FromBody] PageMasterAppInsertRequest request)
         {
             if (request == null)
             {
@@ -48,6 +48,11 @@ namespace LISDBACKEND.Controllers
                 cmd.Parameters.AddWithValue("@AadharNo", request.AadharNo);
                 cmd.Parameters.AddWithValue("@Email", request.Email);
                 cmd.Parameters.AddWithValue("@Address", request.Address);
+                cmd.Parameters.AddWithValue("@ContactNumber", request.ContactNumber);
+                cmd.Parameters.AddWithValue("@MedicalHistory", request.MedicalHistory);
+                cmd.Parameters.AddWithValue("@AadharNumber", request.AadharNumber);
+                cmd.Parameters.AddWithValue("@RelativeName", request.RelativeName);
+                cmd.Parameters.AddWithValue("@ReferLab", request.ReferLab);
 
                 cmd.Parameters.AddWithValue(
                     "@BackgroundColor",
@@ -141,6 +146,11 @@ namespace LISDBACKEND.Controllers
                 cmd.Parameters.AddWithValue(
                     "@Email",
                     (object?)request.Email ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@ContactNumber", (object?)request.ContactNumber ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@MedicalHistory", (object?)request.MedicalHistory ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@AadharNumber", (object?)request.AadharNumber ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@RelativeName", (object?)request.RelativeName ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@ReferLab", (object?)request.ReferLab ?? DBNull.Value);
 
                 cmd.Parameters.AddWithValue(
                     "@Address",
@@ -221,15 +231,18 @@ namespace LISDBACKEND.Controllers
                     });
                 }
 
+                var data = dt.Rows.Cast<DataRow>()
+                .Select(r => dt.Columns.Cast<DataColumn>()
+                    .ToDictionary(
+                        c => c.ColumnName,
+                        c => r[c] == DBNull.Value ? null : r[c]
+                    ))
+                .FirstOrDefault();
+
                 return Ok(new
                 {
                     Result = true,
-                    Data = dt.Rows.Cast<DataRow>()
-                        .Select(r => dt.Columns.Cast<DataColumn>()
-                        .ToDictionary(
-                            c => c.ColumnName,
-                            c => r[c]))
-                        .FirstOrDefault()
+                    Data = data
                 });
             }
             catch (Exception ex)
