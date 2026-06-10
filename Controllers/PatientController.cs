@@ -101,6 +101,7 @@ namespace App.Controllers
                     try
                     {
                         int patientId = 0, visitId = 0, financialId = 0, receiptId = 0;
+                        string uhid = "";
 
                         originalMiddleName = GetString(model, "MiddleName");
 
@@ -174,13 +175,25 @@ namespace App.Controllers
                             cmd.Parameters.AddWithValue("@hospId", GetInt(model, "HospId"));
                             cmd.Parameters.AddWithValue("@branchId", GetInt(model, "BranchId"));
                             cmd.Parameters.AddWithValue("@loginBranchId", GetInt(model, "LoginBranchId"));
+
                             cmd.Parameters.AddWithValue("@patientId", 0);
                             cmd.Parameters.AddWithValue("@uhid", DBNull.Value);
 
-                            cmd.Parameters.AddWithValue("@title", (object?)GetString(model, "Title") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@firstName", (object?)GetString(model, "FirstName") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@middleName", (object?)GetString(model, "MiddleName") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@lastName", (object?)GetString(model, "LastName") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@title",
+                                (object?)GetString(model, "Title") ?? DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@firstName",
+                                (object?)GetString(model, "FirstName") ?? DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@middleName",
+                                string.IsNullOrWhiteSpace(GetString(model, "MiddleName"))
+                                    ? DBNull.Value
+                                    : GetString(model, "MiddleName"));
+
+                            cmd.Parameters.AddWithValue("@lastName",
+                                string.IsNullOrWhiteSpace(GetString(model, "LastName"))
+                                    ? DBNull.Value
+                                    : GetString(model, "LastName"));
 
                             cmd.Parameters.AddWithValue("@ageYears", GetInt(model, "AgeYears"));
                             cmd.Parameters.AddWithValue("@ageMonths", GetInt(model, "AgeMonths"));
@@ -189,43 +202,80 @@ namespace App.Controllers
                             var dob = GetDateTime(model, "DOB");
                             cmd.Parameters.AddWithValue("@dob", dob ?? (object)DBNull.Value);
 
-                            cmd.Parameters.AddWithValue("@gender", (object?)GetString(model, "Gender") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@maritalStatus", (object?)GetString(model, "MaritalStatus") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@relation", (object?)GetString(model, "Relation") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@relativeName", (object?)GetString(model, "RelativeName") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@gender",
+                                (object?)GetString(model, "Gender") ?? DBNull.Value);
 
-                            cmd.Parameters.AddWithValue("@aadharNumber", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@maritalStatus",
+                                string.IsNullOrWhiteSpace(GetString(model, "MaritalStatus"))
+                                    ? DBNull.Value
+                                    : GetString(model, "MaritalStatus"));
+
+                            cmd.Parameters.AddWithValue("@relation",
+                                string.IsNullOrWhiteSpace(GetString(model, "Relation"))
+                                    ? DBNull.Value
+                                    : GetString(model, "Relation"));
+
+                            cmd.Parameters.AddWithValue("@relativeName",
+                                string.IsNullOrWhiteSpace(GetString(model, "RelativeName"))
+                                    ? DBNull.Value
+                                    : GetString(model, "RelativeName"));
+
+                            cmd.Parameters.AddWithValue("@aadharNumber",
+                                string.IsNullOrWhiteSpace(GetString(model, "AadharNumber"))
+                                    ? DBNull.Value
+                                    : GetString(model, "AadharNumber"));
+
                             cmd.Parameters.AddWithValue("@idProofName", DBNull.Value);
                             cmd.Parameters.AddWithValue("@idProofNumber", DBNull.Value);
 
-                            cmd.Parameters.AddWithValue("@selfContactNumber", (object?)GetString(model, "ContactNumber") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@selfContactNumber",
+                                string.IsNullOrWhiteSpace(GetString(model, "ContactNumber"))
+                                    ? DBNull.Value
+                                    : GetString(model, "ContactNumber"));
+
                             cmd.Parameters.AddWithValue("@emergencyContactNumber", DBNull.Value);
-                            cmd.Parameters.AddWithValue("@email", DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@email",
+                                string.IsNullOrWhiteSpace(GetString(model, "Email"))
+                                    ? DBNull.Value
+                                    : GetString(model, "Email"));
+
                             cmd.Parameters.AddWithValue("@privilegedCardNumber", DBNull.Value);
 
-                            cmd.Parameters.AddWithValue("@address", (object?)GetString(model, "Address") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@address",
+                                string.IsNullOrWhiteSpace(GetString(model, "Address"))
+                                    ? DBNull.Value
+                                    : GetString(model, "Address"));
 
                             cmd.Parameters.AddWithValue("@countryId", GetInt(model, "CountryId"));
-                            cmd.Parameters.AddWithValue("@country", (object?)GetString(model, "Country") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@country",
+                                (object?)GetString(model, "Country") ?? DBNull.Value);
 
                             cmd.Parameters.AddWithValue("@stateId", GetInt(model, "StateId"));
-                            cmd.Parameters.AddWithValue("@state", (object?)GetString(model, "State") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@state",
+                                (object?)GetString(model, "State") ?? DBNull.Value);
 
                             cmd.Parameters.AddWithValue("@districtId", GetInt(model, "DistrictId"));
-                            cmd.Parameters.AddWithValue("@district", (object?)GetString(model, "District") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@district",
+                                (object?)GetString(model, "District") ?? DBNull.Value);
 
                             cmd.Parameters.AddWithValue("@cityId", GetInt(model, "CityId"));
-                            cmd.Parameters.AddWithValue("@city", (object?)GetString(model, "City") ?? DBNull.Value);
+                            cmd.Parameters.AddWithValue("@city",
+                                (object?)GetString(model, "City") ?? DBNull.Value);
 
                             cmd.Parameters.AddWithValue("@insuranceCompanyId", 0);
-                            cmd.Parameters.AddWithValue("@corporateId", 0);
+                            cmd.Parameters.AddWithValue("@corporateId",
+                                GetInt(model, "CorporateId"));
 
                             cmd.Parameters.AddWithValue("@cardNo", DBNull.Value);
                             cmd.Parameters.AddWithValue("@patientImagePath", DBNull.Value);
 
                             cmd.Parameters.AddWithValue("@userId", GetInt(model, "UserId"));
-                            cmd.Parameters.AddWithValue("@IpAddress", (object?)GetString(model, "IpAddress") ?? DBNull.Value);
-                            cmd.Parameters.AddWithValue("@uniqueId", Guid.NewGuid().ToString("N"));
+                            cmd.Parameters.AddWithValue("@IpAddress",
+                                (object?)GetString(model, "IpAddress") ?? DBNull.Value);
+
+                            cmd.Parameters.AddWithValue("@uniqueId",
+                                Guid.NewGuid().ToString("N"));
 
                             cmd.Parameters.AddWithValue("@IsVaccination", 0);
                             cmd.Parameters.AddWithValue("@vipPatient", 0);
@@ -247,14 +297,49 @@ namespace App.Controllers
 
                             patientId = Convert.ToInt32(output.Value);
 
-                            if (patientId == -1)
-                            {
-                                string invisibleChar = "\u200B";
-                                string newMiddleName = (originalMiddleName ?? "") + invisibleChar;
 
-                                cmd.Parameters["@middleName"].Value = newMiddleName;
-                                cmd.ExecuteNonQuery();
-                                patientId = Convert.ToInt32(output.Value);
+                            if (patientId == -1)
+
+                            {
+                                using (SqlCommand existingPatientCmd = new SqlCommand(@"
+                                SELECT TOP 1 PatientId, UHID
+                                FROM PatientMaster
+                                WHERE FirstName = @FirstName
+                                AND ISNULL(MiddleName,'') = ISNULL(@MiddleName,'')
+                                AND ISNULL(LastName,'') = ISNULL(@LastName,'')
+                                AND ContactNumber = @ContactNumber
+                                ORDER BY PatientId DESC", con, txn))
+                                {
+                                    existingPatientCmd.Parameters.AddWithValue("@FirstName",
+                                        GetString(model, "FirstName") ?? "");
+
+                                    existingPatientCmd.Parameters.AddWithValue("@MiddleName",
+                                        (object?)GetString(model, "MiddleName") ?? DBNull.Value);
+
+                                    existingPatientCmd.Parameters.AddWithValue("@LastName",
+                                        (object?)GetString(model, "LastName") ?? DBNull.Value);
+
+                                    existingPatientCmd.Parameters.AddWithValue("@ContactNumber",
+                                        (object?)GetString(model, "ContactNumber") ?? DBNull.Value);
+
+                                    using (SqlDataReader dr = existingPatientCmd.ExecuteReader())
+                                    {
+                                        if (dr.Read())
+                                        {
+                                            patientId = Convert.ToInt32(dr["PatientId"]);
+                                            uhid = Convert.ToString(dr["UHID"]) ?? "";
+                                        }
+                                        else
+                                        {
+                                            txn.Rollback();
+                                            return StatusCode(500, new
+                                            {
+                                                success = false,
+                                                message = "Existing patient not found."
+                                            });
+                                        }
+                                    }
+                                }
                             }
 
                             if (patientId > 0)
@@ -271,10 +356,12 @@ namespace App.Controllers
                             }
                         }
 
+
+                        Console.WriteLine($"PatientId = {patientId}");
+
                         // =========================
                         // FIX: FETCH REAL UHID FROM PatientMaster
                         // =========================
-                        string uhid = "";
 
                         using (SqlCommand getUhidCmd = new SqlCommand(@"
                             SELECT TOP 1 UHID
@@ -1890,16 +1977,12 @@ namespace App.Controllers
             try
             {
                 var data = new List<dynamic>();
-
                 using SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
                 using SqlCommand cmd = new SqlCommand("getTestRequisitionForm", con);
-
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@filter", SqlDbType.Int).Value = ftid;
                 await con.OpenAsync();
-
                 using SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
                 while (await reader.ReadAsync())
                 {
                     data.Add(new
@@ -1969,16 +2052,12 @@ namespace App.Controllers
                 }
 
                 string fileName = $"TRF_{first.UHID}_{first.VisitId}.pdf";
-
-                // ✅ MODE: PDF DOWNLOAD
                 if (mode == "pdf")
                 {
                     return File(pdfBytes, "application/pdf", fileName);
                 }
 
-                // ✅ MODE: BASE64
                 string base64 = Convert.ToBase64String(pdfBytes);
-
                 return Ok(new
                 {
                     success = true,

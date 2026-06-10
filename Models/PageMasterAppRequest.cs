@@ -21,4 +21,12 @@ public class PageMasterAppRequest
     public string? DarkBackground { get; set; }
 
     public string? DarkText { get; set; }
+    public bool? ContactNumber { get; set; }
+    public bool? MedicalHistory { get; set; }
+    public bool? AadharNumber { get; set; }
+    public bool? RelativeName { get; set; }
+    public bool? ReferLab { get; set; }
+
+
+
 }

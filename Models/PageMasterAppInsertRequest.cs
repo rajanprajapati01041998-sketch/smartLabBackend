@@ -8,6 +8,14 @@ public class PageMasterAppInsertRequest
 
     public bool MaritalStatus { get; set; } = true;
 
+    public bool ContactNumber { get; set; } = true;
+    public bool MedicalHistory { get; set; } = true;
+    public bool AadharNumber { get; set; } = true;
+    public bool RelativeName { get; set; } = true;
+    public bool ReferLab { get; set; } = true;
+
+
+
     public bool AadharNo { get; set; } = true;
 
     public bool Email { get; set; } = true;
@@ -21,4 +29,5 @@ public class PageMasterAppInsertRequest
     public string? DarkBackground { get; set; }
 
     public string? DarkText { get; set; }
+
 }
