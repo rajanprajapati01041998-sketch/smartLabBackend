@@ -2210,5 +2210,186 @@ namespace App.Controllers
                 });
             }
         }
+
+
+        [HttpGet("dashboard-patient-view")]
+        public async Task<IActionResult> GetDashboardPatientView(
+        [FromQuery] int StatusId,
+        [FromQuery] string ClientIdList,
+        [FromQuery] string FromDate,
+        [FromQuery] string ToDate)
+        {
+            try
+            {
+                var data = new List<Dictionary<string, object>>();
+
+                using SqlConnection con = new SqlConnection(
+                    _config.GetConnectionString("DefaultConnection"));
+
+                using SqlCommand cmd = new SqlCommand(
+                    "S_getDashboardPatientViewDetails", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@StatusId", StatusId);
+                cmd.Parameters.AddWithValue("@clientIdList", ClientIdList);
+                cmd.Parameters.AddWithValue("@fromDate", FromDate);
+                cmd.Parameters.AddWithValue("@toDate", ToDate);
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] =
+                            reader.IsDBNull(i) ? null : reader.GetValue(i);
+                    }
+
+                    data.Add(row);
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    count = data.Count,
+                    data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+
+        [HttpGet("dashboard-pathology-view")]
+        public async Task<IActionResult> GetDashboardLaboratoryView(
+        string StatusId,
+        string FromDate,
+        string ToDate,
+        string ClientIdList)
+        {
+            try
+            {
+                var data = new List<Dictionary<string, object>>();
+
+                using SqlConnection con = new SqlConnection(
+                    _config.GetConnectionString("DefaultConnection"));
+
+                using SqlCommand cmd = new SqlCommand(
+                    "S_GetDashboardLaboratoryViewDetails", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@StatusId", StatusId);
+                cmd.Parameters.AddWithValue("@fromDate", FromDate);
+                cmd.Parameters.AddWithValue("@toDate", ToDate);
+                cmd.Parameters.AddWithValue("@clientIdList", ClientIdList);
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] =
+                            reader.IsDBNull(i) ? null : reader.GetValue(i);
+                    }
+
+                    data.Add(row);
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    count = data.Count,
+                    data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+
+        [HttpGet("dashboard-collection-view")]
+        public async Task<IActionResult> GetDashboardCollectionView(
+        string StatusId,
+        string TypeId,
+        string ClientIdList,
+        string UserId,
+        string FromDate,
+        string ToDate)
+        {
+            try
+            {
+                var data = new List<Dictionary<string, object>>();
+
+                using SqlConnection con = new SqlConnection(
+                    _config.GetConnectionString("DefaultConnection"));
+
+                using SqlCommand cmd = new SqlCommand(
+                    "S_GetDashboardCollectionViewDetails", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@StatusId", StatusId);
+                cmd.Parameters.AddWithValue("@TypeId", TypeId);
+                cmd.Parameters.AddWithValue("@clientIdList", ClientIdList);
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@fromDate", FromDate);
+                cmd.Parameters.AddWithValue("@toDate", ToDate);
+
+                await con.OpenAsync();
+
+                using SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
+                {
+                    var row = new Dictionary<string, object>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] =
+                            reader.IsDBNull(i) ? null : reader.GetValue(i);
+                    }
+
+                    data.Add(row);
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    count = data.Count,
+                    data
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
     }
 }
