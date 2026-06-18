@@ -26,11 +26,12 @@ namespace App.Controllers
 
         [HttpGet("DownloadCombinedReport")]
         public IActionResult DownloadCombinedReport(
-            int ptInvstId,
-            int isHeaderPNG = 0,
-            string printBy = null,
-            string branchId = null,
-            bool pdf = true)
+    int ptInvstId,
+    int isHeaderPNG = 0,
+    string printBy = null,
+    string branchId = null,
+    int typeId = 4,  // Added typeId parameter, default 4 as requested
+    bool pdf = true)
         {
             try
             {
@@ -60,10 +61,23 @@ namespace App.Controllers
                 string investigationNames = GetInvestigationNames(headerData);
 
                 string qrUrl =
-                    $"{Request.Scheme}://{Request.Host}/api/ReportPrint/DownloadCombinedReport?ptInvstId={ptInvstId}&isHeaderPNG={isHeaderPNG}&printBy={printBy}&branchId={branchId}&pdf=true";
+                    $"{Request.Scheme}://{Request.Host}/api/ReportPrint/DownloadCombinedReport?ptInvstId={ptInvstId}&isHeaderPNG={isHeaderPNG}&printBy={printBy}&branchId={branchId}&typeId={typeId}&pdf=true";
 
                 string qrBase64 = GenerateQr(qrUrl);
                 string barcodeBase64 = GenerateBarcode(diagnosticsNo);
+
+                // Get header HTML from stored procedure if isHeaderPNG is 1
+                string headerFromDb = "";
+                if (isHeaderPNG == 1)
+                {
+                    int branchIdInt = 0;
+                    if (!string.IsNullOrWhiteSpace(branchId) && int.TryParse(branchId, out int parsedBranchId))
+                    {
+                        branchIdInt = parsedBranchId;
+                    }
+
+                    headerFromDb = GetPatientHeaderMaster(branchIdInt, typeId);
+                }
 
                 string html = BuildHtml(
                     headerData.Rows[0],
@@ -73,7 +87,8 @@ namespace App.Controllers
                     doctorSignaturesHtml,
                     currentDateTime,
                     isHeaderPNG,
-                    investigationNames
+                    investigationNames,
+                    headerFromDb  // Pass the header from DB
                 );
 
                 byte[] pdfBytes = ConvertToPdf(html);
@@ -162,6 +177,37 @@ namespace App.Controllers
             return result?.ToString() ?? "<p>No results available.</p>";
         }
 
+        // NEW METHOD: Get header master from stored procedure
+        private string GetPatientHeaderMaster(int branchId, int typeId)
+        {
+            try
+            {
+                using var con = new SqlConnection(
+                    _config.GetConnectionString("DefaultConnection")
+                );
+
+                using var cmd = new SqlCommand(
+                    "S_GetPatientHeaderMaster",
+                    con
+                );
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@branchId", branchId);
+                cmd.Parameters.AddWithValue("@typeId", typeId);
+
+                con.Open();
+
+                var result = cmd.ExecuteScalar();
+
+                return result?.ToString() ?? "";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting patient header master: {ex.Message}");
+                return "";
+            }
+        }
+
         private string GetDoctorSignatures(DataTable dt)
         {
             if (dt == null || dt.Rows.Count == 0)
@@ -205,26 +251,28 @@ namespace App.Controllers
                 }
 
                 sb.Append($@"
-                    <div class='doctor-card'>
-                        {imgTag}
-                        <div class='signature-line'></div>
-                        <div class='doctor-name'>{doctorName}</div>
-                    </div>
-                ");
+            <div class='doctor-card'>
+                {imgTag}
+                <div class='signature-line'></div>
+                <div class='doctor-name'>{doctorName}</div>
+            </div>
+        ");
             }
 
             return sb.ToString();
         }
 
+        // UPDATED: BuildHtml method now accepts headerFromDb parameter
         private string BuildHtml(
-    DataRow row,
-    string results,
-    string qr,
-    string barcode,
-    string doctorSignatures,
-    string currentDateTime,
-    int isHeaderPNG,
-    string investigationNames)
+            DataRow row,
+            string results,
+            string qr,
+            string barcode,
+            string doctorSignatures,
+            string currentDateTime,
+            int isHeaderPNG,
+            string investigationNames,
+            string headerFromDb = "")  // Added parameter for header from DB
         {
             string path = Path.Combine(
                 Directory.GetCurrentDirectory(),
@@ -250,18 +298,30 @@ namespace App.Controllers
 
             if (isHeaderPNG == 1)
             {
-                string letterHeadPath = Get("LetterHeadFilePath");
-
-                if (!string.IsNullOrWhiteSpace(letterHeadPath))
+                // First try to use header from stored procedure
+                if (!string.IsNullOrWhiteSpace(headerFromDb))
                 {
-                    string headerBase64 = ImageToBase64(letterHeadPath);
+                    headerSectionHtml = $@"
+                <div class='report-header'>
+                    {headerFromDb}
+                </div>";
+                }
+                else
+                {
+                    // Fallback to LetterHeadFilePath if stored procedure returns nothing
+                    string letterHeadPath = Get("LetterHeadFilePath");
 
-                    if (!string.IsNullOrWhiteSpace(headerBase64))
+                    if (!string.IsNullOrWhiteSpace(letterHeadPath))
                     {
-                        headerSectionHtml = $@"
+                        string headerBase64 = ImageToBase64(letterHeadPath);
+
+                        if (!string.IsNullOrWhiteSpace(headerBase64))
+                        {
+                            headerSectionHtml = $@"
                 <div class='report-header'>
                     <img src='data:image/png;base64,{headerBase64}' class='letter-head-img' />
                 </div>";
+                        }
                     }
                 }
             }
@@ -325,13 +385,13 @@ namespace App.Controllers
             // Stored proc column names can differ across deployments; try common variants.
             string[] candidates =
             {
-                "InvestigationName",
-                "Investigation",
-                "InvName",
-                "TestName",
-                "InvestigationTitle",
-                "SubSubCategoryName"
-            };
+        "InvestigationName",
+        "Investigation",
+        "InvName",
+        "TestName",
+        "InvestigationTitle",
+        "SubSubCategoryName"
+    };
 
             string col = candidates.FirstOrDefault(dt.Columns.Contains);
             if (string.IsNullOrWhiteSpace(col))
@@ -438,26 +498,25 @@ namespace App.Controllers
 
                 string rotated = FormattableString.Invariant(
                     $@"<?xml version=""1.0"" encoding=""UTF-8""?>
-                    <svg xmlns=""http://www.w3.org/2000/svg"" width=""{bh:0.##}"" height=""{bw:0.##}"" viewBox=""0 0 {bh:0.##} {bw:0.##}"">
-                        <rect width=""100%"" height=""100%"" fill=""#ffffff""/>
-                        <g transform=""translate({bh / 2:0.##},{bw / 2:0.##}) rotate(90) translate({-bw / 2:0.##},{-bh / 2:0.##})"">
-                            {inner}
-                        </g>
-                    </svg>"
+            <svg xmlns=""http://www.w3.org/2000/svg"" width=""{bh:0.##}"" height=""{bw:0.##}"" viewBox=""0 0 {bh:0.##} {bw:0.##}"">
+                <rect width=""100%"" height=""100%"" fill=""#ffffff""/>
+                <g transform=""translate({bh / 2:0.##},{bw / 2:0.##}) rotate(90) translate({-bw / 2:0.##},{-bh / 2:0.##})"">
+                    {inner}
+                </g>
+            </svg>"
                 );
 
                 return Convert.ToBase64String(Encoding.UTF8.GetBytes(rotated));
             }
             catch (Exception ex)
             {
-
                 string fallbackSvg = $@"<?xml version=""1.0"" encoding=""UTF-8""?>
-                <svg xmlns=""http://www.w3.org/2000/svg"" width=""62"" height=""288"" viewBox=""0 0 62 288"">
-                    <rect width=""100%"" height=""100%"" fill=""#ffffff""/>
-                    <text x=""5"" y=""150"" font-family=""Arial"" font-size=""12"" fill=""#000000"">
-                        {System.Net.WebUtility.HtmlEncode(text)}
-                    </text>
-                </svg>";
+        <svg xmlns=""http://www.w3.org/2000/svg"" width=""62"" height=""288"" viewBox=""0 0 62 288"">
+            <rect width=""100%"" height=""100%"" fill=""#ffffff""/>
+            <text x=""5"" y=""150"" font-family=""Arial"" font-size=""12"" fill=""#000000"">
+                {System.Net.WebUtility.HtmlEncode(text)}
+            </text>
+        </svg>";
 
                 return Convert.ToBase64String(Encoding.UTF8.GetBytes(fallbackSvg));
             }
