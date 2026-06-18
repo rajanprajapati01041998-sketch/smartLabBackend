@@ -248,21 +248,33 @@ public class LoginController : ControllerBase
 
 
     [HttpGet("login-history/{userId}")]
-    public IActionResult GetLoginHistory(int userId)
+    public IActionResult GetLoginHistory(
+    int userId,
+    int pageNumber = 1,
+    int pageSize = 10)
     {
         var list = new List<object>();
+        int totalRecords = 0;
 
         try
         {
-            using SqlConnection con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            using SqlCommand cmd = new SqlCommand("sp_GetLoginUserInFo", con);
+            using SqlConnection con = new SqlConnection(
+                _config.GetConnectionString("DefaultConnection"));
+
+            using SqlCommand cmd = new SqlCommand(
+                "sp_GetLoginUserInFoApp",
+                con);
 
             cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.Parameters.AddWithValue("@UserId", userId);
+            cmd.Parameters.AddWithValue("@PageNumber", pageNumber);
+            cmd.Parameters.AddWithValue("@PageSize", pageSize);
 
             con.Open();
 
             using SqlDataReader reader = cmd.ExecuteReader();
+
             while (reader.Read())
             {
                 list.Add(new
@@ -271,19 +283,21 @@ public class LoginController : ControllerBase
                     device = reader["Device"]?.ToString(),
                     browser = reader["Browser"]?.ToString(),
                     os = reader["Os"]?.ToString(),
-
                     latitudeApp = reader["LatitudeApp"] == DBNull.Value
-             ? null
-             : reader["LatitudeApp"],
+                        ? null
+                        : reader["LatitudeApp"],
                     longitudeApp = reader["LongitudeApp"] == DBNull.Value
-             ? null
-             : reader["LongitudeApp"],
+                        ? null
+                        : reader["LongitudeApp"],
                     loginAt = reader["LoginAt"],
                     logoutAt = reader["LogoutAt"] == DBNull.Value
-             ? null
-             : reader["LogoutAt"],
-                    sessionId = reader["Id"]
+                        ? null
+                        : reader["LogoutAt"],
+                    sessionId = reader["Id"],
+                    totalRecords = Convert.ToInt32(reader["TotalRecords"])
                 });
+
+                totalRecords = Convert.ToInt32(reader["TotalRecords"]);
             }
         }
         catch (Exception ex)
@@ -295,12 +309,14 @@ public class LoginController : ControllerBase
             });
         }
 
-        if (list.Count == 0)
+        return Ok(new
         {
-            return NotFound(new { message = "No login history found" });
-        }
-
-        return Ok(list);
+            pageNumber,
+            pageSize,
+            totalRecords,
+            totalPages = (int)Math.Ceiling((double)totalRecords / pageSize),
+            data = list
+        });
     }
 
 

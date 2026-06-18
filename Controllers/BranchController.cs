@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using log4net;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -286,6 +287,61 @@ public class BranchController : ControllerBase
                 success = false,
                 message = "Error fetching branch list",
                 error = ex.Message
+            });
+        }
+    }
+
+
+    [HttpGet]
+    [Route("GetAllBranchesLocation")]
+    public async Task<IActionResult> GetAllBranchesLocation()
+    {
+        try
+        {
+            var branches = new List<Dictionary<string, object>>();
+
+            using (SqlConnection con = new SqlConnection(
+                _config.GetConnectionString("DefaultConnection")))
+            {
+                using (SqlCommand cmd = new SqlCommand("S_GetAllBranchesLocation", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+
+                    using (SqlDataReader dr = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await dr.ReadAsync())
+                        {
+                            var row = new Dictionary<string, object>();
+
+                            for (int i = 0; i < dr.FieldCount; i++)
+                            {
+                                row.Add(
+                                    dr.GetName(i),
+                                    dr.IsDBNull(i) ? null : dr.GetValue(i)
+                                );
+                            }
+
+                            branches.Add(row);
+                        }
+                    }
+                }
+            }
+
+            return Ok(new
+            {
+                success = true,
+                count = branches.Count,
+                data = branches
+            });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                success = false,
+                message = ex.Message
             });
         }
     }

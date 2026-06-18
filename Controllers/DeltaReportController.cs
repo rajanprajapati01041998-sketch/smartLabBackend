@@ -555,12 +555,12 @@ namespace LISD.Controllers
 
                 string rotated = FormattableString.Invariant(
                     $@"<?xml version=""1.0"" encoding=""UTF-8""?>
-<svg xmlns=""http://www.w3.org/2000/svg"" width=""{bh:0.##}"" height=""{bw:0.##}"" viewBox=""0 0 {bh:0.##} {bw:0.##}"">
-<rect width=""100%"" height=""100%"" fill=""#ffffff""/>
-<g transform=""translate({bh / 2:0.##},{bw / 2:0.##}) rotate(90) translate({-bw / 2:0.##},{-bh / 2:0.##})"">
-{inner}
-</g>
-</svg>");
+                <svg xmlns=""http://www.w3.org/2000/svg"" width=""{bh:0.##}"" height=""{bw:0.##}"" viewBox=""0 0 {bh:0.##} {bw:0.##}"">
+                <rect width=""100%"" height=""100%"" fill=""#ffffff""/>
+                <g transform=""translate({bh / 2:0.##},{bw / 2:0.##}) rotate(90) translate({-bw / 2:0.##},{-bh / 2:0.##})"">
+                {inner}
+                </g>
+                </svg>");
 
                 string base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(rotated));
                 return $"<img src='data:image/svg+xml;base64,{base64}' style='width:40px; height:145px; object-fit:fill; display:block; margin:0 auto;' />";
